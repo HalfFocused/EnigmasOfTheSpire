@@ -1,0 +1,39 @@
+{
+  "THE_ARCHITECT.talk.THEDISPLACED-THE_DISPLACED.0-0r.char": "Architect... we finally meet...",
+  "THE_ARCHITECT.talk.THEDISPLACED-THE_DISPLACED.0-0r.next": "Continue",
+  "THE_ARCHITECT.talk.THEDISPLACED-THE_DISPLACED.0-1r.ancient": "I've heard about you. Wasted potential.",
+  "THE_ARCHITECT.talk.THEDISPLACED-THE_DISPLACED.0-1r.next": "Threaten",
+  "THE_ARCHITECT.talk.THEDISPLACED-THE_DISPLACED.0-2r.char": "This isn't personal...",
+  "THE_ARCHITECT.talk.THEDISPLACED-THE_DISPLACED.0-attack": "Both",
+  
+  "THE_ARCHITECT.talk.THEDISPLACED-THE_DISPLACED.1-0r.ancient": "Neow is using you. Though I'm sure you know that.",
+  "THE_ARCHITECT.talk.THEDISPLACED-THE_DISPLACED.1-0r.next": "Respond",
+  "THE_ARCHITECT.talk.THEDISPLACED-THE_DISPLACED.1-1r.char": "I... have to try...",
+  "THE_ARCHITECT.talk.THEDISPLACED-THE_DISPLACED.1-1r.next": "Continue",
+  "THE_ARCHITECT.talk.THEDISPLACED-THE_DISPLACED.1-2r.ancient": "Then perish.",
+  "THE_ARCHITECT.talk.THEDISPLACED-THE_DISPLACED.1-attack": "Both",
+
+  "THE_ARCHITECT.talk.THEDISPLACED-THE_DISPLACED.2-0r.ancient": "She's dead. Make peace with that.",
+  "THE_ARCHITECT.talk.THEDISPLACED-THE_DISPLACED.2-0r.next": "Threaten",
+  "THE_ARCHITECT.talk.THEDISPLACED-THE_DISPLACED.2-1r.char": "Shut up.... SHUT UP!!",
+  "THE_ARCHITECT.talk.THEDISPLACED-THE_DISPLACED.2-1r.next": "Continue",
+  "THE_ARCHITECT.talk.THEDISPLACED-THE_DISPLACED.2-2r.ancient": "Pathetic. Another loop it is, then.",
+  "THE_ARCHITECT.talk.THEDISPLACED-THE_DISPLACED.2-attack": "Both",
+
+  "THE_ARCHITECT.talk.THEDISPLACED-THE_DISPLACED.3-0r.ancient": "Why not join me? Perhaps I could bring her back.",
+  "THE_ARCHITECT.talk.THEDISPLACED-THE_DISPLACED.3-0r.next": "Respond",
+  "THE_ARCHITECT.talk.THEDISPLACED-THE_DISPLACED.3-1r.char": "No... you lie...",
+  "THE_ARCHITECT.talk.THEDISPLACED-THE_DISPLACED.3-1r.next": "Continue",
+  "THE_ARCHITECT.talk.THEDISPLACED-THE_DISPLACED.3-2r.ancient": "A shame. I could use someone of your talents.",
+  "THE_ARCHITECT.talk.THEDISPLACED-THE_DISPLACED.3-attack": "Both",
+
+  "DARV.talk.THEDISPLACED-THE_DISPLACED.0-0.ancient": "We meet again!\nStill looking to fix that clock?",
+  
+  "DARV.talk.THEDISPLACED-THE_DISPLACED.1-0r.ancient": "I got all sortsa new timepieces, friend!\nCare to take a look?",
+  
+  "DARV.talk.THEDISPLACED-THE_DISPLACED.2-0.ancient": "You sure there's nothing I can trade ya for that clock?",
+  "DARV.talk.THEDISPLACED-THE_DISPLACED.2-0.next": "Decline",
+  "DARV.talk.THEDISPLACED-THE_DISPLACED.2-1.char": "I'd sooner give... my life...",
+  "DARV.talk.THEDISPLACED-THE_DISPLACED.2-1.next": "Continue",
+  "DARV.talk.THEDISPLACED-THE_DISPLACED.2-2.ancient": "Well, I can't be having that, esteemed customer!"
+}
