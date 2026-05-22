@@ -12,6 +12,8 @@ public class Harrow() : TheDisplacedCard(2,
     CardType.Attack, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
+    public override bool GainsBlock => true;
+    
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new DamageVar(11M, ValueProp.Move),
         new BlockVar(11M, ValueProp.Move)

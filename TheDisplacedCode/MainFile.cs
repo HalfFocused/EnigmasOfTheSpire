@@ -3,9 +3,17 @@ using HarmonyLib;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Characters;
+using MegaCrit.Sts2.Core.Models.Relics;
+using MegaCrit.Sts2.Core.Random;
+using TheDisplaced.TheDisplacedCode.Cards;
+using TheDisplaced.TheDisplacedCode.Cards.common;
 
 namespace TheDisplaced.TheDisplacedCode;
 
@@ -60,3 +68,47 @@ class CardPlayResultPilePatch
         }
     }
 }
+
+/*
+ * Adds a 1/100 chance for either of the Scroll Boxes rewards to be replaced with 3 copies of "Recurring Dream."
+ * It's the Displaced's version of a Claw Pack.
+ */
+[HarmonyPatch(typeof(ScrollBoxes), nameof(ScrollBoxes.GenerateRandomBundles))]
+class ScrollBoxesGenerateRandomBundlesPatch
+{
+    [HarmonyPostfix]
+    static void ChanceForNightmarePack(Player player, ref List<IReadOnlyList<CardModel>> __result)
+    {
+        Rng rewardsRng = player.PlayerRng.Rewards;
+        if (player.Character is Character.TheDisplaced)
+        {
+            for (int i = 0; i < __result.Count; i++)
+            {
+                if (rewardsRng.NextInt(100) < 1)
+                {
+                    CardModel recurringDream = ModelDb.Card<RecurringDream>();
+                    __result[i] =
+                    [
+                        recurringDream, recurringDream, recurringDream
+                    ];
+                }
+            }
+        }
+    }
+}
+/*
+[HarmonyPatch(typeof(CardModel), "HoverTips", MethodType.Getter)]
+internal static class AddFlavorTextPatch
+{
+    [HarmonyPostfix]
+    static void AddRareCardFlavorText(CardModel __instance, ref IEnumerable<IHoverTip> __result)
+    {
+        if (__instance is TheDisplacedCard && __instance.Rarity == CardRarity.Rare)
+        {
+            TheDisplacedCard card = ((TheDisplacedCard)__instance);
+            HoverTip flavorText = new HoverTip(card.FlavorTextTitleLocString, card.FlavorTextBodyLocString);
+            __result.AddItem(flavorText);
+        }
+    }
+}
+*/

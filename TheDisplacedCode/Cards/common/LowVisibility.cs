@@ -21,8 +21,8 @@ public class LowVisibility() : TheDisplacedCard(1, CardType.Skill, CardRarity.Co
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new BlockVar(6M, ValueProp.Move),
-        new CardsVar(2)
+        new BlockVar(5M, ValueProp.Move),
+        new CardsVar(3)
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 
@@ -38,6 +38,7 @@ public class LowVisibility() : TheDisplacedCard(1, CardType.Skill, CardRarity.Co
         await CreatureCmd.GainBlock(card.Owner.Creature, card.DynamicVars.Block, play);
         await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
         CardPile pile = PileType.Hand.GetPile(Owner);
+        await Cmd.Wait(0.5f);
         CardModel cardToExhaust = Owner.RunState.Rng.CombatCardSelection.NextItem(pile.Cards);
         if (cardToExhaust == null)
             return;

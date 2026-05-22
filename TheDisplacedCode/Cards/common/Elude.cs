@@ -16,7 +16,7 @@ using TheDisplaced.TheDisplacedCode.Character;
 namespace TheDisplaced.TheDisplacedCode.Cards;
 
 [Pool(typeof(TheDisplacedCardPool))]
-public class Elude() : TheDisplacedCard(0, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
+public class Elude() : TheDisplacedCard(0, CardType.Skill, CardRarity.Common, TargetType.AllEnemies)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

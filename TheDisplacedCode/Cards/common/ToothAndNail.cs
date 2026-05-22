@@ -23,6 +23,7 @@ public class ToothAndNail() : TheDisplacedCard(1,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        //TODO: Fix that the first hit uses vigor and the second doesn't! Maybe compare to Omnislice? idk
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).TargetingAllOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }

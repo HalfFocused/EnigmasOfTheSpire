@@ -14,13 +14,13 @@ using TheDisplaced.TheDisplacedCode.Character;
 namespace TheDisplaced.TheDisplacedCode.Cards;
 
 [Pool(typeof(TheDisplacedCardPool))]
-public class Persist() : TheDisplacedCard(0, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class Persist() : TheDisplacedCard(0, CardType.Skill, CardRarity.Basic, TargetType.Self)
 {
     public override bool GainsBlock => true;
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new BlockVar(4M, ValueProp.Move)
+        new BlockVar(3M, ValueProp.Move)
     ];
 
     protected override async Task OnPlay(
@@ -31,5 +31,5 @@ public class Persist() : TheDisplacedCard(0, CardType.Skill, CardRarity.Common, 
         await PowerCmd.Apply<ReboundPower>(choiceContext, Owner.Creature, 1M, Owner.Creature, this);
     }
     
-    protected override void OnUpgrade() => this.DynamicVars.Block.UpgradeValueBy(2M);
+    protected override void OnUpgrade() => DynamicVars.Block.UpgradeValueBy(2M);
 }

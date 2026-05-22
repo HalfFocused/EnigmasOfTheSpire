@@ -14,6 +14,8 @@ public class Discern() : TheDisplacedCard(1,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {
+    public override bool GainsBlock => true;
+    
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new BlockVar(7M, ValueProp.Move)
     ];

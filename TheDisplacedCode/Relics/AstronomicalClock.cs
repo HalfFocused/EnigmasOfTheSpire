@@ -21,7 +21,7 @@ public class AstronomicalClock() : TheDisplacedRelic
     {
         Flash();
         CardModel vision = Owner.Creature.CombatState.CreateCard<Vision>(Owner);
-        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(vision, PileType.Draw, Owner, CardPilePosition.Random));
+        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(vision, PileType.Discard, Owner, CardPilePosition.Top));
         await Cmd.Wait(0.5f);
     }
 }

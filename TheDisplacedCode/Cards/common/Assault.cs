@@ -41,8 +41,7 @@ public class Assault() : TheDisplacedCard(1, CardType.Attack, CardRarity.Common,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        Assault card = this;
-        await DamageCmd.Attack(card.DynamicVars.Damage.BaseValue).FromCard((CardModel) card).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
     
     public override async Task AfterCardExhausted(PlayerChoiceContext choiceContext, CardModel card, bool causedByEthereal)

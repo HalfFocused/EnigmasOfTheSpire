@@ -6,6 +6,7 @@ using TheDisplaced.TheDisplacedCode.Extensions;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
 namespace TheDisplaced.TheDisplacedCode.Cards;
 
@@ -13,6 +14,28 @@ namespace TheDisplaced.TheDisplacedCode.Cards;
 public abstract class TheDisplacedCard(int cost, CardType type, CardRarity rarity, TargetType target) :
     CustomCardModel(cost, type, rarity, target)
 {
+    /*
+    private LocString? _flavorTextTitleLocString;
+    
+    public LocString FlavorTextTitleLocString
+    {
+        get
+        {
+            return _flavorTextTitleLocString ??= new LocString("cards", Id.Entry + ".flavorTitle");
+        }
+    }
+    
+    private LocString? _flavorTextBodyLocString;
+    
+    public LocString FlavorTextBodyLocString
+    {
+        get
+        {
+            return _flavorTextBodyLocString ??= new LocString("cards", Id.Entry + ".flavorBody");
+        }
+    }
+    */
+    
     //Image size:
     //Normal art: 1000x760 (Using 500x380 should also work, it will simply be scaled.)
     //Full art: 606x852

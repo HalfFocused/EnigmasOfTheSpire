@@ -13,7 +13,7 @@ using TheDisplaced.TheDisplacedCode.Cards.token;
 using TheDisplaced.TheDisplacedCode.Character;
 using TheDisplaced.TheDisplacedCode.Powers;
 
-namespace TheDisplaced.TheDisplacedCode.Cards;
+namespace TheDisplaced.TheDisplacedCode.Cards.common;
 
 [Pool(typeof(TheDisplacedCardPool))]
 public class Predict() : TheDisplacedCard(1, CardType.Skill, CardRarity.Common, TargetType.AnyEnemy)
@@ -21,6 +21,10 @@ public class Predict() : TheDisplacedCard(1, CardType.Skill, CardRarity.Common, 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new PowerVar<ForetoldPower>(2)
+    ];
+    
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [
+        CardKeyword.Exhaust
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 

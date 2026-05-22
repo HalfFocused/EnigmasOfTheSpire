@@ -20,7 +20,7 @@ public class ForetoldPower: TheDisplacedPower
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DynamicVar("DamageIncrease", 2.0M),
+        new ("DamageIncrease", 2.0M),
         new BoolVar("UsedThisTurn", false),
         new BoolVar("HitDuringCardPlay", false)
     ];
@@ -35,10 +35,17 @@ public class ForetoldPower: TheDisplacedPower
         Creature? dealer,
         CardModel? cardSource)
     {
-        if (target != this.Owner || !props.IsPoweredAttack() || ((BoolVar) DynamicVars["UsedThisTurn"]).BoolVal)
+        if (target != Owner || !props.IsPoweredAttack() || ((BoolVar) DynamicVars["UsedThisTurn"]).BoolVal)
             return 1M;
-        Decimal amount1 = this.DynamicVars["DamageIncrease"].BaseValue;
         
+        Decimal amount1 = DynamicVars["DamageIncrease"].BaseValue;
+        if (dealer != null)
+        {
+            ProphesizePower? power = dealer.GetPower<ProphesizePower>();
+            if (power != null)
+                amount1 += power.Amount / 100M;
+        }
+
         return amount1;
     }
     
@@ -63,7 +70,6 @@ public class ForetoldPower: TheDisplacedPower
         }
     }
     
-    
     /*
      * Mark Foretold as used after any card finishes playing if it is marked as having been used during the card play.
      */
@@ -71,24 +77,28 @@ public class ForetoldPower: TheDisplacedPower
     {
         if (((BoolVar)DynamicVars["HitDuringCardPlay"]).BoolVal)
         {
-            ((BoolVar)DynamicVars["UsedThisTurn"]).BoolVal = true;
-            foreach(CardModel card in PileType.Discard.GetPile(cardPlay.Card.Owner).Cards.ToList<CardModel>()){
-                if (card is CarefulScheme)
-                {
-                    await CardPileCmd.Add(card, PileType.Hand);
+            if (!((BoolVar)DynamicVars["UsedThisTurn"]).BoolVal)
+            {
+                ((BoolVar)DynamicVars["UsedThisTurn"]).BoolVal = true;
+                foreach(CardModel card in PileType.Discard.GetPile(cardPlay.Card.Owner).Cards.ToList<CardModel>()){
+                    if (card is CarefulScheme)
+                    {
+                        await CardPileCmd.Add(card, PileType.Hand);
+                    }
                 }
             }
         }
     }
     
-    public override async Task AfterTurnEnd(PlayerChoiceContext choiceContext, CombatSide side)
+    public override async Task AfterSideTurnEnd(
+        PlayerChoiceContext choiceContext,
+        CombatSide side,
+        IEnumerable<Creature> participants)
     {
-        if (side != CombatSide.Enemy)
-            return;
-        
         ((BoolVar)DynamicVars["UsedThisTurn"]).BoolVal = false;
         ((BoolVar)DynamicVars["HitDuringCardPlay"]).BoolVal = false;
-        
+        if (side != CombatSide.Enemy)
+            return;
         await PowerCmd.TickDownDuration(this);
     }
 }

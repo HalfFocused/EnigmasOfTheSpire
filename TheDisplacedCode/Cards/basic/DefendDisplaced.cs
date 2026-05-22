@@ -30,8 +30,7 @@ public class DefendDisplaced() : TheDisplacedCard(1, CardType.Skill, CardRarity.
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        DefendDisplaced card = this;
-        await CreatureCmd.GainBlock(card.Owner.Creature, card.DynamicVars.Block, play);
+        await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, play);
     }
     
     protected override void OnUpgrade() => this.DynamicVars.Block.UpgradeValueBy(3M);

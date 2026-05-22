@@ -34,7 +34,6 @@ public class Glimpse() : TheDisplacedCard(1, CardType.Attack, CardRarity.Common,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        ArgumentNullException.ThrowIfNull((object) play.Target, "cardPlay.Target");
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
         CardModel vision = Owner.Creature.CombatState.CreateCard<Vision>(Owner);
         CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(vision, PileType.Discard, Owner));

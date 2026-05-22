@@ -1,4 +1,5 @@
-﻿using BaseLib.Extensions;
+﻿using BaseLib.Abstracts;
+using BaseLib.Extensions;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Commands.Builders;
@@ -10,23 +11,25 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using TheDisplaced.TheDisplacedCode.Cards;
+using TheDisplaced.TheDisplacedCode.Cards.ancient;
 using TheDisplaced.TheDisplacedCode.Character;
 using TheDisplaced.TheDisplacedCode.Powers;
 
-namespace TheDisplaced.TheDisplacedCode.Cards;
+namespace TheDisplaced.TheDisplacedCode.Cards.basic;
 
 [Pool(typeof(TheDisplacedCardPool))]
-public class Gaze() : TheDisplacedCard(2, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
+public class Gaze() : TheDisplacedCard(2, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy),
+    ITranscendenceCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(6M, ValueProp.Move),
+        new DamageVar(8M, ValueProp.Move),
         new PowerVar<ForetoldPower>( 2M)
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => 
     [
-        CardKeyword.Ethereal
+        //CardKeyword.Ethereal
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 
@@ -41,7 +44,7 @@ public class Gaze() : TheDisplacedCard(2, CardType.Attack, CardRarity.Basic, Tar
     {
         Gaze card = this;
         ArgumentNullException.ThrowIfNull((object) play.Target, "cardPlay.Target");
-        await DamageCmd.Attack(card.DynamicVars.Damage.BaseValue).FromCard((CardModel) card).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(card.DynamicVars.Damage.BaseValue).FromCard(card).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
         await PowerCmd.Apply<ForetoldPower>(choiceContext, play.Target, DynamicVars["ForetoldPower"].BaseValue, Owner.Creature, this);
     }
 
@@ -49,5 +52,10 @@ public class Gaze() : TheDisplacedCard(2, CardType.Attack, CardRarity.Basic, Tar
     {
         this.DynamicVars.Damage.UpgradeValueBy(3M);
         this.DynamicVars.Power<ForetoldPower>().UpgradeValueBy(1M);
+    }
+
+    public CardModel GetTranscendenceTransformedCard()
+    {
+        return ModelDb.Card<AllSeeing>();
     }
 }

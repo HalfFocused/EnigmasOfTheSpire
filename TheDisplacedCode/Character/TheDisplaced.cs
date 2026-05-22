@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Relics;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using TheDisplaced.TheDisplacedCode.Cards;
+using TheDisplaced.TheDisplacedCode.Cards.basic;
 using TheDisplaced.TheDisplacedCode.Relics;
 using Expose = TheDisplaced.TheDisplacedCode.Cards.Expose;
 
@@ -28,12 +29,12 @@ public class TheDisplaced : PlaceholderCharacterModel
         ModelDb.Card<StrikeDisplaced>(),
         ModelDb.Card<StrikeDisplaced>(),
         ModelDb.Card<StrikeDisplaced>(),
-        ModelDb.Card<StrikeDisplaced>(),
         ModelDb.Card<DefendDisplaced>(),
         ModelDb.Card<DefendDisplaced>(),
         ModelDb.Card<DefendDisplaced>(),
         ModelDb.Card<DefendDisplaced>(),
-        ModelDb.Card<Gaze>()
+        ModelDb.Card<Gaze>(),
+        ModelDb.Card<Persist>()
     ];
 
     public override IReadOnlyList<RelicModel> StartingRelics =>

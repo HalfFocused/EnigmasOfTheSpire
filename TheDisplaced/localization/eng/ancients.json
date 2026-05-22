@@ -35,5 +35,91 @@
   "DARV.talk.THEDISPLACED-THE_DISPLACED.2-0.next": "Decline",
   "DARV.talk.THEDISPLACED-THE_DISPLACED.2-1.char": "I'd sooner give... my life...",
   "DARV.talk.THEDISPLACED-THE_DISPLACED.2-1.next": "Continue",
-  "DARV.talk.THEDISPLACED-THE_DISPLACED.2-2.ancient": "Well, I can't be having that, esteemed customer!"
+  "DARV.talk.THEDISPLACED-THE_DISPLACED.2-2.ancient": "Well, I can't be having that, esteemed customer!",
+
+  "NEOW.talk.THEDISPLACED-THE_DISPLACED.0-0.ancient": "[sine]...I can...\n...HELP... ...you...[/sine]",
+  
+  "NEOW.talk.THEDISPLACED-THE_DISPLACED.1-0r.ancient": "[sine]...I can... ..bring.. ...her.. ...back...[/sine]",
+  
+  "NEOW.talk.THEDISPLACED-THE_DISPLACED.2-0.char": "Please... use your power...",
+  "NEOW.talk.THEDISPLACED-THE_DISPLACED.2-0.next": "Continue",
+  "NEOW.talk.THEDISPLACED-THE_DISPLACED.2-1.ancient": "[sine]...not until...\n [red][jitter]he[/jitter][/red] ...is dead...[/sine]",
+  "NEOW.talk.THEDISPLACED-THE_DISPLACED.2-1.next": "Grumble",
+  "NEOW.talk.THEDISPLACED-THE_DISPLACED.2-2.char": "[font_size=16]Wretched beast...[/font_size]",
+
+  "NONUPEIPE.talk.THEDISPLACED-THE_DISPLACED.0-0.ancient": "You interest me, sorry one. Come forth, let me adorn you.",
+  "NONUPEIPE.talk.THEDISPLACED-THE_DISPLACED.0-0.next": "Approach",
+  "NONUPEIPE.talk.THEDISPLACED-THE_DISPLACED.0-1.ancient": "This attire won't do for someone of your... [i]prior[/i] status.",
+  
+  "NONUPEIPE.talk.THEDISPLACED-THE_DISPLACED.1-0r.ancient": "We meet again, sorry one. Still haven't saved your partner?",
+  
+  "NONUPEIPE.talk.THEDISPLACED-THE_DISPLACED.2-0.ancient": "No blessings yet, sorry one.\nTell me, why do you fight?",
+  "NONUPEIPE.talk.THEDISPLACED-THE_DISPLACED.2-0.next": "Answer",
+  "NONUPEIPE.talk.THEDISPLACED-THE_DISPLACED.2-1.char": "Something... no... someone important...\nNeow... will bring her back...",
+  "NONUPEIPE.talk.THEDISPLACED-THE_DISPLACED.2-1.next": "Continue",
+  "NONUPEIPE.talk.THEDISPLACED-THE_DISPLACED.2-2.ancient": "How noble indeed!\nCome to me, and take a blessing, pitiful one.",
+
+  "OROBAS.talk.THEDISPLACED-THE_DISPLACED.0-0.ancient": "Strange traveller! Quiet!\nWho are you?! Strange clock!",
+  "OROBAS.talk.THEDISPLACED-THE_DISPLACED.0-0.next": "Explain?",
+  "OROBAS.talk.THEDISPLACED-THE_DISPLACED.0-1.char": "[i][font_size=22]The Displaced tries to remember...[/font_size][/i]",
+  "OROBAS.talk.THEDISPLACED-THE_DISPLACED.0-1.next": "Continue",
+  "OROBAS.talk.THEDISPLACED-THE_DISPLACED.0-2.ancient": "No remember? Disappointing! Remember!!",
+  
+  "OROBAS.talk.THEDISPLACED-THE_DISPLACED.1-0r.ancient": "Confused friend! Do you remember??\nTake this, it will help!!",
+  
+  "OROBAS.talk.THEDISPLACED-THE_DISPLACED.2-0.char": "Strange creature... we've met before... haven't we...?",
+  "OROBAS.talk.THEDISPLACED-THE_DISPLACED.2-0.next": "Continue",
+  "OROBAS.talk.THEDISPLACED-THE_DISPLACED.2-1.ancient": "Confused friend is remembering!! Take this!\nIt will help you!!",
+  "OROBAS.talk.THEDISPLACED-THE_DISPLACED.2-1.next": "Respond",
+  "OROBAS.talk.THEDISPLACED-THE_DISPLACED.2-2.char": "Thank you... I will... remember this...",
+
+  "PAEL.talk.THEDISPLACED-THE_DISPLACED.0-0.ancient": "[thinky_dots]You are so fatigued... you can relax here...\nTake a piece of mine... and sleep.[/thinky_dots]",
+  
+  "PAEL.talk.THEDISPLACED-THE_DISPLACED.1-0r.ancient": "[thinky_dots]Your dreams are so scary...\nTake from me and find some peace...[/thinky_dots]",
+  
+  "PAEL.talk.THEDISPLACED-THE_DISPLACED.2-0.ancient": "[thinky_dots]You're trying too hard...\nWhy not take a break?[/thinky_dots]",
+  "PAEL.talk.THEDISPLACED-THE_DISPLACED.2-0.next": "Respond",
+  "PAEL.talk.THEDISPLACED-THE_DISPLACED.2-1.ancient": "No... Something important... I can't stop...",
+  "PAEL.talk.THEDISPLACED-THE_DISPLACED.2-1.next": "Continue",
+  "PAEL.talk.THEDISPLACED-THE_DISPLACED.2-2.char": "[i][font_size=22]Pael is already asleep again.[/font_size][/i]",
+
+  "TANX.talk.THEDISPLACED-THE_DISPLACED.0-0.ancient": "NO WEAPON!? WHY!?",
+  "TANX.talk.THEDISPLACED-THE_DISPLACED.0-0.next": "Explain",
+  "TANX.talk.THEDISPLACED-THE_DISPLACED.0-1.char": "Don't... need one...",
+  "TANX.talk.THEDISPLACED-THE_DISPLACED.0-1.next": "Continue",
+  "TANX.talk.THEDISPLACED-THE_DISPLACED.0-2.ancient": "RIDICULOUS!! YOU NEED A WEAPON!!",
+  
+  "TANX.talk.THEDISPLACED-THE_DISPLACED.1-0r.ancient": "WEAPONS FOR YOU! TAKE A WEAPON AND LEARN!!",
+  
+  "TANX.talk.THEDISPLACED-THE_DISPLACED.2-0.ancient": "FIGHT ME, DISPLACED!!",
+  "TANX.talk.THEDISPLACED-THE_DISPLACED.2-0.next": "Fight",
+  "TANX.talk.THEDISPLACED-THE_DISPLACED.2-1.char": "[i][font_size=22]The Displaced dodges a mighty blow during the battle.[/font_size][/i]",
+  "TANX.talk.THEDISPLACED-THE_DISPLACED.2-1.next": "Continue",
+  "TANX.talk.THEDISPLACED-THE_DISPLACED.2-2.ancient": "INCREDIBLE!! THE FORESIGHT!!",
+
+  "TEZCATARA.talk.THEDISPLACED-THE_DISPLACED.0-0.ancient": "You poor thing...\nTime is running out... no...?",
+  "TEZCATARA.talk.THEDISPLACED-THE_DISPLACED.0-0.next": "Respond",
+  "TEZCATARA.talk.THEDISPLACED-THE_DISPLACED.0-1.char": "I can... always keep trying...",
+  "TEZCATARA.talk.THEDISPLACED-THE_DISPLACED.0-1.next": "Continue",
+  "TEZCATARA.talk.THEDISPLACED-THE_DISPLACED.0-2.ancient": "No one is safe from [jitter][b]burning out[/b][/jitter], dear.",
+  
+  "TEZCATARA.talk.THEDISPLACED-THE_DISPLACED.1-0r.ancient": "Come in, come in! You look so cold...",
+  
+  "TEZCATARA.talk.THEDISPLACED-THE_DISPLACED.2-0.ancient": "Isn't it funny, dear?",
+  "TEZCATARA.talk.THEDISPLACED-THE_DISPLACED.2-0.next": "Question",
+  "TEZCATARA.talk.THEDISPLACED-THE_DISPLACED.2-1.char": "[i][font_size=22]The Displaced tilts their head.[/font_size][/i]",
+  "TEZCATARA.talk.THEDISPLACED-THE_DISPLACED.2-1.next": "Continue",
+  "TEZCATARA.talk.THEDISPLACED-THE_DISPLACED.2-2.ancient": "Even with that clock...\nYou're still running out of [jitter][b]time[/b][/jitter].",
+
+  "VAKUU.talk.THEDISPLACED-THE_DISPLACED.0-0.ancient": "So desperate... My favorite type of puppet.",
+  "VAKUU.talk.THEDISPLACED-THE_DISPLACED.0-0.next": "Respond",
+  "VAKUU.talk.THEDISPLACED-THE_DISPLACED.0-1.char": "Help me... I can make it worth your while...",
+  
+  "VAKUU.talk.THEDISPLACED-THE_DISPLACED.1-0r.ancient": "How many times now have you tried and failed?",
+  
+  "VAKUU.talk.THEDISPLACED-THE_DISPLACED.2-0.ancient": "Perhaps I can bring her back. What can you offer me?",
+  "VAKUU.talk.THEDISPLACED-THE_DISPLACED.2-0.next": "Respond",
+  "VAKUU.talk.THEDISPLACED-THE_DISPLACED.2-1.char": "[red][jitter]He[/jitter][/red] told me not to trust you...",
+  "VAKUU.talk.THEDISPLACED-THE_DISPLACED.2-1.next": "Continue",
+  "VAKUU.talk.THEDISPLACED-THE_DISPLACED.2-2.ancient": "Troublesome puppet..."
 }
