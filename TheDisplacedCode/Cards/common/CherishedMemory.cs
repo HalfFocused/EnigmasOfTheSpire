@@ -10,7 +10,7 @@ using TheDisplaced.TheDisplacedCode.Cards;
 namespace TheDisplaced.TheDisplacedCode.Cards.uncommon;
 
 public class CherishedMemory() : TheDisplacedCard(0,
-    CardType.Skill, CardRarity.Uncommon,
+    CardType.Skill, CardRarity.Common,
     TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
@@ -41,6 +41,6 @@ public class CherishedMemory() : TheDisplacedCard(0,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Cards.UpgradeValueBy(1M);
+        AddKeyword(CardKeyword.Retain);
     }
 }

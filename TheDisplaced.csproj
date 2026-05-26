@@ -62,6 +62,8 @@
     <ItemGroup>
         <Folder Include="TheDisplaced\images\powers\big\"/>
         <Folder Include="TheDisplaced\images\relics\big\"/>
+        <Folder Include="TheDisplaced\images\ui\" />
+        <Folder Include="TheDisplaced\materials\" />
     </ItemGroup>
 
     <Target Name="CheckDependencyPaths">

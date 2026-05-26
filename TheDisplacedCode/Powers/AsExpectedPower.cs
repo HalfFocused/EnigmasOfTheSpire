@@ -32,9 +32,9 @@ public class AsExpectedPower : TheDisplacedPower
             {
                 foreach (var damageResult in result)
                 {
-                    Flash();
                     if (!damageResult.Receiver.HasPower<ForetoldPower>())
                     {
+                        Flash();
                         await PowerCmd.Apply<ForetoldPower>(choiceContext, damageResult.Receiver, Amount, Owner, null);
                     }
                 }

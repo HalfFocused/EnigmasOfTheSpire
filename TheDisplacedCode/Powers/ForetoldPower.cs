@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
@@ -15,8 +16,11 @@ namespace TheDisplaced.TheDisplacedCode.Powers;
 
 public class ForetoldPower: TheDisplacedPower
 {
+    public const int INFINITY = Really.bigNumber;
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
+    
+    public virtual string InfiniteDescriptionLocKey => Id.Entry + ".infiniteDescription";
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -99,6 +103,24 @@ public class ForetoldPower: TheDisplacedPower
         ((BoolVar)DynamicVars["HitDuringCardPlay"]).BoolVal = false;
         if (side != CombatSide.Enemy)
             return;
-        await PowerCmd.TickDownDuration(this);
+
+        if (Amount != INFINITY)
+            await PowerCmd.TickDownDuration(this);
+        
+    }
+
+    public override Decimal ModifyPowerAmountGiven(
+        PowerModel power,
+        Creature giver,
+        Decimal amount,
+        Creature? target,
+        CardModel? cardSource)
+    {
+        if (power == this && Amount == INFINITY)
+        {
+            return 0;
+        }
+
+        return amount;
     }
 }

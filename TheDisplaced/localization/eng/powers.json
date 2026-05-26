@@ -2,6 +2,7 @@
   "THEDISPLACED-FORETOLD_POWER.title": "Foretold",
   "THEDISPLACED-FORETOLD_POWER.description": "#*Foretold enemies take double damage from an Attack once each turn.",
   "THEDISPLACED-FORETOLD_POWER.smartDescription": "#Takes double damage from an Attack once each turn. Lasts [blue]{Amount}[/blue] turn(s).",
+  "THEDISPLACED-FORETOLD_POWER.infiniteDescription": "#Takes double damage from an Attack once each turn. Lasts [blue]forever[/blue]. The knowledge weighs on you.",
   "THEDISPLACED-ETCHED_IN_BLOOD_POWER.title": "Etched In Blood",
   "THEDISPLACED-ETCHED_IN_BLOOD_POWER.description": "nobody should see this",
   "THEDISPLACED-ETCHED_IN_BLOOD_POWER.smartDescription": "At the start of your next turn, add [blue]{Card}[/blue] to your hand.",
@@ -58,5 +59,8 @@
   "THEDISPLACED-PROPHESIZE_POWER.smartDescription": "*Foretold* increases Attack damage by [blue]{Amount}%[/blue] more.",
   "THEDISPLACED-UTTER_AVOIDANCE_POWER.title": "Utter Avoidance",
   "THEDISPLACED-UTTER_AVOIDANCE_POWER.description": "nobody should see this",
-  "THEDISPLACED-UTTER_AVOIDANCE_POWER.smartDescription": "You take [blue]50%[/blue] less damage from *Foretold* enemies for the next [blue]{Amount}[/blue] turn(s)."
+  "THEDISPLACED-UTTER_AVOIDANCE_POWER.smartDescription": "You take [blue]50%[/blue] less damage from *Foretold* enemies for the next [blue]{Amount}[/blue] turn(s).",
+  "THEDISPLACED-STASIS_POWER.title": "Stasis",
+  "THEDISPLACED-STASIS_POWER.description": "nobody should see this",
+  "THEDISPLACED-STASIS_POWER.smartDescription": "Other turn-based debuffs don't decrease on this creature. Lasts [blue]{Amount}[/blue] turns."
 }

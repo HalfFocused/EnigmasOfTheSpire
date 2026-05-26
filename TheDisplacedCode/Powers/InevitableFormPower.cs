@@ -50,7 +50,7 @@ public class InevitableFormPower : TheDisplacedPower
 
   public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
   {
-    if (cardPlay.Card.Owner.Creature == Owner && cardPlay != null && !cardPlay.IsAutoPlay && cardPlay.IsLastInSeries)
+    if (cardPlay.Card.Owner.Creature == Owner && cardPlay != null && !cardPlay.IsAutoPlay && cardPlay.IsLastInSeries && cardPlay.Card.Type is CardType.Attack or CardType.Skill)
       ++GetInternalData<Data>().cardsPlayedThisTurn;
     return Task.CompletedTask;
   }

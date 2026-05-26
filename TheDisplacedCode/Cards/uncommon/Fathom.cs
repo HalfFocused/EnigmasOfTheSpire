@@ -16,8 +16,6 @@ namespace TheDisplaced.TheDisplacedCode.Cards.uncommon;
 [Pool(typeof(TheDisplacedCardPool))]
 public class Fathom() : TheDisplacedCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
-    public override bool GainsBlock => true;
-    
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new CardsVar(3)

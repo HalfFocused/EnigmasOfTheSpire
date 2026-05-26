@@ -60,14 +60,18 @@ public class TheDisplaced : PlaceholderCharacterModel
         }
     }
     
-    /*
     public override NCreatureVisuals? CreateCustomVisuals()
     {
-        return NodeFactory<NCreatureVisuals>.CreateFromResource("res://Path/To/Your/Image.png");
-    }*/
+        return NodeFactory<NCreatureVisuals>.CreateFromResource("res://TheDisplaced/images/character/displaced.png");
+    }
+    
+    public override string CustomCharacterSelectTransitionPath =>
+        "res://TheDisplaced/materials/displaced_transition_mat.tres";
     
     public override string CustomIconTexturePath => "character_icon_char_name.png".CharacterUiPath();
     public override string CustomCharacterSelectIconPath => "char_select_char_name.png".CharacterUiPath();
     public override string CustomCharacterSelectLockedIconPath => "char_select_char_name_locked.png".CharacterUiPath();
     public override string CustomMapMarkerPath => "map_marker_char_name.png".CharacterUiPath();
+    
+    //public override string CustomVisualPath => "res://TheDisplaced/scenes/thedisplaced/displaced.tscn";
 }

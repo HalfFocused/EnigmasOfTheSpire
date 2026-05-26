@@ -79,9 +79,9 @@
   
   "PAEL.talk.THEDISPLACED-THE_DISPLACED.2-0.ancient": "[thinky_dots]You're trying too hard...\nWhy not take a break?[/thinky_dots]",
   "PAEL.talk.THEDISPLACED-THE_DISPLACED.2-0.next": "Respond",
-  "PAEL.talk.THEDISPLACED-THE_DISPLACED.2-1.ancient": "No... Something important... I can't stop...",
+  "PAEL.talk.THEDISPLACED-THE_DISPLACED.2-1.char": "No... Something important... I can't stop...",
   "PAEL.talk.THEDISPLACED-THE_DISPLACED.2-1.next": "Continue",
-  "PAEL.talk.THEDISPLACED-THE_DISPLACED.2-2.char": "[i][font_size=22]Pael is already asleep again.[/font_size][/i]",
+  "PAEL.talk.THEDISPLACED-THE_DISPLACED.2-2.ancient": "[i][font_size=22]Pael is already asleep again.[/font_size][/i]",
 
   "TANX.talk.THEDISPLACED-THE_DISPLACED.0-0.ancient": "NO WEAPON!? WHY!?",
   "TANX.talk.THEDISPLACED-THE_DISPLACED.0-0.next": "Explain",

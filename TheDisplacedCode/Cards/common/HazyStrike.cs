@@ -16,14 +16,14 @@ namespace TheDisplaced.TheDisplacedCode.Cards.common;
 [Pool(typeof(TheDisplacedCardPool))]
 public class HazyStrike() : TheDisplacedCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
-    protected override HashSet<CardTag> CanonicalTags
-    {
-        get => new HashSet<CardTag>() { CardTag.Strike };
-    }
+    protected override HashSet<CardTag> CanonicalTags =>
+    [
+        CardTag.Strike
+    ];
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(12M, ValueProp.Move)
+        new DamageVar(15M, ValueProp.Move)
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 
@@ -37,8 +37,8 @@ public class HazyStrike() : TheDisplacedCard(1, CardType.Attack, CardRarity.Comm
     {
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
         CardModel dazed = Owner.Creature.CombatState.CreateCard<Dazed>(Owner);
-        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(dazed, PileType.Discard, Owner));
+        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(dazed, PileType.Draw, Owner, CardPilePosition.Random));
     }
     
-    protected override void OnUpgrade() => this.DynamicVars.Damage.UpgradeValueBy(3M);
+    protected override void OnUpgrade() => DynamicVars.Damage.UpgradeValueBy(3M);
 }

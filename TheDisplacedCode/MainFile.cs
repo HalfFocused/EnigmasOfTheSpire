@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
@@ -11,9 +12,11 @@ using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Characters;
 using MegaCrit.Sts2.Core.Models.Relics;
+using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Random;
 using TheDisplaced.TheDisplacedCode.Cards;
 using TheDisplaced.TheDisplacedCode.Cards.common;
+using TheDisplaced.TheDisplacedCode.Powers;
 
 namespace TheDisplaced.TheDisplacedCode;
 
@@ -112,3 +115,63 @@ internal static class AddFlavorTextPatch
     }
 }
 */
+
+/*
+ * Modify the power icon of the Foretold power to display an infinity instead of a number under certain conditions.
+ */
+[HarmonyPatch(typeof(NPower), nameof(NPower.RefreshAmount))]
+class PowerNodeInfinityDisplayPatch
+{
+    [HarmonyPostfix]
+    static void ChangeLabelToInfinity(NPower __instance)
+    {
+        if (__instance._model is ForetoldPower)
+        {
+            if (__instance._model.Amount == ForetoldPower.INFINITY)
+            {
+                __instance._amountLabel.SetTextAutoSize("∞");
+            }
+        }
+    }
+}
+
+/*
+ * Modify the description of the Foretold power if it is infinite.
+ */
+[HarmonyPatch(typeof(PowerModel), "SmartDescription", MethodType.Getter)]
+class ForetoldPowerDescriptionPatch
+{
+    [HarmonyPostfix]
+    static void ChangeDescriptionToInfinity(PowerModel __instance, ref LocString __result)
+    {
+        if (__instance is ForetoldPower)
+        {
+            if (__instance.Amount == ForetoldPower.INFINITY)
+            {
+                __result = new LocString("powers", ((ForetoldPower)__instance).InfiniteDescriptionLocKey);
+            }
+        }
+    }
+}
+
+/*
+ * Stop debuff durations from decreasing if the creature has Stasis
+ */
+[HarmonyPatch(typeof(PowerCmd), nameof(PowerCmd.TickDownDuration))]
+class StasisDurationPatch
+{
+    [HarmonyPrefix]
+    static bool CancelTickDown(ref Task __result, PowerModel power)
+    {
+        if (power.TypeForCurrentAmount == PowerType.Debuff && power is not StasisPower)
+        {
+            if (power.Owner.HasPower<StasisPower>())
+            {
+                __result = Task.CompletedTask;
+                return false;
+            }
+        }
+
+        return true;
+    }
+}
