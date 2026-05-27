@@ -82,8 +82,7 @@
   "THEDISPLACED-AS_EXPECTED.title": "As Expected",
   "THEDISPLACED-AS_EXPECTED.description": "#After you attack an enemy, if it isn't *Foretold*, apply !ForetoldPower! *Foretold*.",
   "THEDISPLACED-THINKING_OF_YOU.title": "Thinking Of You",
-  "THEDISPLACED-THINKING_OF_YOU.description": "#Choose 1 card in your *Hand*.\nIt cannot be *Exhausted* this combat.",
-  "THEDISPLACED-THINKING_OF_YOU.selectionScreenPrompt": "#Choose !C! card(s) to *Cherish*.",
+  "THEDISPLACED-THINKING_OF_YOU.description": "#Add *Cherished* to ALL cards in your hand.",
   "THEDISPLACED-BACKUP_PLAN.title": "Backup Plan",
   "THEDISPLACED-BACKUP_PLAN.description": "#Deal !D! damage.\n*Forget*: ALL enemies lose !StrengthLoss! *Strength* this turn.",
   "THEDISPLACED-CAREFUL_SCHEME.title": "Careful Scheme",
@@ -180,5 +179,8 @@
   "THEDISPLACED-COMMISERATE.description": "#Deal !D! damage.\nFor each unique debuff on the enemy, draw !C! card(s) and gain [E?].",
   
   "THEDISPLACED-BLIND_SPOT.title": "Blind Spot",
-  "THEDISPLACED-BLIND_SPOT.description": "#Deal !D! damage twice.\nChoose !C! card(s) in your *Draw* *Pile* to *Transform* into *Dazed*."
+  "THEDISPLACED-BLIND_SPOT.description": "#Deal !D! damage twice.\nChoose !C! card(s) in your *Draw* *Pile* to *Transform* into *Dazed*.",
+
+  "THEDISPLACED-THINK_TWICE.title": "Think Twice",
+  "THEDISPLACED-THINK_TWICE.description": "#Draw !C! card(s).\nGain [E?]."
 }

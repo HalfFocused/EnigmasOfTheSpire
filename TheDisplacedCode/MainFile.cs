@@ -47,6 +47,7 @@ class CardCmdExhaustPatch
     {
         if (card.Keywords.Contains(DisplacedKeywords.Cherished))
         {
+            card.RemoveKeyword(DisplacedKeywords.Cherished);
             __result = Task.CompletedTask;
             return false;
         }
@@ -67,6 +68,7 @@ class CardPlayResultPilePatch
     {
         if (__instance.Keywords.Contains(DisplacedKeywords.Cherished) && __result == PileType.Exhaust)
         {
+            __instance.RemoveKeyword(DisplacedKeywords.Cherished);
             __result = PileType.Discard;
         }
     }
