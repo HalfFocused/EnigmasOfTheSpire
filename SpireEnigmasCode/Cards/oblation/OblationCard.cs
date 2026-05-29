@@ -5,11 +5,12 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using SpireEnigmas.SpireEnigmasCode.Character;
+using SpireEnigmas.SpireEnigmasCode.Character.oblation;
 using SpireEnigmas.SpireEnigmasCode.Extensions;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.oblation;
 
-[Pool(typeof(TheDisplacedCardPool))]
+[Pool(typeof(TheOblationCardPool))]
 public abstract class OblationCard(int cost, CardType type, CardRarity rarity, TargetType target) :
     CustomCardModel(cost, type, rarity, target)
 {
@@ -35,13 +36,8 @@ public abstract class OblationCard(int cost, CardType type, CardRarity rarity, T
         );
     }
 
-    public static HoverTip ForgetHoverTip()
+    public static HoverTip ImproviseHoverTip()
     {
-        return GetStaticHoverTip("THEDISPLACED-FORGET");
-    }
-    
-    public static HoverTip FlashbackHoverTip()
-    {
-        return GetStaticHoverTip("THEDISPLACED-FLASHBACK");
+        return GetStaticHoverTip("SPIREENIGMAS-IMPROVISE");
     }
 }
