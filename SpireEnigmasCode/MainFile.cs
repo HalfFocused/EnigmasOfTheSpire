@@ -22,6 +22,7 @@ using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Cards.displaced.common;
 using SpireEnigmas.SpireEnigmasCode.Character.displaced;
+using SpireEnigmas.SpireEnigmasCode.Patches;
 using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode;
@@ -39,6 +40,7 @@ public partial class MainFile : Node
         Harmony harmony = new(ModId);
 
         harmony.PatchAll();
+        CatchOverdrawPatch.Patch(harmony);
     }
 }
 
@@ -275,10 +277,8 @@ class DrawIncreasePatch
         Player player,
         bool fromHandDraw)
     {
-        MainFile.Logger.Info("Patch caught draw: " + count);
         if (player.HasPower<UnsustainableInconsolablePower>() && !fromHandDraw && count != 0)
         {
-            MainFile.Logger.Info("Patch attempts modification");
             UnsustainableInconsolablePower power = player.Creature.GetPower<UnsustainableInconsolablePower>();
             power.Flash();
             count *= power.Amount;
@@ -286,45 +286,15 @@ class DrawIncreasePatch
     }
 }
 
-[HarmonyDebug]
-[HarmonyPatch(MethodType.Async)]
-[HarmonyPatch(typeof(CardPileCmd), nameof(CardPileCmd.Draw), typeof(PlayerChoiceContext), typeof(Decimal),
-    typeof(Player), typeof(bool))]
-class ExhaustOverflowDrawPatch
+[HarmonyPatch(typeof(CardPileCmd), nameof(CardPileCmd.CheckIfDrawIsPossibleAndShowThoughtBubbleIfNot))]
+class AllowDrawPatch
 {
-    [HarmonyTranspiler]
-    static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
+    [HarmonyPostfix]
+    static void AllowCardDraw(Player player, ref bool __result)
     {
-        var codeMatcher = new CodeMatcher(instructions, generator);
-
-        codeMatcher.MatchEndForward(
-                CodeMatch.IsLdarg(0),
-                new CodeMatch(OpCodes.Ldfld, AccessTools.Field(typeof(CardPileCmd), "<hand>5__4")),
-                CodeMatch.Calls(typeof(CardPile).PropertyGetter("Cards")),
-                CodeMatch.Calls(typeof(IReadOnlyCollection<CardModel>).PropertyGetter("Count"))//,
-                //CodeMatch.Calls(typeof(CardPile).PropertyGetter("MaxCardsInHand")),
-                //new CodeMatch(OpCodes.Bge)
-            )
-            .ThrowIfInvalid("Could not find hand size check statement.")
-            .Advance()
-            .MatchEndForward(
-                new CodeMatch(OpCodes.Bge)
-            )
-            .SetOpcodeAndAdvance(OpCodes.Brfalse)
-            .Advance(-1)
-            .InsertAndAdvance(
-                //CodeInstruction.LoadArgument(1),
-                //CodeInstruction.LoadArgument(3),
-                CodeInstruction.Call(() => DoSomething(default, default/*, default, default*/))
-            );
-
-        return codeMatcher.Instructions();
-    }
-    
-    static bool DoSomething(int cardsInHand, int maximumHandSize/*, PlayerChoiceContext choiceContext, Player player*/)
-    {
-        MainFile.Logger.Info("Did Something. Num1: " + cardsInHand + " Num2: " + maximumHandSize);
-
-        return cardsInHand < maximumHandSize;
+        if (player.HasPower<UnsustainableInconsolablePower>())
+        {
+            __result = true;
+        }
     }
 }

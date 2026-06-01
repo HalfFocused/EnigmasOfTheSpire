@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1780251855
+::res://::1780300522
 export_presets.cfg::TextFile::-1::1778171903::0::1::::<><><>0<>0<><>::
 SpireEnigmas.json::JSON::-1::1779920817::0::1::::<><><>0<>0<><>::
 ::res://addons/::1779592605
@@ -15,8 +15,8 @@ spine_godot_extension.gdextension::GDExtension::720401606925687617::1779592311::
 ::res://bin/android/::1779592312
 ::res://bin/ExportRelease/::1778172573
 ::res://bin/ExportRelease/net9.0/::1778172573
-::res://bin/ExportRelease/net9.0/publish/::1780298133
-SpireEnigmas.deps.json::JSON::-1::1780256406::0::1::::<><><>0<>0<><>::
+::res://bin/ExportRelease/net9.0/publish/::1780304320
+SpireEnigmas.deps.json::JSON::-1::1780301885::0::1::::<><><>0<>0<><>::
 TheDisplaced.deps.json::JSON::-1::1779669847::0::1::::<><><>0<>0<><>::
 ::res://bin/ios/::1779592311
 ::res://bin/ios/libspine_godot.ios.template_debug.framework/::1779592311
@@ -31,7 +31,7 @@ TheDisplaced.deps.json::JSON::-1::1779669847::0::1::::<><><>0<>0<><>::
 ::res://bin/macos/libspine_godot.macos.template_release.framework/Resources/::1779592311
 ::res://bin/macos/macos.framework/::1779506972
 ::res://bin/web/::1779592311
-::res://bin/windows/::1780298142
+::res://bin/windows/::1780304325
 ::res://SpireEnigmas/::1779920118
 mod_image.png::CompressedTexture2D::3294506707766202555::1778171902::1779920118::1::::<><><>0<>0<>3d2e9ad32c2ac695556b66017fcaaeec<>res://.godot/imported/mod_image.png-0a6e7d607a50651c76b6409365f80161.ctex::
 ::res://SpireEnigmas/character/::1779920118
@@ -160,10 +160,10 @@ displaced_transition_mat.tres::ShaderMaterial::6192203102486112940::1779668214::
 ::res://SpireEnigmas/scenes/::1779591376
 ::res://SpireEnigmas/scenes/thedisplaced/::1779668214
 displaced.tscn::PackedScene::2244850081429576330::1779668214::0::1::::<><><>0<>0<><>::
-::res://SpireEnigmasCode/::1780298125
+::res://SpireEnigmasCode/::1780303547
 EnigmaHooks.cs::CSharpScript::3167002854569133940::1780257516::0::1::::<><><>0<>0<><>::
 EnigmaKeywords.cs::CSharpScript::2576433072511937069::1780253090::0::1::::<><><>0<>0<><>::
-MainFile.cs::CSharpScript::7633359066727043913::1780298125::0::1::::<><><>0<>0<><>::
+MainFile.cs::CSharpScript::7633359066727043913::1780303547::0::1::::<><><>0<>0<><>::
 ::res://SpireEnigmasCode/Cards/::1780251855
 ::res://SpireEnigmasCode/Cards/displaced/::1780038364
 DisplacedCard.cs::CSharpScript::1304567524168453997::1780038364::0::1::::<><><>0<>0<><>::
@@ -301,9 +301,11 @@ TheSacrificePotionPool.cs::CSharpScript::1751707129741104099::1780252006::0::1::
 TheSacrificeRelicPool.cs::CSharpScript::359614761087893707::1780252070::0::1::::<><><>0<>0<><>::
 ::res://SpireEnigmasCode/Extensions/::1779919286
 StringExtensions.cs::CSharpScript::3415914760485066512::1779919286::0::1::::<><><>0<>0<><>::
+::res://SpireEnigmasCode/Patches/::1780304294
+CatchOverdrawPatch.cs::CSharpScript::2902207601780480738::1780304294::0::1::::<><><>0<>0<><>::
 ::res://SpireEnigmasCode/Potions/::1779952056
 TheDisplacedPotion.cs::CSharpScript::89252419552059943::1779952056::0::1::::<><><>0<>0<><>::
-::res://SpireEnigmasCode/Powers/::1780263601
+::res://SpireEnigmasCode/Powers/::1780303914
 AbandonPower.cs::CSharpScript::8742144687433843315::1779937919::0::1::::<><><>0<>0<><>::
 AsExpectedPower.cs::CSharpScript::490707239776656772::1779937919::0::1::::<><><>0<>0<><>::
 BeforeYourEyesPower.cs::CSharpScript::8212461206717636895::1779937919::0::1::::<><><>0<>0<><>::
@@ -327,7 +329,7 @@ TheSecondDreamPower.cs::CSharpScript::1712207661214093660::1779937919::0::1::::<
 TheStarsAlignedPower.cs::CSharpScript::8588753306871709405::1779937919::0::1::::<><><>0<>0<><>::
 TimeSlowPower.cs::CSharpScript::5454050438127350425::1779937919::0::1::::<><><>0<>0<><>::
 TrueSightPower.cs::CSharpScript::6478783236327364243::1779937919::0::1::::<><><>0<>0<><>::
-UnsustainableInconsolablePower.cs::CSharpScript::4384408045201751941::1780263601::0::1::::<><><>0<>0<><>::
+UnsustainableInconsolablePower.cs::CSharpScript::4384408045201751941::1780303914::0::1::::<><><>0<>0<><>::
 UtterAvoidancePower.cs::CSharpScript::2371132780328251775::1779937919::0::1::::<><><>0<>0<><>::
 ::res://SpireEnigmasCode/Relics/::1780252016
 AstronomicalClock.cs::CSharpScript::7249418122521446012::1779919287::0::1::::<><><>0<>0<><>::

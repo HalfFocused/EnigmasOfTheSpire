@@ -8,5 +8,9 @@ public class UnsustainableInconsolablePower : SpireEnigmaPower, IMaxHandSizeModi
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
-    
+
+    public int ModifyMaxHandSizeLate(Player player, int currentMaxHandSize)
+    {
+        return currentMaxHandSize + 1;
+    }
 }
