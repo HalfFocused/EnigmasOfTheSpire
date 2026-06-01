@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2fee668e-fc20-4a85-bdbf-86c713e46edf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/TheDisplaced.csproj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced.sln" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced.sln.DotSettings" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/ahead_of_time.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/apathy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/as_expected.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/assault.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/backup_plan.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/before_your_eyes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/blind_spot.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/burden.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/card.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/careful_scheme.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/cherished_memory.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/clinging_on.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/defend_displaced.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/discern.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/dreadful_strike.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/elude.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/endurance.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/etched_in_blood.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/euphoria.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/exploit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/expose.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/eyes_wide_open.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/fade_away.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/fathom.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/future_sight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/gaze.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/glimpse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/harrow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/hazy_strike.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/her.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/high_ground.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/hope.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/impulse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/languish.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/let_go.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/line_up.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/low_visibility.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/manifest.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/motivation.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/never_enough.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/obscuring_haze.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/persist.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/phase_shift.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/pierce_the_veil.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/predict.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/prescience.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/rationalize.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/recall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/recurring_dream.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/remember.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/rush_past.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/savagery.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/saw_it_coming.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/slash_dash.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/sliding_strike.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/strike_displaced.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/sudden_clarity.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/terrible_thought.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/tooth_and_nail.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/true_sight.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/unsettle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/big/vanquish.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/card_portraits/card.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/character/displaced.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/charui/big_energy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/charui/char_select_char_name.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/charui/char_select_char_name_locked.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/charui/character_icon_char_name.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/charui/map_marker_char_name.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/charui/text_energy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/powers/big/power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/powers/power.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/relics/AmberGemstone.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/relics/AmberGemstoneOutline.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/relics/Everything.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/relics/EverythingOutline.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/relics/InvertedHourglass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/relics/InvertedHourglassOutline.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/relics/Locket.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/relics/LocketOutline.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/relics/PairOfGears.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/relics/PairOfGearsOutline.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/relics/PurpleBow.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/relics/PurpleBowOutline.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/relics/Raincoat.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/relics/RaincoatOutline.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/relics/ShatteredGlass.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/relics/ShatteredGlassOutline.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/relics/TheClockworkUniverse.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/relics/TheClockworkUniverseOutline.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/relics/WindUpButterfly.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/relics/WindUpButterflyOutline.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/relics/astronomical_clock.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/relics/astronomical_clock_outline.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/relics/big/relic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/relics/relic.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/relics/relic_outline.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/images/ui/transitions/displaced_transition.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/localization/eng/ancients.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/localization/eng/card_keywords.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/localization/eng/cards.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/localization/eng/characters.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/localization/eng/powers.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/localization/eng/relics.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/localization/eng/static_hover_tips.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplaced/mod_image.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/TheDisplacedCard.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/ancient/AllSeeing.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/ancient/LongGoodbye.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/basic/DefendDisplaced.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/basic/Gaze.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/basic/Persist.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/basic/StrikeDisplaced.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/common/Abandon.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/common/Assault.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/common/BlindSpot.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/common/CherishedMemory.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/common/Elude.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/common/EtchedInBlood.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/common/Expose.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/common/FadeAway.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/common/FutureSight.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/common/Glimpse.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/common/HazyStrike.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/common/LowVisibility.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/common/Predict.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/common/Rationalize.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/common/Recall.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/common/RecurringDream.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/common/RushPast.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/common/SlashDash.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/common/SlidingStrike.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/common/Unsettle.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/rare/Apathy.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/rare/BeforeYourEyes.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/rare/Commiserate.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/rare/Conspire.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/rare/Her.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/rare/Hope.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/rare/InevitableForm.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/rare/InternalBleeding.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/rare/Invoke.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/rare/Lacerate.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/rare/MomentOfTruth.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/rare/Monsoon.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/rare/Overwhelm.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/rare/Prophesize.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/rare/RecklessAbandon.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/rare/Reverie.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/rare/Scour.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/rare/TheSecondDream.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/rare/TheStarsAligned.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/rare/ThinkTwice.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/rare/ThinkingOfYou.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/rare/TimeSlow.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/rare/UtterAvoidance.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/rare/ViciousCycle.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/rare/Witness.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/token/Vision.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/AheadOfTime.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/AsExpected.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/BackupPlan.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/BeenHereBefore.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/Burden.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/CarefulScheme.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/ClingingOn.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/Discern.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/Distress.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/DreadfulStrike.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/Endurance.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/Euphoria.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/Exploit.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/EyesWideOpen.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/Fathom.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/Harrow.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/HighGround.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/Impulse.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/Languish.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/LetGo.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/Manifest.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/Motivation.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/ObscuringHaze.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/Oppress.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/PhaseShift.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/PierceTheVeil.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/Prescience.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/Remember.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/Savagery.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/SawItComing.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/Stasis.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/SuddenClarity.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/TerribleThought.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/TrueSight.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Cards/uncommon/Vanquish.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Character/TheDisplaced.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Character/TheDisplacedCardPool.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Character/TheDisplacedPotionPool.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Character/TheDisplacedRelicPool.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/DisplacedKeywords.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Extensions/StringExtensions.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/MainFile.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Potions/TheDisplacedPotion.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Powers/AbandonPower.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Powers/AsExpectedPower.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Powers/BeforeYourEyesPower.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Powers/ClingingOnPower.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Powers/ConspirePower.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Powers/EtchedInBloodPower.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Powers/ForetoldPower.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Powers/InevitableFormPower.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Powers/InternalBleedingPower.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Powers/LanguishPower.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Powers/LongGoodbyePower.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Powers/MotivationPower.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Powers/ProphesizePower.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Powers/ReveriePower.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Powers/StasisPower.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Powers/TerribleThoughtPower.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Powers/TheDisplacedPower.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Powers/TheSecondDreamPower.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Powers/TheStarsAlignedPower.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Powers/TimeSlowPower.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Powers/TrueSightPower.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Powers/UtterAvoidancePower.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Relics/AstronomicalClock.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TheDisplacedCode/Relics/TheDisplacedRelic.cs" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/SpireEnigmasCode/MainFile.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/SpireEnigmasCode/Powers/TrueSightPower.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="Toolset" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 2
+}]]></component>
+  <component name="ProjectId" id="3EKDWUJTjLZ6ePDffS7ZbBQbaQb" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2fee668e-fc20-4a85-bdbf-86c713e46edf" name="Changes" comment="" />
+      <created>1779918399435</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1779918399435</updated>
+      <workItem from="1779918400510" duration="820000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+</project>

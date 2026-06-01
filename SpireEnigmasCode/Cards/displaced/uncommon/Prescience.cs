@@ -1,0 +1,36 @@
+﻿using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.ValueProps;
+
+namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
+
+public class Prescience() : DisplacedCard(1,
+    CardType.Attack, CardRarity.Uncommon,
+    TargetType.AllEnemies)
+{
+    protected override IEnumerable<DynamicVar> CanonicalVars => [
+        new DamageVar(10M, ValueProp.Move),
+        new CardsVar(1)
+    ];
+    
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [
+        CardKeyword.Innate,
+        CardKeyword.Ethereal,
+        CardKeyword.Exhaust
+    ];
+
+    protected override async Task OnPlay(
+        PlayerChoiceContext choiceContext,
+        CardPlay play)
+    {
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).TargetingAllOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
+    }
+
+    protected override void OnUpgrade()
+    {
+        DynamicVars.Damage.UpgradeValueBy(3);
+    }
+}

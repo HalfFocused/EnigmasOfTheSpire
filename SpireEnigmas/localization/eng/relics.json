@@ -1,0 +1,9 @@
+{
+  "SPIREENIGMAS-ASTRONOMICAL_CLOCK.title": "Astronomical Clock",
+  "SPIREENIGMAS-ASTRONOMICAL_CLOCK.description": "#At the start of turn [blue]2[/blue], gain [E?] and draw [blue]!C![/blue] card(s).",
+  "SPIREENIGMAS-ASTRONOMICAL_CLOCK.flavor": "Once remarkably precise, the clock's motions are now erratic and confused.",
+
+  "SPIREENIGMAS-LIFEBLOOD.title": "Lifeblood",
+  "SPIREENIGMAS-LIFEBLOOD.description": "#Whenever you enter a *Rest* *Site*, heal [blue]!H![/blue] HP.",
+  "SPIREENIGMAS-LIFEBLOOD.flavor": "The warmth of the fire is enough to kindle your spirits anew."
+}

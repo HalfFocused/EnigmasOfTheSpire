@@ -13,7 +13,7 @@ using MegaCrit.Sts2.Core.Rooms;
 
 namespace SpireEnigmas.SpireEnigmasCode.Relics;
 
-public class Lifeblood : TheOblationRelic
+public class Lifeblood : TheSacrificeRelic
 {
     public override RelicRarity Rarity =>
         RelicRarity.Starter;
