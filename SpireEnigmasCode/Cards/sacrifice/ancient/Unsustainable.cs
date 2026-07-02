@@ -13,12 +13,12 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.rare;
 
-public class UnsustainableInconsolable() : SacrificeCard(2,
-    CardType.Power, CardRarity.Rare,
+public class Unsustainable() : SacrificeCard(2,
+    CardType.Power, CardRarity.Ancient,
     TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new PowerVar<UnsustainableInconsolablePower>(2)
+        new PowerVar<UnsustainablePower>(2)
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 
@@ -30,7 +30,7 @@ public class UnsustainableInconsolable() : SacrificeCard(2,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await PowerCmd.Apply<UnsustainableInconsolablePower>(choiceContext, Owner.Creature, DynamicVars.Power<UnsustainableInconsolablePower>().BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<UnsustainablePower>(choiceContext, Owner.Creature, DynamicVars.Power<UnsustainablePower>().BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

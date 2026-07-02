@@ -103,23 +103,8 @@ public class ForetoldPower: SpireEnigmaPower
         if (side != CombatSide.Enemy)
             return;
 
-        if (Amount != INFINITY)
+        if (Amount < INFINITY)
             await PowerCmd.TickDownDuration(this);
         
-    }
-
-    public override Decimal ModifyPowerAmountGiven(
-        PowerModel power,
-        Creature giver,
-        Decimal amount,
-        Creature? target,
-        CardModel? cardSource)
-    {
-        if (power == this && Amount == INFINITY)
-        {
-            return 0;
-        }
-
-        return amount;
     }
 }

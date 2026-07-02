@@ -60,7 +60,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="SpireEnigmasCode\Cards\sacrifice\ancient\" />
         <Folder Include="SpireEnigmas\images\powers\big\" />
         <Folder Include="SpireEnigmas\images\relics\big\" />
         <Folder Include="SpireEnigmas\images\ui\" />

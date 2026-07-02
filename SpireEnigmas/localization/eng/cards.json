@@ -305,7 +305,7 @@
   "SPIREENIGMAS-OVERHEAT.description": "#Deal !D! damage !Repeat! time(s).\nAdd a *Burn* into your *Hand*.",
 
   "SPIREENIGMAS-DEFILE.title": "Defile",
-  "SPIREENIGMAS-DEFILE.description": "#Deal !D! damage twice.*\nAdd a *Taboo* into your *Hand*.",
+  "SPIREENIGMAS-DEFILE.description": "#Deal !D! damage twice.\nAdd a *Taboo* into your *Hand*.",
 
   "SPIREENIGMAS-FALTER.title": "Falter",
   "SPIREENIGMAS-FALTER.description": "#Deal !D! damage.",
@@ -322,6 +322,67 @@
   "SPIREENIGMAS-RADIANT_REVIVAL.title": "Radiant Revival",
   "SPIREENIGMAS-RADIANT_REVIVAL.description": "#*Exhaust* ALL your *Burns*. Gain !CalculationExtra! HP for each card *Exhausted*.{InCombat:\n(Gain !CalculatedHeal! HP.)|}",
 
-  "SPIREENIGMAS-UNSUSTAINABLE_INCONSOLABLE.title": "Unsustainable Inconsolable",
-  "SPIREENIGMAS-UNSUSTAINABLE_INCONSOLABLE.description": "#During your turn, card draw is doubled.\nCards that don't fit your *Hand* are *Exhausted*."
+  "SPIREENIGMAS-UNSUSTAINABLE.title": "Unsustainable",
+  "SPIREENIGMAS-UNSUSTAINABLE.description": "#During your turn, card draw is doubled.\nCards that don't fit your *Hand* are *Exhausted*.",
+
+  "SPIREENIGMAS-TWO_VIRTUES.title": "Two Virtues",
+  "SPIREENIGMAS-TWO_VIRTUES.upgraded_title": "Three Virtues",
+  "SPIREENIGMAS-TWO_VIRTUES.description": "#Play !C! random Common card(s) from your *Draw* *Pile*.",
+
+  "SPIREENIGMAS-CONVOKE.title": "Convoke",
+  "SPIREENIGMAS-CONVOKE.description": "#Gain !CalculationExtra! *Strength* for each card rarity in your *Hand*.{InCombat:\n(Gain !CalculatedStrength! *Strength*.)|}",
+
+  "SPIREENIGMAS-DEVOTE.title": "Devote",
+  "SPIREENIGMAS-DEVOTE.description": "#Gain !FealtyPower! *Fealty*.",
+
+  "SPIREENIGMAS-UNWORTHY_ASCENT.title": "Unworthy Ascent",
+  "SPIREENIGMAS-UNWORTHY_ASCENT.description": "#Deal !D! damage to ALL enemies.\nCosts [E?] less for each *Rare* card played this combat.",
+
+  "SPIREENIGMAS-RECITE.title": "Recite",
+  "SPIREENIGMAS-RECITE.description": "#Add !C! random *Common* card(s) into your *Hand*.",
+
+  "SPIREENIGMAS-CASCADIA_FLARE.title": "Cascadia Flare",
+  "SPIREENIGMAS-CASCADIA_FLARE.description": "#Deal !D! damage to ALL enemies !Repeat! time(s).",
+
+  "SPIREENIGMAS-SPARK.title": "Spark",
+  "SPIREENIGMAS-SPARK.description": "#Apply !CharredPower! *Charred*.",
+
+  "SPIREENIGMAS-ERUPT.title": "Erupt",
+  "SPIREENIGMAS-ERUPT.description": "#Apply !CharredPower! *Charred*.",
+
+  "SPIREENIGMAS-BRAZEN_STANCE.title": "Brazen Stance",
+  "SPIREENIGMAS-BRAZEN_STANCE.description": "#Apply !DebuffAmount! *Weak* and *Vulnerable* to ALL enemies.",
+
+  "SPIREENIGMAS-EXALT.title": "Exalt",
+  "SPIREENIGMAS-EXALT.description": "#Deal !CalculatedDamage! damage.\nDeals !ExtraDamage! additional damage for ALL your *Rare* cards.",
+
+  "SPIREENIGMAS-ACQUIESCE.title": "Acquiesce",
+  "SPIREENIGMAS-ACQUIESCE.description": "#Gain !B! *Block*.\nGain !FealtyPower! *Fealty* this turn.",
+
+  "SPIREENIGMAS-VOW.title": "Vow",
+  "SPIREENIGMAS-VOW.description": "#Gain !B! *Block*.\nDraw !C! card(s).\nIt costs 0 [E] this turn.",
+
+  "SPIREENIGMAS-INSPIRE.title": "Inspire",
+  "SPIREENIGMAS-INSPIRE.description": "#Gain [E?].\nAdd a *Burn* into your *Hand*.",
+
+  "SPIREENIGMAS-CONCEIT.title": "Conceit",
+  "SPIREENIGMAS-CONCEIT.description": "#Gain !B! *Block*.\nShuffle a random {IfUpgraded:show:*Upgraded* *Rare*|*Rare*} card into your *Draw* *Pile*.",
+
+  "SPIREENIGMAS-BREEZE_BLOWS.title": "Breeze Blows",
+  "SPIREENIGMAS-BREEZE_BLOWS.description": "#Deal !D! damage !Repeat! times.",
+
+  "SPIREENIGMAS-SMOLDER.title": "Smolder",
+  "SPIREENIGMAS-SMOLDER.description": "#Deal !D! damage twice.\nAdd !C! *Spark(s)* into your *Hand*.",
+
+  "SPIREENIGMAS-STRIKE_THE_HEART.title": "Strike The Heart",
+  "SPIREENIGMAS-STRIKE_THE_HEART.description": "#Deal !CalculatedDamage! damage.\nDeals !ExtraDamage! additional damage if you've played a *Taboo* this turn.",
+
+  "SPIREENIGMAS-HEAT_RISER.title": "Heat Riser",
+  "SPIREENIGMAS-HEAT_RISER.description": "#Deal !D! damage to ALL enemies !Repeat! time(s).",
+
+  "SPIREENIGMAS-BLOOD_RITE.title": "Blood Rite",
+  "SPIREENIGMAS-BLOOD_RITE.description": "#Draw !C! card(s).\nAdd !Taboos! *Taboo(s)* into your *Hand*.",
+
+  "SPIREENIGMAS-BURNING_QUESTION.title": "Burning Question",
+  "SPIREENIGMAS-BURNING_QUESTION.description": "#Deal !D! damage X times.\nAdd X *Taboos* into your *Hand*."
 }

@@ -1,4 +1,8 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
@@ -16,9 +20,6 @@ public class CharredPower : SpireEnigmaPower
     public override PowerType Type => PowerType.Debuff;
 
     public override PowerStackType StackType => PowerStackType.Counter;
-
-    private bool hitDuringAttack = false;
-    private int amountBeforeAttack = 0;
     
     public override Decimal ModifyDamageAdditive(
         Creature? target,
@@ -28,43 +29,17 @@ public class CharredPower : SpireEnigmaPower
         CardModel? cardSource)
     {
         if(target != Owner) return 0;
-        amountBeforeAttack = Amount;
         return !props.IsPoweredAttack() ? 0M : Amount;
     }
     
-    public override async Task BeforeDamageReceived(
+    public override async Task AfterSideTurnEnd(
         PlayerChoiceContext choiceContext,
-        Creature target,
-        Decimal amount,
-        ValueProp props,
-        Creature? dealer,
-        CardModel? cardSource)
+        CombatSide side,
+        IEnumerable<Creature> participants)
     {
-        if (target != Owner || dealer == null || !props.IsPoweredAttack() && !(cardSource is Omnislice))
+        if (side != CombatSide.Enemy)
             return;
-
-        if (!hitDuringAttack)
-        {
-            Flash();
-            hitDuringAttack = true;
-        }
-    }
-    
-    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
-        if (hitDuringAttack)
-        {
-            if (amountBeforeAttack == Amount)
-            {
-                await PowerCmd.Remove(this);
-            }
-            else
-            {
-                await PowerCmd.ModifyAmount(choiceContext, this, -amountBeforeAttack, null, null);
-                hitDuringAttack = false;
-            }
-            
-        }
+        await PowerCmd.Remove(this);
     }
     
 }

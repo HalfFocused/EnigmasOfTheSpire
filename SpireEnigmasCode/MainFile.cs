@@ -13,7 +13,6 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
-using MegaCrit.Sts2.Core.Logging;
 using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Relics;
@@ -38,8 +37,8 @@ public partial class MainFile : Node
     public static void Initialize()
     {
         Harmony harmony = new(ModId);
-
         harmony.PatchAll();
+        Harmony.DEBUG = true;
         CatchOverdrawPatch.Patch(harmony);
     }
 }
@@ -153,7 +152,7 @@ class PowerNodeInfinityDisplayPatch
     {
         if (__instance._model is ForetoldPower)
         {
-            if (__instance._model.Amount == ForetoldPower.INFINITY)
+            if (__instance._model.Amount >= ForetoldPower.INFINITY)
             {
                 __instance._amountLabel.SetTextAutoSize("∞");
             }
@@ -172,7 +171,7 @@ class ForetoldPowerDescriptionPatch
     {
         if (__instance is ForetoldPower)
         {
-            if (__instance.Amount == ForetoldPower.INFINITY)
+            if (__instance.Amount >= ForetoldPower.INFINITY)
             {
                 __result = new LocString("powers", ((ForetoldPower)__instance).InfiniteDescriptionLocKey);
             }
@@ -277,9 +276,9 @@ class DrawIncreasePatch
         Player player,
         bool fromHandDraw)
     {
-        if (player.HasPower<UnsustainableInconsolablePower>() && !fromHandDraw && count != 0)
+        if (player.HasPower<UnsustainablePower>() && !fromHandDraw && count != 0)
         {
-            UnsustainableInconsolablePower power = player.Creature.GetPower<UnsustainableInconsolablePower>();
+            UnsustainablePower power = player.Creature.GetPower<UnsustainablePower>();
             power.Flash();
             count *= power.Amount;
         }
@@ -292,7 +291,7 @@ class AllowDrawPatch
     [HarmonyPostfix]
     static void AllowCardDraw(Player player, ref bool __result)
     {
-        if (player.HasPower<UnsustainableInconsolablePower>())
+        if (player.HasPower<UnsustainablePower>())
         {
             __result = true;
         }

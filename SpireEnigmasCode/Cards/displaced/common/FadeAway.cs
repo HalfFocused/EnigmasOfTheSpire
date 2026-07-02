@@ -42,5 +42,5 @@ public class FadeAway() : DisplacedCard(1, CardType.Skill, CardRarity.Common, Ta
         CardCmd.ApplyKeyword(cardToMakeEthereal, CardKeyword.Ethereal);
     }
     
-    protected override void OnUpgrade() => this.DynamicVars.Block.UpgradeValueBy(3M);
+    protected override void OnUpgrade() => DynamicVars.Block.UpgradeValueBy(3M);
 }

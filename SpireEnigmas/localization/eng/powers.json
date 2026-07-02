@@ -64,12 +64,15 @@
   "SPIREENIGMAS-STASIS_POWER.description": "nobody should see this",
   "SPIREENIGMAS-STASIS_POWER.smartDescription": "Other turn-based debuffs don't decrease on this creature. Lasts [blue]{Amount}[/blue] turns.",
   "SPIREENIGMAS-CHARRED_POWER.title": "Charred",
-  "SPIREENIGMAS-CHARRED_POWER.description": "Takes increased Attack damage the next time it is attacked.",
+  "SPIREENIGMAS-CHARRED_POWER.description": "Takes increased Attack damage this turn.",
   "SPIREENIGMAS-CHARRED_POWER.smartDescription": "Takes [blue]{Amount}[/blue] increased damage from the next Attack.",
   "SPIREENIGMAS-BLOODLUST_POWER.title": "Bloodlust",
   "SPIREENIGMAS-BLOODLUST_POWER.description": "",
   "SPIREENIGMAS-BLOODLUST_POWER.smartDescription": "#You can only play *Attacks* this turn.",
-  "SPIREENIGMAS-UNSUSTAINABLE_INCONSOLABLE_POWER.title": "Unsustainable Inconsolable",
-  "SPIREENIGMAS-UNSUSTAINABLE_INCONSOLABLE_POWER.description": "",
-  "SPIREENIGMAS-UNSUSTAINABLE_INCONSOLABLE_POWER.smartDescription": "#Whenever you draw a card during your turn, draw [blue]{Amount}[/blue] instead. Cards that don't fit your *Hand* are *Exhausted*."
+  "SPIREENIGMAS-UNSUSTAINABLE_POWER.title": "Unsustainable Inconsolable",
+  "SPIREENIGMAS-UNSUSTAINABLE_POWER.description": "",
+  "SPIREENIGMAS-UNSUSTAINABLE_POWER.smartDescription": "#Whenever you draw a card during your turn, draw [blue]{Amount}[/blue] instead. Cards that don't fit your *Hand* are *Exhausted*.",
+  "SPIREENIGMAS-FEALTY_POWER.title": "Fealty",
+  "SPIREENIGMAS-FEALTY_POWER.description": "#Increases the damage and *Block* of Common cards.",
+  "SPIREENIGMAS-FEALTY_POWER.smartDescription": "#Common cards deal [blue]{Amount}[/blue] additional damage and gain [blue]{Amount}[/blue] additional *Block*."
 }
