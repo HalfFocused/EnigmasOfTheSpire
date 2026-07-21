@@ -11,7 +11,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.common;
 
-public class BrazenStance() : SacrificeCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class BrazenStance() : SpireEnigmasCard.SacrificeCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

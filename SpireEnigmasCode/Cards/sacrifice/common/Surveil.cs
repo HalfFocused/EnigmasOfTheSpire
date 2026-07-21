@@ -8,7 +8,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.common;
 
-public class Surveil() : SacrificeCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class Surveil() : SpireEnigmasCard.SacrificeCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

@@ -8,7 +8,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.rare;
 
-public class Prophesize() : DisplacedCard(2,
+public class Prophesize() : SpireEnigmasCard.DisplacedCard(2,
     CardType.Power, CardRarity.Rare,
     TargetType.Self)
 {

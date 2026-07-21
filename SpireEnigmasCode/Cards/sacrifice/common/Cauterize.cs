@@ -8,13 +8,13 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.common;
 
-public class Cauterize() : SacrificeCard(0, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class Cauterize() : SpireEnigmasCard.SacrificeCard(0, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     public override bool GainsBlock => true;
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new BlockVar(8M, ValueProp.Move)
+        new BlockVar(9M, ValueProp.Move)
     ];
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>

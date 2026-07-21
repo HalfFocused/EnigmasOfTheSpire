@@ -5,10 +5,11 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using SpireEnigmas.SpireEnigmasCode.Powers;
+using SpireEnigmas.SpireEnigmasCode.Util;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.uncommon;
 
-public class TwoVirtues() : SacrificeCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class TwoVirtues() : SpireEnigmasCard.SacrificeCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

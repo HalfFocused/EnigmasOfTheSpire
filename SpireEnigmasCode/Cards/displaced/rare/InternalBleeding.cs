@@ -7,7 +7,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.rare;
 
-public class InternalBleeding() : DisplacedCard(2,
+public class InternalBleeding() : SpireEnigmasCard.DisplacedCard(2,
     CardType.Power, CardRarity.Rare,
     TargetType.Self)
 {

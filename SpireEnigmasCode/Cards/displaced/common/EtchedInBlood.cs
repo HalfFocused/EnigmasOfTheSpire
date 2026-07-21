@@ -14,7 +14,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.common;
 
 [Pool(typeof(TheDisplacedCardPool))]
-public class EtchedInBlood() : DisplacedCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class EtchedInBlood() : SpireEnigmasCard.DisplacedCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     public override bool GainsBlock => true;
     

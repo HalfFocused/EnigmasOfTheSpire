@@ -9,7 +9,7 @@ using Void = MegaCrit.Sts2.Core.Models.Cards.Void;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.rare;
 
-public class Her() : DisplacedCard(2,
+public class Her() : SpireEnigmasCard.DisplacedCard(2,
     CardType.Attack, CardRarity.Rare,
     TargetType.AllEnemies)
 {
@@ -32,7 +32,7 @@ public class Her() : DisplacedCard(2,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).TargetingAllOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).TargetingAllOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
 
     protected override void OnUpgrade()

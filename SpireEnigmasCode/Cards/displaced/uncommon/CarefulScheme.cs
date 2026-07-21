@@ -7,7 +7,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
-public class CarefulScheme() : DisplacedCard(1,
+public class CarefulScheme() : SpireEnigmasCard.DisplacedCard(1,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {

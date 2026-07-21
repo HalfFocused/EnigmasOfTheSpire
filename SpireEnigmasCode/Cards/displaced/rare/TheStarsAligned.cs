@@ -10,7 +10,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.rare;
 
-public class TheStarsAligned() : DisplacedCard(3,
+public class TheStarsAligned() : SpireEnigmasCard.DisplacedCard(3,
     CardType.Power, CardRarity.Rare,
     TargetType.Self)
 {

@@ -8,7 +8,7 @@ using SpireEnigmas.SpireEnigmasCode.Cards.displaced.token;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.rare;
 
-public class Witness() : DisplacedCard(0,
+public class Witness() : SpireEnigmasCard.DisplacedCard(0,
     CardType.Skill, CardRarity.Rare,
     TargetType.AnyEnemy)
 {

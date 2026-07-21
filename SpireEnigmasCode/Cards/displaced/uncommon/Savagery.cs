@@ -12,7 +12,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
-public class Savagery() : DisplacedCard(2,
+public class Savagery() : SpireEnigmasCard.DisplacedCard(2,
     CardType.Attack, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
@@ -36,7 +36,7 @@ public class Savagery() : DisplacedCard(2,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars.Repeat.IntValue).FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_flying_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars.Repeat.IntValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_flying_slash").Execute(choiceContext);
     }
 
     public override async Task AfterCardExhausted(PlayerChoiceContext choiceContext, CardModel card,

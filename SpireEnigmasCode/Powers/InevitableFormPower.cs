@@ -50,7 +50,7 @@ public class InevitableFormPower : SpireEnigmaPower
 
   public override Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
   {
-    if (cardPlay.Card.Owner.Creature == Owner && cardPlay != null && !cardPlay.IsAutoPlay && cardPlay.IsLastInSeries && cardPlay.Card.Type is CardType.Attack or CardType.Skill)
+    if (cardPlay.Card.Owner.Creature == Owner && cardPlay != null && !cardPlay.IsAutoPlay && cardPlay.IsLastInSeries && cardPlay.Card.Type is not CardType.Power)
       ++GetInternalData<Data>().cardsPlayedThisTurn;
     return Task.CompletedTask;
   }
@@ -69,21 +69,20 @@ public class InevitableFormPower : SpireEnigmaPower
   public bool ShouldSkip(CardModel card)
   {
     if (card.Owner.Creature != Owner) return true;
-    if (!(card.Type is CardType.Attack or CardType.Skill)) return true;
+    if (card.Type is CardType.Power) return true;
     if(GetInternalData<Data>().cardsPlayedThisTurn >= Amount) return true;
     return card.Pile.Type is not (PileType.Hand or PileType.Play);
   }
   
-  public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(
+  public override CardLocation ModifyCardPlayResultLocation(
     CardModel card,
     bool isAutoPlay,
     ResourceInfo resources,
-    PileType pileType,
-    CardPilePosition position)
+    CardLocation cardLocation)
   {
     if (ShouldSkip(card))
-      return (pileType, position);
-    return (PileType.Exhaust, position);
+      return new CardLocation(cardLocation.player, cardLocation.pileType, cardLocation.position);
+    return new CardLocation(Owner.Player, PileType.Exhaust, cardLocation.position);
   }
 
   public void HideTemporaryZeroCostVisual()

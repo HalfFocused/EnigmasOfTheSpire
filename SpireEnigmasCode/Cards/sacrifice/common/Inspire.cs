@@ -8,10 +8,8 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.common;
 
-public class Inspire() : SacrificeCard(0, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class Inspire() : SpireEnigmasCard.SacrificeCard(0, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
-    public override bool GainsBlock => true;
-    
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new EnergyVar(1)

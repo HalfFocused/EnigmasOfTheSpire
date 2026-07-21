@@ -12,7 +12,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.token;
 
 [Pool(typeof(TokenCardPool))]
-public class Taboo() : SacrificeCard(0,
+public class Taboo() : SpireEnigmasCard.SacrificeCard(0,
     CardType.Skill, CardRarity.Token,
     TargetType.Self)
 {
@@ -31,7 +31,8 @@ public class Taboo() : SacrificeCard(0,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars.HpLoss.BaseValue, ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move, this);
+        VfxCmd.PlayOnCreatureCenter(Owner.Creature, VfxCmd.bloodyImpactPath);
+        await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars.HpLoss.BaseValue, ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move, this, play);
         await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
     }
 

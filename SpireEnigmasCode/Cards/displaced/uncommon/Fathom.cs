@@ -11,7 +11,7 @@ using SpireEnigmas.SpireEnigmasCode.Character.displaced;
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
 [Pool(typeof(TheDisplacedCardPool))]
-public class Fathom() : DisplacedCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class Fathom() : SpireEnigmasCard.DisplacedCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

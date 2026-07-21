@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
-public class Euphoria() : DisplacedCard(1,
+public class Euphoria() : SpireEnigmasCard.DisplacedCard(1,
     CardType.Attack, CardRarity.Uncommon,
     TargetType.AllEnemies)
 {
@@ -25,7 +25,7 @@ public class Euphoria() : DisplacedCard(1,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).TargetingAllOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).TargetingAllOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
         CardPile pile = PileType.Hand.GetPile(Owner);
         CardModel cardToExhaust = Owner.RunState.Rng.CombatCardSelection.NextItem<CardModel>((IEnumerable<CardModel>) pile.Cards);
         if (cardToExhaust == null)

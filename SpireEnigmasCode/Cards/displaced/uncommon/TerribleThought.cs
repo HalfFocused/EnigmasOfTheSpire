@@ -8,7 +8,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
-public class TerribleThought() : DisplacedCard(1,
+public class TerribleThought() : SpireEnigmasCard.DisplacedCard(1,
     CardType.Power, CardRarity.Uncommon,
     TargetType.Self)
 {

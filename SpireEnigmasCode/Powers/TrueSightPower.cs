@@ -1,5 +1,7 @@
-﻿using MegaCrit.Sts2.Core.Entities.Creatures;
+﻿using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Cards.displaced.token;
@@ -12,13 +14,19 @@ public class TrueSightPower : SpireEnigmaPower
     public override PowerStackType StackType => PowerStackType.Counter;
     public override PowerInstanceType InstanceType => PowerInstanceType.None;
     
-    public override Decimal ModifyDamageAdditive(
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => 
+    [
+        HoverTipFactory.Static(StaticHoverTip.Block)
+    ];
+    
+    public override Decimal ModifyDamageMultiplicative(
         Creature? target,
         Decimal amount,
         ValueProp props,
         Creature? dealer,
-        CardModel? card)
+        CardModel? cardSource,
+        CardPlay? cardPlay)
     {
-        return Owner != dealer || !props.IsPoweredAttack() || card is not Vision ? 0M : Amount;
+        return Owner != dealer || !props.IsPoweredAttack() || cardSource is not Vision ? 0M : Amount;
     }
 }

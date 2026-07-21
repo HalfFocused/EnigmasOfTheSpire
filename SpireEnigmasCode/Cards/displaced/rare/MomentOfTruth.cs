@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.rare;
 
-public class MomentOfTruth() : DisplacedCard(1,
+public class MomentOfTruth() : SpireEnigmasCard.DisplacedCard(1,
     CardType.Skill, CardRarity.Rare,
     TargetType.Self)
 {

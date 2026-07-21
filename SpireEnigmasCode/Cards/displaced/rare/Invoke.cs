@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Models.Cards;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.rare;
 
-public class Invoke() : DisplacedCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class Invoke() : SpireEnigmasCard.DisplacedCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new CardsVar(1)

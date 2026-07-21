@@ -16,7 +16,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.basic;
 
 [Pool(typeof(TheDisplacedCardPool))]
-public class Gaze() : DisplacedCard(2, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy),
+public class Gaze() : SpireEnigmasCard.DisplacedCard(2, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy),
     ITranscendenceCard
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
@@ -40,9 +40,7 @@ public class Gaze() : DisplacedCard(2, CardType.Attack, CardRarity.Basic, Target
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        Gaze card = this;
-        ArgumentNullException.ThrowIfNull((object) play.Target, "cardPlay.Target");
-        await DamageCmd.Attack(card.DynamicVars.Damage.BaseValue).FromCard(card).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
         await PowerCmd.Apply<ForetoldPower>(choiceContext, play.Target, DynamicVars["ForetoldPower"].BaseValue, Owner.Creature, this);
     }
 

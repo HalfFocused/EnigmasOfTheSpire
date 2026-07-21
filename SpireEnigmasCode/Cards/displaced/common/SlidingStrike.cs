@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.common;
 
-public class SlidingStrike() : DisplacedCard(1,
+public class SlidingStrike() : SpireEnigmasCard.DisplacedCard(1,
     CardType.Attack, CardRarity.Common,
     TargetType.AnyEnemy)
 {
@@ -20,7 +20,7 @@ public class SlidingStrike() : DisplacedCard(1,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
         await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
         await PowerCmd.Apply<DrawCardsNextTurnPower>(choiceContext, Owner.Creature, DynamicVars.Cards.BaseValue, Owner.Creature, this);
     }

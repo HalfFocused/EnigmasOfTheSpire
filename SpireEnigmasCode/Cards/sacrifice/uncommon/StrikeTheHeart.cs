@@ -11,11 +11,12 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
+using SpireEnigmas.SpireEnigmasCode.Cards.displaced;
 using SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.token;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.uncommon;
 
-public class StrikeTheHeart() : SacrificeCard(1,
+public class StrikeTheHeart() : SpireEnigmasCard.SacrificeCard(1,
     CardType.Attack, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
@@ -37,13 +38,12 @@ public class StrikeTheHeart() : SacrificeCard(1,
     ];
     
     protected override bool ShouldGlowGoldInternal => PlayedTabooThisTurn(this);
-
     
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.CalculatedDamage.Calculate(play.Target)).FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.CalculatedDamage.Calculate(play.Target)).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
 
     protected override void OnUpgrade()

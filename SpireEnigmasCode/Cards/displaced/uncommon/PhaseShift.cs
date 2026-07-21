@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
-public class PhaseShift() : DisplacedCard(0,
+public class PhaseShift() : SpireEnigmasCard.DisplacedCard(0,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {

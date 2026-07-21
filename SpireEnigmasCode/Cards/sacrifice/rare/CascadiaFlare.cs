@@ -1,23 +1,17 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using Godot;
+﻿using Godot;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.common;
+namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.rare;
 
-public class CascadiaFlare() : SacrificeCard(3, CardType.Attack, CardRarity.Rare, TargetType.Self)
+public class CascadiaFlare() : SpireEnigmasCard.SacrificeCard(3, CardType.Attack, CardRarity.Rare, TargetType.AllEnemies)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -39,7 +33,7 @@ public class CascadiaFlare() : SacrificeCard(3, CardType.Attack, CardRarity.Rare
             if (instance != null)
                 instance.CombatVfxContainer.AddChildSafely((Node) NGroundFireVfx.Create(hittableEnemy));
         }
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars.Repeat.IntValue).FromCard(this).TargetingAllOpponents(CombatState).WithHitFx("vfx/vfx_attack_blunt", tmpSfx: "heavy_attack.mp3").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars.Repeat.IntValue).FromCard(this, play).TargetingAllOpponents(CombatState).WithHitFx("vfx/vfx_attack_blunt", tmpSfx: "heavy_attack.mp3").Execute(choiceContext);
     }
 
     protected override void OnUpgrade()

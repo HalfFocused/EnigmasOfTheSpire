@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.common;
 
-public class FutureSight() : DisplacedCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class FutureSight() : SpireEnigmasCard.DisplacedCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     public override bool GainsBlock => true;
     private int _cardsToDraw = 0;

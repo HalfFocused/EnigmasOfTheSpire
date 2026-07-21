@@ -8,7 +8,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
-public class Motivation() : DisplacedCard(1,
+public class Motivation() : SpireEnigmasCard.DisplacedCard(1,
     CardType.Power, CardRarity.Uncommon,
     TargetType.Self)
 {

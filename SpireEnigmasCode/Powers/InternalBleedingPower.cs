@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Entities.Creatures;
+﻿using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -16,7 +17,8 @@ public class InternalBleedingPower : SpireEnigmaPower
         Decimal amount,
         ValueProp props,
         Creature? dealer,
-        CardModel? cardSource)
+        CardModel? cardSource,
+        CardPlay? cardPlay)
     {
         if(target is null) return 0;
 

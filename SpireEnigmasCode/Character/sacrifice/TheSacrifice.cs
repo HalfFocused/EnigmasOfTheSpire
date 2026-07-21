@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.Models;
 using SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.basic;
 using SpireEnigmas.SpireEnigmasCode.Extensions;
 using SpireEnigmas.SpireEnigmasCode.Relics;
+using SpireEnigmas.SpireEnigmasCode.Relics.sacrifice;
 
 namespace SpireEnigmas.SpireEnigmasCode.Character.sacrifice;
 

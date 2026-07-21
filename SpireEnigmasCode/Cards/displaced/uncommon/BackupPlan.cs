@@ -15,7 +15,7 @@ using SpireEnigmas.SpireEnigmasCode.Character.displaced;
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
 [Pool(typeof(TheDisplacedCardPool))]
-public class BackupPlan() : DisplacedCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class BackupPlan() : SpireEnigmasCard.DisplacedCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -38,7 +38,7 @@ public class BackupPlan() : DisplacedCard(1, CardType.Attack, CardRarity.Uncommo
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
     
     public override async Task AfterCardExhausted(PlayerChoiceContext choiceContext, CardModel card, bool causedByEthereal)

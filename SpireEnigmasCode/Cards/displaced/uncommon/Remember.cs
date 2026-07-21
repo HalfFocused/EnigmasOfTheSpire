@@ -7,7 +7,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
-public class Remember() : DisplacedCard(1,
+public class Remember() : SpireEnigmasCard.DisplacedCard(1,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {

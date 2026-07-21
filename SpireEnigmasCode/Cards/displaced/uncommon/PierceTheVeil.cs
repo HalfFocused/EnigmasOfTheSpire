@@ -1,4 +1,6 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -6,7 +8,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
-public class PierceTheVeil() : DisplacedCard(2,
+public class PierceTheVeil() : SpireEnigmasCard.DisplacedCard(2,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {

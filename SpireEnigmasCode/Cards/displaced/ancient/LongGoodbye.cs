@@ -1,4 +1,6 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -6,7 +8,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.ancient;
 
-public class LongGoodbye() : DisplacedCard(3, CardType.Power, CardRarity.Ancient, TargetType.Self)
+public class LongGoodbye() : SpireEnigmasCard.DisplacedCard(3, CardType.Power, CardRarity.Ancient, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [];
 

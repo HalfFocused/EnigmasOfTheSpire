@@ -8,7 +8,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.rare;
 
-public class Reverie() : DisplacedCard(1,
+public class Reverie() : SpireEnigmasCard.DisplacedCard(1,
     CardType.Power, CardRarity.Rare,
     TargetType.Self)
 {

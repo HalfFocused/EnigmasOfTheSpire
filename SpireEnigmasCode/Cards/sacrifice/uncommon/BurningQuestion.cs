@@ -15,7 +15,7 @@ using SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.token;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.uncommon;
 
-public class BurningQuestion() : SacrificeCard(0,
+public class BurningQuestion() : SpireEnigmasCard.SacrificeCard(0,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
@@ -35,7 +35,7 @@ public class BurningQuestion() : SacrificeCard(0,
         CardPlay play)
     {
         int num = ResolveEnergyXValue();
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(num).FromCard(this).Targeting(play.Target).WithHitVfxNode((Func<Creature, Node2D>) (t => (Node2D) NStabVfx.Create(t, true, VfxColor.Gold))).Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(num).FromCard(this, play).Targeting(play.Target).WithHitVfxNode((Func<Creature, Node2D>) (t => (Node2D) NStabVfx.Create(t, true, VfxColor.Gold))).Execute(choiceContext);
         Taboo.CreateInHand(Owner, num, CombatState);
     }
 

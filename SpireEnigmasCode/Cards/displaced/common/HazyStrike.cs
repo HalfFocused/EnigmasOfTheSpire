@@ -13,7 +13,7 @@ using SpireEnigmas.SpireEnigmasCode.Character.displaced;
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.common;
 
 [Pool(typeof(TheDisplacedCardPool))]
-public class HazyStrike() : DisplacedCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class HazyStrike() : SpireEnigmasCard.DisplacedCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override HashSet<CardTag> CanonicalTags =>
     [
@@ -34,7 +34,7 @@ public class HazyStrike() : DisplacedCard(1, CardType.Attack, CardRarity.Common,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
         CardModel dazed = Owner.Creature.CombatState.CreateCard<Dazed>(Owner);
         CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(dazed, PileType.Draw, Owner, CardPilePosition.Random));
     }

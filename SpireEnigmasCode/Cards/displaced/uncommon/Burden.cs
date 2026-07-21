@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
-public class Burden() : DisplacedCard(2,
+public class Burden() : SpireEnigmasCard.DisplacedCard(2,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {

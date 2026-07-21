@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.rare;
 
-public class Commiserate() : DisplacedCard(0,
+public class Commiserate() : SpireEnigmasCard.DisplacedCard(0,
     CardType.Attack, CardRarity.Rare,
     TargetType.AnyEnemy)
 {
@@ -27,8 +27,8 @@ public class Commiserate() : DisplacedCard(0,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
         int debuffs = play.Target.Powers.Count(p => p.TypeForCurrentAmount == PowerType.Debuff && p is not ITemporaryPower);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
         for (int i = 0; i < debuffs; i++)
         {
             await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.IntValue, Owner);

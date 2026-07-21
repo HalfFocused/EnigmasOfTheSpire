@@ -7,7 +7,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
-public class Stasis() : DisplacedCard(1,
+public class Stasis() : SpireEnigmasCard.DisplacedCard(1,
     CardType.Attack, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
@@ -20,7 +20,7 @@ public class Stasis() : DisplacedCard(1,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
         await PowerCmd.Apply<StasisPower>(choiceContext, play.Target, DynamicVars["StasisPower"].BaseValue, Owner.Creature, this);
     }
 

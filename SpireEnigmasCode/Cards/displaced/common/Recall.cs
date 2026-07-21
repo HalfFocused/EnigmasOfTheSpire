@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.common;
 
-public class Recall() : DisplacedCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class Recall() : SpireEnigmasCard.DisplacedCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new DamageVar(6M, ValueProp.Move),
@@ -23,7 +23,7 @@ public class Recall() : DisplacedCard(1, CardType.Attack, CardRarity.Common, Tar
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
         CardSelectorPrefs prefs = new CardSelectorPrefs(SelectionScreenPrompt, DynamicVars.Cards.IntValue);
         foreach (CardModel card in (await CardSelectCmd.FromSimpleGrid(choiceContext,
                      PileType.Discard.GetPile(Owner).Cards, Owner, prefs)))

@@ -1,4 +1,6 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -8,7 +10,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.common;
 
-public class Ignite() : SacrificeCard(2, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
+public class Ignite() : SpireEnigmasCard.SacrificeCard(2, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -24,7 +26,7 @@ public class Ignite() : SacrificeCard(2, CardType.Attack, CardRarity.Common, Tar
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).TargetingAllOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).TargetingAllOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
         await PowerCmd.Apply<CharredPower>(choiceContext, CombatState.HittableEnemies, DynamicVars["CharredPower"].BaseValue, Owner.Creature, this);
     }
 

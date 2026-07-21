@@ -1,7 +1,7 @@
 ﻿using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Models;
 
-namespace SpireEnigmas.SpireEnigmasCode;
+namespace SpireEnigmas.SpireEnigmasCode.Util;
 
 public class RarityHelper
 {

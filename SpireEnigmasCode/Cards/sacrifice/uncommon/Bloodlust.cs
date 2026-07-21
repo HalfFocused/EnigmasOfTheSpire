@@ -8,7 +8,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.uncommon;
 
-public class Bloodlust() : SacrificeCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class Bloodlust() : SpireEnigmasCard.SacrificeCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

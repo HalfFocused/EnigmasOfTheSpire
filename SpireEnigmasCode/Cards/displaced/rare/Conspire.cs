@@ -9,7 +9,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.rare;
 
-public class Conspire() : DisplacedCard(3,
+public class Conspire() : SpireEnigmasCard.DisplacedCard(3,
     CardType.Power, CardRarity.Rare,
     TargetType.Self)
 {

@@ -8,7 +8,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
-public class SawItComing() : DisplacedCard(1,
+public class SawItComing() : SpireEnigmasCard.DisplacedCard(1,
     CardType.Attack, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
@@ -28,8 +28,9 @@ public class SawItComing() : DisplacedCard(1,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
-        if (play.Target.HasPower<ForetoldPower>())
+        bool hadForetold = play.Target.HasPower<ForetoldPower>();
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        if (hadForetold)
         {
             await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, play);
         }

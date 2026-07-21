@@ -12,7 +12,7 @@ using SpireEnigmas.SpireEnigmasCode.Character.displaced;
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
 [Pool(typeof(TheDisplacedCardPool))]
-public class AheadOfTime() : DisplacedCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.None)
+public class AheadOfTime() : SpireEnigmasCard.DisplacedCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.None)
 {
     public override bool GainsBlock => true;
     

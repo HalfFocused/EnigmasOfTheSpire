@@ -12,7 +12,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.token;
 [Pool(typeof(TokenCardPool))]
-public class Vision() : DisplacedCard(1,
+public class Vision() : SpireEnigmasCard.DisplacedCard(1,
     CardType.Attack, CardRarity.Token,
     TargetType.AnyEnemy)
 {
@@ -29,7 +29,7 @@ public class Vision() : DisplacedCard(1,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
         await CardPileCmd.Draw(choiceContext, ((CalculatedVar) DynamicVars["CalculatedCards"]).Calculate(play.Target), Owner);
     }
 

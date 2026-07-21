@@ -13,7 +13,8 @@ public class StasisPower : SpireEnigmaPower
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;
     
-    public override async Task AfterSideTurnEnd(
+    
+    public override async Task AfterSideTurnEndLate(
         PlayerChoiceContext choiceContext,
         CombatSide side,
         IEnumerable<Creature> participants)
@@ -22,5 +23,4 @@ public class StasisPower : SpireEnigmaPower
             return;
         await PowerCmd.TickDownDuration(this);
     }
-    
 }

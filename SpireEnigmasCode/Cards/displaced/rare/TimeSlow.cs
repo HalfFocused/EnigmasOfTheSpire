@@ -7,7 +7,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.rare;
 
-public class TimeSlow() : DisplacedCard(3,
+public class TimeSlow() : SpireEnigmasCard.DisplacedCard(3,
     CardType.Power, CardRarity.Rare,
     TargetType.Self)
 {

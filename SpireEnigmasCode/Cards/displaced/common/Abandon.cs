@@ -12,7 +12,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.common;
 
 [Pool(typeof(TheDisplacedCardPool))]
-public class Abandon() : DisplacedCard(2, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class Abandon() : SpireEnigmasCard.DisplacedCard(2, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     public override bool GainsBlock => true;
     

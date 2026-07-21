@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
-public class LetGo() : DisplacedCard(1,
+public class LetGo() : SpireEnigmasCard.DisplacedCard(1,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {

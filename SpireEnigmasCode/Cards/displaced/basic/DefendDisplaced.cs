@@ -10,7 +10,7 @@ using SpireEnigmas.SpireEnigmasCode.Character.displaced;
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.basic;
 
 [Pool(typeof(TheDisplacedCardPool))]
-public class DefendDisplaced() : DisplacedCard(1, CardType.Skill, CardRarity.Basic, TargetType.Self)
+public class DefendDisplaced() : SpireEnigmasCard.DisplacedCard(1, CardType.Skill, CardRarity.Basic, TargetType.Self)
 {
     protected override HashSet<CardTag> CanonicalTags
     {

@@ -10,7 +10,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.uncommon;
 
-public class Recite() : SacrificeCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class Recite() : SpireEnigmasCard.SacrificeCard(0, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

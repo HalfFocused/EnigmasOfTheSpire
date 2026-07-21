@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
-public class Vanquish() : DisplacedCard(3,
+public class Vanquish() : SpireEnigmasCard.DisplacedCard(3,
     CardType.Attack, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
@@ -20,7 +20,7 @@ public class Vanquish() : DisplacedCard(3,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_flying_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_flying_slash").Execute(choiceContext);
         await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
         await PlayerCmd.GainEnergy(DynamicVars.Energy.BaseValue, Owner);
     }

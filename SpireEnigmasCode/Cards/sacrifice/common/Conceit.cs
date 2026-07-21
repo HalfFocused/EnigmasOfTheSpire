@@ -1,4 +1,7 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -6,11 +9,10 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
-using SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.token;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.common;
 
-public class Conceit() : SacrificeCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class Conceit() : SpireEnigmasCard.SacrificeCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     public override bool GainsBlock => true;
     
@@ -18,12 +20,6 @@ public class Conceit() : SacrificeCard(1, CardType.Skill, CardRarity.Common, Tar
     [
         new BlockVar(8M, ValueProp.Move)
     ];
-
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-    [
-        HoverTipFactory.FromCard<Taboo>()
-    ];
-
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
@@ -39,7 +35,7 @@ public class Conceit() : SacrificeCard(1, CardType.Skill, CardRarity.Common, Tar
             {
                 CardCmd.Upgrade(card);
             }
-            CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Draw, Owner, CardPilePosition.Random));
+            await CardPileCmd.AddGeneratedCardToCombat(card, PileType.Hand, Owner);
         }
 
     }

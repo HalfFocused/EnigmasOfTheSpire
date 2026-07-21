@@ -11,7 +11,7 @@ using SpireEnigmas.SpireEnigmasCode.Character.displaced;
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.basic;
 
 [Pool(typeof(TheDisplacedCardPool))]
-public class Persist() : DisplacedCard(0, CardType.Skill, CardRarity.Basic, TargetType.Self)
+public class Persist() : SpireEnigmasCard.DisplacedCard(0, CardType.Skill, CardRarity.Basic, TargetType.Self)
 {
     public override bool GainsBlock => true;
     

@@ -9,10 +9,11 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
+using SpireEnigmas.SpireEnigmasCode.Util;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.rare;
 
-public class UnworthyAscent() : SacrificeCard(6,
+public class UnworthyAscent() : SpireEnigmasCard.SacrificeCard(6,
     CardType.Attack, CardRarity.Rare,
     TargetType.AllEnemies)
 {
@@ -25,7 +26,7 @@ public class UnworthyAscent() : SacrificeCard(6,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_starry_impact", tmpSfx: "blunt_attack.mp3").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).TargetingAllOpponents(CombatState).WithHitFx("vfx/vfx_starry_impact", tmpSfx: "blunt_attack.mp3").Execute(choiceContext);
     }
 
     protected override void OnUpgrade()

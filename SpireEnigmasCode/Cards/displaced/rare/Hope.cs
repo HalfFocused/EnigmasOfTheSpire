@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.rare;
 
-public class Hope() : DisplacedCard(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class Hope() : SpireEnigmasCard.DisplacedCard(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new EnergyVar(2),

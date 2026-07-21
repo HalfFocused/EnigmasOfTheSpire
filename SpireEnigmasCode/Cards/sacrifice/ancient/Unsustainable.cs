@@ -1,19 +1,17 @@
-﻿using BaseLib.Extensions;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using BaseLib.Extensions;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Cards;
-using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Powers;
 
-namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.rare;
+namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.ancient;
 
-public class Unsustainable() : SacrificeCard(2,
+public class Unsustainable() : SpireEnigmasCard.SacrificeCard(2,
     CardType.Power, CardRarity.Ancient,
     TargetType.Self)
 {

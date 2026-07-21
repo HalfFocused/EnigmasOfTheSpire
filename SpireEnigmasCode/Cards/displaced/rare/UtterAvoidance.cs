@@ -7,7 +7,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.rare;
 
-public class UtterAvoidance() : DisplacedCard(1,
+public class UtterAvoidance() : SpireEnigmasCard.DisplacedCard(1,
     CardType.Skill, CardRarity.Rare,
     TargetType.Self)
 {

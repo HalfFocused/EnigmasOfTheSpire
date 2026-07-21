@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.rare;
 
-public class RecklessAbandon() : DisplacedCard(2,
+public class RecklessAbandon() : SpireEnigmasCard.DisplacedCard(2,
     CardType.Attack, CardRarity.Rare,
     TargetType.RandomEnemy)
 {
@@ -29,7 +29,7 @@ public class RecklessAbandon() : DisplacedCard(2,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount((int) ((CalculatedVar) DynamicVars["CalculatedHits"]).Calculate(play.Target)).FromCard(this).TargetingRandomOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash", tmpSfx: "dagger_throw.mp3").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount((int) ((CalculatedVar) DynamicVars["CalculatedHits"]).Calculate(play.Target)).FromCard(this, play).TargetingRandomOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash", tmpSfx: "dagger_throw.mp3").Execute(choiceContext);
     }
 
     protected override void OnUpgrade()

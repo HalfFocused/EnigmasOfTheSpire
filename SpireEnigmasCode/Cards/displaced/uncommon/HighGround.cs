@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.Models.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
-public class HighGround() : DisplacedCard(0,
+public class HighGround() : SpireEnigmasCard.DisplacedCard(0,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {

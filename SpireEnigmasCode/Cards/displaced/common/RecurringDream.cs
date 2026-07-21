@@ -13,7 +13,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.common;
 
-public class RecurringDream() : DisplacedCard(2,
+public class RecurringDream() : SpireEnigmasCard.DisplacedCard(2,
     CardType.Attack, CardRarity.Common,
     TargetType.AnyEnemy)
 {
@@ -28,7 +28,7 @@ public class RecurringDream() : DisplacedCard(2,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
 
     protected override void OnUpgrade()
@@ -68,7 +68,7 @@ public class RecurringDream() : DisplacedCard(2,
         get
         {
             return CombatManager.Instance.History.Entries.OfType<CardPlayFinishedEntry>().Any(
-                e => e.CardPlay.Card is RecurringDream && (e.RoundNumber == CombatState.RoundNumber || e.RoundNumber == CombatState.RoundNumber - 1)
+                e => e.CardPlay.Card is RecurringDream && (e.RoundNumber == CombatState.RoundNumber || e.RoundNumber == CombatState.RoundNumber - 1) && e.CardPlay.Card.Owner == Owner
             );
         }
     }

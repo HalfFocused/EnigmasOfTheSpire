@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.basic;
 
-public class DefendSacrifice() : SacrificeCard(1, CardType.Skill, CardRarity.Basic, TargetType.Self)
+public class DefendSacrifice() : SpireEnigmasCard.SacrificeCard(1, CardType.Skill, CardRarity.Basic, TargetType.Self)
 {
     protected override HashSet<CardTag> CanonicalTags
     {

@@ -21,8 +21,8 @@ using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Cards.displaced.common;
 using SpireEnigmas.SpireEnigmasCode.Character.displaced;
-using SpireEnigmas.SpireEnigmasCode.Patches;
 using SpireEnigmas.SpireEnigmasCode.Powers;
+using SpireEnigmas.SpireEnigmasCode.Util;
 
 namespace SpireEnigmas.SpireEnigmasCode;
 
@@ -39,61 +39,6 @@ public partial class MainFile : Node
         Harmony harmony = new(ModId);
         harmony.PatchAll();
         Harmony.DEBUG = true;
-        CatchOverdrawPatch.Patch(harmony);
-    }
-}
-
-class DireHPCostField
-{
-    public static readonly SpireField<CardModel, int> DireHPCost = new(()=>0);
-}
-
-/*
- * Patch #1 required to make Thinking Of You work.
- * This patch just straight-up cancels any attempt to Exhaust the card, making it do nothing instead.
- */
-[HarmonyPatch(typeof(CardCmd), nameof(CardCmd.Exhaust))]
-class CardCmdExhaustPatch
-{
-    [HarmonyPrefix]
-    static bool CancelExhaust(ref Task __result, PlayerChoiceContext choiceContext, CardModel card, bool causedByEthereal, bool skipVisuals)
-    {
-        if (card.Keywords.Contains(EnigmaKeywords.Cherished))
-        {
-            card.RemoveKeyword(EnigmaKeywords.Cherished);
-            __result = Task.CompletedTask;
-            return false;
-        }
-
-        return true;
-    }
-}
-/*
- * Patch #2 required to make Thinking Of You work.
- * This patch checks if a card wants to go to the Exhaust pile after being played but can't, redirecting it to the discard pile.
- * Without this, a card that can't Exhaust but wants to Exhaust when played simply goes nowhere and stays on screen.
- *
- * This patch also handles Exhausting cards that were played via Dire.
- */
-[HarmonyPatch(typeof(CardModel), "GetResultPileTypeForCardPlay")]
-class CardPlayResultPilePatch
-{
-    [HarmonyPostfix]
-    static void CancelExhaust(CardModel __instance, ref PileType __result)
-    {
-        if (__instance.Keywords.Contains(EnigmaKeywords.Dire))
-        {
-            if (DireHPCostField.DireHPCost.Get(__instance) > 0)
-            {
-                __result = PileType.Exhaust;
-            }
-        }
-
-        if (__instance.Keywords.Contains(EnigmaKeywords.Cherished) && __result == PileType.Exhaust)
-        {
-            __instance.RemoveKeyword(EnigmaKeywords.Cherished);
-            __result = PileType.Discard;
-        }
     }
 }
 
@@ -201,64 +146,15 @@ class StasisDurationPatch
     }
 }
 
-[HarmonyPatch(typeof(PlayerCombatState), nameof(PlayerCombatState.HasEnoughResourcesFor))]
-class DirePlayablePatch
+[HarmonyPatch(typeof(CardModel), "ShouldGlowGold", MethodType.Getter)]
+class FreestyleGlowGoldPatch
 {
     [HarmonyPostfix]
-    static void AllowPlayingIfHPSufficient(PlayerCombatState __instance, CardModel card, ref UnplayableReason reason, ref bool __result)
+    static void MakeGlowGold(CardModel __instance, ref bool __result)
     {
-        int calculatedEnergyCost = Math.Max(0, card.EnergyCost.GetWithModifiers(CostModifiers.All));
-        if (card.Keywords.Contains(EnigmaKeywords.Dire))
+        if (__instance.Owner.HasPower<FreestylePower>())
         {
-            if (!__result && reason == UnplayableReason.EnergyCostTooHigh)
-            {
-                if (calculatedEnergyCost <= __instance.Energy + card.Owner.Creature._currentHp)
-                {
-                    //num1 represents the calculated energy cost of the card
-                    DireHPCostField.DireHPCost.Set(card, calculatedEnergyCost - __instance.Energy);
-                    __result = true;
-                    reason = UnplayableReason.None;
-                    return;
-                }
-            }
-        }
-        DireHPCostField.DireHPCost.Set(card, 0);
-    }
-}
-
-[HarmonyPatch(typeof(CardModel), nameof(CardModel.SpendEnergy))]
-class SpendHPCostPatch
-{
-    [HarmonyPrefix]
-    static void SpendCalculatedHPCost(CardModel __instance)
-    {
-
-        if (__instance.Keywords.Contains(EnigmaKeywords.Dire))
-        {
-            int calculatedHPCost = DireHPCostField.DireHPCost.Get(__instance);
-            if (calculatedHPCost > 0)
-            {
-                CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), __instance.Owner.Creature, calculatedHPCost, ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move, __instance);
-            }
-        }
-
-    }
-}
-
-/*
- * Modify the description of the Foretold power if it is infinite.
- */
-[HarmonyPatch(typeof(CardModel), "ShouldGlowRed", MethodType.Getter)]
-class DireCardsGlowRedPatch
-{
-    [HarmonyPostfix]
-    static void MakeGlowRed(CardModel __instance, ref bool __result)
-    {
-        if (__instance.Keywords.Contains(EnigmaKeywords.Dire))
-        {
-            int calculatedHPCost = DireHPCostField.DireHPCost.Get(__instance);
-            
-            if (calculatedHPCost > 0 && calculatedHPCost <= __instance.Owner.Creature._currentHp)
+            if (FreestylePower.CardDrawnDuringThisTurn(__instance) && __instance.Type is CardType.Attack)
             {
                 __result = true;
             }
@@ -278,22 +174,9 @@ class DrawIncreasePatch
     {
         if (player.HasPower<UnsustainablePower>() && !fromHandDraw && count != 0)
         {
-            UnsustainablePower power = player.Creature.GetPower<UnsustainablePower>();
+            UnsustainablePower? power = player.Creature.GetPower<UnsustainablePower>();
             power.Flash();
             count *= power.Amount;
-        }
-    }
-}
-
-[HarmonyPatch(typeof(CardPileCmd), nameof(CardPileCmd.CheckIfDrawIsPossibleAndShowThoughtBubbleIfNot))]
-class AllowDrawPatch
-{
-    [HarmonyPostfix]
-    static void AllowCardDraw(Player player, ref bool __result)
-    {
-        if (player.HasPower<UnsustainablePower>())
-        {
-            __result = true;
         }
     }
 }

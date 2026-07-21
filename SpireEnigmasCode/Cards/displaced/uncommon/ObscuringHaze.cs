@@ -1,4 +1,7 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -7,7 +10,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
-public class ObscuringHaze() : DisplacedCard(2,
+public class ObscuringHaze() : SpireEnigmasCard.DisplacedCard(2,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {

@@ -1,4 +1,8 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -12,13 +16,15 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.rare;
 
-public class RadiantRevival() : SacrificeCard(2,
+public class RadiantRevival() : SpireEnigmasCard.SacrificeCard(2,
     CardType.Skill, CardRarity.Rare,
     TargetType.Self)
 {
+    public override bool CanBeGeneratedInCombat => false;
+    
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new CalculationBaseVar(0),
-        new CalculationExtraVar(1),
+        new CalculationExtraVar(3),
         new CalculatedVar("CalculatedHeal").WithMultiplier((Func<CardModel, Creature, Decimal>) ((card, _) => GetBurns(card.Owner).Count()))
     ];
     
@@ -29,7 +35,8 @@ public class RadiantRevival() : SacrificeCard(2,
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 
     [
-        HoverTipFactory.FromKeyword(CardKeyword.Exhaust)
+        HoverTipFactory.FromKeyword(CardKeyword.Exhaust),
+        HoverTipFactory.FromCard<Burn>()
     ];
 
     protected override async Task OnPlay(

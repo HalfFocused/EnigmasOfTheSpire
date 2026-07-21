@@ -13,7 +13,7 @@ using SpireEnigmas.SpireEnigmasCode.Character.displaced;
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.common;
 
 [Pool(typeof(TheDisplacedCardPool))]
-public class Glimpse() : DisplacedCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class Glimpse() : SpireEnigmasCard.DisplacedCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -30,7 +30,7 @@ public class Glimpse() : DisplacedCard(1, CardType.Attack, CardRarity.Common, Ta
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
         CardModel vision = Owner.Creature.CombatState.CreateCard<Vision>(Owner);
         CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(vision, PileType.Discard, Owner));
     }

@@ -13,7 +13,7 @@ using SpireEnigmas.SpireEnigmasCode.Character.displaced;
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.common;
 
 [Pool(typeof(TheDisplacedCardPool))]
-public class Elude() : DisplacedCard(0, CardType.Skill, CardRarity.Common, TargetType.AllEnemies)
+public class Elude() : SpireEnigmasCard.DisplacedCard(0, CardType.Skill, CardRarity.Common, TargetType.AllEnemies)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

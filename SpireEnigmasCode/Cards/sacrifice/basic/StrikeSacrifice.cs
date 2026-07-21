@@ -8,12 +8,12 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.basic;
 
-public class StrikeSacrifice() : SacrificeCard(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
+public class StrikeSacrifice() : SpireEnigmasCard.SacrificeCard(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
 {
-    protected override HashSet<CardTag> CanonicalTags
-    {
-        get => new HashSet<CardTag>() { CardTag.Strike };
-    }
+    protected override HashSet<CardTag> CanonicalTags =>
+    [
+        CardTag.Strike
+    ];
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -24,7 +24,7 @@ public class StrikeSacrifice() : SacrificeCard(1, CardType.Attack, CardRarity.Ba
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
     
     protected override void OnUpgrade() => DynamicVars.Damage.UpgradeValueBy(3M);

@@ -1,4 +1,6 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -8,7 +10,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.ancient;
 
-public class AllSeeing() : DisplacedCard(1,
+public class AllSeeing() : SpireEnigmasCard.DisplacedCard(1,
     CardType.Attack, CardRarity.Ancient,
     TargetType.AnyEnemy)
 {
@@ -32,7 +34,7 @@ public class AllSeeing() : DisplacedCard(1,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
         await PowerCmd.Apply<ForetoldPower>(choiceContext, play.Target, ForetoldPower.INFINITY, Owner.Creature, this);
     }
 

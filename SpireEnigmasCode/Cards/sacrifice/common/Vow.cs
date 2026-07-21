@@ -10,14 +10,14 @@ using SpireEnigmas.SpireEnigmasCode.Cards.displaced;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.common;
 
-public class Vow() : SacrificeCard(3,
+public class Vow() : SpireEnigmasCard.SacrificeCard(2,
     CardType.Skill, CardRarity.Common,
     TargetType.Self)
 {
     public override bool GainsBlock => true;
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new BlockVar(10, ValueProp.Move),
+        new BlockVar(6, ValueProp.Move),
         new CardsVar(1)
     ];
 
@@ -35,6 +35,6 @@ public class Vow() : SacrificeCard(3,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Block.UpgradeValueBy(4);
+        DynamicVars.Block.UpgradeValueBy(3);
     }
 }

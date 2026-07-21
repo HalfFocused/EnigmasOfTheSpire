@@ -13,7 +13,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.rare;
 
-public class TheSecondDream() : DisplacedCard(1,
+public class TheSecondDream() : SpireEnigmasCard.DisplacedCard(1,
     CardType.Skill, CardRarity.Rare,
     TargetType.Self)
 {

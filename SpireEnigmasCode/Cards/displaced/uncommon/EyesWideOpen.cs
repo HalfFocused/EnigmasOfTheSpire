@@ -8,7 +8,7 @@ using SpireEnigmas.SpireEnigmasCode.Cards.displaced.token;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
-public class EyesWideOpen() : DisplacedCard(0,
+public class EyesWideOpen() : SpireEnigmasCard.DisplacedCard(0,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {

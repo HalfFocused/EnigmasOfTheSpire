@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
-public class Endurance() : DisplacedCard(1,
+public class Endurance() : SpireEnigmasCard.DisplacedCard(1,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {

@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
-public class Harrow() : DisplacedCard(2,
+public class Harrow() : SpireEnigmasCard.DisplacedCard(2,
     CardType.Attack, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
@@ -26,7 +26,7 @@ public class Harrow() : DisplacedCard(2,
         CardPlay play)
     {
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, play);
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_flying_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_flying_slash").Execute(choiceContext);
     }
 
     protected override void OnUpgrade()

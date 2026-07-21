@@ -26,7 +26,8 @@ public class CharredPower : SpireEnigmaPower
         Decimal amount,
         ValueProp props,
         Creature? dealer,
-        CardModel? cardSource)
+        CardModel? cardSource,
+        CardPlay? cardPlay)
     {
         if(target != Owner) return 0;
         return !props.IsPoweredAttack() ? 0M : Amount;
@@ -39,7 +40,17 @@ public class CharredPower : SpireEnigmaPower
     {
         if (side != CombatSide.Enemy)
             return;
-        await PowerCmd.Remove(this);
+
+        if (Owner.HasPower<AfterburnPower>())
+        {
+            PowerModel afterburnPower = Owner.GetPower<AfterburnPower>();
+            await PowerCmd.TickDownDuration(afterburnPower);
+        }
+        else
+        {
+            await PowerCmd.ModifyAmount(choiceContext, this, -Math.Ceiling(Amount / 2.0m), null, null);
+        }
+        
     }
     
 }

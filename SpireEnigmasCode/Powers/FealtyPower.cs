@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
+using SpireEnigmas.SpireEnigmasCode.Util;
 
 namespace SpireEnigmas.SpireEnigmasCode.Powers;
 
@@ -18,7 +19,8 @@ public class FealtyPower : SpireEnigmaPower
         Decimal amount,
         ValueProp props,
         Creature? dealer,
-        CardModel? cardSource)
+        CardModel? cardSource,
+        CardPlay? cardPlay)
     {
         return Owner != dealer || !props.IsPoweredAttack() || cardSource is null || RarityHelper.GetModifiedRarity(cardSource) is not CardRarity.Common ? 0M : Amount;
     }

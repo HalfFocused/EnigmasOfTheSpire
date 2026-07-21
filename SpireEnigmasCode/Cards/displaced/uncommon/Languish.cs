@@ -7,7 +7,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
-public class Languish() : DisplacedCard(1,
+public class Languish() : SpireEnigmasCard.DisplacedCard(1,
     CardType.Power, CardRarity.Uncommon,
     TargetType.Self)
 {

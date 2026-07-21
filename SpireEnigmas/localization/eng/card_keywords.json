@@ -6,5 +6,8 @@
   "SPIREENIGMAS-DIRE.description": "#This card be played for HP if you don't have enough Energy. If you do, it *Exhausts*.",
 
   "SPIREENIGMAS-IMPROVISE.title": "Improvise",
-  "SPIREENIGMAS-IMPROVISE.description": "#This card is free to play the first time it is drawn during each of your turns."
+  "SPIREENIGMAS-IMPROVISE.description": "#This card is free to play the first time it is drawn during each of your turns.",
+
+  "SPIREENIGMAS-TIMELOOP.title": "Time Loop",
+  "SPIREENIGMAS-TIMELOOP.description": "#Whenever you play another card, this *Transforms* into a copy of it."
 }

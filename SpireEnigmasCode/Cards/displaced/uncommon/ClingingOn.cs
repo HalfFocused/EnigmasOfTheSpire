@@ -7,7 +7,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
-public class ClingingOn() : DisplacedCard(2,
+public class ClingingOn() : SpireEnigmasCard.DisplacedCard(2,
     CardType.Power, CardRarity.Uncommon,
     TargetType.Self)
 {

@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.rare;
 
-public class Apathy() : DisplacedCard(2,
+public class Apathy() : SpireEnigmasCard.DisplacedCard(2,
     CardType.Skill, CardRarity.Rare,
     TargetType.Self)
 {

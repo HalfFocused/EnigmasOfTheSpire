@@ -13,7 +13,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.common;
 
 [Pool(typeof(TheDisplacedCardPool))]
-public class Predict() : DisplacedCard(1, CardType.Skill, CardRarity.Common, TargetType.AnyEnemy)
+public class Predict() : SpireEnigmasCard.DisplacedCard(1, CardType.Skill, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

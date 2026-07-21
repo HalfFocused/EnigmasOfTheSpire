@@ -1,9 +1,9 @@
 {
   "SPIREENIGMAS-STRIKE_DISPLACED.title": "Strike",
-  "SPIREENIGMAS-STRIKE_DISPLACED.description": "#Deal !D! damage.",
+  "SPIREENIGMAS-STRIKE_DISPLACED.description": "Deal {Damage:diff()} damage.",
   
   "SPIREENIGMAS-DEFEND_DISPLACED.title": "Defend",
-  "SPIREENIGMAS-DEFEND_DISPLACED.description": "#Gain !B! *Block.",
+  "SPIREENIGMAS-DEFEND_DISPLACED.description": "Gain {Block:diff()} [gold]Block[/gold].",
   
   "SPIREENIGMAS-GAZE.title": "Gaze",
   "SPIREENIGMAS-GAZE.description": "#Deal !D! damage.\nApply !ForetoldPower! *Foretold*.",
@@ -20,8 +20,8 @@
   "SPIREENIGMAS-ELUDE.title": "Elude",
   "SPIREENIGMAS-ELUDE.description": "#Apply !WeakPower! *Weak to ALL enemies that intend to attack.",
   
-  "SPIREENIGMAS-EXPOSE.title": "Expose",
-  "SPIREENIGMAS-EXPOSE.description": "#Deal !D! damage.\nApply !ForetoldPower! *Foretold.",
+  "SPIREENIGMAS-ENGAGE.title": "Engage",
+  "SPIREENIGMAS-ENGAGE.description": "#Deal !D! damage.\nApply !ForetoldPower! *Foretold.",
   
   "SPIREENIGMAS-EUPHORIA.title": "Euphoria",
   "SPIREENIGMAS-EUPHORIA.description": "#Deal !D! damage to ALL enemies.\n*Exhaust 1 card at random.",
@@ -56,6 +56,9 @@
   
   "SPIREENIGMAS-ETCHED_IN_BLOOD.title": "Etched In Blood",
   "SPIREENIGMAS-ETCHED_IN_BLOOD.description": "#Gain !B! *Block*.\n*Exhaust* 1 card.\nNext turn, add that card to your *Hand*.",
+
+  "SPIREENIGMAS-THINKING_OF_YOU.title": "Thinking Of You",
+  "SPIREENIGMAS-THINKING_OF_YOU.description": "#*Exhaust* 1 card.\nNext turn, add that card +*Upgraded*+ to your *Hand*.",
   
   "SPIREENIGMAS-PERSIST.title": "Persist",
   "SPIREENIGMAS-PERSIST.description": "#Gain !B! *Block*.\nPut the next card you play this turn on top of your *Draw* *Pile*.",
@@ -117,9 +120,6 @@
   "SPIREENIGMAS-AS_EXPECTED.title": "As Expected",
   "SPIREENIGMAS-AS_EXPECTED.description": "#After you attack an enemy, if it isn't *Foretold*, apply !ForetoldPower! *Foretold*.",
   
-  "SPIREENIGMAS-THINKING_OF_YOU.title": "Thinking Of You",
-  "SPIREENIGMAS-THINKING_OF_YOU.description": "#Add *Cherished* to ALL cards in your hand.",
-  
   "SPIREENIGMAS-BACKUP_PLAN.title": "Backup Plan",
   "SPIREENIGMAS-BACKUP_PLAN.description": "#Deal !D! damage.\n*Forget*: ALL enemies lose !StrengthLoss! *Strength* this turn.",
   
@@ -154,7 +154,7 @@
   "SPIREENIGMAS-ENDURANCE.description": "#Gain !B! *Block*.\n*Forget*: Shuffle a copy of this into your *Draw* *Pile* with 2 less *Block*.",
   
   "SPIREENIGMAS-EXPLOIT.title": "Exploit",
-  "SPIREENIGMAS-EXPLOIT.description": "#Dead !D! damage.\nRepeat for each unique debuff on the enemy.",
+  "SPIREENIGMAS-EXPLOIT.description": "#Deal !D! damage.\nRepeat for each unique debuff on the enemy.",
   
   "SPIREENIGMAS-OBSCURING_HAZE.title": "Obscuring Haze",
   "SPIREENIGMAS-OBSCURING_HAZE.description": "#Gain !B! *Block*.\nIf you have an *Ethereal* card in your hand, gain [E?].",
@@ -208,7 +208,7 @@
   "SPIREENIGMAS-BEFORE_YOUR_EYES.description": "#Whenever an *Ethereal* card is *Exhausted*, add a random card to your hand.",
   
   "SPIREENIGMAS-INEVITABLE_FORM.title": "Inevitable Form",
-  "SPIREENIGMAS-INEVITABLE_FORM.description": "#The first !InevitableFormPower! Attack(s) or Skill(s) you play each turn cost 0 and *Exhaust*.",
+  "SPIREENIGMAS-INEVITABLE_FORM.description": "#The first !InevitableFormPower! non-Power card(s) you play each turn cost 0 and *Exhaust*.",
   
   "SPIREENIGMAS-INTERNAL_BLEEDING.title": "Internal Bleeding",
   "SPIREENIGMAS-INTERNAL_BLEEDING.description": "#Your Attacks deal !InternalBleedingPower! additional damage for each debuff on the enemy.",
@@ -273,6 +273,9 @@
   
   "SPIREENIGMAS-SLASH_AND_BURN.title": "Slash And Burn",
   "SPIREENIGMAS-SLASH_AND_BURN.description": "#Deal !D! damage.\nApply !CharredPower! *Charred*.",
+
+  "SPIREENIGMAS-INCONSOLABLE.title": "Inconsolable",
+  "SPIREENIGMAS-INCONSOLABLE.description": "#Deal !D! damage !Repeat! times.\nApply !CharredPower! *Charred*.",
   
   "SPIREENIGMAS-SWERVE.title": "Swerve",
   "SPIREENIGMAS-SWERVE.description": "#Gain !B! *Block*.\nDraw !C! card(s).",
@@ -287,7 +290,7 @@
   "SPIREENIGMAS-ENDEAVOR.description": "#Deal !D! damage.",
 
   "SPIREENIGMAS-CAUTERIZE.title": "Cauterize",
-  "SPIREENIGMAS-CAUTERIZE.description": "#Gain !B! *Block*.\nAdd a *Burn* into your *Hand*.",
+  "SPIREENIGMAS-CAUTERIZE.description": "#Gain !B! *Block*.\nAdd a *Burn* to your *Hand*.",
 
   "SPIREENIGMAS-TOUGH_OUT.title": "Tough Out",
   "SPIREENIGMAS-TOUGH_OUT.description": "#Gain !B! *Block*.",
@@ -298,39 +301,36 @@
   "SPIREENIGMAS-IGNITE.title": "Ignite",
   "SPIREENIGMAS-IGNITE.description": "#Deal !D! damage and apply !CharredPower! *Charred* to ALL enemies.",
 
-  "SPIREENIGMAS-WHISPERED_WORDS.title": "Whispered Words",
-  "SPIREENIGMAS-WHISPERED_WORDS.description": "#Gain !B! *Block*\nAdd a *Taboo* into your *Hand*.",
+  "SPIREENIGMAS-SACRILEGE.title": "Sacrilege",
+  "SPIREENIGMAS-SACRILEGE.description": "#Gain !B! *Block*\nAdd 1 *Taboo* to your *Hand*.",
 
   "SPIREENIGMAS-OVERHEAT.title": "Overheat",
-  "SPIREENIGMAS-OVERHEAT.description": "#Deal !D! damage !Repeat! time(s).\nAdd a *Burn* into your *Hand*.",
+  "SPIREENIGMAS-OVERHEAT.description": "#Deal !D! damage !Repeat! time(s).\nAdd a *Burn* to your *Hand*.",
 
-  "SPIREENIGMAS-DEFILE.title": "Defile",
-  "SPIREENIGMAS-DEFILE.description": "#Deal !D! damage twice.\nAdd a *Taboo* into your *Hand*.",
+  "SPIREENIGMAS-VIOLATE.title": "Violate",
+  "SPIREENIGMAS-VIOLATE.description": "#Deal !D! damage twice.\nAdd a *Taboo* into your *Hand*.",
 
   "SPIREENIGMAS-FALTER.title": "Falter",
   "SPIREENIGMAS-FALTER.description": "#Deal !D! damage.",
-
-  "SPIREENIGMAS-HIGH_FLYING.title": "High Flying",
-  "SPIREENIGMAS-HIGH_FLYING.description": "#Draw !C! card(s).",
 
   "SPIREENIGMAS-SURVEIL.title": "Surveil",
   "SPIREENIGMAS-SURVEIL.description": "#Draw !C! card(s).",
 
   "SPIREENIGMAS-SURVIVAL_INSTINCT.title": "Survival Instinct",
-  "SPIREENIGMAS-SURVIVAL_INSTINCT.description": "#Gain !B! *Block*.\nGain !DexterityPower! *Dexterity* this turn.",
+  "SPIREENIGMAS-SURVIVAL_INSTINCT.description": "#Gain !B! *Block*.",
 
   "SPIREENIGMAS-RADIANT_REVIVAL.title": "Radiant Revival",
   "SPIREENIGMAS-RADIANT_REVIVAL.description": "#*Exhaust* ALL your *Burns*. Gain !CalculationExtra! HP for each card *Exhausted*.{InCombat:\n(Gain !CalculatedHeal! HP.)|}",
 
   "SPIREENIGMAS-UNSUSTAINABLE.title": "Unsustainable",
-  "SPIREENIGMAS-UNSUSTAINABLE.description": "#During your turn, card draw is doubled.\nCards that don't fit your *Hand* are *Exhausted*.",
+  "SPIREENIGMAS-UNSUSTAINABLE.description": "#Double all card draw during your turn.\nWhenever you shuffle your *Draw* *Pile*, *Exhaust* a random card.",
 
   "SPIREENIGMAS-TWO_VIRTUES.title": "Two Virtues",
   "SPIREENIGMAS-TWO_VIRTUES.upgraded_title": "Three Virtues",
-  "SPIREENIGMAS-TWO_VIRTUES.description": "#Play !C! random Common card(s) from your *Draw* *Pile*.",
+  "SPIREENIGMAS-TWO_VIRTUES.description": "#Play !C! random *Common* card(s) from your *Draw* *Pile*.",
 
   "SPIREENIGMAS-CONVOKE.title": "Convoke",
-  "SPIREENIGMAS-CONVOKE.description": "#Gain !CalculationExtra! *Strength* for each card rarity in your *Hand*.{InCombat:\n(Gain !CalculatedStrength! *Strength*.)|}",
+  "SPIREENIGMAS-CONVOKE.description": "#Gain !CalculationExtra! *Fealty* for each card rarity in your *Hand*.{InCombat:\n(Gain !CalculatedFealty! *Fealty*.)|}",
 
   "SPIREENIGMAS-DEVOTE.title": "Devote",
   "SPIREENIGMAS-DEVOTE.description": "#Gain !FealtyPower! *Fealty*.",
@@ -339,7 +339,7 @@
   "SPIREENIGMAS-UNWORTHY_ASCENT.description": "#Deal !D! damage to ALL enemies.\nCosts [E?] less for each *Rare* card played this combat.",
 
   "SPIREENIGMAS-RECITE.title": "Recite",
-  "SPIREENIGMAS-RECITE.description": "#Add !C! random *Common* card(s) into your *Hand*.",
+  "SPIREENIGMAS-RECITE.description": "#Add !C! random *Common* card(s) to your *Hand*.",
 
   "SPIREENIGMAS-CASCADIA_FLARE.title": "Cascadia Flare",
   "SPIREENIGMAS-CASCADIA_FLARE.description": "#Deal !D! damage to ALL enemies !Repeat! time(s).",
@@ -347,8 +347,14 @@
   "SPIREENIGMAS-SPARK.title": "Spark",
   "SPIREENIGMAS-SPARK.description": "#Apply !CharredPower! *Charred*.",
 
+  "SPIREENIGMAS-FYRESTARTER.title": "Fyrestarter",
+  "SPIREENIGMAS-FYRESTARTER.description": "#Apply !CharredPower! *Charred*.",
+
   "SPIREENIGMAS-ERUPT.title": "Erupt",
   "SPIREENIGMAS-ERUPT.description": "#Apply !CharredPower! *Charred*.",
+
+  "SPIREENIGMAS-RED_HOT.title": "Red Hot",
+  "SPIREENIGMAS-RED_HOT.description": "#Apply !CharredPower! *Charred*.",
 
   "SPIREENIGMAS-BRAZEN_STANCE.title": "Brazen Stance",
   "SPIREENIGMAS-BRAZEN_STANCE.description": "#Apply !DebuffAmount! *Weak* and *Vulnerable* to ALL enemies.",
@@ -366,10 +372,10 @@
   "SPIREENIGMAS-INSPIRE.description": "#Gain [E?].\nAdd a *Burn* into your *Hand*.",
 
   "SPIREENIGMAS-CONCEIT.title": "Conceit",
-  "SPIREENIGMAS-CONCEIT.description": "#Gain !B! *Block*.\nShuffle a random {IfUpgraded:show:*Upgraded* *Rare*|*Rare*} card into your *Draw* *Pile*.",
+  "SPIREENIGMAS-CONCEIT.description": "#Gain !B! *Block*.\nAdd a random {IfUpgraded:show:*Upgraded* *Rare*|*Rare*} card to your *Hand*.",
 
   "SPIREENIGMAS-BREEZE_BLOWS.title": "Breeze Blows",
-  "SPIREENIGMAS-BREEZE_BLOWS.description": "#Deal !D! damage !Repeat! times.",
+  "SPIREENIGMAS-BREEZE_BLOWS.description": "#Deal !D! damage twice.",
 
   "SPIREENIGMAS-SMOLDER.title": "Smolder",
   "SPIREENIGMAS-SMOLDER.description": "#Deal !D! damage twice.\nAdd !C! *Spark(s)* into your *Hand*.",
@@ -381,8 +387,168 @@
   "SPIREENIGMAS-HEAT_RISER.description": "#Deal !D! damage to ALL enemies !Repeat! time(s).",
 
   "SPIREENIGMAS-BLOOD_RITE.title": "Blood Rite",
-  "SPIREENIGMAS-BLOOD_RITE.description": "#Draw !C! card(s).\nAdd !Taboos! *Taboo(s)* into your *Hand*.",
+  "SPIREENIGMAS-BLOOD_RITE.description": "#Draw !C! card(s).\nAdd !Taboos! *Taboo(s)* to your *Hand*.",
 
   "SPIREENIGMAS-BURNING_QUESTION.title": "Burning Question",
-  "SPIREENIGMAS-BURNING_QUESTION.description": "#Deal !D! damage X times.\nAdd X *Taboos* into your *Hand*."
+  "SPIREENIGMAS-BURNING_QUESTION.description": "#Deal !D! damage X times.\nAdd X *Taboos* to your *Hand*.",
+
+  "SPIREENIGMAS-SMOKE_OUT.title": "Smoke Out",
+  "SPIREENIGMAS-SMOKE_OUT.description": "#Gain !B! *Block*.\nApply !CharredPower! *Charred* to ALL enemies.",
+
+  "SPIREENIGMAS-FREESTYLE.title": "Freestyle",
+  "SPIREENIGMAS-FREESTYLE.description": "#Attacks drawn during your turn deal !FreestylePower! additional damage.",
+
+  "SPIREENIGMAS-RECKLESS.title": "Reckless",
+  "SPIREENIGMAS-RECKLESS.description": "#Deal !D! damage.\n*Transform* a random card in your *Draw* *Pile* into *Burn*.",
+
+  "SPIREENIGMAS-AFTERBURN.title": "Afterburn",
+  "SPIREENIGMAS-AFTERBURN.description": "#Deal !D! damage.\nThe enemy doesn't lose *Charred* this turn.",
+
+  "SPIREENIGMAS-RAVAGE.title": "Ravage",
+  "SPIREENIGMAS-RAVAGE.description": "#Deal !D! damage !Repeat! times.",
+
+  "SPIREENIGMAS-OPULENCE.title": "Opulence",
+  "SPIREENIGMAS-OPULENCE.description": "#Whenever you draw a *Rare* card, draw !OpulencePower! card(s).",
+
+  "SPIREENIGMAS-MORE_MORE.title": "More! More!",
+  "SPIREENIGMAS-MORE_MORE.description": "#Add 1 *Burn* into your *Hand*.\nGain [E?].\nDraw !C! card(s).",
+
+  "SPIREENIGMAS-HOTHEAD.title": "Hothead",
+  "SPIREENIGMAS-HOTHEAD.description": "#Add a *Burn* into your *Hand*.\nDraw !C! card(s).",
+
+  "SPIREENIGMAS-MELT.title": "Melt",
+  "SPIREENIGMAS-MELT.description": "#Deal !D! damage.\nIf the enemy is *Charred*, gain !B! *Block*.",
+
+  "SPIREENIGMAS-DISTORT.title": "Distort",
+  "SPIREENIGMAS-DISTORT.description": "#Gain !B! *Block*.\nChoose up to !C! card(s) in your *Hand* to *Transform* into [gold]Taboo{Cards:plural:|s}*[/gold].",
+
+  "SPIREENIGMAS-BASH_OVERHEAD.title": "Bash Overhead",
+  "SPIREENIGMAS-BASH_OVERHEAD.description": "#Deal !D! damage.\nApply !VulnerablePower! *Vulnerable*.",
+  
+  "SPIREENIGMAS-SKULL_CRACKER.title": "Skull Cracker",
+  "SPIREENIGMAS-SKULL_CRACKER.description": "#Deal !D! damage twice.\nApply !WeakPower! *Weak*.",
+
+  "SPIREENIGMAS-FLASH_FYRE.title": "Flash Fyre",
+  "SPIREENIGMAS-FLASH_FYRE.description": "#At the start of your next turn, apply !CharredPower! *Charred* to ALL enemies.",
+
+  "SPIREENIGMAS-FLAMETHROWER.title": "Flamethrower",
+  "SPIREENIGMAS-FLAMETHROWER.description": "#Deal !D! damage.\nIf you have a *Burn* in your *Hand*, *Exhaust* it and hits !Repeat! times.",
+
+  
+  "SPIREENIGMAS-BATTLE_TEMPO.title": "Battle Tempo",
+  "SPIREENIGMAS-BATTLE_TEMPO.description": "#Gain !B! *Block*.\nWhenever you draw a card this turn, gain !BattleTempoPower! *Block*.",
+
+  "SPIREENIGMAS-SPEED_BLITZ.title": "Speed Blitz",
+  "SPIREENIGMAS-SPEED_BLITZ.description": "#The first time you draw a card during each of your turns, gain [E?].",
+
+  "SPIREENIGMAS-FRESH_OUTLOOK.title": "Fresh Outlook",
+  "SPIREENIGMAS-FRESH_OUTLOOK.description": "#Deal !D! damage.\nDiscard your *Hand*.\nDraw !C! card(s).",
+
+  "SPIREENIGMAS-HUMILITY.title": "Humility",
+  "SPIREENIGMAS-HUMILITY.description": "#Whenever you play a *Common* card, gain !HumilityPower! *Block*.",
+
+  "SPIREENIGMAS-MAGNUM_OPUS.title": "Magnum Opus",
+  "SPIREENIGMAS-MAGNUM_OPUS.description": "#Deal !D! damage.\nThe next *Rare* card you play costs 0 [E].",
+
+  "SPIREENIGMAS-IDOL_WORSHIP.title": "Idol Worship",
+  "SPIREENIGMAS-IDOL_WORSHIP.description": "#Add a random *Rare* card to your *Hand*.\nIt's free to play this turn.",
+
+  "SPIREENIGMAS-SPARKS_FLY.title": "Sparks Fly",
+  "SPIREENIGMAS-SPARKS_FLY.description": "#Gain !B! *Block*.\nAdd !C! *Spark(s)* into your *Hand*.",
+
+  "SPIREENIGMAS-BURNOUT.title": "Burnout",
+  "SPIREENIGMAS-BURNOUT.description": "#Gain [E?].\nNext turn, gain 1 less [E].",
+
+  "SPIREENIGMAS-REVELATION.title": "Revelation",
+  "SPIREENIGMAS-REVELATION.description": "#Gain !B! *Block*.\nAdd 1 +*Upgraded* +*Purity* to your *Hand*.",
+
+  "SPIREENIGMAS-BURN_AWAY.title": "BURN AWAY",
+  "SPIREENIGMAS-BURN_AWAY.description": "#Deal !D! damage to ALL enemies for ALL your *Burns*.\nAdd a *Burn* to your *Hand*. {InCombat:\n(Hits !CalculatedHits! times.)|}",
+
+  "SPIREENIGMAS-COMBAT_IMPROVISATION.title": "Combat Improvisation",
+  "SPIREENIGMAS-COMBAT_IMPROVISATION.description": "#The first card you draw during each of your turns is played for free.{IfUpgraded:show:\nDraw !C! card(s).|}",
+
+  "SPIREENIGMAS-WITNESS_ME.title": "Witness Me!",
+  "SPIREENIGMAS-WITNESS_ME.description": "#Deal !D! damage to ALL enemies.\nAll enemies lose !StrengthPower! *Strength*.",
+
+  "SPIREENIGMAS-TEMPTATIONS.title": "Temptations",
+  "SPIREENIGMAS-TEMPTATIONS.description": "#At the start of your turn, add 1 *Taboo* to your *Hand*.",
+
+  "SPIREENIGMAS-STREAM_OF_CONSCIOUSNESS.title": "Stream Of Consciousness",
+  "SPIREENIGMAS-STREAM_OF_CONSCIOUSNESS.description": "#Whenever you play a *Rare* card, add a random *Rare* card to your *Hand*.",
+
+  "SPIREENIGMAS-EGOCENTRISM.title": "Egocentrism",
+  "SPIREENIGMAS-EGOCENTRISM.description": "#The next *Rare* card you play this turn is played !Repeat! additional time(s).",
+
+  "SPIREENIGMAS-KINDLE.title": "Kindle",
+  "SPIREENIGMAS-KINDLE.description": "#Enemies lose 50% less *Charred* at the end of their turns.",
+
+  "SPIREENIGMAS-DREAM_FANTASY.title": "Dream Fantasy",
+  "SPIREENIGMAS-DREAM_FANTASY.description": "#Draw X cards.\nThey cost 0 [E] this turn.",
+
+  "SPIREENIGMAS-QUICK_THINKING.title": "Quick Thinking",
+  "SPIREENIGMAS-QUICK_THINKING.description": "#Gain !CalculationExtra! *Block* for each card in your *Hand*.{InCombat:\n(Gain !CalculatedBlock! *Block*.)|}",
+
+  "SPIREENIGMAS-COMMITMENT.title": "Commitment",
+  "SPIREENIGMAS-COMMITMENT.description": "#Gain !B! *Block* twice.\nDeal !D! damage twice.",
+
+  "SPIREENIGMAS-ENDURE.title": "Endure",
+  "SPIREENIGMAS-ENDURE.description": "#Gain !B! *Block*.\nPut this card on top of your *Draw* *Pile*.",
+
+  "SPIREENIGMAS-APOSTASY.title": "Apostasy",
+  "SPIREENIGMAS-APOSTASY.description": "#Gain !B! *Block*.\nIf you have a *Rare* card in *Hand*, gain *Block* !Repeat! additional time(s).",
+
+  "SPIREENIGMAS-HEAT_WAVES.title": "Heat Waves",
+  "SPIREENIGMAS-HEAT_WAVES.description": "#Gain !B! *Block*.\nWhenever you are attacked this turn, deal !FlameBarrierPower! damage back.",
+
+  "SPIREENIGMAS-ANIMAL_INSTINCT.title": "Animal Instinct",
+  "SPIREENIGMAS-ANIMAL_INSTINCT.description": "#Deal !D! damage to ALL enemies.\nCosts [E] less for each card drawn during this turn.",
+
+  "SPIREENIGMAS-CONTRADOXY.title": "Contradoxy",
+  "SPIREENIGMAS-CONTRADOXY.description": "#*Transform* your *Hand* into+ *Upgraded*+ *Rare* cards.",
+
+  "SPIREENIGMAS-FIREWORKS.title": "Fireworks",
+  "SPIREENIGMAS-FIREWORKS.description": "#*Stun* the enemy.",
+
+  "SPIREENIGMAS-WILDFYRE.title": "Wildfyre",
+  "SPIREENIGMAS-WILDFYRE.description": "#Gain !B! *Block*.\nFill your *Hand* with *Burns*.",
+
+  "SPIREENIGMAS-SCORCHED_EARTH.title": "Scorched Earth",
+  "SPIREENIGMAS-SCORCHED_EARTH.description": "#Whenever you draw a *Burn*, deal !ScorchedEarthPower! damage to ALL enemies.",
+
+  "SPIREENIGMAS-THE_GOLDEN_MEAN.title": "The Golden Mean",
+  "SPIREENIGMAS-THE_GOLDEN_MEAN.description": "#The first time you play a *Common*, *Uncommon*, and *Rare* card each turn, play a copy of each.",
+
+  "SPIREENIGMAS-EUDAIMONIA.title": "Eudaimonia",
+  "SPIREENIGMAS-EUDAIMONIA.description": "#Gain [E].\nDraw !C! card(s).\nGain !VigorPower! *Vigor*.",
+
+  "SPIREENIGMAS-HEARTLESS_ACT.title": "Heartless Act",
+  "SPIREENIGMAS-HEARTLESS_ACT.description": "#Add !Taboos! *Taboo(s)* to your *Hand*.\nWhenever you play a *Taboo*, ALL enemies lose !HeartlessActPower! *Strength* this turn.",
+
+  "SPIREENIGMAS-SPURN.title": "Spurn",
+  "SPIREENIGMAS-SPURN.description": "#Deal !D! damage.\nApply !VulnerablePower! *Vulnerable*.",
+
+  "SPIREENIGMAS-SOVEREIGN_FORM.title": "Sovereign Form",
+  "SPIREENIGMAS-SOVEREIGN_FORM.description": "#At the start of your turn, draw cards until your *Hand* is full.",
+
+  "SPIREENIGMAS-SOMETHING_UNFORGIVABLE.title": "Something Unforgivable",
+  "SPIREENIGMAS-SOMETHING_UNFORGIVABLE.description": "#If you've played !Threshold! or more *Taboo(s)* this turn, the enemy loses !D! HP.",
+
+  "SPIREENIGMAS-GLASS_SHARDS.title": "Glass Shards",
+  "SPIREENIGMAS-GLASS_SHARDS.description": "#At the end of your turn, deal !GlassShardsPower! damage to ALL enemies for each card in your *Hand*.",
+
+  "SPIREENIGMAS-TIME_LOOP.title": "Time Loop",
+  "SPIREENIGMAS-TIME_LOOP.description": "#Whenever you play another card, this *Transforms* into a copy of it.",
+
+  "SPIREENIGMAS-GET_EXCITED.title": "Get Excited",
+  "SPIREENIGMAS-GET_EXCITED.description": "#Deal !D! damage.\n*Upgrade* !C! random card(s) in your *Draw* *Pile*.",
+
+  "SPIREENIGMAS-THRILLING_STRIKE.title": "Thrilling Strike",
+  "SPIREENIGMAS-THRILLING_STRIKE.description": "#Deal !D! damage.\nGain !VigorPower! *Vigor*.",
+
+  "SPIREENIGMAS-COOL_OFF.title": "Cool Off",
+  "SPIREENIGMAS-COOL_OFF.description": "#Gain !B! *Block*.\n*Exhaust* !C! random [gold]Burn{Cards:plural:|s}*[/gold].",
+
+  "SPIREENIGMAS-DIVINE_INSPIRATION.title": "Divine Inspiration",
+  "SPIREENIGMAS-DIVINE_INSPIRATION.description": "#Gain !B! *Block*.\nDraw !C! card(s)."
 }

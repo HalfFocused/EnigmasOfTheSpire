@@ -7,7 +7,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
-public class AsExpected() : DisplacedCard(2,
+public class AsExpected() : SpireEnigmasCard.DisplacedCard(2,
     CardType.Power, CardRarity.Uncommon,
     TargetType.Self)
 {

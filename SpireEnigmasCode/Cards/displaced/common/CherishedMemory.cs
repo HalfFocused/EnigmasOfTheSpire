@@ -8,7 +8,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.common;
 
-public class CherishedMemory() : DisplacedCard(0,
+public class CherishedMemory() : SpireEnigmasCard.DisplacedCard(0,
     CardType.Skill, CardRarity.Common,
     TargetType.Self)
 {

@@ -6,7 +6,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.common;
 
-public class SlashDash() : DisplacedCard(0, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
+public class SlashDash() : SpireEnigmasCard.DisplacedCard(0, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new DamageVar(7M, ValueProp.Move)
@@ -21,7 +21,7 @@ public class SlashDash() : DisplacedCard(0, CardType.Attack, CardRarity.Common, 
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).TargetingAllOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).TargetingAllOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
 
     protected override void OnUpgrade()

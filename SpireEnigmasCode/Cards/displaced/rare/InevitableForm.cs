@@ -8,7 +8,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.rare;
 
-public class InevitableForm() : DisplacedCard(3,
+public class InevitableForm() : SpireEnigmasCard.DisplacedCard(3,
     CardType.Power, CardRarity.Rare,
     TargetType.Self)
 {

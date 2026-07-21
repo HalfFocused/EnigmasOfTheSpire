@@ -7,7 +7,7 @@ using MegaCrit.Sts2.Core.Models;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.rare;
 
-public class Monsoon() : DisplacedCard(2,
+public class Monsoon() : SpireEnigmasCard.DisplacedCard(2,
     CardType.Skill, CardRarity.Rare,
     TargetType.Self)
 {
@@ -27,7 +27,6 @@ public class Monsoon() : DisplacedCard(2,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-                
         List<CardModel> list = PileType.Hand.GetPile(Owner).Cards.ToList();
         int cardCount = list.Count;
         foreach (CardModel card in list)

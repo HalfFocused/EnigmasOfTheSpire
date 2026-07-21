@@ -6,13 +6,13 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.basic;
 
-public class Swerve() : SacrificeCard(2, CardType.Skill, CardRarity.Basic, TargetType.Self)
+public class Swerve() : SpireEnigmasCard.SacrificeCard(1, CardType.Skill, CardRarity.Basic, TargetType.Self)
 {
     public override bool GainsBlock => true;
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new BlockVar(8M, ValueProp.Move),
+        new BlockVar(7M, ValueProp.Move),
         new CardsVar(1)
     ];
 
@@ -26,7 +26,7 @@ public class Swerve() : SacrificeCard(2, CardType.Skill, CardRarity.Basic, Targe
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Block.UpgradeValueBy(2M);
+        DynamicVars.Block.UpgradeValueBy(1M);
         DynamicVars.Cards.UpgradeValueBy(1M);
     }
 }

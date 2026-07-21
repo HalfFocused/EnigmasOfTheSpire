@@ -17,7 +17,7 @@ public class LongGoodbyePower : SpireEnigmaPower
         if (!card.Keywords.Contains(CardKeyword.Unplayable))
         {
             Flash();
-            await CardCmd.AutoPlay(choiceContext, card.CreateDupe(), null);
+            await CardCmd.AutoPlay(choiceContext, card.CreateDupe(Owner.Player), null);
         }
     }
 }

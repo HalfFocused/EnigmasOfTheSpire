@@ -11,12 +11,11 @@ using SpireEnigmas.SpireEnigmasCode.Character.displaced;
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.basic;
 
 [Pool(typeof(TheDisplacedCardPool))]
-public class    StrikeDisplaced() : DisplacedCard(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
+public class    StrikeDisplaced() : SpireEnigmasCard.DisplacedCard(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy)
 {
-    protected override HashSet<CardTag> CanonicalTags
-    {
-        get => new HashSet<CardTag>() { CardTag.Strike };
-    }
+    protected override HashSet<CardTag> CanonicalTags => [
+        CardTag.Strike
+    ];
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -27,9 +26,7 @@ public class    StrikeDisplaced() : DisplacedCard(1, CardType.Attack, CardRarity
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        StrikeDisplaced card = this;
-        ArgumentNullException.ThrowIfNull((object) play.Target, "cardPlay.Target");
-        await DamageCmd.Attack(card.DynamicVars.Damage.BaseValue).FromCard((CardModel) card).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
     
     protected override void OnUpgrade() => DynamicVars.Damage.UpgradeValueBy(3M);

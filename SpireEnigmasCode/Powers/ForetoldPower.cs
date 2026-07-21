@@ -1,5 +1,10 @@
-﻿using MegaCrit.Sts2.Core.Combat;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
@@ -36,7 +41,8 @@ public class ForetoldPower: SpireEnigmaPower
         Decimal amount,
         ValueProp props,
         Creature? dealer,
-        CardModel? cardSource)
+        CardModel? cardSource,
+        CardPlay? cardPlay)
     {
         if (target != Owner || !props.IsPoweredAttack() || ((BoolVar) DynamicVars["UsedThisTurn"]).BoolVal)
             return 1M;
@@ -72,7 +78,7 @@ public class ForetoldPower: SpireEnigmaPower
             ((BoolVar)DynamicVars["HitDuringCardPlay"]).BoolVal = true;
         }
     }
-    
+
     /*
      * Mark Foretold as used after any card finishes playing if it is marked as having been used during the card play.
      */

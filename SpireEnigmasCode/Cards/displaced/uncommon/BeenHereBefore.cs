@@ -8,7 +8,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
-public class BeenHereBefore() : DisplacedCard(0,
+public class BeenHereBefore() : SpireEnigmasCard.DisplacedCard(0,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.AllEnemies)
 {

@@ -10,7 +10,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.rare;
 
-public class ViciousCycle() : DisplacedCard(0,
+public class ViciousCycle() : SpireEnigmasCard.DisplacedCard(0,
     CardType.Attack, CardRarity.Rare,
     TargetType.AnyEnemy)
 {
@@ -46,7 +46,7 @@ public class ViciousCycle() : DisplacedCard(0,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
 
     protected override void OnUpgrade()

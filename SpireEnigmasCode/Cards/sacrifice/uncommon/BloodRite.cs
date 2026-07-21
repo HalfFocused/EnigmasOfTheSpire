@@ -12,7 +12,7 @@ using SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.token;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.uncommon;
 
-public class BloodRite() : SacrificeCard(1,
+public class BloodRite() : SpireEnigmasCard.SacrificeCard(1,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {

@@ -10,17 +10,16 @@ public class AbandonPower : SpireEnigmaPower
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
     
-    public override (PileType, CardPilePosition) ModifyCardPlayResultPileTypeAndPosition(
+    public override CardLocation ModifyCardPlayResultLocation(
         CardModel card,
         bool isAutoPlay,
         ResourceInfo resources,
-        PileType pileType,
-        CardPilePosition position)
+        CardLocation cardLocation)
     {
         if (card.Owner.Creature != Owner || card.Type is not (CardType.Attack or CardType.Skill))
-            return (pileType, position);
+            return new CardLocation(Owner.Player, cardLocation.pileType, cardLocation.position);
         Flash();
         PowerCmd.TickDownDuration(this);
-        return (PileType.Exhaust, position);
+        return new CardLocation(Owner.Player, PileType.Exhaust, CardPilePosition.Top);
     }
 }

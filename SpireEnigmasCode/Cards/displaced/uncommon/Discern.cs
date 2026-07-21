@@ -9,7 +9,7 @@ using SpireEnigmas.SpireEnigmasCode.Cards.displaced.token;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
-public class Discern() : DisplacedCard(1,
+public class Discern() : SpireEnigmasCard.DisplacedCard(1,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {
