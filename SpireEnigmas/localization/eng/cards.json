@@ -214,8 +214,8 @@
   "SPIREENIGMAS-INTERNAL_BLEEDING.description": "#Your Attacks deal !InternalBleedingPower! additional damage for each debuff on the enemy.",
   
   "SPIREENIGMAS-INVOKE.title": "Invoke",
-  "SPIREENIGMAS-INVOKE.description": "#Put a card from your *Draw* *Pile* into your *Hand*. Shuffle 2 *Dazed* into your *Draw* *Pile*.",
-  "SPIREENIGMAS-INVOKE.selectionScreenPrompt": "#Choose a card to put into your *Hand*.",
+  "SPIREENIGMAS-INVOKE.description": "#Put !C! card(s) from your *Draw* *Pile* into your *Hand*.\nShuffle 2 *Dazed* into your *Draw* *Pile*.",
+  "SPIREENIGMAS-INVOKE.selectionScreenPrompt": "#Choose !C! cards to put into your *Hand*.",
   
   "SPIREENIGMAS-LACERATE.title": "Lacerate",
   "SPIREENIGMAS-LACERATE.description": "#Deal !D! damage.\nApply !WeakPower! *Weak*.\nApply !VulnerablePower! *Vulnerable*.",
@@ -227,7 +227,7 @@
   "SPIREENIGMAS-OVERWHELM.description": "#Deal !D! damage.\nDouble this card's damage this combat.",
   
   "SPIREENIGMAS-RECKLESS_ABANDON.title": "Reckless Abandon",
-  "SPIREENIGMAS-RECKLESS_ABANDON.description": "#Dead !D! damage to a random enemy for each *Ethereal* card in your *Exhaust* *Pile*.{InCombat:\n(Hits !CalculatedHits! time(s).)|}",
+  "SPIREENIGMAS-RECKLESS_ABANDON.description": "#Deal !D! damage to a random enemy for each *Ethereal* card in your *Exhaust* *Pile*.{InCombat:\n(Hits !CalculatedHits! time(s).)|}",
   
   "SPIREENIGMAS-REVERIE.title": "Reverie",
   "SPIREENIGMAS-REVERIE.description": "#At the start of your turn, draw !ReveriePower! card(s). It becomes *Ethereal*.",
@@ -323,7 +323,7 @@
   "SPIREENIGMAS-RADIANT_REVIVAL.description": "#*Exhaust* ALL your *Burns*. Gain !CalculationExtra! HP for each card *Exhausted*.{InCombat:\n(Gain !CalculatedHeal! HP.)|}",
 
   "SPIREENIGMAS-UNSUSTAINABLE.title": "Unsustainable",
-  "SPIREENIGMAS-UNSUSTAINABLE.description": "#Double all card draw during your turn.\nWhenever you shuffle your *Draw* *Pile*, *Exhaust* a random card.",
+  "SPIREENIGMAS-UNSUSTAINABLE.description": "#Double all card draw during your turn.\nWhenever you shuffle your *Draw* *Pile*, *Exhaust* a random card in it.",
 
   "SPIREENIGMAS-TWO_VIRTUES.title": "Two Virtues",
   "SPIREENIGMAS-TWO_VIRTUES.upgraded_title": "Three Virtues",
@@ -398,8 +398,8 @@
   "SPIREENIGMAS-FREESTYLE.title": "Freestyle",
   "SPIREENIGMAS-FREESTYLE.description": "#Attacks drawn during your turn deal !FreestylePower! additional damage.",
 
-  "SPIREENIGMAS-RECKLESS.title": "Reckless",
-  "SPIREENIGMAS-RECKLESS.description": "#Deal !D! damage.\n*Transform* a random card in your *Draw* *Pile* into *Burn*.",
+  "SPIREENIGMAS-OBLATION.title": "Oblation",
+  "SPIREENIGMAS-OBLATION.description": "#Deal !D! damage.\n*Transform* a random card in your *Draw* *Pile* into *Burn*.",
 
   "SPIREENIGMAS-AFTERBURN.title": "Afterburn",
   "SPIREENIGMAS-AFTERBURN.description": "#Deal !D! damage.\nThe enemy doesn't lose *Charred* this turn.",
@@ -433,7 +433,6 @@
 
   "SPIREENIGMAS-FLAMETHROWER.title": "Flamethrower",
   "SPIREENIGMAS-FLAMETHROWER.description": "#Deal !D! damage.\nIf you have a *Burn* in your *Hand*, *Exhaust* it and hits !Repeat! times.",
-
   
   "SPIREENIGMAS-BATTLE_TEMPO.title": "Battle Tempo",
   "SPIREENIGMAS-BATTLE_TEMPO.description": "#Gain !B! *Block*.\nWhenever you draw a card this turn, gain !BattleTempoPower! *Block*.",
@@ -550,5 +549,127 @@
   "SPIREENIGMAS-COOL_OFF.description": "#Gain !B! *Block*.\n*Exhaust* !C! random [gold]Burn{Cards:plural:|s}*[/gold].",
 
   "SPIREENIGMAS-DIVINE_INSPIRATION.title": "Divine Inspiration",
-  "SPIREENIGMAS-DIVINE_INSPIRATION.description": "#Gain !B! *Block*.\nDraw !C! card(s)."
+  "SPIREENIGMAS-DIVINE_INSPIRATION.description": "#Gain !B! *Block*.\nDraw !C! card(s).",
+
+  "SPIREENIGMAS-SEARING_STRIKES.title": "Searing Strikes",
+  "SPIREENIGMAS-SEARING_STRIKES.description": "#Deal !D! damage !Repeat! time(s).\nCan be *Upgraded* any number of times.",
+
+  "SPIREENIGMAS-STRIKE_SAVANT.title": "Strike",
+  "SPIREENIGMAS-STRIKE_SAVANT.description": "Deal {Damage:diff()} damage.",
+
+  "SPIREENIGMAS-DEFEND_SAVANT.title": "Defend",
+  "SPIREENIGMAS-DEFEND_SAVANT.description": "Gain {Block:diff()} [gold]Block[/gold].",
+
+  "SPIREENIGMAS-SUPPRESSIVE_FIRE.title": "Suppressive Fire",
+  "SPIREENIGMAS-SUPPRESSIVE_FIRE.description": "#*Chirp* deals !ChirpDamage! damage to a random enemy twice.",
+
+  "SPIREENIGMAS-KINETIC_CHARGE.title": "Kinetic Charge",
+  "SPIREENIGMAS-KINETIC_CHARGE.description": "#Gain !B! *Block*.\n*Chirp* gains [E?].",
+
+  "SPIREENIGMAS-POWER_CONVERSION.title": "Power Conversion",
+  "SPIREENIGMAS-POWER_CONVERSION.description": "#*Chirp* gains [E?].",
+
+  "SPIREENIGMAS-PROJECT_BARRIER.title": "Project Barrier",
+  "SPIREENIGMAS-PROJECT_BARRIER.description": "#*Chirp* gives you !ChirpBlock! *Block*.",
+
+  "SPIREENIGMAS-PRECISION.title": "Precision",
+  "SPIREENIGMAS-PRECISION.description": "#*Chirp* gains !StrengthPower! *Strength* and !DexterityPower! *Dexterity*.",
+
+  "SPIREENIGMAS-BOLT.title": "Bolt",
+  "SPIREENIGMAS-BOLT.description": "#*Chirp* applies !WeakPower! *Weak* and !VulnerablePower! *Vulnerable*.",
+
+  "SPIREENIGMAS-POWER_BLAST.title": "Power Blast",
+  "SPIREENIGMAS-POWER_BLAST.description": "#*Chirp* deals !ChirpDamage! damage.",
+
+  "SPIREENIGMAS-BEAM.title": "Beam",
+  "SPIREENIGMAS-BEAM.description": "#*Chirp* deals !ChirpDamage! damage.",
+
+  "SPIREENIGMAS-LOGISTICS.title": "Logistics",
+  "SPIREENIGMAS-LOGISTICS.description": "#*Chirp* gives you !ChirpBlock! *Block*.\nPut a card from your *Discard* *Pile* into your *Hand*.",
+  "SPIREENIGMAS-LOGISTICS.selectionScreenPrompt": "#Choose !C! card(s) to put into your *Hand*.",
+
+  "SPIREENIGMAS-CHARGE_UP.title": "Charge Up",
+  "SPIREENIGMAS-CHARGE_UP.description": "#Gain !B! *Block*.\n*Chirp* gains !VigorPower! *Vigor*.",
+
+  "SPIREENIGMAS-DEVASTATION_RAINS.title": "Devastation Rains",
+  "SPIREENIGMAS-DEVASTATION_RAINS.description": "#*Chirp* deals !ChirpDamage! damage to a random enemy !Repeat! time(s).",
+
+  "SPIREENIGMAS-ALTERNATOR.title": "Alternator",
+  "SPIREENIGMAS-ALTERNATOR.description": "#At the end of your turn, if *Chirp* has no [E], it gains [E?].",
+
+  "SPIREENIGMAS-REPURPOSING.title": "Repurposing",
+  "SPIREENIGMAS-REPURPOSING.description": "#The first time you draw a *Status* each turn, *Transform* it into a random card.",
+
+  "SPIREENIGMAS-SCRAP.title": "Scrap",
+  "SPIREENIGMAS-SCRAP.description": "#When this is *Transformed*, the result costs 0 [E] until played.",
+
+  "SPIREENIGMAS-JUNK_VOLLEY.title": "Junk Volley",
+  "SPIREENIGMAS-JUNK_VOLLEY.description": "#Deal !D! damage twice.\nPut a *Scrap* on top of your *Draw* *Pile*.",
+
+  "SPIREENIGMAS-INSPIRATION_STRIKES.title": "Inspiration Strikes!",
+  "SPIREENIGMAS-INSPIRATION_STRIKES.description": "#Deal !D! damage.\n*Invent* a random+ *Upgraded*+ *Colorless* card.",
+
+  "SPIREENIGMAS-IMPROVISE.title": "Improvise",
+  "SPIREENIGMAS-IMPROVISE.description": "#Gain !B! *Block*.\n*Invent* a random+ *Upgraded*+ card.",
+
+  "SPIREENIGMAS-CRUMPLE.title": "Crumple",
+  "SPIREENIGMAS-CRUMPLE.description": "#Gain !B! *Block*.\nAdd a *Scrap* to your *Hand*.",
+
+  "SPIREENIGMAS-GENERATE.title": "Generate",
+  "SPIREENIGMAS-GENERATE.description": "#*Chirp* gains [E?].",
+
+  "SPIREENIGMAS-CHARGE_PRECEPT.title": "Charge Precept",
+  "SPIREENIGMAS-CHARGE_PRECEPT.description": "#Next turn, *Chirp* gains [E?].",
+
+  "SPIREENIGMAS-TOOLBELT.title": "Toolbelt",
+  "SPIREENIGMAS-TOOLBELT.description": "#*Scrap* gains *Retain*.\nAdd !C! *Scrap* to your *Hand*.",
+
+  "SPIREENIGMAS-INGENUITY.title": "Ingenuity",
+  "SPIREENIGMAS-INGENUITY.description": "#Choose 1 of !C! random cards to *Invent*.",
+  "SPIREENIGMAS-INGENUITY.selectionScreenPrompt": "#Choose a card to *Invent*.",
+
+  "SPIREENIGMAS-PLAN_B.title": "Plan B",
+  "SPIREENIGMAS-PLAN_B.description": "#Cards created this combat deal 3 additional damage and gain 3 additional *Block*.",
+
+  "SPIREENIGMAS-DISTRACT.title": "Distract",
+  "SPIREENIGMAS-DISTRACT.description": "#*Chirp* applies !WeakPower! *Weak* and !VulnerablePower! *Vulnerable* to ALL enemies.",
+
+  "SPIREENIGMAS-SCATTERED_SHOTS.title": "Scattered Shots",
+  "SPIREENIGMAS-SCATTERED_SHOTS.description": "#*Chirp* deals !ChirpDamage! damage to a random enemy !Repeat! times.",
+
+  "SPIREENIGMAS-BATTERY_EROSION.title": "Battery Erosion",
+  "SPIREENIGMAS-BATTERY_EROSION.description": "#*Chirp* gains [E?].\nReduce this card's [E] by 1 this combat.",
+
+  "SPIREENIGMAS-BOOT_PRECEPT.title": "Boot Precept",
+  "SPIREENIGMAS-BOOT_PRECEPT.description": "#*Chirp* gains [E?].",
+
+  "SPIREENIGMAS-HIDEAWAY.title": "Hideaway",
+  "SPIREENIGMAS-HIDEAWAY.description": "#Gain !B! *Block*.\nNext turn, *Chirp* gains [E?].",
+
+  "SPIREENIGMAS-BREAK_OPEN.title": "Break Open",
+  "SPIREENIGMAS-BREAK_OPEN.description": "#Draw !C! card(s).\nPut a *Scrap* on top of your *Draw Pile*.",
+
+  "SPIREENIGMAS-SMOKESCREEN.title": "Smokescreen",
+  "SPIREENIGMAS-SMOKESCREEN.description": "#*Chirp* gives you !ChirpBlock! *Block*.\nNext turn, *Chirp* gives you !ChirpBlock! *Block*.",
+
+  "SPIREENIGMAS-GATHER_PARTS.title": "Gather Parts",
+  "SPIREENIGMAS-GATHER_PARTS.description": "#Deal !D! damage to ALL enemies.\nNext turn, *Chirp* gains [E?].",
+
+  "SPIREENIGMAS-RADIAL_PULSE.title": "Radial Pulse",
+  "SPIREENIGMAS-RADIAL_PULSE.description": "#*Chirp* deals !ChirpDamage! damage to ALL enemies twice.",
+
+  "SPIREENIGMAS-MASTERWORK.title": "Masterwork",
+  "SPIREENIGMAS-MASTERWORK.description": "#Whenever you *Transform* a card, the result gains *Replay* 1.",
+
+  "SPIREENIGMAS-SAFETIES_OFF.title": "Safeties Off",
+  "SPIREENIGMAS-SAFETIES_OFF.description": "Gain {Energy:energyIcons()}.\n[gold]Chirp[/gold] gains {ChirpEnergy:energyIcons()}.\nWhenever you end your turn with no unspent {energyPrefix:energyIcons(1)}, take {SafetiesOffPower:diff()} damage.",
+
+  "SPIREENIGMAS-BRAINSTORM.title": "Brainstorm",
+  "SPIREENIGMAS-BRAINSTORM.description": "#Draw !C! card(s).\nIf you end this turn with unspent [E], play !BrainstormPower! random card(s) in your *Hand*.",
+
+  "SPIREENIGMAS-ALLOCATE.title": "Allocate",
+  "SPIREENIGMAS-ALLOCATE.description": "#Whenever you end your turn with unspent [E], draw !AllocatePower! card(s) next turn.",
+
+  "SPIREENIGMAS-SHOCK_AND_AWE.title": "Shock and Awe",
+  "SPIREENIGMAS-SHOCK_AND_AWE.description": "#Deal !D! damage.\nIf you end this turn with unspent [E], gain !B! *Block*."
 }

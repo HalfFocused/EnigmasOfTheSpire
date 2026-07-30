@@ -16,13 +16,13 @@ using SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.token;
 namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.uncommon;
 
 public class BurningQuestion() : SpireEnigmasCard.SacrificeCard(0,
-    CardType.Skill, CardRarity.Uncommon,
+    CardType.Attack, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
     protected override bool HasEnergyCostX => true;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new DamageVar(4M, ValueProp.Move)
+        new DamageVar(6M, ValueProp.Move)
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 
@@ -36,11 +36,11 @@ public class BurningQuestion() : SpireEnigmasCard.SacrificeCard(0,
     {
         int num = ResolveEnergyXValue();
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(num).FromCard(this, play).Targeting(play.Target).WithHitVfxNode((Func<Creature, Node2D>) (t => (Node2D) NStabVfx.Create(t, true, VfxColor.Gold))).Execute(choiceContext);
-        Taboo.CreateInHand(Owner, num, CombatState);
+        await Taboo.CreateInHand(Owner, num, CombatState);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeValueBy(2);
+        DynamicVars.Damage.UpgradeValueBy(3);
     }
 }

@@ -3,10 +3,13 @@ using BaseLib.Extensions;
 using BaseLib.Utils;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using SpireEnigmas.SpireEnigmasCode.Character.displaced;
 using SpireEnigmas.SpireEnigmasCode.Character.sacrifice;
+using SpireEnigmas.SpireEnigmasCode.Character.savant;
+using SpireEnigmas.SpireEnigmasCode.Commands;
 using SpireEnigmas.SpireEnigmasCode.Extensions;
 using SpireEnigmas.SpireEnigmasCode.Util;
 
@@ -15,6 +18,9 @@ namespace SpireEnigmas.SpireEnigmasCode.Cards;
 public abstract class SpireEnigmasCard(int cost, CardType type, CardRarity rarity, TargetType target) :
     CustomCardModel(cost, type, rarity, target)
 {
+
+    public Creature? GetChirp => ChirpCmd.GetChirpFromPlayer(Owner);
+    
     /*
     private LocString? _flavorTextTitleLocString;
     
@@ -59,6 +65,10 @@ public abstract class SpireEnigmasCard(int cost, CardType type, CardRarity rarit
     public abstract class SacrificeCard(int cost, CardType type, CardRarity rarity, TargetType target) :
         SpireEnigmasCard(cost, type, rarity, target);
     
+    [Pool(typeof(TheSavantCardPool))]
+    public abstract class SavantCard(int cost, CardType type, CardRarity rarity, TargetType target) :
+        SpireEnigmasCard(cost, type, rarity, target);
+    
     public static HoverTip GetStaticHoverTip(string locEntry)
     {
         const string locTable = "static_hover_tips";
@@ -76,5 +86,15 @@ public abstract class SpireEnigmasCard(int cost, CardType type, CardRarity rarit
     public static HoverTip FlashbackHoverTip()
     {
         return GetStaticHoverTip("SPIREENIGMAS-FLASHBACK");
+    }
+    
+    public static HoverTip ChirpHoverTip()
+    {
+        return GetStaticHoverTip("SPIREENIGMAS-CHIRP");
+    }
+    
+    public static HoverTip InventHoverTip()
+    {
+        return GetStaticHoverTip("SPIREENIGMAS-INVENT");
     }
 }

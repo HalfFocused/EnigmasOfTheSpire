@@ -9,18 +9,24 @@ using HarmonyLib;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Modding;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.Relics;
 using MegaCrit.Sts2.Core.Nodes.Combat;
+using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Cards.displaced.common;
+using SpireEnigmas.SpireEnigmasCode.Cards.other;
 using SpireEnigmas.SpireEnigmasCode.Character.displaced;
+using SpireEnigmas.SpireEnigmasCode.Commands;
+using SpireEnigmas.SpireEnigmasCode.Monsters;
 using SpireEnigmas.SpireEnigmasCode.Powers;
 using SpireEnigmas.SpireEnigmasCode.Util;
 
@@ -33,13 +39,18 @@ public partial class MainFile : Node
     public const string ResPath = $"res://{ModId}";
     
     public static MegaCrit.Sts2.Core.Logging.Logger Logger { get; } = new(ModId, MegaCrit.Sts2.Core.Logging.LogType.Generic);
-
+    
     public static void Initialize()
     {
         Harmony harmony = new(ModId);
         harmony.PatchAll();
-        Harmony.DEBUG = true;
+        Godot.Bridge.ScriptManagerBridge.LookupScriptsInAssembly(Assembly.GetExecutingAssembly());
     }
+}
+
+class ChirpReserveCostField
+{
+    public static readonly SpireField<CardModel, int> ChirpReserveCost = new(()=>0);
 }
 
 /*
@@ -146,6 +157,93 @@ class StasisDurationPatch
     }
 }
 
+[HarmonyPatch(typeof(PlayerCombatState), nameof(PlayerCombatState.HasEnoughResourcesFor))]
+class DirePlayablePatch
+{
+    [HarmonyPostfix]
+    static void AllowPlayingIfChirpReserveSufficient(PlayerCombatState __instance, CardModel card, ref UnplayableReason reason, ref bool __result)
+    {
+        Creature? playerChirp = ChirpCmd.GetChirpFromPlayer(__instance._player);
+        if(playerChirp is null) return;
+        Chirp chirpMonster = (Chirp) playerChirp.Monster;
+        
+        int calculatedEnergyCost = Math.Max(0, card.EnergyCost.GetWithModifiers(CostModifiers.All));
+        int chirpReserveEnergy = chirpMonster.GetEnergy();
+        
+        /*
+         * The logic here could almost certainly be done in a more clever way.
+         * But I don't care!!!!!!!!!!!!!!!!!!!!!
+         */
+        
+        //step 1: if the card is a command, we can only play it if our chirp reserve is >= its cost
+        if (card.Keywords.Contains(EnigmaKeywords.Command))
+        {
+            /*
+             * If we think we can play this card, but our Chirp reserve is less than its cost,
+             * we actually can't!
+             */
+            //because this card is a command, it will always cost Reserve equal to it's Cost.
+            ChirpReserveCostField.ChirpReserveCost.Set(card, calculatedEnergyCost);
+            if (calculatedEnergyCost <= chirpReserveEnergy)
+            {
+                //if chirp has enough reserve energy:
+                __result = true;
+                reason = UnplayableReason.None;
+            }
+            else
+            {
+                //if chirp does not have enough reserve energy:
+                __result = false;
+                reason = UnplayableReason.EnergyCostTooHigh;
+                //todo: add new unplayable reason that chirp doesn't have enough energy
+            }
+            return;
+        }
+        else
+        {
+            //if the card is not a command, the player and chirp's energy reserves can be used together.
+            if (!__result && reason == UnplayableReason.EnergyCostTooHigh)
+            {
+                //if we cannot play the card because we don't have enough energy
+                if (calculatedEnergyCost <= chirpReserveEnergy + __instance.Energy)
+                {
+                    //if the player and chirp combined have enough energy
+                    ChirpReserveCostField.ChirpReserveCost.Set(card, calculatedEnergyCost - __instance.Energy);
+                    __result = true;
+                    reason = UnplayableReason.None;
+                    return;
+                }
+            }
+            //if we already can play the card, set it's reserve cost to 0.
+            ChirpReserveCostField.ChirpReserveCost.Set(card, 0);
+        }
+    }
+}
+
+[HarmonyPatch(typeof(CardModel), nameof(CardModel.SpendEnergy))]
+class SpendChirpReserveCostPatch
+{
+    [HarmonyPrefix]
+    static void SpendCalculatedChirpReserveCost(CardModel __instance, ref int amount)
+    {
+        int calculatedReserveCost = ChirpReserveCostField.ChirpReserveCost.Get(__instance);
+        if (calculatedReserveCost > 0)
+        {
+            Creature? playerChirp = ChirpCmd.GetChirpFromPlayer(__instance.Owner);
+            if(playerChirp is null) return; //this shouldnt be possible
+            Chirp chirpMonster = (Chirp) playerChirp.Monster;
+            chirpMonster.LoseEnergy(calculatedReserveCost);
+
+            if (__instance.Keywords.Contains(EnigmaKeywords.Command))
+            {
+                amount = 0;
+                return;
+            }
+        }
+        amount -= calculatedReserveCost;
+    }
+}
+
 [HarmonyPatch(typeof(CardModel), "ShouldGlowGold", MethodType.Getter)]
 class FreestyleGlowGoldPatch
 {
@@ -162,6 +260,9 @@ class FreestyleGlowGoldPatch
     }
 }
 
+/*
+ * Doubles all card draw during the player's turn if they have the Unsustainable power.
+ */
 [HarmonyPatch(typeof(CardPileCmd), nameof(CardPileCmd.Draw), 
     typeof(PlayerChoiceContext), typeof(Decimal), typeof(Player), typeof(bool))]
 class DrawIncreasePatch
@@ -178,5 +279,144 @@ class DrawIncreasePatch
             power.Flash();
             count *= power.Amount;
         }
+    }
+}
+
+[HarmonyPatch(MethodType.Async)]
+[HarmonyPatch(typeof(CardCmd), nameof(CardCmd.Transform), typeof(IEnumerable<CardTransformation>), typeof(Rng),
+    typeof(CardPreviewStyle))]
+class CardTransformationHookPatch
+{
+    [HarmonyTranspiler]
+    static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
+    {
+        var codeMatcher = new CodeMatcher(instructions, generator);
+
+        codeMatcher.MatchStartForward(
+                CodeMatch.IsLdarg(0),
+                new CodeMatch(OpCodes.Ldfld),
+                CodeMatch.Calls(typeof(CardPile).Method(nameof(CardModel.AfterTransformedFrom))),
+                CodeMatch.IsLdarg(0),
+                new CodeMatch(OpCodes.Ldfld),
+                CodeMatch.Calls(typeof(CardPile).Method(nameof(CardModel.AfterTransformedTo)))
+            ).ThrowIfInvalid("Could not find Transform hooks");
+            
+        object originalField = codeMatcher.InstructionAt(1).operand;
+        object replacementField = codeMatcher.InstructionAt(4).operand;
+
+        codeMatcher.Advance(6);
+            
+        codeMatcher.InsertAndAdvance(
+            new CodeInstruction(OpCodes.Ldarg_0),
+            new CodeInstruction(OpCodes.Ldfld, replacementField),
+            new CodeInstruction(OpCodes.Ldarg_0),
+            new CodeInstruction(OpCodes.Ldfld, originalField),
+            CodeInstruction.Call(() => CatchTransformation(default, default))
+        );
+
+        return codeMatcher.Instructions();
+    }
+
+    static void CatchTransformation(CardModel original, CardModel replacement)
+    {
+        MainFile.Logger.Info("Caught Card Transformation: " + original.Title + " -> " + replacement.Title);
+
+        if (replacement.Owner.PlayerCombatState != null)
+        {
+            if (original is Scrap)
+            {
+                replacement.EnergyCost.SetUntilPlayed(0);
+            }
+
+            Player player = replacement.Owner;
+
+            MasterworkPower? masterworkPower = player.Creature.GetPower<MasterworkPower>();
+
+            if (masterworkPower is not null)
+            {
+                masterworkPower.Flash();
+                replacement.BaseReplayCount += masterworkPower.Amount;
+            }
+        }
+    }
+}
+
+/*
+ * Did you know that entomancer's Personal Hive power has a hard-coded Osty check? :D
+ * So without this patch, Chirp attacks brick the game when attacking it.
+ *
+ * This patch simply adds in a similar Chirp check & reassingment right after the Osty check
+ */
+[HarmonyPatch(MethodType.Async)]
+[HarmonyPatch(typeof(PersonalHivePower), nameof(PersonalHivePower.AfterDamageReceived))]
+class PersonalHiveChirpAttackPatch
+{
+    [HarmonyTranspiler]
+    static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
+    {
+        var codeMatcher = new CodeMatcher(instructions, generator);
+
+        codeMatcher.MatchStartForward(
+                CodeMatch.IsLdarg(0), //0 - this
+                new CodeMatch(OpCodes.Ldfld), //1 - loads the 'dealer' variable
+                new CodeMatch(OpCodes.Callvirt), //2 - calls getMonster()
+                new CodeMatch(OpCodes.Isinst), //3 - checks if it's an Osty
+                new CodeMatch(OpCodes.Brfalse_S), //4 - skips past 5-10 if not Osty
+                
+                CodeMatch.IsLdarg(0), //5 - this
+                CodeMatch.IsLdarg(0), //6 - this
+                new CodeMatch(OpCodes.Ldfld), //7 - loads 'dealer' again
+                new CodeMatch(OpCodes.Callvirt), //8 - getPetOwner()
+                new CodeMatch(OpCodes.Callvirt), //9 - getCreature()
+                new CodeMatch(OpCodes.Stfld) //10 - sets 'dealer' to the result
+            ).ThrowIfInvalid("Could not find Osty check & reassignment");
+            
+        object dealerField = codeMatcher.InstructionAt(1).operand;
+        object getMonsterMethod = codeMatcher.InstructionAt(2).operand;
+        
+        object getPetOwnerMethod = codeMatcher.InstructionAt(8).operand;
+        object getCreatureMethod = codeMatcher.InstructionAt(9).operand;
+
+        /*
+         * they call this move the pointer shuffle
+         */
+        
+        //we advance late for the sake of setting those variables
+        codeMatcher.Advance(11); 
+        
+        //save this position.
+        codeMatcher.CreateLabel(out System.Reflection.Emit.Label startOfChirpCheck);
+        //go back to the BrFalse instruction
+        codeMatcher.Advance(-7);
+        //instead of the Osty check skipping to end, we want it to skip to here
+        codeMatcher.SetOperandAndAdvance(startOfChirpCheck);
+        //go back to where the chirp check is being created
+        codeMatcher.Advance(7);
+        
+        codeMatcher.InsertAndAdvance(
+            /*
+             * All this is a functional copy of the Osty check, except with Chirp instead.
+             * This is why we needed to grab those 4 variables to ensure resistance against field or method renames
+             */
+            new CodeInstruction(OpCodes.Ldarg_0),
+            new CodeInstruction(OpCodes.Ldfld, dealerField),
+            new CodeInstruction(OpCodes.Callvirt, getMonsterMethod),
+            new CodeInstruction(OpCodes.Isinst, typeof(Chirp)),
+            new CodeInstruction(OpCodes.Brfalse_S), //created without an operand, this gets set later once we have a label
+            
+            new CodeInstruction(OpCodes.Ldarg_0),
+            new CodeInstruction(OpCodes.Ldarg_0),
+            new CodeInstruction(OpCodes.Ldfld, dealerField),
+            new CodeInstruction(OpCodes.Callvirt, getPetOwnerMethod),
+            new CodeInstruction(OpCodes.Callvirt, getCreatureMethod),
+            new CodeInstruction(OpCodes.Stfld, dealerField)
+        );
+        //grab this position
+        codeMatcher.CreateLabel(out System.Reflection.Emit.Label endOfChirpCheck);
+        //go back to the BrFalse we created without an Operand and tell it to jump here.
+        codeMatcher.Advance(-7);
+        codeMatcher.SetOperandAndAdvance(endOfChirpCheck);
+
+        return codeMatcher.Instructions();
     }
 }

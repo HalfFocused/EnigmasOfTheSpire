@@ -9,7 +9,7 @@ using MegaCrit.Sts2.Core.Models.Cards;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.rare;
 
-public class Invoke() : SpireEnigmasCard.DisplacedCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class Invoke() : SpireEnigmasCard.DisplacedCard(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new CardsVar(1)
@@ -37,6 +37,7 @@ public class Invoke() : SpireEnigmasCard.DisplacedCard(1, CardType.Skill, CardRa
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        //EnergyCost.UpgradeBy(-1);
+        DynamicVars.Cards.UpgradeValueBy(1);
     }
 }

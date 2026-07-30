@@ -14,7 +14,7 @@ using SpireEnigmas.SpireEnigmasCode.Util;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.uncommon;
 
-public class Convoke() : SpireEnigmasCard.SacrificeCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class Convoke() : SpireEnigmasCard.SacrificeCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

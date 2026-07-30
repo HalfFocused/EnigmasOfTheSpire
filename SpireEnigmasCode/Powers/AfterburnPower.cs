@@ -19,18 +19,14 @@ public class AfterburnPower : SpireEnigmaPower
         HoverTipFactory.FromPower<CharredPower>()
     ];
     
-    public override async Task AfterSideTurnEnd(
+    public override async Task AfterSideTurnEndLate(
         PlayerChoiceContext choiceContext,
         CombatSide side,
         IEnumerable<Creature> participants)
     {
         if (side != CombatSide.Enemy)
             return;
-
-        if (!Owner.HasPower<CharredPower>())
-        {
-            await PowerCmd.TickDownDuration(this);
-        }
+        await PowerCmd.TickDownDuration(this);
     }
     
 }

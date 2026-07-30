@@ -10,6 +10,10 @@
   "SPIREENIGMAS-LIFEBLOOD.description": "#Whenever you enter a *Rest* *Site*, heal [blue]!H![/blue] HP.",
   "SPIREENIGMAS-LIFEBLOOD.flavor": "The warmth of the fire is enough to kindle your spirits anew.",
 
+  "SPIREENIGMAS-FUNCTIONAL_CORE.title": "Functional Core",
+  "SPIREENIGMAS-FUNCTIONAL_CORE.description": "#At the start of each combat, *Chirp* gains [E?].",
+  "SPIREENIGMAS-FUNCTIONAL_CORE.flavor": "The warmth of the fire is enough to kindle your spirits anew.",
+
   "SPIREENIGMAS-IMBUED_CANDLE.title": "Imbued Candle",
   "SPIREENIGMAS-IMBUED_CANDLE.description": "#Whenever you apply *Charred*, apply an additional [blue]!CharredPower![/blue] *Charred*.",
   "SPIREENIGMAS-IMBUED_CANDLE.flavor": "A common ritual for practitioners, an imbued candle won't burn out for as long as it's owner lives."

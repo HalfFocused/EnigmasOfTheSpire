@@ -4,7 +4,7 @@
   "SPIREENIGMAS-THE_DISPLACED.banter.dead.endTurnPing": "...",
   "SPIREENIGMAS-THE_DISPLACED.cardsModifierDescription": "Displaced cards will now appear in rewards and shops.",
   "SPIREENIGMAS-THE_DISPLACED.cardsModifierTitle": "Displaced Cards",
-  "SPIREENIGMAS-THE_DISPLACED.description": "A time-traveller, clinging onto their memories in a time loop.\nHaunted with visions and foresight from previous loops.",
+  "SPIREENIGMAS-THE_DISPLACED.description": "A time-traveller, clinging onto their memories in a loop.\nWitnesses visions and foresight    of the future.",
   "SPIREENIGMAS-THE_DISPLACED.eventDeathPrevention": "This team wouldn't make it without me.",
   "SPIREENIGMAS-THE_DISPLACED.goldMonologue": "I'll use these riches to make sure I can see her again.",
   "SPIREENIGMAS-THE_DISPLACED.possessiveAdjective": "their",
@@ -27,5 +27,20 @@
   "SPIREENIGMAS-THE_SACRIFICE.pronounPossessive": "hers",
   "SPIREENIGMAS-THE_SACRIFICE.pronounSubject": "she",
   "SPIREENIGMAS-THE_SACRIFICE.title": "The Sacrifice",
-  "SPIREENIGMAS-THE_SACRIFICE.titleObject": "The Sacrifice"
+  "SPIREENIGMAS-THE_SACRIFICE.titleObject": "The Sacrifice",
+
+  "SPIREENIGMAS-THE_SAVANT.aromaPrinciple": "Innovation",
+  "SPIREENIGMAS-THE_SAVANT.banter.alive.endTurnPing": "More time to think.",
+  "SPIREENIGMAS-THE_SAVANT.banter.dead.endTurnPing": "...",
+  "SPIREENIGMAS-THE_SAVANT.cardsModifierDescription": "Savant cards will now appear in rewards and shops.",
+  "SPIREENIGMAS-THE_SAVANT.cardsModifierTitle": "Savant Cards",
+  "SPIREENIGMAS-THE_SAVANT.description": "An inventor banished from the Spire for his creations.\nCommands Chirp, his sentry companion.",
+  "SPIREENIGMAS-THE_SAVANT.eventDeathPrevention": "They need me in order to succeed.",
+  "SPIREENIGMAS-THE_SAVANT.goldMonologue": "Think about all the parts I could afford with these.",
+  "SPIREENIGMAS-THE_SAVANT.possessiveAdjective": "his",
+  "SPIREENIGMAS-THE_SAVANT.pronounObject": "him",
+  "SPIREENIGMAS-THE_SAVANT.pronounPossessive": "his",
+  "SPIREENIGMAS-THE_SAVANT.pronounSubject": "he",
+  "SPIREENIGMAS-THE_SAVANT.title": "The Savant",
+  "SPIREENIGMAS-THE_SAVANT.titleObject": "The Savant"
 }

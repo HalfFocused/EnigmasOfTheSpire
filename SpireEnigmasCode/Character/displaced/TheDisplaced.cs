@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Nodes.Combat;
 using SpireEnigmas.SpireEnigmasCode.Cards.displaced.basic;
 using SpireEnigmas.SpireEnigmasCode.Extensions;
 using SpireEnigmas.SpireEnigmasCode.Relics;
+using SpireEnigmas.SpireEnigmasCode.Relics.displaced;
 
 namespace SpireEnigmas.SpireEnigmasCode.Character.displaced;
 
@@ -64,6 +65,7 @@ public class TheDisplaced : PlaceholderCharacterModel
     public override string CustomCharacterSelectTransitionPath =>
         "res://SpireEnigmas/materials/displaced_transition_mat.tres";
     
+    public override string CustomCharacterSelectBg => "char_select_bg_displaced.tscn".CharacterUiPath();
     public override string CustomIconTexturePath => "character_icon_char_name.png".CharacterUiPath();
     public override string CustomCharacterSelectIconPath => "char_select_char_name.png".CharacterUiPath();
     public override string CustomCharacterSelectLockedIconPath => "char_select_char_name_locked.png".CharacterUiPath();

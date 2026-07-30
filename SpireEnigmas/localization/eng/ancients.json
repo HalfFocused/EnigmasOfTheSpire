@@ -34,6 +34,13 @@
   "THE_ARCHITECT.talk.SPIREENIGMAS-THE_SACRIFICE.0-2r.char": "What?? But-",
   "THE_ARCHITECT.talk.SPIREENIGMAS-THE_SACRIFICE.0-attack": "Architect",
 
+  "THE_ARCHITECT.talk.SPIREENIGMAS-THE_SAVANT.0-0r.char": "It feels good to be back.",
+  "THE_ARCHITECT.talk.SPIREENIGMAS-THE_SAVANT.0-0r.next": "Continue",
+  "THE_ARCHITECT.talk.SPIREENIGMAS-THE_SAVANT.0-1r.ancient": "Relish that feeling. It won't last long.",
+  "THE_ARCHITECT.talk.SPIREENIGMAS-THE_SAVANT.0-1r.next": "Threaten",
+  "THE_ARCHITECT.talk.SPIREENIGMAS-THE_SAVANT.0-2r.char": "Stand down. I've-",
+  "THE_ARCHITECT.talk.SPIREENIGMAS-THE_SAVANT.0-attack": "Architect",
+
   "DARV.talk.SPIREENIGMAS-THE_DISPLACED.0-0.ancient": "We meet again!\nStill looking to fix that clock?",
   
   "DARV.talk.SPIREENIGMAS-THE_DISPLACED.1-0r.ancient": "I got all sortsa new timepieces, friend!\nCare to take a look?",

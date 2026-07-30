@@ -9,7 +9,7 @@ public class EnigmaKeywords
     public static CardKeyword TimeLoop; 
     
     [CustomEnum, KeywordProperties(AutoKeywordPosition.Before)]
-    public static CardKeyword Dire; 
+    public static CardKeyword Command; 
     
     [CustomEnum, KeywordProperties(AutoKeywordPosition.Before)]
     public static CardKeyword Improvise; 

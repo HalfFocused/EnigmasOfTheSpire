@@ -1,0 +1,17 @@
+﻿using BaseLib.Abstracts;
+using BaseLib.Extensions;
+using BaseLib.Utils;
+using SpireEnigmas.SpireEnigmasCode.Character;
+using SpireEnigmas.SpireEnigmasCode.Character.sacrifice;
+using SpireEnigmas.SpireEnigmasCode.Character.savant;
+using SpireEnigmas.SpireEnigmasCode.Extensions;
+
+namespace SpireEnigmas.SpireEnigmasCode.Relics;
+
+[Pool(typeof(TheSavantRelicPool))]
+public abstract class TheSavantRelic : CustomRelicModel
+{
+    public override string PackedIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".RelicImagePath();
+    protected override string PackedIconOutlinePath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}_outline.png".RelicImagePath();
+    protected override string BigIconPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant()}.png".BigRelicImagePath();
+}

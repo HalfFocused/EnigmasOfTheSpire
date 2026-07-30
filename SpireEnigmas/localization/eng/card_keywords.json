@@ -9,5 +9,8 @@
   "SPIREENIGMAS-IMPROVISE.description": "#This card is free to play the first time it is drawn during each of your turns.",
 
   "SPIREENIGMAS-TIMELOOP.title": "Time Loop",
-  "SPIREENIGMAS-TIMELOOP.description": "#Whenever you play another card, this *Transforms* into a copy of it."
+  "SPIREENIGMAS-TIMELOOP.description": "#Whenever you play another card, this *Transforms* into a copy of it.",
+
+  "SPIREENIGMAS-COMMAND.title": "Command",
+  "SPIREENIGMAS-COMMAND.description": "#This card is performed by *Chirp*, and only *Chirp's* [E] may be spent on it."
 }

@@ -98,7 +98,7 @@
   
   "SPIREENIGMAS-UNSUSTAINABLE_POWER.title": "Unsustainable",
   "SPIREENIGMAS-UNSUSTAINABLE_POWER.description": "",
-  "SPIREENIGMAS-UNSUSTAINABLE_POWER.smartDescription": "#Double all card draw during your turn. Whenever you shuffle your *Draw* *Pile*, *Exhaust* a random card.",
+  "SPIREENIGMAS-UNSUSTAINABLE_POWER.smartDescription": "#Double all card draw during your turn. Whenever you shuffle your *Draw* *Pile*, *Exhaust* a random card in it.",
   
   "SPIREENIGMAS-FEALTY_POWER.title": "Fealty",
   "SPIREENIGMAS-FEALTY_POWER.description": "#Increases the damage and *Block* of *Common* cards.",
@@ -174,5 +174,53 @@
 
   "SPIREENIGMAS-GLASS_SHARDS_POWER.title": "Glass Shards",
   "SPIREENIGMAS-GLASS_SHARDS_POWER.description": "nobody should see this",
-  "SPIREENIGMAS-GLASS_SHARDS_POWER.smartDescription": "#At the end of your turn, deal [blue]{Amount}[/blue] damage to ALL enemies for each card in your *Hand*."
+  "SPIREENIGMAS-GLASS_SHARDS_POWER.smartDescription": "#At the end of your turn, deal [blue]{Amount}[/blue] damage to ALL enemies for each card in your *Hand*.",
+
+  "SPIREENIGMAS-INTERNAL_BATTERY_POWER.title": "Internal Battery",
+  "SPIREENIGMAS-INTERNAL_BATTERY_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-INTERNAL_BATTERY_POWER.smartDescription": "#*Chirp* has it's own [E] that is kept across turns. You can spend it after your own. It currently has [E?].",
+
+  "SPIREENIGMAS-ALTERNATOR_POWER.title": "Alternator",
+  "SPIREENIGMAS-ALTERNATOR_POWER.description": "",
+  "SPIREENIGMAS-ALTERNATOR_POWER.smartDescription": "#At the end of your turn, if *Chirp* has no [E], it gains {Amount:energyIcons()}.",
+
+  "SPIREENIGMAS-REPURPOSING_POWER.title": "Repurposing",
+  "SPIREENIGMAS-REPURPOSING_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-REPURPOSING_POWER.smartDescription": "#The first {Amount:plural:|[blue]{Amount}[/blue] }time{Amount:plural:|s} you draw a *Status* each turn, *Transform* it into a random card.",
+
+  "SPIREENIGMAS-CHIRP_ENERGY_NEXT_TURN_POWER.title": "Chirp Energy Next Turn",
+  "SPIREENIGMAS-CHIRP_ENERGY_NEXT_TURN_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-CHIRP_ENERGY_NEXT_TURN_POWER.smartDescription": "#Next turn, *Chirp* gains {Amount:energyIcons()}.",
+  
+  "SPIREENIGMAS-TOOLBELT_POWER.title": "Toolbelt",
+  "SPIREENIGMAS-TOOLBELT_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-TOOLBELT_POWER.smartDescription": "#*Scrap* gains *Retain*.",
+
+  "SPIREENIGMAS-PLAN_B_POWER.title": "Plan B",
+  "SPIREENIGMAS-PLAN_B_POWER.description": "#Increases the damage and *Block* of *Common* cards.",
+  "SPIREENIGMAS-PLAN_B_POWER.smartDescription": "#Cards created this combat deal [blue]{Amount}[/blue] additional damage and gain [blue]{Amount}[/blue] additional *Block*.",
+
+  "SPIREENIGMAS-CHIRP_BLOCK_NEXT_TURN_POWER.title": "Chirp Block Next Turn",
+  "SPIREENIGMAS-CHIRP_BLOCK_NEXT_TURN_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-CHIRP_BLOCK_NEXT_TURN_POWER.smartDescription": "#Next turn, *Chirp* gives you [blue]{Amount}[/blue] *Block*.",
+
+  "SPIREENIGMAS-MASTERWORK_POWER.title": "Masterwork",
+  "SPIREENIGMAS-MASTERWORK_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-MASTERWORK_POWER.smartDescription": "#Whenever you *Transform* a card, the result gains *Replay* [blue]{Amount}[/blue].",
+
+  "SPIREENIGMAS-SAFETIES_OFF_POWER.title": "Safeties Off",
+  "SPIREENIGMAS-SAFETIES_OFF_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-SAFETIES_OFF_POWER.smartDescription": "#Whenever you end your turn with no unspent [E], take [blue]{Amount}[/blue] damage.",
+
+  "SPIREENIGMAS-BRAINSTORM_POWER.title": "Brainstorm",
+  "SPIREENIGMAS-BRAINSTORM_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-BRAINSTORM_POWER.smartDescription": "#If you end this turn with unspent [E], play [blue]{Amount}[/blue] random card(s) in your *Hand*.",
+
+  "SPIREENIGMAS-SHOCK_AND_AWE_POWER.title": "Shock and Awe",
+  "SPIREENIGMAS-SHOCK_AND_AWE_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-SHOCK_AND_AWE_POWER.smartDescription": "#If you end this turn with unspent [E], gain [blue]{Amount}[/blue] *Block*.",
+
+  "SPIREENIGMAS-ALLOCATE_POWER.title": "Allocate",
+  "SPIREENIGMAS-ALLOCATE_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-ALLOCATE_POWER.smartDescription": "#Whenever you end your turn with unspent [E], draw [blue]{Amount}[/blue] card(s) next turn."
 }

@@ -1,4 +1,7 @@
 res://addons/godotversionupdater/godotversionupdater.tscn::e273f0f72d0ff4ebcd663ddf4749ff4b::1779592605::res://.godot/exported/133200997/export-0b09f7445a0f0d00f4c1349ffdf842a5-godotversionupdater.scn
-res://SpireEnigmas/character/displaced_skel_data.tres::83d35a1f2520cd1d813fb23c611ac925::1779600378::res://.godot/exported/133200997/export-dd0dfcf9b59572f4c69c5734b4cadc0d-displaced_skel_data.res
-res://SpireEnigmas/materials/displaced_transition_mat.tres::dbe6aaaa7e2b79c521f51360ce6c94ca::1779668214::res://.godot/exported/133200997/export-76fffd8799894004a466421353d394b1-displaced_transition_mat.res
+res://SpireEnigmas/images/charui/char_select_bg_displaced.tscn::f3e78595da79bf2c201775e2a66e991c::1785101091::res://.godot/exported/133200997/export-3b58ba31e70d8b66b4d17e16f426cd50-char_select_bg_displaced.scn
+res://SpireEnigmas/materials/displaced_transition_mat.tres::ec478d2d3b5289a9d5d7e892c535ea47::1785097878::res://.godot/exported/133200997/export-76fffd8799894004a466421353d394b1-displaced_transition_mat.res
 res://SpireEnigmas/scenes/thedisplaced/displaced.tscn::0c3e3ae66fabe5361f974bba3bc86de7::1779668214::res://.godot/exported/133200997/export-2dad99e5284be643a42605cbe0ba77f0-displaced.scn
+res://SpireEnigmas/character/displaced_skel_data.tres::fd9072a6c88789124e97b20807b09962::1785209557::res://.godot/exported/133200997/export-dd0dfcf9b59572f4c69c5734b4cadc0d-displaced_skel_data.res
+res://SpireEnigmas/monsters/chirp/sentry.tres::33c0a491ffcc1d13bd4958756fb7c4cb::1785209557::res://.godot/exported/133200997/export-7792d094da26b2775bbe0274afe32f43-sentry.res
+res://SpireEnigmas/monsters/chirp/sentry.tscn::205fa1ba28cd96b56904bd9871876362::1785354732::res://.godot/exported/133200997/export-a18cd03dd09936821a99f7feb26e6e81-sentry.scn

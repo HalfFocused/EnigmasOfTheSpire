@@ -41,12 +41,7 @@ public class CharredPower : SpireEnigmaPower
         if (side != CombatSide.Enemy)
             return;
 
-        if (Owner.HasPower<AfterburnPower>())
-        {
-            PowerModel afterburnPower = Owner.GetPower<AfterburnPower>();
-            await PowerCmd.TickDownDuration(afterburnPower);
-        }
-        else
+        if (!Owner.HasPower<AfterburnPower>())
         {
             await PowerCmd.ModifyAmount(choiceContext, this, -Math.Ceiling(Amount / 2.0m), null, null);
         }

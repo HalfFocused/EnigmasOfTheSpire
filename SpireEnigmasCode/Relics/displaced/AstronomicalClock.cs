@@ -5,7 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 
-namespace SpireEnigmas.SpireEnigmasCode.Relics;
+namespace SpireEnigmas.SpireEnigmasCode.Relics.displaced;
 
 public class AstronomicalClock() : TheDisplacedRelic
 {

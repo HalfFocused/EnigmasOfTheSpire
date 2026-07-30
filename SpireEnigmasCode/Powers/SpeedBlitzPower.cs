@@ -30,7 +30,7 @@ public class SpeedBlitzPower : SpireEnigmaPower
             return;
         
         if (CombatManager.Instance.History.Entries.OfType<CardDrawnEntry>()
-                .Count(e => !e.FromHandDraw && e.RoundNumber == card.CombatState.RoundNumber) == 1)
+                .Count(e => e.Actor == card.Owner.Creature && !e.FromHandDraw && e.RoundNumber == card.CombatState.RoundNumber) == 1)
         {
             await PlayerCmd.GainEnergy(Amount, Owner.Player);
         }

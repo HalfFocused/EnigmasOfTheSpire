@@ -6,5 +6,11 @@
   "SPIREENIGMAS-FLASHBACK.description": "#Return from your *Discard* *Pile* to your *Hand*.",
 
   "SPIREENIGMAS-IMPROVISE.title": "Improvise",
-  "SPIREENIGMAS-IMPROVISE.description": "#An effect when this card is drawn during your turn."
+  "SPIREENIGMAS-IMPROVISE.description": "#An effect when this card is drawn during your turn.",
+
+  "SPIREENIGMAS-CHIRP.title": "Chirp",
+  "SPIREENIGMAS-CHIRP.description": "#Chirp keeps it's energy between turns. You can use it when you don't have enough.",
+
+  "SPIREENIGMAS-INVENT.title": "Invent",
+  "SPIREENIGMAS-INVENT.description": "#*Transform* a card in your *Hand* into the designated card."
 }

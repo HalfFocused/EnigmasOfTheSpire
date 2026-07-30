@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cuhsxeswx1qg7"]
 
-[ext_resource type="Texture2D" uid="uid://dop3l70gvbu6v" path="res://TheDisplaced/images/ui/transitions/displaced_transition.png" id="1_5jglv"]
+[ext_resource type="Texture2D" uid="uid://dop3l70gvbu6v" path="res://SpireEnigmas/images/ui/transitions/displaced_transition.png" id="1_5jglv"]
 
 [sub_resource type="Shader" id="Shader_spnx5"]
 code = "shader_type canvas_item;
