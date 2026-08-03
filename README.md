@@ -24,7 +24,7 @@ Themes:
 - Sticking to the simplicity and virtue of **Common** cards.
 - Giving into the ego and allure of **Rare** cards.
 - Keeping the energy high by drawing cards during her turns.
-- Hiding her **Taboos**, retaining tokens that give draw when you need it most... at a price.
+- Hiding her **Taboos**, retaining tokens that give draw when she need it most... at a price.
 
 ## The Savant
 "An inventor banished from the Spire for his creations. Commands Chirp, his sentry companion."  
