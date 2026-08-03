@@ -49,7 +49,7 @@ public abstract class SpireEnigmasCard(int cost, CardType type, CardRarity rarit
         {
             var name = Id.Entry.RemovePrefix().ToLowerInvariant();
             var path = $"res://{MainFile.ModId}/images/card_portraits/big/{name}.png";
-            return ResourceLoader.Exists(path) ? path : MyShittyArtRoller.Get(Id.Entry, Rarity);
+            return ResourceLoader.Exists(path) ? path : ArtRoller.Get(Id.Entry, Rarity);
         }
     }
 

@@ -15,7 +15,7 @@ spine_godot_extension.gdextension::GDExtension::3849295406201813320::1785209622:
 ::res://bin/android/::1785209622
 ::res://bin/ExportRelease/::1785209682
 ::res://bin/ExportRelease/net9.0/::1785209682
-::res://bin/ExportRelease/net9.0/publish/::1785747281
+::res://bin/ExportRelease/net9.0/publish/::1785751029
 Sentry.Godot.xml::TextFile::-1::1785469360::0::1::::<><><>0<>0<><>::
 SpireEnigmas.deps.json::JSON::-1::1785467234::0::1::::<><><>0<>0<><>::
 sts2.xml::TextFile::-1::1785525591::0::1::::<><><>0<>0<><>::
@@ -32,7 +32,7 @@ sts2.xml::TextFile::-1::1785525591::0::1::::<><><>0<>0<><>::
 ::res://bin/macos/libspine_godot.macos.template_release.framework/Resources/::1785209622
 ::res://bin/macos/macos.framework/::1767910592
 ::res://bin/web/::1785209622
-::res://bin/windows/::1785747346
+::res://bin/windows/::1785751029
 ::res://SpireEnigmas/::1785466575
 mod_image.png::CompressedTexture2D::3294506707766202555::1778171902::1785193127::1::::<><><>0<>0<>3d2e9ad32c2ac695556b66017fcaaeec<>res://.godot/imported/mod_image.png-0a6e7d607a50651c76b6409365f80161.ctex::
 ::res://SpireEnigmas/character/::1785209557
@@ -153,9 +153,9 @@ relic.png::CompressedTexture2D::8936371832863736020::1778171902::1785193127::1::
 ::res://SpireEnigmas/images/ui/transitions/::1785193127
 displaced_transition.png::CompressedTexture2D::8174592967521122139::1779813894::1785193127::1::::<><><>0<>0<>fb9d425ed4534224c5530ffa44f55196<>res://.godot/imported/displaced_transition.png-159c0bc6f9c3ab9a31b8b54465be1b4c.ctex::
 ::res://SpireEnigmas/localization/::1778171902
-::res://SpireEnigmas/localization/eng/::1785744087
+::res://SpireEnigmas/localization/eng/::1785751021
 ancients.json::JSON::-1::1785187633::0::1::::<><><>0<>0<><>::
-cards.json::JSON::-1::1785744087::0::1::::<><><>0<>0<><>::
+cards.json::JSON::-1::1785751021::0::1::::<><><>0<>0<><>::
 card_keywords.json::JSON::-1::1785184329::0::1::::<><><>0<>0<><>::
 characters.json::JSON::-1::1785187633::0::1::::<><><>0<>0<><>::
 monsters.json::JSON::-1::1785188457::0::1::::<><><>0<>0<><>::
@@ -383,7 +383,7 @@ DefendSavant.cs::CSharpScript::6488281847431364495::1785251626::0::1::::<><><>0<
 KineticCharge.cs::CSharpScript::3408382255410607707::1785258281::0::1::::<><><>0<>0<><>::
 StrikeSavant.cs::CSharpScript::8250123870927802140::1785251624::0::1::::<><><>0<>0<><>::
 SuppressiveFire.cs::CSharpScript::5828282637765394877::1785445837::0::1::::<><><>0<>0<><>::
-::res://SpireEnigmasCode/Cards/savant/common/::1785742271
+::res://SpireEnigmasCode/Cards/savant/common/::1785751021
 Beam.cs::CSharpScript::4535997460336624905::1785285378::0::1::::<><><>0<>0<><>::
 Bolt.cs::CSharpScript::3012137431767453908::1785375352::0::1::::<><><>0<>0<><>::
 Crumple.cs::CSharpScript::4456907855684929672::1785284948::0::1::::<><><>0<>0<><>::
@@ -399,6 +399,7 @@ RadialPulse.cs::CSharpScript::811760413738565566::1785478038::0::1::::<><><>0<>0
 Recoil.cs::CSharpScript::2362213692473537675::1785734369::0::1::::<><><>0<>0<><>::
 ShockAndAwe.cs::CSharpScript::1996489715523475313::1785692570::0::1::::<><><>0<>0<><>::
 ShrapnelBlast.cs::CSharpScript::6940381915530752136::1785735241::0::1::::<><><>0<>0<><>::
+VolatileStrike.cs::CSharpScript::5670848580464877885::1785751021::0::1::::<><><>0<>0<><>::
 ::res://SpireEnigmasCode/Cards/savant/rare/::1785742440
 Alternator.cs::CSharpScript::7857236907097683764::1785271240::0::1::::<><><>0<>0<><>::
 Blueprint.cs::CSharpScript::2283992892337363807::1785742440::0::1::::<><><>0<>0<><>::
@@ -410,7 +411,7 @@ Repurposing.cs::CSharpScript::7805483023690439137::1785270199::0::1::::<><><>0<>
 SafetiesOff.cs::CSharpScript::8605153065452829682::1785386788::0::1::::<><><>0<>0<><>::
 StandardizedStrike.cs::CSharpScript::7194598360191250996::1785742271::0::1::::<><><>0<>0<><>::
 Vaporize.cs::CSharpScript::5414371226794702311::1785625531::0::1::::<><><>0<>0<><>::
-::res://SpireEnigmasCode/Cards/savant/uncommon/::1785744087
+::res://SpireEnigmasCode/Cards/savant/uncommon/::1785749872
 Allocate.cs::CSharpScript::115633978996832011::1785399742::0::1::::<><><>0<>0<><>::
 BatteryErosion.cs::CSharpScript::6542999032020064121::1785586521::0::1::::<><><>0<>0<><>::
 BootPrecept.cs::CSharpScript::7781303353000926852::1785376528::0::1::::<><><>0<>0<><>::
@@ -425,7 +426,7 @@ Jolt.cs::CSharpScript::5350875153005996451::1785694624::0::1::::<><><>0<>0<><>::
 PlanB.cs::CSharpScript::5279258932590989821::1785364500::0::1::::<><><>0<>0<><>::
 PowerConversion.cs::CSharpScript::5667171255391582620::1785459597::0::1::::<><><>0<>0<><>::
 Precision.cs::CSharpScript::7153448739115916787::1785290360::0::1::::<><><>0<>0<><>::
-Resistor.cs::CSharpScript::7981951179598698540::1785744087::0::1::::<><><>0<>0<><>::
+Resistor.cs::CSharpScript::7981951179598698540::1785749872::0::1::::<><><>0<>0<><>::
 SalvageForParts.cs::CSharpScript::9117587920166069339::1785583782::0::1::::<><><>0<>0<><>::
 ScatteredShots.cs::CSharpScript::105073400421921020::1785375896::0::1::::<><><>0<>0<><>::
 Smokescreen.cs::CSharpScript::6870922031566824244::1785390333::0::1::::<><><>0<>0<><>::

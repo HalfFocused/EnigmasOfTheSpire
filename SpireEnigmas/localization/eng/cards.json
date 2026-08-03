@@ -691,7 +691,7 @@
   "SPIREENIGMAS-VAPORIZE.title": "Vaporize",
   "SPIREENIGMAS-VAPORIZE.description": "#*Chirp* deals !ChirpDamage! damage.",
 
-  "SPIREENIGMAS-FUTURE_PROOFING.title": "Future Proofing",
+  "SPIREENIGMAS-FUTURE_PROOFING.title": "Future-Proofing",
   "SPIREENIGMAS-FUTURE_PROOFING.description": "#Deal !D! damage.\n*Transform* a card in your *Draw* *Pile* into a random+ *Upgraded*+ *Uncommon* card.",
 
   "SPIREENIGMAS-JOLT.title": "Jolt",
@@ -708,5 +708,8 @@
 
   "SPIREENIGMAS-BLUEPRINT.title": "Blueprint",
   "SPIREENIGMAS-BLUEPRINT.description": "#*Transform* a card into a copy of the last card you played this combat.{InCombat:{LastCardPlayedString}|}",
-  "SPIREENIGMAS-BLUEPRINT.lastCardPlayedLabel": "Creates: " 
+  "SPIREENIGMAS-BLUEPRINT.lastCardPlayedLabel": "Creates: ",
+
+  "SPIREENIGMAS-VOLATILE_STRIKE.title": "Volatile Strike",
+  "SPIREENIGMAS-VOLATILE_STRIKE.description": "#Deal !D! damage.\nAdd a *Scrap* to your *Discard* *Pile*."
 }
