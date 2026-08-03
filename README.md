@@ -1,7 +1,7 @@
-# Spire Enigmas
+# Enigmas Of The Spire
 An overly ambitious content mod for Slay the Spire 2
 
-Spire Enigmas adds three new characters to Slay the Spire 2, each with their own card pools, new mechanics, and stories.  
+Enigmas Of The Spire adds three new characters to Slay the Spire 2, each with their own card pools, new mechanics, and stories.  
 This mod is a Work In Progress!!! Anything and everything is subject to change.  
 No AI was used in the creation of this mod... at all!!! And there never will be!!
 
