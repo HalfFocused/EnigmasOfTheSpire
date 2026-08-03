@@ -5,7 +5,7 @@ Spire Enigmas adds three new characters to Slay the Spire 2, each with their own
 This mod is a Work In Progress!!! Anything and everything is subject to change.  
 No AI was used in the creation of this mod... at all!!! And there never will be!!
 
-# The Displaced
+#### The Displaced
 "A time-traveller, losing their memories in a loop. Witnesses visions and foresight of the future."  
 Themes:
 - Clinging onto their memories with powerful **Ethereal** cards.
@@ -16,7 +16,7 @@ Themes:
 - Languishing in the debuffs upon their enemies.
 
 
-# The Sacrifice
+#### The Sacrifice
 "An religious figure hoping to appease the Spire. Keeper of the Fyre, she shoulders a terrible secret."  
 Themes:
 - Her **Charred** debuff that increases received attack damage and halves each turn.
@@ -26,7 +26,7 @@ Themes:
 - Keeping the energy high by drawing cards during her turns.
 - Hiding her **Taboos**, retaining tokens that give draw when you need it most... at a price.
 
-# The Savant
+#### The Savant
 "An inventor banished from the Spire for his creations. Commands Chirp, his sentry companion."  
 Themes:
 - Charging **Chirp**, his trusty Sentry companion who can hold energy for him across turns.
