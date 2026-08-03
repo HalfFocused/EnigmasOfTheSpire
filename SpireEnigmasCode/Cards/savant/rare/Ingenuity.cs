@@ -23,7 +23,7 @@ public class Ingenuity() : SpireEnigmasCard.SavantCard(0, CardType.Skill, CardRa
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        InventHoverTip()
+        HoverTipFactory.Static(StaticHoverTip.Transform)
     ];
     
     protected override async Task OnPlay(

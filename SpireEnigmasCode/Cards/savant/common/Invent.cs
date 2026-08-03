@@ -13,7 +13,7 @@ using SpireEnigmas.SpireEnigmasCode.Util;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.common;
 
-public class Improvise() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class Invent() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     public override bool GainsBlock => true;
     
@@ -23,8 +23,7 @@ public class Improvise() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRa
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        InventHoverTip(),
-        HoverTipFactory.FromCard<Scrap>()
+        HoverTipFactory.Static(StaticHoverTip.Transform)
     ];
 
     protected override async Task OnPlay(

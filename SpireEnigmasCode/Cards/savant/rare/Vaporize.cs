@@ -1,16 +1,20 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using BaseLib.Utils;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
+using SpireEnigmas.SpireEnigmasCode.Character;
+using SpireEnigmas.SpireEnigmasCode.Character.displaced;
 using SpireEnigmas.SpireEnigmasCode.Commands;
 using SpireEnigmas.SpireEnigmasCode.Extensions;
 using SpireEnigmas.SpireEnigmasCode.Util;
 
-namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.ancient;
+namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.rare;
 
-public class DevastationRains() : SpireEnigmasCard.SavantCard(1, CardType.Attack, CardRarity.Ancient, TargetType.RandomEnemy)
+public class Vaporize() : SpireEnigmasCard.SavantCard(5, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
     protected override HashSet<CardTag> CanonicalTags => [
         //CardTag.Strike
@@ -28,18 +32,15 @@ public class DevastationRains() : SpireEnigmasCard.SavantCard(1, CardType.Attack
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new ChirpDamageVar(12M, ValueProp.Move),
-        new RepeatVar(4)
+        new ChirpDamageVar(80M, ValueProp.Move)
     ];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await AttackCommandExtensions.CreateUpwardsShotsWithInaccuracy(GetChirp, DynamicVars.Repeat.IntValue, 0.25f);
-        await Cmd.Wait(0.55f);
-        await DamageCmd.Attack(DynamicVars["ChirpDamage"].BaseValue).FromChirp(GetChirp, this, play, AttackCommandExtensions.ChirpAttackVfxStyle.DevastationRains).WithHitCount(DynamicVars.Repeat.IntValue).TargetingRandomOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars["ChirpDamage"].BaseValue).FromChirp(GetChirp, this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
     
-    protected override void OnUpgrade() => DynamicVars.Repeat.UpgradeValueBy(1M);
+    protected override void OnUpgrade() => DynamicVars["ChirpDamage"].UpgradeValueBy(20M);
 }

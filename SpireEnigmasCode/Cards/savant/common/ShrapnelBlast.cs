@@ -1,4 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using BaseLib.Extensions;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Hooks;
@@ -9,16 +10,12 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.common;
 
-public class ShockAndAwe() : SpireEnigmasCard.SavantCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class ShrapnelBlast() : SpireEnigmasCard.SavantCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        HoverTipFactory.ForEnergy(this)
-    ];
-    
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(9M, ValueProp.Move),
-        new BlockVar(6M, ValueProp.Move)
+        new DamageVar(8M, ValueProp.Move),
+        new DamageVar("HpLoss", 4, ValueProp.Unpowered | ValueProp.Unblockable | ValueProp.Move) //specifying these here doesn't actually seem to matter since they are specified in the command as well
     ];
 
     protected override async Task OnPlay(
@@ -26,15 +23,12 @@ public class ShockAndAwe() : SpireEnigmasCard.SavantCard(1, CardType.Attack, Car
         CardPlay play)
     {
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
-        
-        Decimal delayedBlockAmount = Hook.ModifyBlock(CombatState, Owner.Creature, DynamicVars.Block.BaseValue, DynamicVars.Block.Props, this, play, out var modifiers);
-        await PowerCmd.Apply<ShockAndAwePower>(choiceContext, Owner.Creature, delayedBlockAmount, Owner.Creature, this);
-        await Hook.AfterModifyingBlockAmount(CombatState, delayedBlockAmount, this, play, modifiers);
+        await CreatureCmd.Damage(choiceContext, CombatState.HittableEnemies, DynamicVars["HpLoss"].BaseValue, ValueProp.Unpowered | ValueProp.Unblockable | ValueProp.Move, Owner.Creature, this, play);
     }
 
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(2);
-        DynamicVars.Block.UpgradeValueBy(2);
+        DynamicVars["HpLoss"].UpgradeValueBy(2);
     }
 }

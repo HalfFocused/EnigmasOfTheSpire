@@ -31,7 +31,7 @@ public class BatteryErosion() : SpireEnigmasCard.SavantCard(1, CardType.Skill, C
         CardPlay play)
     {
         await ChirpCmd.GainEnergy(choiceContext, Owner, DynamicVars.Energy.BaseValue, this);
-        DynamicVars.Energy.BaseValue -= 1;
+        DynamicVars.Energy.BaseValue = Math.Max(DynamicVars.Energy.BaseValue - 1, 0);
     }
     
     protected override void OnUpgrade() => DynamicVars.Energy.UpgradeValueBy(1);

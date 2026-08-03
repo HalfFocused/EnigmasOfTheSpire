@@ -319,8 +319,6 @@ class CardTransformationHookPatch
 
     static void CatchTransformation(CardModel original, CardModel replacement)
     {
-        MainFile.Logger.Info("Caught Card Transformation: " + original.Title + " -> " + replacement.Title);
-
         if (replacement.Owner.PlayerCombatState != null)
         {
             if (original is Scrap)
@@ -416,6 +414,55 @@ class PersonalHiveChirpAttackPatch
         //go back to the BrFalse we created without an Operand and tell it to jump here.
         codeMatcher.Advance(-7);
         codeMatcher.SetOperandAndAdvance(endOfChirpCheck);
+
+        return codeMatcher.Instructions();
+    }
+}
+
+[HarmonyDebug]
+[HarmonyPatch(typeof(PenNib), nameof(PenNib.ModifyDamageMultiplicative))] 
+class PenNibChirpAttackPatch
+{
+    [HarmonyTranspiler]
+    static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
+    {
+        var codeMatcher = new CodeMatcher(instructions, generator);
+
+        codeMatcher.MatchStartForward(
+                new CodeMatch(OpCodes.Ldarg_S), //gets cardSource
+                new CodeMatch(OpCodes.Brtrue_S), //if cardSource is not null, continue
+                new CodeMatch(OpCodes.Ldsfld), //load 1
+                new CodeMatch(OpCodes.Ret), //return
+                
+                new CodeMatch(OpCodes.Ldarg_S), //get dealer
+                new CodeMatch(OpCodes.Ldarg_0), //this
+                new CodeMatch(OpCodes.Call), //getOwner
+                new CodeMatch(OpCodes.Callvirt), //get Creature field
+                new CodeMatch(OpCodes.Beq_S), //if dealer = owner.Creature, continue
+                
+                new CodeMatch(OpCodes.Ldarg_S), //get dealer
+                new CodeMatch(OpCodes.Ldarg_0), //this
+                new CodeMatch(OpCodes.Call), //getOwner
+                new CodeMatch(OpCodes.Callvirt), //get Osty field
+                new CodeMatch(OpCodes.Beq_S) //if dealer = Owner.Osty, continue
+                
+            ).ThrowIfInvalid("Could not find Osty check");
+            
+        object dealerField = codeMatcher.InstructionAt(9).operand;
+        object getOwnerMethod = codeMatcher.InstructionAt(11).operand;
+        
+        object breakToAddress = codeMatcher.InstructionAt(13).operand;
+        
+        //we advance late for the sake of setting those variables
+        codeMatcher.Advance(14); 
+        
+        codeMatcher.InsertAndAdvance(
+            new CodeInstruction(OpCodes.Ldarg_S, dealerField), //dealer variable
+            new CodeInstruction(OpCodes.Ldarg_0), //this
+            new CodeInstruction(OpCodes.Call, getOwnerMethod), //getOwner
+            CodeInstruction.Call(() => ChirpCmd.GetChirpFromPlayer(default)), //getChirpFromPlayer
+            new CodeInstruction(OpCodes.Beq_S, breakToAddress) //if dealer = getChirpFromPlayer(this.GetOwner), continue
+        );
 
         return codeMatcher.Instructions();
     }

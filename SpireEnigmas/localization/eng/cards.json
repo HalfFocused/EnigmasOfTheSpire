@@ -52,7 +52,7 @@
   
   "SPIREENIGMAS-HOPE.title": "Hope",
   "SPIREENIGMAS-HOPE.description": "#Gain [E?].\n*Flashback* !C! card(s).",
-  "SPIREENIGMAS-HOPE.selectionScreenPrompt": "#Choose !C! card(s) to *Flashback*.",
+  "SPIREENIGMAS-HOPE.selectionScreenPrompt": "#Choose {Amount} card(s) to *Flashback*.",
   
   "SPIREENIGMAS-ETCHED_IN_BLOOD.title": "Etched In Blood",
   "SPIREENIGMAS-ETCHED_IN_BLOOD.description": "#Gain !B! *Block*.\n*Exhaust* 1 card.\nNext turn, add that card to your *Hand*.",
@@ -77,11 +77,11 @@
   
   "SPIREENIGMAS-CHERISHED_MEMORY.title": "Cherished Memory",
   "SPIREENIGMAS-CHERISHED_MEMORY.description": "#*Flashback* !C! card(s).",
-  "SPIREENIGMAS-CHERISHED_MEMORY.selectionScreenPrompt": "#Choose !C! card(s) to *Flashback*.",
+  "SPIREENIGMAS-CHERISHED_MEMORY.selectionScreenPrompt": "#Choose {Amount} card(s) to *Flashback*.",
   
   "SPIREENIGMAS-HIGH_GROUND.title": "High Ground",
   "SPIREENIGMAS-HIGH_GROUND.description": "#Apply !VulnerablePower! *Vulnerable*.\n*Flashback* !C! Attack(s).",
-  "SPIREENIGMAS-HIGH_GROUND.selectionScreenPrompt": "#Choose !C! Attack(s) to *Flashback*.",
+  "SPIREENIGMAS-HIGH_GROUND.selectionScreenPrompt": "#Choose {Amount} Attack(s) to *Flashback*.",
   
   "SPIREENIGMAS-MONSOON.title": "Monsoon",
   "SPIREENIGMAS-MONSOON.description": "#*Exhaust* your hand.\nDraw that many cards.",
@@ -94,7 +94,7 @@
   
   "SPIREENIGMAS-RECALL.title": "Recall",
   "SPIREENIGMAS-RECALL.description": "#Deal !D! damage.\n*Flashback* !C! card(s).",
-  "SPIREENIGMAS-RECALL.selectionScreenPrompt": "#Choose !C! card(s) to *Flashback*.",
+  "SPIREENIGMAS-RECALL.selectionScreenPrompt": "#Choose {Amount} card(s) to *Flashback*.",
   
   "SPIREENIGMAS-RECURRING_DREAM.title": "Recurring Dream",
   "SPIREENIGMAS-RECURRING_DREAM.description": "#Deal !D! damage.\nCosts 0 if you played a *Recurring* *Dream* this turn or last turn.",
@@ -215,7 +215,7 @@
   
   "SPIREENIGMAS-INVOKE.title": "Invoke",
   "SPIREENIGMAS-INVOKE.description": "#Put !C! card(s) from your *Draw* *Pile* into your *Hand*.\nShuffle 2 *Dazed* into your *Draw* *Pile*.",
-  "SPIREENIGMAS-INVOKE.selectionScreenPrompt": "#Choose !C! cards to put into your *Hand*.",
+  "SPIREENIGMAS-INVOKE.selectionScreenPrompt": "#Choose {Amount} card(s) to put into your *Hand*.",
   
   "SPIREENIGMAS-LACERATE.title": "Lacerate",
   "SPIREENIGMAS-LACERATE.description": "#Deal !D! damage.\nApply !WeakPower! *Weak*.\nApply !VulnerablePower! *Vulnerable*.",
@@ -561,13 +561,13 @@
   "SPIREENIGMAS-DEFEND_SAVANT.description": "Gain {Block:diff()} [gold]Block[/gold].",
 
   "SPIREENIGMAS-SUPPRESSIVE_FIRE.title": "Suppressive Fire",
-  "SPIREENIGMAS-SUPPRESSIVE_FIRE.description": "#*Chirp* deals !ChirpDamage! damage to a random enemy twice.",
+  "SPIREENIGMAS-SUPPRESSIVE_FIRE.description": "#*Chirp* deals !ChirpDamage! damage to a random enemy !Repeat! times.",
 
   "SPIREENIGMAS-KINETIC_CHARGE.title": "Kinetic Charge",
   "SPIREENIGMAS-KINETIC_CHARGE.description": "#Gain !B! *Block*.\n*Chirp* gains [E?].",
 
   "SPIREENIGMAS-POWER_CONVERSION.title": "Power Conversion",
-  "SPIREENIGMAS-POWER_CONVERSION.description": "#*Chirp* gains [E?].",
+  "SPIREENIGMAS-POWER_CONVERSION.description": "#At the start of your turn, lose [E?] and *Chirp* gains [E?].",
 
   "SPIREENIGMAS-PROJECT_BARRIER.title": "Project Barrier",
   "SPIREENIGMAS-PROJECT_BARRIER.description": "#*Chirp* gives you !ChirpBlock! *Block*.",
@@ -586,7 +586,7 @@
 
   "SPIREENIGMAS-LOGISTICS.title": "Logistics",
   "SPIREENIGMAS-LOGISTICS.description": "#*Chirp* gives you !ChirpBlock! *Block*.\nPut a card from your *Discard* *Pile* into your *Hand*.",
-  "SPIREENIGMAS-LOGISTICS.selectionScreenPrompt": "#Choose !C! card(s) to put into your *Hand*.",
+  "SPIREENIGMAS-LOGISTICS.selectionScreenPrompt": "#Choose {Amount} card(s) to put into your *Hand*.",
 
   "SPIREENIGMAS-CHARGE_UP.title": "Charge Up",
   "SPIREENIGMAS-CHARGE_UP.description": "#Gain !B! *Block*.\n*Chirp* gains !VigorPower! *Vigor*.",
@@ -607,10 +607,10 @@
   "SPIREENIGMAS-JUNK_VOLLEY.description": "#Deal !D! damage twice.\nPut a *Scrap* on top of your *Draw* *Pile*.",
 
   "SPIREENIGMAS-INSPIRATION_STRIKES.title": "Inspiration Strikes!",
-  "SPIREENIGMAS-INSPIRATION_STRIKES.description": "#Deal !D! damage.\n*Invent* a random+ *Upgraded*+ *Colorless* card.",
+  "SPIREENIGMAS-INSPIRATION_STRIKES.description": "#Deal !D! damage.\n*Transform* a card in your *Hand* into a random+ *Upgraded*+ *Colorless* card.",
 
-  "SPIREENIGMAS-IMPROVISE.title": "Improvise",
-  "SPIREENIGMAS-IMPROVISE.description": "#Gain !B! *Block*.\n*Invent* a random+ *Upgraded*+ card.",
+  "SPIREENIGMAS-INVENT.title": "Invent",
+  "SPIREENIGMAS-INVENT.description": "#Gain !B! *Block*.\n*Transform* a card in your *Hand* into a random+ *Upgraded*+ card.",
 
   "SPIREENIGMAS-CRUMPLE.title": "Crumple",
   "SPIREENIGMAS-CRUMPLE.description": "#Gain !B! *Block*.\nAdd a *Scrap* to your *Hand*.",
@@ -625,8 +625,8 @@
   "SPIREENIGMAS-TOOLBELT.description": "#*Scrap* gains *Retain*.\nAdd !C! *Scrap* to your *Hand*.",
 
   "SPIREENIGMAS-INGENUITY.title": "Ingenuity",
-  "SPIREENIGMAS-INGENUITY.description": "#Choose 1 of !C! random cards to *Invent*.",
-  "SPIREENIGMAS-INGENUITY.selectionScreenPrompt": "#Choose a card to *Invent*.",
+  "SPIREENIGMAS-INGENUITY.description": "#Choose 1 of !C! random cards to *Transform* a card in your *Hand* into.",
+  "SPIREENIGMAS-INGENUITY.selectionScreenPrompt": "#Choose {Amount} card(s) to *Transform*.",
 
   "SPIREENIGMAS-PLAN_B.title": "Plan B",
   "SPIREENIGMAS-PLAN_B.description": "#Cards created this combat deal 3 additional damage and gain 3 additional *Block*.",
@@ -671,5 +671,42 @@
   "SPIREENIGMAS-ALLOCATE.description": "#Whenever you end your turn with unspent [E], draw !AllocatePower! card(s) next turn.",
 
   "SPIREENIGMAS-SHOCK_AND_AWE.title": "Shock and Awe",
-  "SPIREENIGMAS-SHOCK_AND_AWE.description": "#Deal !D! damage.\nIf you end this turn with unspent [E], gain !B! *Block*."
+  "SPIREENIGMAS-SHOCK_AND_AWE.description": "#Deal !D! damage.\nIf you end this turn with unspent [E], gain !B! *Block*.",
+
+  "SPIREENIGMAS-STANDARDIZED_STRIKE.title": "Standardized Strike",
+  "SPIREENIGMAS-STANDARDIZED_STRIKE.description": "#Deal !D! damage.\n*Transform* a card in your *Hand* into a+n *Upgraded*+ *Standardized* *Strike*.",
+
+  "SPIREENIGMAS-SENTIENCE.title": "Sentience",
+  "SPIREENIGMAS-SENTIENCE.description": "#Whenever you draw a *Command*, it is played for free.",
+
+  "SPIREENIGMAS-PIONEER.title": "Pioneer",
+  "SPIREENIGMAS-PIONEER.description": "#Draw cards until your *Hand* is full.\nGain [E?].",
+
+  "SPIREENIGMAS-RESISTOR.title": "Resistor",
+  "SPIREENIGMAS-RESISTOR.description": "#Deal !D! damage to ALL enemies.\nIf you end this turn with unspent [E], gain [E?] next turn.",
+
+  "SPIREENIGMAS-SALVAGE_FOR_PARTS.title": "Salvage For Parts",
+  "SPIREENIGMAS-SALVAGE_FOR_PARTS.description": "#*Exhaust* up to !C! card(s) from your *Draw* *Pile*.\nAdd a *Scrap* to your *Hand*.",
+
+  "SPIREENIGMAS-VAPORIZE.title": "Vaporize",
+  "SPIREENIGMAS-VAPORIZE.description": "#*Chirp* deals !ChirpDamage! damage.",
+
+  "SPIREENIGMAS-FUTURE_PROOFING.title": "Future Proofing",
+  "SPIREENIGMAS-FUTURE_PROOFING.description": "#Deal !D! damage.\n*Transform* a card in your *Draw* *Pile* into a random+ *Upgraded*+ *Uncommon* card.",
+
+  "SPIREENIGMAS-JOLT.title": "Jolt",
+  "SPIREENIGMAS-JOLT.description": "#Deal !D! damage.\nDraw !C! card(s).\nThe enemy gains !VigorPower! *Vigor*.",
+  
+  "SPIREENIGMAS-CONTINGENCY_PLAN.title": "Contingency Plan",
+  "SPIREENIGMAS-CONTINGENCY_PLAN.description": "#Whenever you end your turn with unspent [E], gain !ContingencyPlanPower! *Block*.",
+
+  "SPIREENIGMAS-SHRAPNEL_BLAST.title": "Shrapnel Blast",
+  "SPIREENIGMAS-SHRAPNEL_BLAST.description": "#Deal !D! damage.\nALL enemies lose !HpLoss! HP.",
+
+  "SPIREENIGMAS-RECOIL.title": "Recoil",
+  "SPIREENIGMAS-RECOIL.description": "#Deal !D! damage.\nTake !SelfDamage! damage.",
+
+  "SPIREENIGMAS-BLUEPRINT.title": "Blueprint",
+  "SPIREENIGMAS-BLUEPRINT.description": "#*Transform* a card into a copy of the last card you played this combat.{InCombat:{LastCardPlayedString}|}",
+  "SPIREENIGMAS-BLUEPRINT.lastCardPlayedLabel": "Creates: " 
 }

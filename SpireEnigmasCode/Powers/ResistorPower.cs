@@ -6,8 +6,8 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.Relics;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
@@ -15,15 +15,10 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Powers;
 
-public class ShockAndAwePower : SpireEnigmaPower
+public class ResistorPower : SpireEnigmaPower
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
-    
-    protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        HoverTipFactory.ForEnergy(this),
-        HoverTipFactory.Static(StaticHoverTip.Block)
-    ];
     
     public override async Task BeforeSideTurnEnd(
         PlayerChoiceContext choiceContext,
@@ -36,7 +31,7 @@ public class ShockAndAwePower : SpireEnigmaPower
         if (Owner.Player.PlayerCombatState.Energy != 0)
         {
             Flash();
-            await CreatureCmd.GainBlock(Owner, Amount, ValueProp.Unpowered, null, true);
+            await PowerCmd.Apply<EnergyNextTurnPower>(choiceContext, Owner, Amount, Owner, null);
         }
 
         await PowerCmd.Remove(this);

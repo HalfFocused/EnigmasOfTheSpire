@@ -178,7 +178,7 @@
 
   "SPIREENIGMAS-INTERNAL_BATTERY_POWER.title": "Internal Battery",
   "SPIREENIGMAS-INTERNAL_BATTERY_POWER.description": "nobody should see this",
-  "SPIREENIGMAS-INTERNAL_BATTERY_POWER.smartDescription": "#*Chirp* has it's own [E] that is kept across turns. You can spend it after your own. It currently has [E?].",
+  "SPIREENIGMAS-INTERNAL_BATTERY_POWER.smartDescription": "#*Chirp* has its own [E] that is kept across turns. You can spend it after your own. It currently has [E?].",
 
   "SPIREENIGMAS-ALTERNATOR_POWER.title": "Alternator",
   "SPIREENIGMAS-ALTERNATOR_POWER.description": "",
@@ -222,5 +222,21 @@
 
   "SPIREENIGMAS-ALLOCATE_POWER.title": "Allocate",
   "SPIREENIGMAS-ALLOCATE_POWER.description": "nobody should see this",
-  "SPIREENIGMAS-ALLOCATE_POWER.smartDescription": "#Whenever you end your turn with unspent [E], draw [blue]{Amount}[/blue] card(s) next turn."
+  "SPIREENIGMAS-ALLOCATE_POWER.smartDescription": "#Whenever you end your turn with unspent [E], draw [blue]{Amount}[/blue] card(s) next turn.",
+
+  "SPIREENIGMAS-POWER_CONVERSION_POWER.title": "Power Conversion",
+  "SPIREENIGMAS-POWER_CONVERSION_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-POWER_CONVERSION_POWER.smartDescription": "#At the start of your turn, lose {Amount:energyIcons()} and *Chirp* gains {Amount:energyIcons()}.",
+
+  "SPIREENIGMAS-SENTIENCE_POWER.title": "Sentience",
+  "SPIREENIGMAS-SENTIENCE_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-SENTIENCE_POWER.smartDescription": "#Whenever you draw a *Command*, it is played for free.",
+
+  "SPIREENIGMAS-RESISTOR_POWER.title": "Resistor",
+  "SPIREENIGMAS-RESISTOR_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-RESISTOR_POWER.smartDescription": "#If you end this turn with unspent [E], gain {Amount:energyIcons()} next turn.",
+
+  "SPIREENIGMAS-CONTINGENCY_PLAN_POWER.title": "Contingency Plan",
+  "SPIREENIGMAS-CONTINGENCY_PLAN_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-CONTINGENCY_PLAN_POWER.smartDescription": "#Whenever you end your turn with unspent [E], gain [blue]{Amount}[/blue] *Block*."
 }

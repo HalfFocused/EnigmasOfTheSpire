@@ -5,26 +5,32 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
+using SpireEnigmas.SpireEnigmasCode.Util;
 
 namespace SpireEnigmas.SpireEnigmasCode.Powers;
 
-public class CombatImprovisationPower : SpireEnigmaPower
+public class SentiencePower : SpireEnigmaPower
 {
     public override PowerType Type => PowerType.Buff;
-    public override PowerStackType StackType => PowerStackType.Counter;
+    public override PowerStackType StackType => PowerStackType.Single;
+    
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => 
+    [
+        HoverTipFactory.FromKeyword(EnigmaKeywords.Command)
+    ];
     
     public override async Task AfterCardDrawnEarly(
         PlayerChoiceContext choiceContext,
         CardModel card,
         bool fromHandDraw)
     {
-        if (card.Owner.Creature != Owner || fromHandDraw || card.CombatState.CurrentSide != card.Owner.Creature.Side)
+        if (card.Owner.Creature != Owner|| card.CombatState.CurrentSide != card.Owner.Creature.Side)
             return;
         
-        if (CombatManager.Instance.History.Entries.OfType<CardDrawnEntry>()
-                .Count(e => !e.FromHandDraw && e.RoundNumber == card.CombatState.RoundNumber) <= Amount)
+        if (card.Keywords.Contains(EnigmaKeywords.Command))
         {
             await CardCmd.AutoPlay(choiceContext, card, null);
         }

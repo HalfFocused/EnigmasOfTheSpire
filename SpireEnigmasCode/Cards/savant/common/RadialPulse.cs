@@ -33,7 +33,7 @@ public class RadialPulse() : SpireEnigmasCard.SavantCard(2, CardType.Attack, Car
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars["ChirpDamage"].BaseValue).FromCard(this, play).TargetingAllOpponents(CombatState).WithHitCount(2).FromChirp(GetChirp, this, play).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars["ChirpDamage"].BaseValue).FromChirp(GetChirp, this, play).TargetingAllOpponents(CombatState).WithHitCount(2).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
     
     protected override void OnUpgrade() => DynamicVars["ChirpDamage"].UpgradeValueBy(3);

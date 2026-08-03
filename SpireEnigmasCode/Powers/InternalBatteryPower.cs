@@ -40,4 +40,15 @@ public class InternalBatteryPower : SpireEnigmaPower
         DynamicVars.Energy.BaseValue = Math.Max(DynamicVars.Energy.BaseValue - reserveAmount, 0);
         InvokeDisplayAmountChanged();
     }
+    
+    public override int ModifyXValue(CardModel card, int originalValue)
+    {
+        if (Owner.PetOwner == card.Owner)
+        {
+            int currentEnergy = DynamicVars.Energy.IntValue;
+            LoseReserve(currentEnergy);
+            return originalValue + currentEnergy;
+        }
+        return originalValue;
+    }
 }

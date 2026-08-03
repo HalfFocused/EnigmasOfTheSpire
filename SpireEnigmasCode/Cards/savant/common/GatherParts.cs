@@ -12,7 +12,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.common;
 
-public class GatherParts() : SpireEnigmasCard.SavantCard(1, CardType.Attack, CardRarity.Common, TargetType.Self)
+public class GatherParts() : SpireEnigmasCard.SavantCard(1, CardType.Attack, CardRarity.Common, TargetType.AllEnemies)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

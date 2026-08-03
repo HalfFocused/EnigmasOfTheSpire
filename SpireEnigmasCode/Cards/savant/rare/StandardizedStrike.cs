@@ -13,9 +13,9 @@ using SpireEnigmas.SpireEnigmasCode.Character;
 using SpireEnigmas.SpireEnigmasCode.Character.displaced;
 using SpireEnigmas.SpireEnigmasCode.Commands;
 
-namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.uncommon;
+namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.rare;
 
-public class InspirationStrikes() : SpireEnigmasCard.SavantCard(1, CardType.Attack, CardRarity.Uncommon, TargetType.AnyEnemy)
+public class StandardizedStrike() : SpireEnigmasCard.SavantCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
     protected override HashSet<CardTag> CanonicalTags => [
         CardTag.Strike
@@ -23,7 +23,7 @@ public class InspirationStrikes() : SpireEnigmasCard.SavantCard(1, CardType.Atta
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(6M, ValueProp.Move)
+        new DamageVar(12M, ValueProp.Move)
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
@@ -35,12 +35,12 @@ public class InspirationStrikes() : SpireEnigmasCard.SavantCard(1, CardType.Atta
         CardPlay play)
     {
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
-        CardModel? colorlessCard = CardFactory.GetDistinctForCombat(Owner, ModelDb.CardPool<ColorlessCardPool>().GetUnlockedCards(Owner.UnlockState, Owner.RunState.CardMultiplayerConstraint), 1, Owner.RunState.Rng.CombatCardGeneration).FirstOrDefault<CardModel>();
+        CardModel standardizedStrike = Owner.Creature.CombatState.CreateCard<StandardizedStrike>(Owner);
         if(IsUpgraded)
         {
-            CardCmd.Upgrade(colorlessCard);
+            CardCmd.Upgrade(standardizedStrike);
         }
-        await EnigmaCmd.Invent(choiceContext, Owner, colorlessCard);
+        await EnigmaCmd.Invent(choiceContext, Owner, standardizedStrike);
     }
     
     protected override void OnUpgrade() => DynamicVars.Damage.UpgradeValueBy(3M);

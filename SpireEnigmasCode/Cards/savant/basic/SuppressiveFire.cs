@@ -34,8 +34,8 @@ public class SuppressiveFire() : SpireEnigmasCard.SavantCard(1, CardType.Attack,
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new ChirpDamageVar(5M, ValueProp.Move),
-        new RepeatVar(2)
+        new ChirpDamageVar(4M, ValueProp.Move),
+        new RepeatVar(3)
     ];
 
     protected override async Task OnPlay(
@@ -45,7 +45,7 @@ public class SuppressiveFire() : SpireEnigmasCard.SavantCard(1, CardType.Attack,
         await DamageCmd.Attack(DynamicVars["ChirpDamage"].BaseValue).FromChirp(GetChirp, this, play).WithHitCount(DynamicVars.Repeat.IntValue).TargetingRandomOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
     
-    protected override void OnUpgrade() => DynamicVars["ChirpDamage"].UpgradeValueBy(3M);
+    protected override void OnUpgrade() => DynamicVars.Repeat.UpgradeValueBy(1M);
     
     public CardModel GetTranscendenceTransformedCard()
     {

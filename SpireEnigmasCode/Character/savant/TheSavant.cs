@@ -23,7 +23,7 @@ public class TheSavant : PlaceholderCharacterModel
 
     public override Color NameColor => Color;
     public override CharacterGender Gender => CharacterGender.Masculine;
-    public override int StartingHp => 65;
+    public override int StartingHp => 74;
     
     public override IEnumerable<CardModel> StartingDeck => [
         ModelDb.Card<StrikeSavant>(),
