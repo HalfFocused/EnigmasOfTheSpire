@@ -1,0 +1,8 @@
+[gd_resource type="SpineSkeletonDataResource" format=3 uid="uid://bq26mvrrepakv"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://c1rhi7q0gelc" path="res://SpireEnigmas/monsters/chirp/sentry.spatlas" id="1_atlas"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://ce16de1uc1iiw" path="res://SpireEnigmas/monsters/chirp/sentry.spskel" id="2_skel"]
+
+[resource]
+atlas_res = ExtResource("1_atlas")
+skeleton_file_res = ExtResource("2_skel")

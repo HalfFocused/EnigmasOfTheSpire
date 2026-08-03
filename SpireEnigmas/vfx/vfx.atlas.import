@@ -1,0 +1,16 @@
+[remap]
+
+importer="spine.atlas"
+type="SpineAtlasResource"
+uid="uid://d3wtvjc1d6r12"
+path="res://.godot/imported/vfx.atlas-5f1d06c0a27894074197f843fe09afb6.spatlas"
+
+[deps]
+
+source_file="res://SpireEnigmas/vfx/vfx.atlas"
+dest_files=["res://.godot/imported/vfx.atlas-5f1d06c0a27894074197f843fe09afb6.spatlas"]
+
+[params]
+
+normal_map_prefix="n"
+specular_map_prefix="s"
