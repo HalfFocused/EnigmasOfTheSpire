@@ -34,4 +34,4 @@ Themes:
 - Innovating and inventing during combat by **Transforming** cards into more useful ones.
 - Building up **Scrap**, a unique status card that, when **Transformed**, makes the resulting card cost 0 until played.
 - Be ready for anything by ending his turns with unspent energy for powerful bonuses.
-- Spend massive amounts of saved-up energy on very powerful cards.
+- Inventing and combining unique **Gadgets** into powerful cards.
