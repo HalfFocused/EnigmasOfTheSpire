@@ -41,6 +41,6 @@ Themes:
 
 
 ## Credits
-Design, Development, All The Bad Looking Art: HalfFocused
-"High Ground" Card Art: TRSoL
+Design, Development, All The Bad Looking Art: HalfFocused  
+"High Ground" Card Art: TRSoL  
 "Blueprint" Card Art: Pondm1
