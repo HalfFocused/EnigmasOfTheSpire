@@ -10,7 +10,7 @@ using SpireEnigmas.SpireEnigmasCode.Commands;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.rare;
 
-public class Ingenuity() : SpireEnigmasCard.SavantCard(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class Ingenuity() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [
@@ -38,7 +38,7 @@ public class Ingenuity() : SpireEnigmasCard.SavantCard(0, CardType.Skill, CardRa
         if (card == null)
             return;
         
-        await EnigmaCmd.Invent(choiceContext, Owner, card);
+        await EnigmaCmd.ChooseAndTransformInto(choiceContext, Owner, card);
     }
     
     protected override void OnUpgrade() => DynamicVars.Cards.UpgradeValueBy(2M);

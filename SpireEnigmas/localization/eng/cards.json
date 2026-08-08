@@ -609,8 +609,8 @@
   "SPIREENIGMAS-INSPIRATION_STRIKES.title": "Inspiration Strikes!",
   "SPIREENIGMAS-INSPIRATION_STRIKES.description": "#Deal !D! damage.\n*Transform* a card in your *Hand* into a random+ *Upgraded*+ *Colorless* card.",
 
-  "SPIREENIGMAS-INVENT.title": "Invent",
-  "SPIREENIGMAS-INVENT.description": "#Gain !B! *Block*.\n*Transform* a card in your *Hand* into a random+ *Upgraded*+ card.",
+  "SPIREENIGMAS-TOUCH_UP.title": "Touch Up",
+  "SPIREENIGMAS-TOUCH_UP.description": "#Gain !B! *Block*.\n*Transform* a card in your *Hand* into a random+ *Upgraded*+ card.",
 
   "SPIREENIGMAS-CRUMPLE.title": "Crumple",
   "SPIREENIGMAS-CRUMPLE.description": "#Gain !B! *Block*.\nAdd a *Scrap* to your *Hand*.",
@@ -629,7 +629,7 @@
   "SPIREENIGMAS-INGENUITY.selectionScreenPrompt": "#Choose {Amount} card(s) to *Transform*.",
 
   "SPIREENIGMAS-PLAN_B.title": "Plan B",
-  "SPIREENIGMAS-PLAN_B.description": "#Cards created this combat deal 3 additional damage and gain 3 additional *Block*.",
+  "SPIREENIGMAS-PLAN_B.description": "#Cards created this combat deal !PlanBPower! additional damage and gain !PlanBPower! additional *Block*.",
 
   "SPIREENIGMAS-DISTRACT.title": "Distract",
   "SPIREENIGMAS-DISTRACT.description": "#*Chirp* applies !WeakPower! *Weak* and !VulnerablePower! *Vulnerable* to ALL enemies.",
@@ -691,8 +691,8 @@
   "SPIREENIGMAS-VAPORIZE.title": "Vaporize",
   "SPIREENIGMAS-VAPORIZE.description": "#*Chirp* deals !ChirpDamage! damage.",
 
-  "SPIREENIGMAS-FUTURE_PROOFING.title": "Future-Proofing",
-  "SPIREENIGMAS-FUTURE_PROOFING.description": "#Deal !D! damage.\n*Transform* a card in your *Draw* *Pile* into a random+ *Upgraded*+ *Uncommon* card.",
+  "SPIREENIGMAS-RIP_THROUGH.title": "Rip Through",
+  "SPIREENIGMAS-RIP_THROUGH.description": "#Deal !D! damage.\n*Transform* a card in your *Hand* into a random+ *Upgraded*+ Attack.",
 
   "SPIREENIGMAS-JOLT.title": "Jolt",
   "SPIREENIGMAS-JOLT.description": "#Deal !D! damage.\nDraw !C! card(s).\nThe enemy gains !VigorPower! *Vigor*.",
@@ -711,5 +711,75 @@
   "SPIREENIGMAS-BLUEPRINT.lastCardPlayedLabel": "Creates: ",
 
   "SPIREENIGMAS-VOLATILE_STRIKE.title": "Volatile Strike",
-  "SPIREENIGMAS-VOLATILE_STRIKE.description": "#Deal !D! damage.\nAdd a *Scrap* to your *Discard* *Pile*."
+  "SPIREENIGMAS-VOLATILE_STRIKE.description": "#Deal !D! damage.\nAdd a *Scrap* to your *Discard* *Pile*.",
+
+  "SPIREENIGMAS-NUTS_AND_BOLTS.title": "Nuts And Bolts",
+  "SPIREENIGMAS-NUTS_AND_BOLTS.description": "#Gain !B! *Block*.\nIncrease this card's *Block* by !BlockGain! and cost by [E] this combat.",
+
+  "SPIREENIGMAS-COMPLEX_ATTACK_SHOWCASE.title": "Complex Attack Showcase",
+  "SPIREENIGMAS-COMPLEX_ATTACK_SHOWCASE.description": "#Deal !D! damage.\nDeal !Damage2! damage to a random enemy !Repeat! times.\nDeal !Damage3! damage to ALL enemies.",
+
+  "SPIREENIGMAS-FORCE_FIELD.title": "Force Field",
+  "SPIREENIGMAS-FORCE_FIELD.description": "#Gain !B! *Block*.\n*Invent* *Warding* *Gadget*.",
+
+  "SPIREENIGMAS-FLY_BY.title": "Fly By",
+  "SPIREENIGMAS-FLY_BY.description": "#Deal !D! damage to ALL enemies.\n*Invent* *Mobility* *Gadget*.",
+
+  "SPIREENIGMAS-DISCHARGE.title": "Discharge",
+  "SPIREENIGMAS-DISCHARGE.description": "#Deal !D! damage.\n*Invent* *Charging* *Gadget*.",
+  
+  "SPIREENIGMAS-BUILT_TO_LAST.title": "Built To Last",
+  "SPIREENIGMAS-BUILT_TO_LAST.description": "#The first time you play a *Gadget* each turn, return it to your *Hand*.",
+  
+  "SPIREENIGMAS-RECKLESS_MODULE.title": "Reckless Module",
+  "SPIREENIGMAS-RECKLESS_MODULE.description": "#*Invent* *Overclocking* *Gadget*.",
+
+  "SPIREENIGMAS-DEMOLITION.title": "Demolition",
+  "SPIREENIGMAS-DEMOLITION.description": "#Deal !D! damage.\n*Invent* *Blasting* *Gadget*.",
+
+  "SPIREENIGMAS-CREATIVE_MIND.title": "Creative Mind",
+  "SPIREENIGMAS-CREATIVE_MIND.description": "#*Transform* a card in your *Hand* into a random+ *Upgraded*+ Power.",
+
+  "SPIREENIGMAS-CRUNCH_TIME.title": "Crunch Time",
+  "SPIREENIGMAS-CRUNCH_TIME.description": "#*Transform* ALL your *Scrap* into random cards.",
+
+  "SPIREENIGMAS-CANT_HELP_MYSELF.title": "Can't Help Myself",
+  "SPIREENIGMAS-CANT_HELP_MYSELF.description": "#Draw !C! card(s).\n*Transform* a card in your *Hand* into a random card.",
+
+  "SPIREENIGMAS-PONDER.title": "Ponder",
+  "SPIREENIGMAS-PONDER.description": "#Put up to !C! card(s) from your *Discard* *Pile* into your *Hand*.\n*Retain* your *Hand* this turn.",
+  "SPIREENIGMAS-PONDER.selectionScreenPrompt": "#Choose up to {Amount} cards to put into your *Hand*.",
+
+  "SPIREENIGMAS-IMPROVISED_SHIELD.title": "Improvised Shield",
+  "SPIREENIGMAS-IMPROVISED_SHIELD.description": "#Whenever you *Transform* a card, gain !ImprovisedShieldPower! *Block*.",
+
+  "SPIREENIGMAS-BARRIER_GENERATOR.title": "Barrier Generator",
+  "SPIREENIGMAS-BARRIER_GENERATOR.description": "#*Transform* a card in your *Hand* into an+ *Upgraded*+ *Ultimate* *Defend*.",
+
+  "SPIREENIGMAS-CONTROL_FLOW.title": "Control Flow",
+  "SPIREENIGMAS-CONTROL_FLOW.description": "#At the start of your turn, add a random *Command* to your *Hand*. Its free to play this turn.",
+
+  "SPIREENIGMAS-MULTITHREADING.title": "Multithreading",
+  "SPIREENIGMAS-MULTITHREADING.description": "#This turn, your next {Cards:plural:[gold]Command[/gold] is|{Cards:diff()} [gold]Commands[/gold] are} played an additional time.",
+
+  "SPIREENIGMAS-ENERGY_SPIKE.title": "Energy Spike",
+  "SPIREENIGMAS-ENERGY_SPIKE.description": "#Double *Chirp's* [E].",
+  
+  "SPIREENIGMAS-ABSTRACT_GADGET.title": "Composite Gadget",
+  "SPIREENIGMAS-ABSTRACT_GADGET.description": "{GainsBlock:cond:Gain {Block:diff()} [gold]Block[/gold].{NewLine1:cond:\n|}|}{HasDamage:cond:Deal {Damage:diff()} damage.{NewLine2:cond:\n|}|}{HasEnergy:cond:Gain {Energy:energyIcons()}.{NewLine3:cond:\n|}|}{HasCardDraw:cond:Draw {Cards:diff()} {Cards:plural:card|cards}.|}",
+
+  "SPIREENIGMAS-WARDING_GADGET.title": "Warding Gadget",
+  "SPIREENIGMAS-WARDING_GADGET.description": "",
+  
+  "SPIREENIGMAS-MOBILITY_GADGET.title": "Mobility Gadget",
+  "SPIREENIGMAS-MOBILITY_GADGET.description": "",
+
+  "SPIREENIGMAS-CHARGING_GADGET.title": "Charging Gadget",
+  "SPIREENIGMAS-CHARGING_GADGET.description": "",
+
+  "SPIREENIGMAS-BLASTING_GADGET.title": "Blasting Gadget",
+  "SPIREENIGMAS-BLASTING_GADGET.description": "",
+
+  "SPIREENIGMAS-OVERCLOCKING_GADGET.title": "Overclocking Gadget",
+  "SPIREENIGMAS-OVERCLOCKING_GADGET.description": ""
 }

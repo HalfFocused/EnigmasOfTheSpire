@@ -32,22 +32,38 @@ public class ChirpBlockVar : DynamicVar
         Creature? target,
         bool runGlobalHooks)
     {
-        Decimal originalBlock1 = BaseValue;
+        Decimal previewedBlock = BaseValue;
         EnchantmentModel enchantment = card.Enchantment;
+        
         if (enchantment != null)
         {
-            Decimal originalBlock2 = originalBlock1 + enchantment.EnchantBlockAdditive(originalBlock1);
-            originalBlock1 = originalBlock2 * enchantment.EnchantBlockMultiplicative(originalBlock2);
+            Decimal originalBlock2 = previewedBlock + enchantment.EnchantBlockAdditive(previewedBlock);
+            previewedBlock = originalBlock2 * enchantment.EnchantBlockMultiplicative(originalBlock2);
             if (!card.IsEnchantmentPreview)
-                EnchantedValue = originalBlock1;
+                EnchantedValue = previewedBlock;
         }
 
         if (runGlobalHooks)
         {
-            ICombatState combatState = card.CombatState ?? card.Owner.Creature.CombatState;
-            originalBlock1 = Hook.ModifyBlock(card.CombatState, ChirpCmd.GetChirpFromPlayer(card.Owner), BaseValue,
+            /*
+             * jank warning
+             * i can't pass the card into this hook or it'll use player powers
+             * but if i don't pass the card, it won't use enchantments.
+             *
+             * thus, we add the enchantments ourselves so we can safely not pass the card into the hook
+             *
+             * my biggest fear is that passing in this fake base value could cause problems but i can't foresee how :shrug:
+             */
+            decimal fakeBaseValue = BaseValue;
+            if (enchantment != null)
+            {
+                fakeBaseValue += enchantment.EnchantBlockAdditive(fakeBaseValue);
+                fakeBaseValue *= enchantment.EnchantBlockMultiplicative(fakeBaseValue);
+            }
+            
+            previewedBlock = Hook.ModifyBlock(card.CombatState, ChirpCmd.GetChirpFromPlayer(card.Owner), fakeBaseValue,
                 Props, null, null, out IEnumerable<AbstractModel> _);
         }
-        PreviewValue = originalBlock1;
+        PreviewValue = previewedBlock;
     }
 }

@@ -238,5 +238,25 @@
 
   "SPIREENIGMAS-CONTINGENCY_PLAN_POWER.title": "Contingency Plan",
   "SPIREENIGMAS-CONTINGENCY_PLAN_POWER.description": "nobody should see this",
-  "SPIREENIGMAS-CONTINGENCY_PLAN_POWER.smartDescription": "#Whenever you end your turn with unspent [E], gain [blue]{Amount}[/blue] *Block*."
+  "SPIREENIGMAS-CONTINGENCY_PLAN_POWER.smartDescription": "#Whenever you end your turn with unspent [E], gain [blue]{Amount}[/blue] *Block*.",
+
+  "SPIREENIGMAS-ENDLESS_ITERATION_POWER.title": "Endless Iteration",
+  "SPIREENIGMAS-ENDLESS_ITERATION_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-ENDLESS_ITERATION_POWER.smartDescription": "#At the start of your turn, put [blue]{Amount}[/blue] random *Gadget(s)* from your *Discard* *Pile* into your *Hand*.",
+
+  "SPIREENIGMAS-BUILT_TO_LAST_POWER.title": "Built To Last",
+  "SPIREENIGMAS-BUILT_TO_LAST_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-BUILT_TO_LAST_POWER.smartDescription": "#The first [blue]{Amount}[/blue] time(s) you play a *Gadget* each turn, return it to your *Hand*.",
+
+  "SPIREENIGMAS-IMPROVISED_SHIELD_POWER.title": "Improvised Shield",
+  "SPIREENIGMAS-IMPROVISED_SHIELD_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-IMPROVISED_SHIELD_POWER.smartDescription": "#Whenever you *Transform* a card, gain [blue]{Amount}[/blue] *Block*.",
+
+  "SPIREENIGMAS-CONTROL_FLOW_POWER.title": "Control Flow",
+  "SPIREENIGMAS-CONTROL_FLOW_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-CONTROL_FLOW_POWER.smartDescription": "#At the start of your turn, add [blue]{Amount}[/blue] random *Command(s)* to your *Hand*. {Amount:plural:It is|They are} free to play this turn.",
+
+  "SPIREENIGMAS-MULTITHREADING_POWER.title": "Multithreading",
+  "SPIREENIGMAS-MULTITHREADING_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-MULTITHREADING_POWER.smartDescription": "#The next [blue]{Amount}[/blue] *Rare* card(s) you play this turn {Amount:plural:is|are} played an additional time."
 }

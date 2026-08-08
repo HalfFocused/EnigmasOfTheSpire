@@ -9,5 +9,11 @@
   "SPIREENIGMAS-IMPROVISE.description": "#An effect when this card is drawn during your turn.",
 
   "SPIREENIGMAS-CHIRP.title": "Chirp",
-  "SPIREENIGMAS-CHIRP.description": "#Chirp keeps its energy between turns. You can use it when you don't have enough."
+  "SPIREENIGMAS-CHIRP.description": "#Chirp keeps its energy between turns. You can use it when you don't have enough.",
+
+  "SPIREENIGMAS-GADGET.title": "Gadget",
+  "SPIREENIGMAS-GADGET.description": "#*Gadget* cards are special tokens that combine together in your *Hand*.",
+
+  "SPIREENIGMAS-INVENT.title": "Invent",
+  "SPIREENIGMAS-INVENT.description": "#Add this card's effect to *Gadgets* in your *Hand*. If you have none, add this card to your *Hand* instead."
 }

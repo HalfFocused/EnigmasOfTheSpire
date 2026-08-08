@@ -6,6 +6,7 @@ using BaseLib.Utils.Patching;
 using Godot;
 using GodotPlugins.Game;
 using HarmonyLib;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Context;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -24,6 +25,7 @@ using MegaCrit.Sts2.Core.Random;
 using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Cards.displaced.common;
 using SpireEnigmas.SpireEnigmasCode.Cards.other;
+using SpireEnigmas.SpireEnigmasCode.Cards.savant.token;
 using SpireEnigmas.SpireEnigmasCode.Character.displaced;
 using SpireEnigmas.SpireEnigmasCode.Commands;
 using SpireEnigmas.SpireEnigmasCode.Monsters;
@@ -80,22 +82,23 @@ class ScrollBoxesGenerateRandomBundlesPatch
         }
     }
 }
-/*
-[HarmonyPatch(typeof(CardModel), "HoverTips", MethodType.Getter)]
-internal static class AddFlavorTextPatch
+
+
+[HarmonyPatch(typeof(CardModel), nameof(CardModel.Description), MethodType.Getter)]
+internal static class GadgetDescriptionPatch
 {
     [HarmonyPostfix]
-    static void AddRareCardFlavorText(CardModel __instance, ref IEnumerable<IHoverTip> __result)
+    static void UseOneGadgetDescriptionPatch(CardModel __instance, ref LocString __result)
     {
-        if (__instance is TheDisplacedCard && __instance.Rarity == CardRarity.Rare)
+        if (__instance is AbstractGadget gadget)
         {
-            TheDisplacedCard card = ((TheDisplacedCard)__instance);
-            HoverTip flavorText = new HoverTip(card.FlavorTextTitleLocString, card.FlavorTextBodyLocString);
-            __result.AddItem(flavorText);
+            __result = new LocString("cards", ModelDb.GetId(typeof(AbstractGadget)).Entry + ".description");
         }
     }
 }
-*/
+
+
+
 
 /*
  * Modify the power icon of the Foretold power to display an infinity instead of a number under certain conditions.
@@ -334,6 +337,14 @@ class CardTransformationHookPatch
             {
                 masterworkPower.Flash();
                 replacement.BaseReplayCount += masterworkPower.Amount;
+            }
+            
+            ImprovisedShieldPower? improvisedShieldPower = player.Creature.GetPower<ImprovisedShieldPower>();
+
+            if (improvisedShieldPower is not null)
+            {
+                //improvisedShieldPower.Flash();
+                improvisedShieldPower.AfterCardTransformed();
             }
         }
     }

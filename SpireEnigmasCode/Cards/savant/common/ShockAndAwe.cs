@@ -11,6 +11,8 @@ namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.common;
 
 public class ShockAndAwe() : SpireEnigmasCard.SavantCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
+    public override bool GainsBlock => true;
+
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
         HoverTipFactory.ForEnergy(this)
     ];

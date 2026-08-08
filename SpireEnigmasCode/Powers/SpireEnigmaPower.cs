@@ -25,4 +25,14 @@ public abstract class SpireEnigmaPower : CustomPowerModel
     {
         return GetStaticHoverTip("SPIREENIGMAS-CHIRP");
     }
+    
+    public static HoverTip GadgetHoverTip()
+    {
+        return GetStaticHoverTip("SPIREENIGMAS-GADGET");
+    }
+    
+    public static HoverTip InventHoverTip()
+    {
+        return GetStaticHoverTip("SPIREENIGMAS-INVENT");
+    }
 }

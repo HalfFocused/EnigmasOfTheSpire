@@ -14,8 +14,8 @@ public class Bolt() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRarity.
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<VulnerablePower>(1),
-        new PowerVar<WeakPower>(1)
+        new PowerVar<VulnerablePower>(2),
+        new PowerVar<WeakPower>(2)
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
@@ -32,7 +32,13 @@ public class Bolt() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRarity.
     {
         await PowerCmd.Apply<WeakPower>(choiceContext, play.Target, DynamicVars["WeakPower"].BaseValue, GetChirp, this);
         await PowerCmd.Apply<VulnerablePower>(choiceContext, play.Target, DynamicVars["VulnerablePower"].BaseValue, GetChirp, this);
+
+        Owner.PlayerCombatState.Hand.Cards.Where(card => card.Keywords.Contains(CardKeyword.Ethereal));
     }
-    
-    protected override void OnUpgrade() => DynamicVars["WeakPower"].UpgradeValueBy(1M);
+
+    protected override void OnUpgrade()
+    {
+        DynamicVars["WeakPower"].UpgradeValueBy(1);
+        DynamicVars["VulnerablePower"].UpgradeValueBy(1);
+    }
 }

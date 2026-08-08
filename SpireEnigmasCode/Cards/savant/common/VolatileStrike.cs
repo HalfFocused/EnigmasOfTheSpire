@@ -43,5 +43,5 @@ public class VolatileStrike() : SpireEnigmasCard.SavantCard(0, CardType.Attack, 
         CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(scrap, PileType.Discard, Owner));
     }
 
-    protected override void OnUpgrade() => DynamicVars.Damage.UpgradeValueBy(2);
+    protected override void OnUpgrade() => DynamicVars.Damage.UpgradeValueBy(3);
 }

@@ -7,41 +7,40 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Cards.other;
 using SpireEnigmas.SpireEnigmasCode.Character;
 using SpireEnigmas.SpireEnigmasCode.Character.displaced;
 using SpireEnigmas.SpireEnigmasCode.Commands;
 
-namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.rare;
+namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.uncommon;
 
-public class StandardizedStrike() : SpireEnigmasCard.SavantCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+public class BarrierGenerator() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
-    protected override HashSet<CardTag> CanonicalTags => [
-        CardTag.Strike
-    ];
-    
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [
-        new DamageVar(12M, ValueProp.Move)
-    ];
+    [];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        HoverTipFactory.Static(StaticHoverTip.Transform)
+        HoverTipFactory.Static(StaticHoverTip.Transform),
+        HoverTipFactory.FromCard<UltimateDefend>(IsUpgraded)
+    ];
+    
+    public override IEnumerable<CardKeyword> CanonicalKeywords => [
+        CardKeyword.Exhaust
     ];
     
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
-        CardModel standardizedStrike = Owner.Creature.CombatState.CreateCard<StandardizedStrike>(Owner);
+        CardModel ultimateDefend = CombatState.CreateCard<UltimateDefend>(Owner);
         if(IsUpgraded)
         {
-            CardCmd.Upgrade(standardizedStrike);
+            CardCmd.Upgrade(ultimateDefend);
         }
-        await EnigmaCmd.ChooseAndTransformInto(choiceContext, Owner, standardizedStrike);
+        await EnigmaCmd.ChooseAndTransformInto(choiceContext, Owner, ultimateDefend);
     }
     
-    protected override void OnUpgrade() => DynamicVars.Damage.UpgradeValueBy(3M);
+    //protected override void OnUpgrade(){}
 }

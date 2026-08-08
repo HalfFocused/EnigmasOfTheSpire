@@ -10,11 +10,11 @@ using SpireEnigmas.SpireEnigmasCode.Commands;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.common;
 
-public class FutureProofing() : SpireEnigmasCard.SavantCard(2, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
+public class RipThrough() : SpireEnigmasCard.SavantCard(2, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(15M, ValueProp.Move)
+        new DamageVar(12M, ValueProp.Move)
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
@@ -26,16 +26,16 @@ public class FutureProofing() : SpireEnigmasCard.SavantCard(2, CardType.Attack, 
         CardPlay play)
     {
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
-        CardModel? uncommonCard = CardFactory.GetForCombat(Owner,
+        CardModel? attack = CardFactory.GetForCombat(Owner,
             Owner.Character.CardPool
                 .GetUnlockedCards(Owner.UnlockState, Owner.RunState.CardMultiplayerConstraint)
-                .Where(c => c.Rarity == CardRarity.Uncommon), 1, Owner.RunState.Rng.CombatCardGeneration).FirstOrDefault();
+                .Where(c => c.Type == CardType.Attack), 1, Owner.RunState.Rng.CombatCardGeneration).FirstOrDefault();
         if(IsUpgraded)
         {
-            CardCmd.Upgrade(uncommonCard);
+            CardCmd.Upgrade(attack);
         }
-        await EnigmaCmd.Invent(choiceContext, Owner, uncommonCard, PileType.Draw);
+        await EnigmaCmd.ChooseAndTransformInto(choiceContext, Owner, attack);
     }
     
-    protected override void OnUpgrade() => DynamicVars.Damage.UpgradeValueBy(3M);
+    protected override void OnUpgrade() => DynamicVars.Damage.UpgradeValueBy(4M);
 }

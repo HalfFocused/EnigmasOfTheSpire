@@ -92,4 +92,14 @@ public abstract class SpireEnigmasCard(int cost, CardType type, CardRarity rarit
     {
         return GetStaticHoverTip("SPIREENIGMAS-CHIRP");
     }
+    
+    public static HoverTip GadgetHoverTip()
+    {
+        return GetStaticHoverTip("SPIREENIGMAS-GADGET");
+    }
+    
+    public static HoverTip InventHoverTip()
+    {
+        return GetStaticHoverTip("SPIREENIGMAS-INVENT");
+    }
 }

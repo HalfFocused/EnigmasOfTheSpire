@@ -31,7 +31,7 @@ public class Smokescreen() : SpireEnigmasCard.SavantCard(1, CardType.Skill, Card
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        Decimal amount = await ChirpCmd.GiveBlockToOwner(Owner, DynamicVars["ChirpBlock"].BaseValue, ((ChirpBlockVar) DynamicVars["ChirpBlock"]).Props, null);
+        Decimal amount = await ChirpCmd.GiveBlockToOwner(Owner, DynamicVars["ChirpBlock"].BaseValue, ((ChirpBlockVar) DynamicVars["ChirpBlock"]).Props, play);
         
         await PowerCmd.Apply<ChirpBlockNextTurnPower>(choiceContext, GetChirp, amount, GetChirp, this);
     }

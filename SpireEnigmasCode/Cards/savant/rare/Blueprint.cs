@@ -37,7 +37,7 @@ public class Blueprint() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRa
     {
         CardModel? copyOfLastPlayedCard = GetLastPlayedCard()?.CreateClone();
         if (copyOfLastPlayedCard == null) return;
-        await EnigmaCmd.Invent(choiceContext, Owner, copyOfLastPlayedCard);
+        await EnigmaCmd.ChooseAndTransformInto(choiceContext, Owner, copyOfLastPlayedCard);
     }
     
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)

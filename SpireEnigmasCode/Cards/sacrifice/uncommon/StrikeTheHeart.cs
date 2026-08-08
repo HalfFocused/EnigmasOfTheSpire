@@ -24,7 +24,7 @@ public class StrikeTheHeart() : SpireEnigmasCard.SacrificeCard(1,
     [
         new CalculationBaseVar(10M),
         new ExtraDamageVar(15M),
-        new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, _) => PlayedTabooThisTurn(card) ? 1 : 0)
+        new CalculatedDamageVar(ValueProp.Move).WithMultiplier((card, target) => PlayedTabooThisTurn(card) ? 1 : 0)
     ];
 
     protected override HashSet<CardTag> CanonicalTags =>

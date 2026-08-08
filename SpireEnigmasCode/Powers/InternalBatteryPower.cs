@@ -33,6 +33,7 @@ public class InternalBatteryPower : SpireEnigmaPower
     {
         DynamicVars.Energy.BaseValue += reserveAmount;
         InvokeDisplayAmountChanged();
+        Flash();
     }
     
     public void LoseReserve(decimal reserveAmount)

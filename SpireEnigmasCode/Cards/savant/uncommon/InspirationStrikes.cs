@@ -40,7 +40,7 @@ public class InspirationStrikes() : SpireEnigmasCard.SavantCard(1, CardType.Atta
         {
             CardCmd.Upgrade(colorlessCard);
         }
-        await EnigmaCmd.Invent(choiceContext, Owner, colorlessCard);
+        await EnigmaCmd.ChooseAndTransformInto(choiceContext, Owner, colorlessCard);
     }
     
     protected override void OnUpgrade() => DynamicVars.Damage.UpgradeValueBy(3M);

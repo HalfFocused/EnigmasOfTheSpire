@@ -13,7 +13,7 @@ using SpireEnigmas.SpireEnigmasCode.Util;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.common;
 
-public class Invent() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class TouchUp() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     public override bool GainsBlock => true;
     
@@ -36,7 +36,7 @@ public class Invent() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRarit
         {
             CardCmd.Upgrade(newCard);
         }
-        await EnigmaCmd.Invent(choiceContext, Owner, newCard);
+        await EnigmaCmd.ChooseAndTransformInto(choiceContext, Owner, newCard);
     }
     
     protected override void OnUpgrade() => DynamicVars.Block.UpgradeValueBy(3);

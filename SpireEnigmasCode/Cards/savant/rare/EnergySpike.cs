@@ -1,37 +1,38 @@
 ﻿using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Commands;
+using SpireEnigmas.SpireEnigmasCode.Monsters;
+using SpireEnigmas.SpireEnigmasCode.Powers;
 using SpireEnigmas.SpireEnigmasCode.Util;
 
-namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.common;
+namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.rare;
 
-public class ProjectBarrier() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class EnergySpike() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
-    public override bool GainsBlock => true;
-    
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new ChirpBlockVar(10M, ValueProp.Move)
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
-        EnigmaKeywords.Command
+        CardKeyword.Exhaust
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
         ChirpHoverTip()
     ];
-
+    
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await ChirpCmd.GiveBlockToOwner(Owner, DynamicVars["ChirpBlock"].BaseValue, ((ChirpBlockVar) DynamicVars["ChirpBlock"]).Props, play);
+        await ChirpCmd.GainEnergy(choiceContext, Owner, ((Chirp) GetChirp.Monster).GetEnergy(), this);
     }
     
-    protected override void OnUpgrade() => DynamicVars["ChirpBlock"].UpgradeValueBy(4M);
+    protected override void OnUpgrade() => EnergyCost.UpgradeBy(-1);
 }
