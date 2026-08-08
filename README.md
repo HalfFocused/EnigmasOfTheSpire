@@ -35,3 +35,12 @@ Themes:
 - Building up **Scrap**, a unique status card that, when **Transformed**, makes the resulting card cost 0 until played.
 - Be ready for anything by ending his turns with unspent energy for powerful bonuses.
 - Inventing and combining unique **Gadgets** into powerful cards.
+
+
+
+
+
+## Credits
+Design, Development, All The Bad Looking Art: HalfFocused
+"High Ground" Card Art: TRSoL
+"Blueprint" Card Art: Pondm1
