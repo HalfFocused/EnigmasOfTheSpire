@@ -11,19 +11,16 @@ using SpireEnigmas.SpireEnigmasCode.Util;
 
 namespace SpireEnigmas.SpireEnigmasCode.Powers;
 
-// Decompiled with JetBrains decompiler
-// Type: MegaCrit.Sts2.Core.Models.Powers.VeilpiercerPower
-// Assembly: sts2, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null
-// MVID: F7D2A9E0-F1AE-4213-B874-1504473AAEDB
-// Assembly location: C:\Users\josep\RiderProjects\EnigmasOfTheSpire\.godot\mono\temp\obj\Debug\PublicizedAssemblies\sts2.747684A44202B1081D60DFFC9111EC87\sts2.dll
-// XML documentation location: C:\Users\josep\RiderProjects\EnigmasOfTheSpire\.godot\mono\temp\obj\Debug\PublicizedAssemblies\sts2.747684A44202B1081D60DFFC9111EC87\sts2.xml
-
-
-public class MagnumOpusPower : SpireEnigmaPower
+public class OverridePower : SpireEnigmaPower
 {
   public override PowerType Type => PowerType.Buff;
 
   public override PowerStackType StackType => PowerStackType.Counter;
+
+  protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+  [
+      HoverTipFactory.FromKeyword(EnigmaKeywords.Command)
+  ];
 
   public override bool TryModifyEnergyCostInCombatLate(
     CardModel card,
@@ -31,7 +28,7 @@ public class MagnumOpusPower : SpireEnigmaPower
     out Decimal modifiedCost)
   {
     modifiedCost = originalCost;
-    if (card.Owner.Creature != this.Owner || RarityHelper.GetModifiedRarity(card) is not CardRarity.Rare)
+    if (card.Owner.Creature != this.Owner || !card.Keywords.Contains(EnigmaKeywords.Command))
       return false;
     PileType? type = card.Pile?.Type;
     bool flag;
@@ -55,7 +52,7 @@ label_6:
 
   public override async Task BeforeCardPlayed(CardPlay cardPlay)
   {
-    if (cardPlay.Card.Owner.Creature != Owner || RarityHelper.GetModifiedRarity(cardPlay.Card) is not CardRarity.Rare)
+    if (cardPlay.Card.Owner.Creature != Owner || cardPlay.Card.Keywords.Contains(EnigmaKeywords.Command))
       return;
     PileType? type = cardPlay.Card.Pile?.Type;
     bool flag;

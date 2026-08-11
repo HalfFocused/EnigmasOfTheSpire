@@ -23,7 +23,7 @@ public class ChargingGadget() : AbstractGadget
         new DamageVar(0M, ValueProp.Move),
         new BoolVar("HasDamage", false),
         
-        new EnergyVar(4),
+        new EnergyVar(2),
         new BoolVar("HasEnergy", true),
         
         new CardsVar(0),

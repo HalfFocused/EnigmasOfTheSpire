@@ -258,5 +258,17 @@
 
   "SPIREENIGMAS-MULTITHREADING_POWER.title": "Multithreading",
   "SPIREENIGMAS-MULTITHREADING_POWER.description": "nobody should see this",
-  "SPIREENIGMAS-MULTITHREADING_POWER.smartDescription": "#The next [blue]{Amount}[/blue] *Rare* card(s) you play this turn {Amount:plural:is|are} played an additional time."
+  "SPIREENIGMAS-MULTITHREADING_POWER.smartDescription": "#The next [blue]{Amount}[/blue] *Rare* card(s) you play this turn {Amount:plural:is|are} played an additional time.",
+
+  "SPIREENIGMAS-CREATE_AN_OPENING_POWER.title": "Create An Opening",
+  "SPIREENIGMAS-CREATE_AN_OPENING_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-CREATE_AN_OPENING_POWER.smartDescription": "#At the start of your turn, *Chirp* applies [blue]{Amount}[/blue] *Vulnerable* to a random enemy.",
+
+  "SPIREENIGMAS-SIZZLE_POWER.title": "Sizzle",
+  "SPIREENIGMAS-SIZZLE_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-SIZZLE_POWER.smartDescription": "#Whenever you end your turn with unspent [E], gain [blue]{Amount}[/blue] *Strength*.",
+
+  "SPIREENIGMAS-OVERRIDE_POWER.title": "Override",
+  "SPIREENIGMAS-OVERRIDE_POWER.description": "",
+  "SPIREENIGMAS-OVERRIDE_POWER.smartDescription": "#The next [blue]{Amount}[/blue] *Command(s)* you play cost 0 [E]."
 }

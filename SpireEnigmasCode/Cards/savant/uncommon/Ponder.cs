@@ -17,11 +17,11 @@ using SpireEnigmas.SpireEnigmasCode.Commands;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.uncommon;
 
-public class Ponder() : SpireEnigmasCard.SavantCard(2, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class Ponder() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new CardsVar(3)
+        new CardsVar(2)
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [

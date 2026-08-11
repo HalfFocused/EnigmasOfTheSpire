@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode;
 using SpireEnigmas.SpireEnigmasCode.Commands;
+using SpireEnigmas.SpireEnigmasCode.Util;
 
 public class ChirpBlockVar : DynamicVar
 {
@@ -14,14 +15,14 @@ public class ChirpBlockVar : DynamicVar
 
     public ValueProp Props { get; set; }
 
-    public ChirpBlockVar(Decimal damage, ValueProp props)
-        : base(defaultName, damage)
+    public ChirpBlockVar(Decimal block, ValueProp props)
+        : base(defaultName, block)
     {
         Props = props;
     }
 
-    public ChirpBlockVar(string name, Decimal damage, ValueProp props)
-        : base(name, damage)
+    public ChirpBlockVar(string name, Decimal block, ValueProp props)
+        : base(name, block)
     {
         Props = props;
     }
@@ -61,7 +62,7 @@ public class ChirpBlockVar : DynamicVar
                 fakeBaseValue *= enchantment.EnchantBlockMultiplicative(fakeBaseValue);
             }
             
-            previewedBlock = Hook.ModifyBlock(card.CombatState, ChirpCmd.GetChirpFromPlayer(card.Owner), fakeBaseValue,
+            previewedBlock = Hook.ModifyBlock(card.CombatState, ChirpHelper.GetChirpFromPlayer(card.Owner), fakeBaseValue,
                 Props, null, null, out IEnumerable<AbstractModel> _);
         }
         PreviewValue = previewedBlock;

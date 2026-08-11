@@ -16,6 +16,7 @@ using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Monsters;
 using SpireEnigmas.SpireEnigmasCode.Powers;
+using SpireEnigmas.SpireEnigmasCode.Util;
 
 namespace SpireEnigmas.SpireEnigmasCode.Commands;
 
@@ -33,13 +34,13 @@ public static class ChirpCmd
     ICombatState combatState = summoner.Creature.CombatState;
     
     if (amount == 0M)
-      return new SummonResult(GetChirpFromPlayer(summoner), 0M);
+      return new SummonResult(ChirpHelper.GetChirpFromPlayer(summoner), 0M);
     
     if (CombatManager.Instance.IsInProgress)
       SfxCmd.Play("event:/sfx/characters/necrobinder/necrobinder_summon");
     
     Creature? chirp = combatState.Allies.FirstOrDefault(c => c.Monster is Chirp && c.PetOwner == summoner);
-    if (IsPlayerChirpAlive(summoner))
+    if (ChirpHelper.IsPlayerChirpAlive(summoner))
     {
       ((Chirp) chirp.Monster).GainEnergy(amount);
     }
@@ -63,7 +64,7 @@ public static class ChirpCmd
       await CreatureCmd.SetMaxAndCurrentHp(chirp, 999999999M);
     }
     //CombatManager.Instance.History.Summoned(combatState, (int) amount, summoner);
-    return new SummonResult(GetChirpFromPlayer(summoner), amount);
+    return new SummonResult(ChirpHelper.GetChirpFromPlayer(summoner), amount);
   }
   
   /*
@@ -86,11 +87,12 @@ public static class ChirpCmd
     bool fast = false)
   {
     //experimental
-    CardModel? card = cardPlay?.Card;
+    //CardModel? card = cardPlay?.Card;
+    CardModel? card = null;
     cardPlay = null;
     Creature realTarget = player.Creature;
     
-    Creature chirp = GetChirpFromPlayer(player);
+    Creature chirp = ChirpHelper.GetChirpFromPlayer(player);
     if(chirp is null) 
       return 0M;
     if (CombatManager.Instance.IsOverOrEnding)
@@ -101,6 +103,14 @@ public static class ChirpCmd
     ICombatState combatState = chirp.CombatState;
     await Hook.BeforeBlockGained(combatState, chirp, amount, props, card);
     Decimal modifiedAmount = amount;
+    
+    if (cardPlay?.Card.Enchantment != null)
+    {
+      EnchantmentModel enchantment = cardPlay.Card.Enchantment;
+      modifiedAmount += enchantment.EnchantBlockAdditive(modifiedAmount);
+      modifiedAmount *= enchantment.EnchantBlockMultiplicative(modifiedAmount);
+    }
+    
     IEnumerable<AbstractModel> modifiers;
     modifiedAmount = Hook.ModifyBlock(combatState, chirp, modifiedAmount, props, card, cardPlay, out modifiers);
     modifiedAmount = Math.Max(modifiedAmount, 0M);
@@ -119,17 +129,6 @@ public static class ChirpCmd
     }
     await Hook.AfterBlockGained(combatState, realTarget, modifiedAmount, props, card);
     return modifiedAmount;
-  }
-  
-  public static Creature? GetChirpFromPlayer(Player player)
-  {
-    return player.PlayerCombatState?.GetPet<Chirp>();
-  }
-  
-  public static bool IsPlayerChirpAlive(Player player)
-  {
-    Creature? chirp = GetChirpFromPlayer(player);
-    return chirp != null && chirp.IsAlive;
   }
   
   private static Vector2 GetChirpOffsetFromPlayer(Creature chirp)

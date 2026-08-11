@@ -10,7 +10,7 @@ using SpireEnigmas.SpireEnigmasCode.Util;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.common;
 
-public class Bolt() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRarity.Common, TargetType.AnyEnemy)
+public class    Bolt() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRarity.Common, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode;
 using SpireEnigmas.SpireEnigmasCode.Commands;
+using SpireEnigmas.SpireEnigmasCode.Util;
 
 public class ChirpDamageVar : DynamicVar
 {
@@ -44,7 +45,7 @@ public class ChirpDamageVar : DynamicVar
         if (runGlobalHooks)
         {
             ICombatState combatState = card.CombatState ?? card.Owner.Creature.CombatState;
-            originalDamage1 = Hook.ModifyDamage(card.Owner.RunState, combatState, target, ChirpCmd.GetChirpFromPlayer(card.Owner), BaseValue, Props, card, null, ModifyDamageHookType.All, previewMode, out IEnumerable<AbstractModel> _);
+            originalDamage1 = Hook.ModifyDamage(card.Owner.RunState, combatState, target, ChirpHelper.GetChirpFromPlayer(card.Owner), BaseValue, Props, card, null, ModifyDamageHookType.All, previewMode, out IEnumerable<AbstractModel> _);
         }
         PreviewValue = originalDamage1;
     }

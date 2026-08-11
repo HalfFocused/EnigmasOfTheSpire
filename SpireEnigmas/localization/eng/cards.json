@@ -686,7 +686,7 @@
   "SPIREENIGMAS-RESISTOR.description": "#Deal !D! damage to ALL enemies.\nIf you end this turn with unspent [E], gain [E?] next turn.",
 
   "SPIREENIGMAS-SALVAGE_FOR_PARTS.title": "Salvage For Parts",
-  "SPIREENIGMAS-SALVAGE_FOR_PARTS.description": "#*Exhaust* up to !C! card(s) from your *Draw* *Pile*.\nAdd a *Scrap* to your *Hand*.",
+  "SPIREENIGMAS-SALVAGE_FOR_PARTS.description": "#Gain !B! *Block*.\n*Transform* a card in your *Draw* *Pile* into *Scrap*.",
 
   "SPIREENIGMAS-VAPORIZE.title": "Vaporize",
   "SPIREENIGMAS-VAPORIZE.description": "#*Chirp* deals !ChirpDamage! damage.",
@@ -764,6 +764,45 @@
 
   "SPIREENIGMAS-ENERGY_SPIKE.title": "Energy Spike",
   "SPIREENIGMAS-ENERGY_SPIKE.description": "#Double *Chirp's* [E].",
+
+  "SPIREENIGMAS-CREATE_AN_OPENING.title": "Create An Opening",
+  "SPIREENIGMAS-CREATE_AN_OPENING.description": "#At the start of your turn, *Chirp* applies !CreateAnOpeningPower! *Vulnerable* to a random enemy.",
+
+  "SPIREENIGMAS-COVER_ME.title": "Cover Me!",
+  "SPIREENIGMAS-COVER_ME.description": "#Gain !B! *Block*.\nIf *Chirp* has attacked this turn, it gives you !ChirpBlock! *Block*.",
+
+  "SPIREENIGMAS-NULL_HYPOTHESIS.title": "Null Hypothesis",
+  "SPIREENIGMAS-NULL_HYPOTHESIS.description": "#Gain !IntangiblePower! *Intangible*.",
+
+  "SPIREENIGMAS-FORM_AND_FUNCTION.title": "Form & Function",
+  "SPIREENIGMAS-FORM_AND_FUNCTION.description": "#When this is *Transformed* during combat, gain [E?] and draw !C! card(s).",
+
+  "SPIREENIGMAS-RAPID_DEPLOYMENT.title": "Rapid Deployment",
+  "SPIREENIGMAS-RAPID_DEPLOYMENT.description": "#Play every *Gadget* in your *Exhaust* *Pile*.{InCombat:\n(Plays !CalculatedGadgets! *Gadgets*.)|}",
+
+  "SPIREENIGMAS-UNSETTLING_WAVE.title": "Unsettling Wave",
+  "SPIREENIGMAS-UNSETTLING_WAVE.description": "#*Chirp* applies !WeakPower! *Weak* to you and ALL enemies.",
+
+  "SPIREENIGMAS-NOW_OR_NEVER.title": "Now Or Never",
+  "SPIREENIGMAS-NOW_OR_NEVER.description": "#Gain !Block! *Block*.\nGain !FrailPower! *Frail*.",
+  
+  "SPIREENIGMAS-POLISH.title": "Polish",
+  "SPIREENIGMAS-POLISH.description": "#Deal !D! damage !Repeat! times.\n*Upgrade* your *Hand*.",
+
+  "SPIREENIGMAS-TEAMWORK.title": "Teamwork",
+  "SPIREENIGMAS-TEAMWORK.description": "#Gain !StrengthPower! *Strength*.\nChirp gains !DexterityPower! *Dexterity*.",
+
+  "SPIREENIGMAS-WRENCH_STRIKE.title": "Wrench Strike",
+  "SPIREENIGMAS-WRENCH_STRIKE.description": "#Deal !D! damage.\nIf you played a *Gadget* this turn, hits !Repeat! time(s).",
+
+  "SPIREENIGMAS-SIZZLE.title": "Sizzle",
+  "SPIREENIGMAS-SIZZLE.description": "#Whenever you end your turn with unspent [E], gain !SizzlePower! *Strength*.",
+
+  "SPIREENIGMAS-OVERRIDE.title": "Override",
+  "SPIREENIGMAS-OVERRIDE.description": "#Deal !D! damage.\nThe next *Command* you play costs 0 [E].",
+
+  "SPIREENIGMAS-MISFIRE.title": "Misfire",
+  "SPIREENIGMAS-MISFIRE.description": "#Deal !D! damage and apply !VulnerablePower! *Vulnerable* to a random enemy.",
   
   "SPIREENIGMAS-ABSTRACT_GADGET.title": "Composite Gadget",
   "SPIREENIGMAS-ABSTRACT_GADGET.description": "{GainsBlock:cond:Gain {Block:diff()} [gold]Block[/gold].{NewLine1:cond:\n|}|}{HasDamage:cond:Deal {Damage:diff()} damage.{NewLine2:cond:\n|}|}{HasEnergy:cond:Gain {Energy:energyIcons()}.{NewLine3:cond:\n|}|}{HasCardDraw:cond:Draw {Cards:diff()} {Cards:plural:card|cards}.|}",

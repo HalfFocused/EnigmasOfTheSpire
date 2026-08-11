@@ -63,7 +63,6 @@
 
     <ItemGroup>
         <Folder Include="SpireEnigmasCode\Nodes\Vfx\" />
-        <Folder Include="SpireEnigmasCode\Patches\" />
         <Folder Include="SpireEnigmas\images\powers\big\" />
         <Folder Include="SpireEnigmas\images\ui\" />
         <Folder Include="SpireEnigmas\materials\" />

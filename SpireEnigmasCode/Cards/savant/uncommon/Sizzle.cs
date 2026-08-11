@@ -6,32 +6,30 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 using SpireEnigmas.SpireEnigmasCode.Cards.other;
-using SpireEnigmas.SpireEnigmasCode.Monsters;
 using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.uncommon;
 
-public class PowerConversion() : SpireEnigmasCard.SavantCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
+public class Sizzle() : SpireEnigmasCard.SavantCard(0, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-    [
-        ChirpHoverTip(),
-        HoverTipFactory.Static(StaticHoverTip.Energy)
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+        HoverTipFactory.ForEnergy(this),
+        HoverTipFactory.FromPower<StrengthPower>()
     ];
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new EnergyVar(1)
+        new PowerVar<SizzlePower>(1)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
-        await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<PowerConversionPower>(choiceContext, Owner.Creature, DynamicVars.Energy.BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<SizzlePower>(choiceContext, Owner.Creature, DynamicVars["SizzlePower"].BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        EnergyCost.UpgradeBy(-1);
+        AddKeyword(CardKeyword.Innate);
     }
 }

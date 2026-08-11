@@ -18,14 +18,12 @@ namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.uncommon;
 
 public class SalvageForParts() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
 {
-    
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new CardsVar(2)
+        new BlockVar(6M, ValueProp.Move)
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        HoverTipFactory.FromKeyword(CardKeyword.Exhaust),
         HoverTipFactory.FromCard<Scrap>()
     ];
     
@@ -36,14 +34,12 @@ public class SalvageForParts() : SpireEnigmasCard.SavantCard(1, CardType.Skill, 
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        List<CardModel> selection = (await CardSelectCmd.FromCombatPile(choiceContext, PileType.Draw.GetPile(Owner), Owner, new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 0, DynamicVars.Cards.IntValue))).ToList();
-        foreach (CardModel card in selection)
+        await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, play);
+        foreach (CardModel original in (await CardSelectCmd.FromSimpleGrid(choiceContext, PileType.Draw.GetPile(Owner).Cards.OrderBy((c => c.Rarity)).ThenBy(c => c.Id).ToList(), Owner, new CardSelectorPrefs(CardSelectorPrefs.TransformSelectionPrompt, DynamicVars.Cards.IntValue))).ToList())
         {
-            await CardCmd.Exhaust(choiceContext, card);
+            await CardCmd.TransformTo<Scrap>(original);
         }
-        CardModel scrap = Owner.Creature.CombatState.CreateCard<Scrap>(Owner);
-        await CardPileCmd.AddGeneratedCardToCombat(scrap, PileType.Hand, Owner);
     }
     
-    protected override void OnUpgrade() => AddKeyword(CardKeyword.Retain);
+    protected override void OnUpgrade() => DynamicVars.Block.UpgradeValueBy(3M);
 }

@@ -1,26 +1,24 @@
 ﻿using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using SpireEnigmas.SpireEnigmasCode.Commands;
-using SpireEnigmas.SpireEnigmasCode.Monsters;
-using SpireEnigmas.SpireEnigmasCode.Util;
+using MegaCrit.Sts2.Core.Models.Powers;
+using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Powers;
 
-public class AlternatorPower : SpireEnigmaPower
+public class SizzlePower : SpireEnigmaPower
 {
     public override PowerType Type => PowerType.Buff;
-
     public override PowerStackType StackType => PowerStackType.Counter;
-
-    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
-    [
-        ChirpHoverTip(),
-        HoverTipFactory.ForEnergy(this)
+    
+    protected override IEnumerable<IHoverTip> ExtraHoverTips => [
+        HoverTipFactory.ForEnergy(this),
+        HoverTipFactory.FromPower<StrengthPower>()
     ];
-
+    
     public override async Task BeforeSideTurnEnd(
         PlayerChoiceContext choiceContext,
         CombatSide side,
@@ -28,13 +26,11 @@ public class AlternatorPower : SpireEnigmaPower
     {
         if (!participants.Contains(Owner))
             return;
-        
-        Chirp? chirp = (Chirp) ChirpHelper.GetChirpFromPlayer(Owner.Player).Monster;
-        
-        if (chirp == null) return;
-        if (chirp.GetEnergy() == 0)
+
+        if (Owner.Player.PlayerCombatState.Energy != 0)
         {
-            await ChirpCmd.GainEnergy(choiceContext, Owner.Player, Amount, this);
+            Flash();
+            await PowerCmd.Apply<StrengthPower>(choiceContext, Owner, Amount, Owner, null);
         }
     }
 }
