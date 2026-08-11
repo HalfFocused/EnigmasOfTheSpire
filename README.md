@@ -1,5 +1,5 @@
 # Enigmas Of The Spire
-An overly ambitious content mod for Slay the Spire 2
+An overly ambitious character mod for Slay the Spire 2
 
 Enigmas Of The Spire adds three new characters to Slay the Spire 2, each with their own card pools, new mechanics, and stories.  
 This mod is a Work In Progress!!! Anything and everything is subject to change.  
@@ -41,6 +41,6 @@ Themes:
 
 
 ## Credits
-Design, Development, All The Bad Looking Art: HalfFocused  
-"High Ground" Card Art: TRSoL  
-"Blueprint" Card Art: Pondm1
+HalfFocused - Design, Development, All The Bad Looking Art  
+Pondm1 - "Blueprint" Card Art, "Demolition" Card Art  
+TRSoL - "High Ground" Card Art  
