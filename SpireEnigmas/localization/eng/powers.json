@@ -270,5 +270,9 @@
 
   "SPIREENIGMAS-OVERRIDE_POWER.title": "Override",
   "SPIREENIGMAS-OVERRIDE_POWER.description": "",
-  "SPIREENIGMAS-OVERRIDE_POWER.smartDescription": "#The next [blue]{Amount}[/blue] *Command(s)* you play cost 0 [E]."
+  "SPIREENIGMAS-OVERRIDE_POWER.smartDescription": "#The next [blue]{Amount}[/blue] *Command(s)* you play cost 0 [E].",
+
+  "SPIREENIGMAS-RANDOM_BULLSHIT_GO_POWER.title": "Random Bullshit Go",
+  "SPIREENIGMAS-RANDOM_BULLSHIT_GO_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-RANDOM_BULLSHIT_GO_POWER.smartDescription": "#At the end of your turn, play and *Exhaust* [blue]{Amount}[/blue] random card(s) in your *Hand*."
 }

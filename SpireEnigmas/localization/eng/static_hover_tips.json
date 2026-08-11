@@ -15,5 +15,5 @@
   "SPIREENIGMAS-GADGET.description": "#*Gadget* cards are special tokens that combine together in your *Hand*.",
 
   "SPIREENIGMAS-INVENT.title": "Invent",
-  "SPIREENIGMAS-INVENT.description": "#Add this card's effect to *Gadgets* in your *Hand*. If you have none, add this card to your *Hand* instead."
+  "SPIREENIGMAS-INVENT.description": "#If you have no *Gadgets* in your *Hand*, create a blank one.\nAdd this effect to *Gadgets* in your *Hand*."
 }

@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
@@ -37,28 +38,27 @@ public static class EnigmaCmd
         return await CardCmd.Transform(toTransform, result, inventFromPile == PileType.Hand ? CardPreviewStyle.None : CardPreviewStyle.HorizontalLayout);
     }
 
-    public static async Task InventGadget<T>(Player owner, ICombatState combatState) where T : AbstractGadget
+    public static async Task InventGadget(Player owner, ICombatState combatState, IEnumerable<DynamicVar> dynamicVars, IEnumerable<CardKeyword>? keywords = null, int replay = 0)
     {
         if (CombatManager.Instance.IsOverOrEnding)
             return;
-
-        ;
         
-        if (PileType.Hand.GetPile(owner).Cards.OfType<AbstractGadget>().Any())
+        if (PileType.Hand.GetPile(owner).Cards.OfType<Gadget>().Any())
         {
-            T gadgetBeingInvented = ModelDb.Get<T>();
-            
-            foreach (AbstractGadget handGadget in PileType.Hand.GetPile(owner).Cards.OfType<AbstractGadget>().ToList())
+            foreach (Gadget handGadget in PileType.Hand.GetPile(owner).Cards.OfType<Gadget>().ToList())
             {
-                handGadget.TakeAttributesFrom(gadgetBeingInvented);
+                handGadget.TakeAttributesFrom(dynamicVars, keywords, replay);
                 NCard? cardNode = NCard.FindOnTable(handGadget);
                 cardNode?.AddChildSafely(NCardSmithVfx.Create(cardNode));
             }
         }
         else
         {
-            T gadgetBeingInvented = combatState.CreateCard<T>(owner);
+            Gadget gadgetBeingInvented = combatState.CreateCard<Gadget>(owner);
+            gadgetBeingInvented.TakeAttributesFrom(dynamicVars, keywords, replay);
             await CardPileCmd.AddGeneratedCardsToCombat([gadgetBeingInvented], PileType.Hand, owner);
+            NCard? cardNode = NCard.FindOnTable(gadgetBeingInvented);
+            cardNode?.AddChildSafely(NCardSmithVfx.Create(cardNode));
         }
     }
 }

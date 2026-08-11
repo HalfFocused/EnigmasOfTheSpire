@@ -18,6 +18,8 @@ public class    Bolt() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRari
         new PowerVar<WeakPower>(2)
     ];
     
+    protected override bool ShouldGlowRedInternal => ChirpHelper.GetChirpFromPlayer(Owner) == null;
+    
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
         EnigmaKeywords.Command
     ];
@@ -30,10 +32,9 @@ public class    Bolt() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRari
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        if(GetChirp is null) return;
         await PowerCmd.Apply<WeakPower>(choiceContext, play.Target, DynamicVars["WeakPower"].BaseValue, GetChirp, this);
         await PowerCmd.Apply<VulnerablePower>(choiceContext, play.Target, DynamicVars["VulnerablePower"].BaseValue, GetChirp, this);
-
-        Owner.PlayerCombatState.Hand.Cards.Where(card => card.Keywords.Contains(CardKeyword.Ethereal));
     }
 
     protected override void OnUpgrade()

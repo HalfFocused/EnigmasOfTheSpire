@@ -22,6 +22,8 @@ public class Distract() : SpireEnigmasCard.SavantCard(2, CardType.Skill, CardRar
         CardKeyword.Exhaust
     ];
     
+    protected override bool ShouldGlowRedInternal => GetChirp == null;
+    
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
         ChirpHoverTip(),
         HoverTipFactory.FromPower<WeakPower>(),
@@ -32,6 +34,7 @@ public class Distract() : SpireEnigmasCard.SavantCard(2, CardType.Skill, CardRar
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        if(GetChirp is null) return;
         foreach (Creature enemy in CombatState.HittableEnemies)
         {
             await PowerCmd.Apply<WeakPower>(choiceContext, enemy, DynamicVars["WeakPower"].BaseValue, GetChirp, this);

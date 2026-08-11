@@ -20,6 +20,8 @@ public class CoverMe() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRari
         new ChirpBlockVar(10M, ValueProp.Move)
     ];
     
+    //can glow red and gold. fun
+    protected override bool ShouldGlowRedInternal => GetChirp == null;
     protected override bool ShouldGlowGoldInternal => HasChirpAttackedThisTurn;
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
@@ -36,7 +38,7 @@ public class CoverMe() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRari
         CardPlay play)
     {
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, play);
-        
+        if (GetChirp is null) return;
         if (HasChirpAttackedThisTurn)
         {
             await Cmd.CustomScaledWait(0.35f, 0.5f);

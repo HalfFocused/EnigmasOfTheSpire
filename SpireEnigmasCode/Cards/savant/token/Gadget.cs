@@ -6,15 +6,13 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
-using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.token;
 
 [Pool(typeof(TokenCardPool))]
-public class AbstractGadget() : SpireEnigmasCard.SavantCard(1,
+public class Gadget() : SpireEnigmasCard.SavantCard(1,
     CardType.Skill, CardRarity.Token,
     TargetType.Self)
 {
@@ -64,7 +62,8 @@ public class AbstractGadget() : SpireEnigmasCard.SavantCard(1,
     }
     public override IEnumerable<CardKeyword> CanonicalKeywords => 
     [
-        CardKeyword.Retain
+        CardKeyword.Retain,
+        CardKeyword.Exhaust
     ];
     
     //public override LocString Description => new LocString("cards", Id.Entry + ".description");
@@ -99,62 +98,41 @@ public class AbstractGadget() : SpireEnigmasCard.SavantCard(1,
         EnergyCost.UpgradeBy(-1);
     }
 
-    public void TakeAttributesFrom(AbstractGadget gadget)
+    public void TakeAttributesFrom(IEnumerable<DynamicVar> dynamicVars, IEnumerable<CardKeyword>? keywords = null, int replay = 0)
     {
-        
-        if (((BoolVar) gadget.DynamicVars["HasBlock"]).BoolVal)
+        foreach (DynamicVar dynamicVar in dynamicVars)
         {
-            DynamicVars.Block.BaseValue += gadget.DynamicVars.Block.BaseValue;
-            if (!((BoolVar)DynamicVars["HasBlock"]).BoolVal) MakeComposite();
-            ((BoolVar) DynamicVars["HasBlock"]).BoolVal = true;
-        }
-        
-        if (((BoolVar) gadget.DynamicVars["HasDamage"]).BoolVal)
-        {
-            DynamicVars.Damage.BaseValue += gadget.DynamicVars.Damage.BaseValue;
-            if (!((BoolVar)DynamicVars["HasDamage"]).BoolVal) MakeComposite();
-            ((BoolVar) DynamicVars["HasDamage"]).BoolVal = true;
-        }
-        
-        if (((BoolVar) gadget.DynamicVars["HasEnergy"]).BoolVal)
-        {
-            DynamicVars.Energy.BaseValue += gadget.DynamicVars.Energy.BaseValue;
-            if (!((BoolVar)DynamicVars["HasEnergy"]).BoolVal) MakeComposite();
-            ((BoolVar) DynamicVars["HasEnergy"]).BoolVal = true;
-        }
-        
-        if (((BoolVar) gadget.DynamicVars["HasCardDraw"]).BoolVal)
-        {
-            DynamicVars.Cards.BaseValue += gadget.DynamicVars.Cards.BaseValue;
-            if (!((BoolVar)DynamicVars["HasCardDraw"]).BoolVal) MakeComposite();
-            ((BoolVar) DynamicVars["HasCardDraw"]).BoolVal = true;
-        }
-
-        foreach (CardKeyword keyword in gadget.Keywords)
-        {
-            if (!Keywords.Contains(keyword))
+            switch (dynamicVar)
             {
-                CardCmd.ApplyKeyword(this, keyword);
-                MakeComposite();
+                case BlockVar:
+                    DynamicVars.Block.BaseValue += dynamicVar.BaseValue;
+                    ((BoolVar) DynamicVars["HasBlock"]).BoolVal = true;
+                    break;
+                case DamageVar:
+                    DynamicVars.Damage.BaseValue += dynamicVar.BaseValue;
+                    ((BoolVar) DynamicVars["HasDamage"]).BoolVal = true;
+                    break;
+                case EnergyVar:
+                    DynamicVars.Energy.BaseValue += dynamicVar.BaseValue;
+                    ((BoolVar) DynamicVars["HasEnergy"]).BoolVal = true;
+                    break;
+                case CardsVar:
+                    DynamicVars.Cards.BaseValue += dynamicVar.BaseValue;
+                    ((BoolVar) DynamicVars["HasCardDraw"]).BoolVal = true;
+                    break;
             }
+
+            if (keywords is not null)
+            {
+                foreach (CardKeyword keyword in keywords)
+                {
+                    if (!Keywords.Contains(keyword))
+                    {
+                        CardCmd.ApplyKeyword(this, keyword);
+                    }
+                }
+            }
+            BaseReplayCount += replay;
         }
-
-        if (gadget._baseReplayCount != 0)
-        {
-            _baseReplayCount += gadget.BaseReplayCount;
-            MakeComposite();
-        }
-    }
-
-    private void MakeComposite()
-    {
-        _titleLocString = new LocString("cards", ModelDb.GetId(typeof(AbstractGadget)).Entry + ".title");
-    }
-
-    public void IncreaseDamage(int damageIncrease)
-    {
-        DynamicVars.Damage.BaseValue += damageIncrease;
-        if (!((BoolVar)DynamicVars["HasDamage"]).BoolVal) MakeComposite();
-        ((BoolVar) DynamicVars["HasDamage"]).BoolVal = true;
     }
 }

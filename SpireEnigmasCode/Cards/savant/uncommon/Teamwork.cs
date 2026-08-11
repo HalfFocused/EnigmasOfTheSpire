@@ -30,6 +30,7 @@ public class Teamwork() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRar
         CardPlay play)
     {
         await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature, DynamicVars["StrengthPower"].BaseValue, Owner.Creature, this);
+        if(GetChirp is null) return;
         await PowerCmd.Apply<DexterityPower>(choiceContext, GetChirp, DynamicVars["DexterityPower"].BaseValue, Owner.Creature, this);
     }
 

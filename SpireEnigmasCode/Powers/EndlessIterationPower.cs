@@ -31,7 +31,7 @@ public class EndlessIterationPower : SpireEnigmaPower
     {
         if (!participants.Contains(Owner))
             return;
-        foreach (CardModel card in PileType.Discard.GetPile(Owner.Player).Cards.Where(c => c is AbstractGadget).ToList().UnstableShuffle(Owner.Player.RunState.Rng.CombatCardSelection).Take(Amount))
+        foreach (CardModel card in PileType.Discard.GetPile(Owner.Player).Cards.Where(c => c is Gadget).ToList().UnstableShuffle(Owner.Player.RunState.Rng.CombatCardSelection).Take(Amount))
         {
             await CardPileCmd.Add(card, PileType.Hand);
         }

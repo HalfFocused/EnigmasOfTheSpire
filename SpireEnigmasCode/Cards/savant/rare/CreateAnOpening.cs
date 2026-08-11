@@ -17,6 +17,11 @@ public class CreateAnOpening() : SpireEnigmasCard.SavantCard(2, CardType.Power, 
         new PowerVar<CreateAnOpeningPower>(1)
     ];
     
+    protected override bool ShouldGlowRedInternal => ChirpHelper.GetChirpFromPlayer(Owner) == null;
+    
+    //powers that go onto chirp cannot be played at all if it doesnt exist. where would they go?
+    protected override bool IsPlayable => GetChirp is not null;
+    
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
         EnigmaKeywords.Command
     ];
@@ -30,8 +35,7 @@ public class CreateAnOpening() : SpireEnigmasCard.SavantCard(2, CardType.Power, 
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        Creature? chirp = GetChirp;
-        await PowerCmd.Apply<CreateAnOpeningPower>(choiceContext, chirp, DynamicVars["CreateAnOpeningPower"].BaseValue, chirp, this);
+        await PowerCmd.Apply<CreateAnOpeningPower>(choiceContext, GetChirp, DynamicVars["CreateAnOpeningPower"].BaseValue, GetChirp, this);
     }
 
     protected override void OnUpgrade()

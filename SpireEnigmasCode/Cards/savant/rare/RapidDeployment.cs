@@ -24,7 +24,7 @@ public class RapidDeployment() : SpireEnigmasCard.SavantCard(2, CardType.Skill, 
     [
         new CalculationBaseVar(0M),
         new CalculationExtraVar(1M),
-        new CalculatedVar("CalculatedGadgets").WithMultiplier((card, _) => PileType.Exhaust.GetPile(card.Owner).Cards.Count((c => c is AbstractGadget)))
+        new CalculatedVar("CalculatedGadgets").WithMultiplier((card, _) => PileType.Exhaust.GetPile(card.Owner).Cards.Count((c => c is Gadget)))
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
@@ -35,7 +35,7 @@ public class RapidDeployment() : SpireEnigmasCard.SavantCard(2, CardType.Skill, 
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        IEnumerable<CardModel> gadgets = PileType.Exhaust.GetPile(Owner).Cards.Where((c => c is AbstractGadget)).ToList();
+        IEnumerable<CardModel> gadgets = PileType.Exhaust.GetPile(Owner).Cards.Where((c => c is Gadget)).ToList();
         foreach (CardModel gadget in gadgets)
         {
             await CardCmd.AutoPlay(choiceContext, gadget, null);

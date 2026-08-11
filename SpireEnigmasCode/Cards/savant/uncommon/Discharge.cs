@@ -22,12 +22,20 @@ public class Discharge() : SpireEnigmasCard.SavantCard(3, CardType.Attack, CardR
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(20M, ValueProp.Move)
+        new DamageVar(20M, ValueProp.Move),
+        new EnergyVar("InventionEnergy", 2)
     ];
+    
+    private CardModel PreviewGadget()
+    {
+        Gadget previewGadget = (Gadget) ModelDb.Get<Gadget>().ToMutable();
+        previewGadget.TakeAttributesFrom([DynamicVars["InventionEnergy"]]);
+        return previewGadget;
+    }
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
         InventHoverTip(),
-        HoverTipFactory.FromCard<ChargingGadget>()
+        HoverTipFactory.FromCard(PreviewGadget())
     ];
     
     protected override async Task OnPlay(
@@ -36,11 +44,12 @@ public class Discharge() : SpireEnigmasCard.SavantCard(3, CardType.Attack, CardR
     {
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
 
-        await EnigmaCmd.InventGadget<ChargingGadget>(Owner, CombatState);
+        await EnigmaCmd.InventGadget(Owner, CombatState, [DynamicVars["InventionEnergy"]]);
     }
 
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(6M);
+        DynamicVars["InventionEnergy"].UpgradeValueBy(1M);
     }
 }

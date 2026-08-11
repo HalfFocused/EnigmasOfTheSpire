@@ -1,10 +1,13 @@
 ﻿using BaseLib.Extensions;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Hooks;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Powers;
 
@@ -14,21 +17,24 @@ public class ShrapnelBlast() : SpireEnigmasCard.SavantCard(1, CardType.Attack, C
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(8M, ValueProp.Move),
-        new DamageVar("HpLoss", 4, ValueProp.Unpowered | ValueProp.Unblockable | ValueProp.Move) //specifying these here doesn't actually seem to matter since they are specified in the command as well
+        new DamageVar(5M, ValueProp.Move)
     ];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
-        await CreatureCmd.Damage(choiceContext, CombatState.HittableEnemies, DynamicVars["HpLoss"].BaseValue, ValueProp.Unpowered | ValueProp.Unblockable | ValueProp.Move, Owner.Creature, this, play);
+        
+        AttackContext attackContext = await AttackCommand.CreateContextAsync(CombatState, choiceContext, play);
+        attackContext.AddHit(await CreatureCmd.Damage(choiceContext, play.Target, DynamicVars.Damage, Owner.Creature, this, play));
+        await Cmd.CustomScaledWait(0.35f, 0.65f);
+        attackContext.AddHit(await CreatureCmd.Damage(choiceContext, (IEnumerable<Creature>) CombatState?.HittableEnemies, DynamicVars.Damage, Owner.Creature, this, play));
+
+        await attackContext.DisposeAsync();
     }
 
     protected override void OnUpgrade()
     {
         DynamicVars.Damage.UpgradeValueBy(2);
-        DynamicVars["HpLoss"].UpgradeValueBy(2);
     }
 }

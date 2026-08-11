@@ -12,7 +12,7 @@ using SpireEnigmas.SpireEnigmasCode.Util;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.rare;
 
-public class Multithreading() : SpireEnigmasCard.SavantCard(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class Multithreading() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

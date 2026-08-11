@@ -17,12 +17,20 @@ public class ForceField() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardR
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new BlockVar(6M, ValueProp.Move)
+        new BlockVar(5M, ValueProp.Move),
+        new BlockVar("InventionBlock", 7, ValueProp.Unpowered)
     ];
+    
+    private CardModel PreviewGadget()
+    {
+        Gadget previewGadget = (Gadget) ModelDb.Get<Gadget>().ToMutable();
+        previewGadget.TakeAttributesFrom([DynamicVars["InventionBlock"]]);
+        return previewGadget;
+    }
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
         InventHoverTip(),
-        HoverTipFactory.FromCard<WardingGadget>()
+        HoverTipFactory.FromCard(PreviewGadget())
     ];
 
     protected override async Task OnPlay(
@@ -30,8 +38,12 @@ public class ForceField() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardR
         CardPlay play)
     {
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, play);
-        await EnigmaCmd.InventGadget<WardingGadget>(Owner, CombatState);
+        await EnigmaCmd.InventGadget(Owner, CombatState, [DynamicVars["InventionBlock"]]);
     }
-    
-    protected override void OnUpgrade() => DynamicVars.Block.UpgradeValueBy(3M);
+
+    protected override void OnUpgrade()
+    {
+        DynamicVars.Block.UpgradeValueBy(1M);
+        DynamicVars["InventionBlock"].UpgradeValueBy(2M);
+    }
 }

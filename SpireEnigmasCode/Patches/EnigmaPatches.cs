@@ -73,9 +73,9 @@ internal static class GadgetDescriptionPatch
     [HarmonyPostfix]
     static void UseOneGadgetDescriptionPatch(CardModel __instance, ref LocString __result)
     {
-        if (__instance is AbstractGadget gadget)
+        if (__instance is Gadget gadget)
         {
-            __result = new LocString("cards", ModelDb.GetId(typeof(AbstractGadget)).Entry + ".description");
+            __result = new LocString("cards", ModelDb.GetId(typeof(Gadget)).Entry + ".description");
         }
     }
 }
@@ -383,7 +383,7 @@ class PersonalHiveChirpAttackPatch
         codeMatcher.Advance(11); 
         
         //save this position.
-        codeMatcher.CreateLabel(out System.Reflection.Emit.Label startOfChirpCheck);
+        codeMatcher.CreateLabel(out Label startOfChirpCheck);
         //go back to the BrFalse instruction
         codeMatcher.Advance(-7);
         //instead of the Osty check skipping to end, we want it to skip to here
@@ -410,7 +410,7 @@ class PersonalHiveChirpAttackPatch
             new CodeInstruction(OpCodes.Stfld, dealerField)
         );
         //grab this position
-        codeMatcher.CreateLabel(out System.Reflection.Emit.Label endOfChirpCheck);
+        codeMatcher.CreateLabel(out Label endOfChirpCheck);
         //go back to the BrFalse we created without an Operand and tell it to jump here.
         codeMatcher.Advance(-7);
         codeMatcher.SetOperandAndAdvance(endOfChirpCheck);

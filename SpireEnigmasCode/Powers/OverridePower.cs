@@ -52,7 +52,7 @@ label_6:
 
   public override async Task BeforeCardPlayed(CardPlay cardPlay)
   {
-    if (cardPlay.Card.Owner.Creature != Owner || cardPlay.Card.Keywords.Contains(EnigmaKeywords.Command))
+    if (cardPlay.Card.Owner.Creature != Owner || !cardPlay.Card.Keywords.Contains(EnigmaKeywords.Command))
       return;
     PileType? type = cardPlay.Card.Pile?.Type;
     bool flag;

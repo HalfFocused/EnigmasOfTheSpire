@@ -20,6 +20,8 @@ public class Logistics() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRa
         new ChirpBlockVar(5M, ValueProp.Move)
     ];
     
+    protected override bool ShouldGlowRedInternal => ChirpHelper.GetChirpFromPlayer(Owner) == null;
+    
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
         ChirpHoverTip()
     ];
@@ -32,6 +34,7 @@ public class Logistics() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRa
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        if(GetChirp is null) return;
         await ChirpCmd.GiveBlockToOwner(Owner, DynamicVars["ChirpBlock"].BaseValue, ((ChirpBlockVar) DynamicVars["ChirpBlock"]).Props, play);
         CardSelectorPrefs prefs = new CardSelectorPrefs(SelectionScreenPrompt, 1);
         CardModel? card = (await CardSelectCmd.FromCombatPile(choiceContext, PileType.Discard.GetPile(Owner), Owner, prefs)).FirstOrDefault();

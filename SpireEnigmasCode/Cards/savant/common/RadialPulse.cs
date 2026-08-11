@@ -21,6 +21,8 @@ public class RadialPulse() : SpireEnigmasCard.SavantCard(2, CardType.Attack, Car
         new ChirpDamageVar(8M, ValueProp.Move)
     ];
     
+    protected override bool ShouldGlowRedInternal => ChirpHelper.GetChirpFromPlayer(Owner) == null;
+    
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
         ChirpHoverTip()
     ];
@@ -33,6 +35,7 @@ public class RadialPulse() : SpireEnigmasCard.SavantCard(2, CardType.Attack, Car
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        if(GetChirp is null) return;
         await DamageCmd.Attack(DynamicVars["ChirpDamage"].BaseValue).FromChirp(GetChirp, this, play).TargetingAllOpponents(CombatState).WithHitCount(2).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
     

@@ -39,6 +39,7 @@ public class PowerBlast() : SpireEnigmasCard.SavantCard(1, CardType.Attack, Card
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        if(GetChirp is null) return;
         await DamageCmd.Attack(DynamicVars["ChirpDamage"].BaseValue).FromChirp(GetChirp, this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
     

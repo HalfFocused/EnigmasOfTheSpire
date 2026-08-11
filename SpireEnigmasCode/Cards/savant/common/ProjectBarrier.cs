@@ -13,6 +13,8 @@ public class ProjectBarrier() : SpireEnigmasCard.SavantCard(1, CardType.Skill, C
 {
     public override bool GainsBlock => true;
     
+    protected override bool ShouldGlowRedInternal => ChirpHelper.GetChirpFromPlayer(Owner) == null;
+    
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new ChirpBlockVar(10M, ValueProp.Move)
@@ -30,6 +32,7 @@ public class ProjectBarrier() : SpireEnigmasCard.SavantCard(1, CardType.Skill, C
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        if(GetChirp is null) return;
         await ChirpCmd.GiveBlockToOwner(Owner, DynamicVars["ChirpBlock"].BaseValue, ((ChirpBlockVar) DynamicVars["ChirpBlock"]).Props, play);
     }
     

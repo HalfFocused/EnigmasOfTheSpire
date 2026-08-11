@@ -27,10 +27,14 @@ public class EnergySpike() : SpireEnigmasCard.SavantCard(1, CardType.Skill, Card
         ChirpHoverTip()
     ];
     
+    protected override bool ShouldGlowRedInternal => GetChirp == null;
+
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        //the only card that gives chirp energy, but cannot summon it. weird. this is why im handling this stuff manually
+        if (GetChirp is null) return;
         await ChirpCmd.GainEnergy(choiceContext, Owner, ((Chirp) GetChirp.Monster).GetEnergy(), this);
     }
     

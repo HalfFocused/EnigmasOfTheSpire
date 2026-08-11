@@ -8,9 +8,9 @@ namespace SpireEnigmas.SpireEnigmasCode.Util;
 
 public class ChirpHelper
 {
-    public static Creature? GetChirpFromPlayer(Player player)
+    public static Creature? GetChirpFromPlayer(Player? player)
     {
-        return player.PlayerCombatState?.GetPet<Chirp>();
+        return player?.PlayerCombatState?.GetPet<Chirp>();
     }
   
     public static bool IsPlayerChirpAlive(Player player)

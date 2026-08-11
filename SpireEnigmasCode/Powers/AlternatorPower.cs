@@ -31,8 +31,9 @@ public class AlternatorPower : SpireEnigmaPower
         
         Chirp? chirp = (Chirp) ChirpHelper.GetChirpFromPlayer(Owner.Player).Monster;
         
-        if (chirp == null) return;
-        if (chirp.GetEnergy() == 0)
+        //i'm allowing this power to summon chirp if you don't have it
+        //it's a bit of an abuse of notation
+        if (chirp == null || chirp.GetEnergy() == 0)
         {
             await ChirpCmd.GainEnergy(choiceContext, Owner.Player, Amount, this);
         }

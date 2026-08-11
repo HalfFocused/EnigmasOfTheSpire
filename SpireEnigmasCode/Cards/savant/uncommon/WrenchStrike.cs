@@ -48,7 +48,7 @@ public class WrenchStrike() : SpireEnigmasCard.SavantCard(1,
     public static bool PlayedGadgetThisTurn(CardModel card)
     {
         return CombatManager.Instance.History.Entries.OfType<CardPlayFinishedEntry>().Any(
-            e => e.CardPlay.Card is AbstractGadget && e.RoundNumber == card.CombatState.RoundNumber
+            e => e.CardPlay.Card is Gadget && e.RoundNumber == card.CombatState.RoundNumber
         );
     }
 }

@@ -4,26 +4,30 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 
-namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.uncommon;
+namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.rare;
 
-public class ChargeUp() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self)
+public class Delivery() : SpireEnigmasCard.SavantCard(3, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
     public override bool GainsBlock => true;
+
+    //we reference the canonical bomb model for our values so that this card changes automatically if the bomb is changed
+    private CardModel CanonicalBombModel = ModelDb.Card<TheBomb>();
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
         ChirpHoverTip(),
-        HoverTipFactory.FromPower<VigorPower>()
+        HoverTipFactory.FromCard<TheBomb>()
     ];
     
     protected override bool ShouldGlowRedInternal => GetChirp == null;
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new BlockVar(6M, ValueProp.Move),
-        new PowerVar<VigorPower>(5)
+        new BlockVar(12M, ValueProp.Move)
     ];
 
     protected override async Task OnPlay(
@@ -31,13 +35,12 @@ public class ChargeUp() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRar
         CardPlay play)
     {
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, play);
-        if (GetChirp is null) return;
-        await PowerCmd.Apply<VigorPower>(choiceContext, GetChirp, DynamicVars["VigorPower"].BaseValue, Owner.Creature, this);
+        if(GetChirp is null) return;
+        (await PowerCmd.Apply<TheBombPower>(choiceContext, GetChirp, CanonicalBombModel.DynamicVars["Turns"].BaseValue, Owner.Creature, this)).SetDamage(CanonicalBombModel.DynamicVars["BombDamage"].BaseValue);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Block.UpgradeValueBy(3);
-        DynamicVars["VigorPower"].UpgradeValueBy(2);
+        DynamicVars.Block.UpgradeValueBy(4);
     }
 }

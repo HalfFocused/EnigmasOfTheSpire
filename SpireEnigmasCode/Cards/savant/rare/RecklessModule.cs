@@ -22,16 +22,22 @@ public class RecklessModule() : SpireEnigmasCard.SavantCard(1, CardType.Skill, C
     [
     ];
     
+    private CardModel PreviewGadget()
+    {
+        Gadget previewGadget = (Gadget) ModelDb.Get<Gadget>().ToMutable();
+        previewGadget.TakeAttributesFrom([], [CardKeyword.Ethereal], 1);
+        return previewGadget;
+    }
+    
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
         InventHoverTip(),
-        HoverTipFactory.FromCard<OverclockingGadget>()
+        HoverTipFactory.FromCard(PreviewGadget())
     ];
-    
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await EnigmaCmd.InventGadget<OverclockingGadget>(Owner, CombatState);
+        await EnigmaCmd.InventGadget(Owner, CombatState, [], [CardKeyword.Ethereal], 1);
     }
     
     protected override void OnUpgrade() => EnergyCost.UpgradeBy(-1);

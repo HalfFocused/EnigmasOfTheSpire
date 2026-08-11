@@ -21,6 +21,9 @@ public class Precision() : SpireEnigmasCard.SavantCard(1, CardType.Power, CardRa
         EnigmaKeywords.Command
     ];
     
+    protected override bool ShouldGlowRedInternal => GetChirp == null;
+    protected override bool IsPlayable => GetChirp is not null;
+    
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
         ChirpHoverTip(),
         HoverTipFactory.FromPower<StrengthPower>(),

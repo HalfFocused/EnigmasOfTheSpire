@@ -38,6 +38,7 @@ public class ScatteredShots() : SpireEnigmasCard.SavantCard(3, CardType.Attack, 
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        if (GetChirp is null) return;
         await DamageCmd.Attack(DynamicVars["ChirpDamage"].BaseValue).FromChirp(GetChirp, this, play).WithHitCount(DynamicVars.Repeat.IntValue).TargetingRandomOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
     

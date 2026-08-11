@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Character;
 using SpireEnigmas.SpireEnigmasCode.Character.displaced;
@@ -14,7 +15,7 @@ using SpireEnigmas.SpireEnigmasCode.Util;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.rare;
 
-public class Vaporize() : SpireEnigmasCard.SavantCard(5, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+public class Hyperblast() : SpireEnigmasCard.SavantCard(1, CardType.Attack, CardRarity.Rare, TargetType.AllEnemies)
 {
     protected override HashSet<CardTag> CanonicalTags => [
         //CardTag.Strike
@@ -32,7 +33,8 @@ public class Vaporize() : SpireEnigmasCard.SavantCard(5, CardType.Attack, CardRa
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new ChirpDamageVar(80M, ValueProp.Move)
+        new ChirpDamageVar(16M, ValueProp.Move),
+        new PowerVar<WeakPower>(3)
     ];
 
     protected override async Task OnPlay(
@@ -40,8 +42,9 @@ public class Vaporize() : SpireEnigmasCard.SavantCard(5, CardType.Attack, CardRa
         CardPlay play)
     {
         if(GetChirp is null) return;
-        await DamageCmd.Attack(DynamicVars["ChirpDamage"].BaseValue).FromChirp(GetChirp, this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars["ChirpDamage"].BaseValue).FromChirp(GetChirp, this, play).TargetingAllOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await PowerCmd.Apply<WeakPower>(choiceContext, GetChirp, DynamicVars["WeakPower"].BaseValue, GetChirp, this);
     }
     
-    protected override void OnUpgrade() => DynamicVars["ChirpDamage"].UpgradeValueBy(20M);
+    protected override void OnUpgrade() => DynamicVars["ChirpDamage"].UpgradeValueBy(4M);
 }

@@ -22,7 +22,7 @@ public class Jolt() : SpireEnigmasCard.SavantCard(1, CardType.Attack, CardRarity
     [
         new DamageVar(10M, ValueProp.Move),
         new CardsVar(2),
-        new PowerVar<VigorPower>(3)
+        new PowerVar<VigorPower>(2)
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [

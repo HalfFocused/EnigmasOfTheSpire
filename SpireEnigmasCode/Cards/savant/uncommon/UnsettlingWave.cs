@@ -20,6 +20,8 @@ public class UnsettlingWave() : SpireEnigmasCard.SavantCard(1, CardType.Skill, C
         EnigmaKeywords.Command
     ];
     
+    protected override bool ShouldGlowRedInternal => GetChirp == null;
+
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
         ChirpHoverTip(),
         HoverTipFactory.FromPower<WeakPower>()
@@ -29,6 +31,7 @@ public class UnsettlingWave() : SpireEnigmasCard.SavantCard(1, CardType.Skill, C
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        if(GetChirp is null) return;
         await PowerCmd.Apply<WeakPower>(choiceContext, Owner.Creature, DynamicVars["WeakPower"].BaseValue, GetChirp, this);
         foreach (Creature enemy in CombatState.HittableEnemies)
         {

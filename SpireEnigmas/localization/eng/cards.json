@@ -572,6 +572,9 @@
   "SPIREENIGMAS-PROJECT_BARRIER.title": "Project Barrier",
   "SPIREENIGMAS-PROJECT_BARRIER.description": "#*Chirp* gives you !ChirpBlock! *Block*.",
 
+  "SPIREENIGMAS-SHELTER.title": "Shelter",
+  "SPIREENIGMAS-SHELTER.description": "#*Chirp* gives you !ChirpBlock! *Block*.",
+
   "SPIREENIGMAS-PRECISION.title": "Precision",
   "SPIREENIGMAS-PRECISION.description": "#*Chirp* gains !StrengthPower! *Strength* and !DexterityPower! *Dexterity*.",
 
@@ -701,7 +704,7 @@
   "SPIREENIGMAS-CONTINGENCY_PLAN.description": "#Whenever you end your turn with unspent [E], gain !ContingencyPlanPower! *Block*.",
 
   "SPIREENIGMAS-SHRAPNEL_BLAST.title": "Shrapnel Blast",
-  "SPIREENIGMAS-SHRAPNEL_BLAST.description": "#Deal !D! damage.\nALL enemies lose !HpLoss! HP.",
+  "SPIREENIGMAS-SHRAPNEL_BLAST.description": "#Deal !D! damage.\nDeal !D! damage to ALL enemies.",
 
   "SPIREENIGMAS-RECOIL.title": "Recoil",
   "SPIREENIGMAS-RECOIL.description": "#Deal !D! damage.\nTake !SelfDamage! damage.",
@@ -720,22 +723,22 @@
   "SPIREENIGMAS-COMPLEX_ATTACK_SHOWCASE.description": "#Deal !D! damage.\nDeal !Damage2! damage to a random enemy !Repeat! times.\nDeal !Damage3! damage to ALL enemies.",
 
   "SPIREENIGMAS-FORCE_FIELD.title": "Force Field",
-  "SPIREENIGMAS-FORCE_FIELD.description": "#Gain !B! *Block*.\n*Invent* *Warding* *Gadget*.",
+  "SPIREENIGMAS-FORCE_FIELD.description": "#Gain !B! *Block*.\n*Invent* !InventionBlock! *Block*.",
 
   "SPIREENIGMAS-FLY_BY.title": "Fly By",
-  "SPIREENIGMAS-FLY_BY.description": "#Deal !D! damage to ALL enemies.\n*Invent* *Mobility* *Gadget*.",
+  "SPIREENIGMAS-FLY_BY.description": "#Deal !D! damage to ALL enemies.\n*Invent* \"Draw !InventionCards! card(s).\"",
 
   "SPIREENIGMAS-DISCHARGE.title": "Discharge",
-  "SPIREENIGMAS-DISCHARGE.description": "#Deal !D! damage.\n*Invent* *Charging* *Gadget*.",
+  "SPIREENIGMAS-DISCHARGE.description": "#Deal !D! damage.\n*Invent* {InventionEnergy:energyIcons()}.",
   
   "SPIREENIGMAS-BUILT_TO_LAST.title": "Built To Last",
   "SPIREENIGMAS-BUILT_TO_LAST.description": "#The first time you play a *Gadget* each turn, return it to your *Hand*.",
   
   "SPIREENIGMAS-RECKLESS_MODULE.title": "Reckless Module",
-  "SPIREENIGMAS-RECKLESS_MODULE.description": "#*Invent* *Overclocking* *Gadget*.",
+  "SPIREENIGMAS-RECKLESS_MODULE.description": "#*Invent* *Replay* 1 and *Ethereal*.",
 
   "SPIREENIGMAS-DEMOLITION.title": "Demolition",
-  "SPIREENIGMAS-DEMOLITION.description": "#Deal !D! damage.\n*Invent* *Blasting* *Gadget*.",
+  "SPIREENIGMAS-DEMOLITION.description": "#Deal !D! damage.\n*Invent* !InventionDamage! damage.",
 
   "SPIREENIGMAS-CREATIVE_MIND.title": "Creative Mind",
   "SPIREENIGMAS-CREATIVE_MIND.description": "#*Transform* a card in your *Hand* into a random+ *Upgraded*+ Power.",
@@ -803,22 +806,16 @@
 
   "SPIREENIGMAS-MISFIRE.title": "Misfire",
   "SPIREENIGMAS-MISFIRE.description": "#Deal !D! damage and apply !VulnerablePower! *Vulnerable* to a random enemy.",
+
+  "SPIREENIGMAS-RANDOM_BULLSHIT_GO.title": "Random Bullshit Go",
+  "SPIREENIGMAS-RANDOM_BULLSHIT_GO.description": "#At the end of your turn, play and *Exhaust* a random card in your *Hand*.",
+
+  "SPIREENIGMAS-HYPERBLAST.title": "Hyperblast",
+  "SPIREENIGMAS-HYPERBLAST.description": "#*Chirp* deals !ChirpDamage! damage to ALL enemies.\n*Chirp* gains !WeakPower! *Weak*.",
+
+  "SPIREENIGMAS-DELIVERY.title": "Delivery",
+  "SPIREENIGMAS-DELIVERY.description": "#Gain !B! *Block*.\nGive *Chirp* *The* *Bomb*.",
   
-  "SPIREENIGMAS-ABSTRACT_GADGET.title": "Composite Gadget",
-  "SPIREENIGMAS-ABSTRACT_GADGET.description": "{GainsBlock:cond:Gain {Block:diff()} [gold]Block[/gold].{NewLine1:cond:\n|}|}{HasDamage:cond:Deal {Damage:diff()} damage.{NewLine2:cond:\n|}|}{HasEnergy:cond:Gain {Energy:energyIcons()}.{NewLine3:cond:\n|}|}{HasCardDraw:cond:Draw {Cards:diff()} {Cards:plural:card|cards}.|}",
-
-  "SPIREENIGMAS-WARDING_GADGET.title": "Warding Gadget",
-  "SPIREENIGMAS-WARDING_GADGET.description": "",
-  
-  "SPIREENIGMAS-MOBILITY_GADGET.title": "Mobility Gadget",
-  "SPIREENIGMAS-MOBILITY_GADGET.description": "",
-
-  "SPIREENIGMAS-CHARGING_GADGET.title": "Charging Gadget",
-  "SPIREENIGMAS-CHARGING_GADGET.description": "",
-
-  "SPIREENIGMAS-BLASTING_GADGET.title": "Blasting Gadget",
-  "SPIREENIGMAS-BLASTING_GADGET.description": "",
-
-  "SPIREENIGMAS-OVERCLOCKING_GADGET.title": "Overclocking Gadget",
-  "SPIREENIGMAS-OVERCLOCKING_GADGET.description": ""
+  "SPIREENIGMAS-GADGET.title": "Gadget",
+  "SPIREENIGMAS-GADGET.description": "{GainsBlock:cond:Gain {Block:diff()} [gold]Block[/gold].{NewLine1:cond:\n|}|}{HasDamage:cond:Deal {Damage:diff()} damage.{NewLine2:cond:\n|}|}{HasEnergy:cond:Gain {Energy:energyIcons()}.{NewLine3:cond:\n|}|}{HasCardDraw:cond:Draw {Cards:diff()} {Cards:plural:card|cards}.|}"
 }

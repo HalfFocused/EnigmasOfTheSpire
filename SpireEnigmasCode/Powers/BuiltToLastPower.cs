@@ -34,7 +34,7 @@ public class BuiltToLastPower : SpireEnigmaPower
         ResourceInfo resources,
         CardLocation location)
     {
-        if (card.Owner.Creature != Owner || card is not AbstractGadget || card.IsDupe || GetInternalData<Data>().gadgetsPlayed >= this.Amount)
+        if (card.Owner.Creature != Owner || card is not Gadget || card.IsDupe || GetInternalData<Data>().gadgetsPlayed >= this.Amount)
             return location;
         location.pileType = PileType.Hand;
         location.position = CardPilePosition.Top;
