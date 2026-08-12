@@ -42,5 +42,5 @@ Themes:
 
 ## Credits
 HalfFocused - Design, Development, All The Bad Looking Art  
-Pondm1 - "Blueprint" Card Art, "Demolition" Card Art, "Junk Volley" Card Art  
-TRSoL - "High Ground" Card Art  
+Pondm1 - Card Arts: "Blueprint", "Demolition", "Shrapnel Blast", "Junk Volley"  
+TRSoL - Card Art: "High Ground"   
