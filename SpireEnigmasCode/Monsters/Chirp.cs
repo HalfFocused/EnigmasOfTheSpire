@@ -94,7 +94,7 @@ public sealed class Chirp : CustomMonsterModel
     return internalBatteryPower.DynamicVars.Energy.IntValue;
   }
   
-  public void LoseEnergy(decimal amount)
+  public void SpendEnergy(decimal amount)
   {
     PowerModel? internalBatteryPower = Creature.GetPower<InternalBatteryPower>();
     if (internalBatteryPower is null) return;

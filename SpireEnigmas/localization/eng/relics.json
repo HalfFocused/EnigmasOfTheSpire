@@ -12,9 +12,13 @@
 
   "SPIREENIGMAS-FUNCTIONAL_CORE.title": "Functional Core",
   "SPIREENIGMAS-FUNCTIONAL_CORE.description": "#At the start of each combat, *Chirp* gains [E?].",
-  "SPIREENIGMAS-FUNCTIONAL_CORE.flavor": "The warmth of the fire is enough to kindle your spirits anew.",
+  "SPIREENIGMAS-FUNCTIONAL_CORE.flavor": "The device that set you apart from your peers. A successful repair like this has never been recreated.",
 
   "SPIREENIGMAS-IMBUED_CANDLE.title": "Imbued Candle",
   "SPIREENIGMAS-IMBUED_CANDLE.description": "#Whenever you apply *Charred*, apply an additional [blue]!CharredPower![/blue] *Charred*.",
-  "SPIREENIGMAS-IMBUED_CANDLE.flavor": "A common ritual for practitioners, an imbued candle won't burn out for as long as it's owner lives."
+  "SPIREENIGMAS-IMBUED_CANDLE.flavor": "A common ritual for practitioners, an imbued candle won't burn out for as long as it's owner lives.",
+
+  "SPIREENIGMAS-FEEDBACK_LOOP.title": "Feedback Loop",
+  "SPIREENIGMAS-FEEDBACK_LOOP.description": "#The first time *Chirp* attacks each turn, it gains [E?].",
+  "SPIREENIGMAS-FEEDBACK_LOOP.flavor": "According to your calculations, this subroutine spends negative power. You've elected not to worry about it."
 }

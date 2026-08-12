@@ -274,5 +274,9 @@
 
   "SPIREENIGMAS-RANDOM_BULLSHIT_GO_POWER.title": "Random Bullshit Go",
   "SPIREENIGMAS-RANDOM_BULLSHIT_GO_POWER.description": "nobody should see this",
-  "SPIREENIGMAS-RANDOM_BULLSHIT_GO_POWER.smartDescription": "#At the end of your turn, play and *Exhaust* [blue]{Amount}[/blue] random card(s) in your *Hand*."
+  "SPIREENIGMAS-RANDOM_BULLSHIT_GO_POWER.smartDescription": "#At the end of your turn, play and *Exhaust* [blue]{Amount}[/blue] random card(s) in your *Hand*.",
+
+  "SPIREENIGMAS-CRACKLING_FORM_POWER.title": "Crackling Form",
+  "SPIREENIGMAS-CRACKLING_FORM_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-CRACKLING_FORM_POWER.smartDescription": "#Whenever you or *Chirp* spend [E], deal [blue]{Amount}[/blue] damage to ALL enemies for each [E] spent."
 }

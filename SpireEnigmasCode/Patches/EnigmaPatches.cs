@@ -218,7 +218,7 @@ class SpendChirpBatteryCostPatch
             Creature? playerChirp = ChirpHelper.GetChirpFromPlayer(__instance.Owner);
             if(playerChirp is null) return; //this shouldnt be possible
             Chirp chirpMonster = (Chirp) playerChirp.Monster;
-            chirpMonster.LoseEnergy(calculatedBatteryCost);
+            chirpMonster.SpendEnergy(calculatedBatteryCost);
 
             if (__instance.Keywords.Contains(EnigmaKeywords.Command))
             {

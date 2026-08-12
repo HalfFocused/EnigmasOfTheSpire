@@ -40,6 +40,11 @@ public class InternalBatteryPower : SpireEnigmaPower
     {
         DynamicVars.Energy.BaseValue = Math.Max(DynamicVars.Energy.BaseValue - reserveAmount, 0);
         InvokeDisplayAmountChanged();
+        CracklingFormPower? cracklingFormPower = Owner.PetOwner?.Creature.GetPower<CracklingFormPower>();
+        if (cracklingFormPower is not null)
+        {
+            cracklingFormPower.FakeEnergySpend((int) reserveAmount);
+        }
     }
     
     public override int ModifyXValue(CardModel card, int originalValue)

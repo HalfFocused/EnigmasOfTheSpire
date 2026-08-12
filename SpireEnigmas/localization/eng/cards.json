@@ -815,6 +815,12 @@
 
   "SPIREENIGMAS-DELIVERY.title": "Delivery",
   "SPIREENIGMAS-DELIVERY.description": "#Gain !B! *Block*.\nGive *Chirp* *The* *Bomb*.",
+
+  "SPIREENIGMAS-RAT_TACTICS.title": "Rat Tactics",
+  "SPIREENIGMAS-RAT_TACTICS.description": "#Draw !C! card(s).\nReduce this card's draw by 1 this combat.",
+
+  "SPIREENIGMAS-CRACKLING_FORM.title": "Crackling Form",
+  "SPIREENIGMAS-CRACKLING_FORM.description": "#Whenever you or *Chirp* spend [E], deal !CracklingFormPower! damage to ALL enemies for each [E] spent.",
   
   "SPIREENIGMAS-GADGET.title": "Gadget",
   "SPIREENIGMAS-GADGET.description": "{GainsBlock:cond:Gain {Block:diff()} [gold]Block[/gold].{NewLine1:cond:\n|}|}{HasDamage:cond:Deal {Damage:diff()} damage.{NewLine2:cond:\n|}|}{HasEnergy:cond:Gain {Energy:energyIcons()}.{NewLine3:cond:\n|}|}{HasCardDraw:cond:Draw {Cards:diff()} {Cards:plural:card|cards}.|}"

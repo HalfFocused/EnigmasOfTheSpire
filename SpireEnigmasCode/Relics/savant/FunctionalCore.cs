@@ -7,7 +7,7 @@ using SpireEnigmas.SpireEnigmasCode.Commands;
 
 namespace SpireEnigmas.SpireEnigmasCode.Relics.savant;
 
-public class FunctionalCore() : TheDisplacedRelic
+public class FunctionalCore : TheSavantRelic
 {
     public override RelicRarity Rarity =>
         RelicRarity.Starter;
