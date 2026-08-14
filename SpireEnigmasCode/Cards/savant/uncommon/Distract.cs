@@ -13,8 +13,8 @@ public class Distract() : SpireEnigmasCard.SavantCard(2, CardType.Skill, CardRar
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<WeakPower>(2),
-        new PowerVar<VulnerablePower>(2)
+        new PowerVar<WeakPower>(3),
+        new PowerVar<VulnerablePower>(3)
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [

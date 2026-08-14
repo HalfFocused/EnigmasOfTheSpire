@@ -12,8 +12,10 @@ using SpireEnigmas.SpireEnigmasCode.Commands;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.rare;
 
-public class NullHypothesis() : SpireEnigmasCard.SavantCard(4, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class NullHypothesis() : SpireEnigmasCard.SavantCard(0, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
+    protected override bool HasEnergyCostX => true;
+    
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [
         CardKeyword.Exhaust
@@ -21,19 +23,17 @@ public class NullHypothesis() : SpireEnigmasCard.SavantCard(4, CardType.Skill, C
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<IntangiblePower>(2)
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        HoverTipFactory.FromPower<IntangiblePower>()
+        HoverTipFactory.FromPower<BufferPower>()
     ];
     
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await PowerCmd.Apply<IntangiblePower>(choiceContext, Owner.Creature, DynamicVars["IntangiblePower"].BaseValue, Owner.Creature, this);
+        int buffer = ResolveEnergyXValue() + (IsUpgraded ? 1 : 0);
+        await PowerCmd.Apply<BufferPower>(choiceContext, Owner.Creature, buffer, Owner.Creature, this);
     }
-    
-    protected override void OnUpgrade() => AddKeyword(CardKeyword.Retain);
 }

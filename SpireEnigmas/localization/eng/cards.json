@@ -643,8 +643,8 @@
   "SPIREENIGMAS-BATTERY_EROSION.title": "Battery Erosion",
   "SPIREENIGMAS-BATTERY_EROSION.description": "#*Chirp* gains [E?].\nReduce this card's [E] by 1 this combat.",
 
-  "SPIREENIGMAS-BOOT_PRECEPT.title": "Boot Precept",
-  "SPIREENIGMAS-BOOT_PRECEPT.description": "#*Chirp* gains [E?].",
+  "SPIREENIGMAS-STOCKPILE.title": "Stockpile",
+  "SPIREENIGMAS-STOCKPILE.description": "#*Chirp* gains X [E].\nDraw !C! card(s).",
 
   "SPIREENIGMAS-HIDEAWAY.title": "Hideaway",
   "SPIREENIGMAS-HIDEAWAY.description": "#Gain !B! *Block*.\nNext turn, *Chirp* gains [E?].",
@@ -659,7 +659,7 @@
   "SPIREENIGMAS-GATHER_PARTS.description": "#Deal !D! damage to ALL enemies.\nNext turn, *Chirp* gains [E?].",
 
   "SPIREENIGMAS-RADIAL_PULSE.title": "Radial Pulse",
-  "SPIREENIGMAS-RADIAL_PULSE.description": "#*Chirp* deals !ChirpDamage! damage to ALL enemies twice.",
+  "SPIREENIGMAS-RADIAL_PULSE.description": "#*Chirp* deals !ChirpDamage! damage and applies !VulnerablePower! *Vulnerable* to ALL enemies.",
 
   "SPIREENIGMAS-MASTERWORK.title": "Masterwork",
   "SPIREENIGMAS-MASTERWORK.description": "#Whenever you *Transform* a card, the result gains *Replay* 1.",
@@ -775,7 +775,7 @@
   "SPIREENIGMAS-COVER_ME.description": "#Gain !B! *Block*.\nIf *Chirp* has attacked this turn, it gives you !ChirpBlock! *Block*.",
 
   "SPIREENIGMAS-NULL_HYPOTHESIS.title": "Null Hypothesis",
-  "SPIREENIGMAS-NULL_HYPOTHESIS.description": "#Gain !IntangiblePower! *Intangible*.",
+  "SPIREENIGMAS-NULL_HYPOTHESIS.description": "#Prevent the next X{IfUpgraded:show:+1|} times you would lose HP.",
 
   "SPIREENIGMAS-FORM_AND_FUNCTION.title": "Form & Function",
   "SPIREENIGMAS-FORM_AND_FUNCTION.description": "#When this is *Transformed* during combat, gain [E?] and draw !C! card(s).",
@@ -793,7 +793,7 @@
   "SPIREENIGMAS-POLISH.description": "#Deal !D! damage !Repeat! times.\n*Upgrade* your *Hand*.",
 
   "SPIREENIGMAS-TEAMWORK.title": "Teamwork",
-  "SPIREENIGMAS-TEAMWORK.description": "#Gain !StrengthPower! *Strength*.\nChirp gains !DexterityPower! *Dexterity*.",
+  "SPIREENIGMAS-TEAMWORK.description": "#Deal !D! damage.\nThe next {ChirpDoubleBlockPower:plural:time|{ChirpDoubleBlockPower:diff()} times} *Chirp* gives you *Block* from a card, double the amount given.",
 
   "SPIREENIGMAS-WRENCH_STRIKE.title": "Wrench Strike",
   "SPIREENIGMAS-WRENCH_STRIKE.description": "#Deal !D! damage.\nIf you played a *Gadget* this turn, hits !Repeat! time(s).",

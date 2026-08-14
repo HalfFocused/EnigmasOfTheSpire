@@ -30,6 +30,6 @@ public class Sizzle() : SpireEnigmasCard.SavantCard(0, CardType.Power, CardRarit
 
     protected override void OnUpgrade()
     {
-        AddKeyword(CardKeyword.Innate);
+        DynamicVars["SizzlePower"].UpgradeValueBy(1);
     }
 }

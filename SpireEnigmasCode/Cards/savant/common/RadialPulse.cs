@@ -1,9 +1,11 @@
 ﻿using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Character;
 using SpireEnigmas.SpireEnigmasCode.Character.displaced;
@@ -18,13 +20,15 @@ public class RadialPulse() : SpireEnigmasCard.SavantCard(2, CardType.Attack, Car
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new ChirpDamageVar(8M, ValueProp.Move)
+        new ChirpDamageVar(8M, ValueProp.Move),
+        new PowerVar<VulnerablePower>(2)
     ];
     
     protected override bool ShouldGlowRedInternal => ChirpHelper.GetChirpFromPlayer(Owner) == null;
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        ChirpHoverTip()
+        ChirpHoverTip(),
+        HoverTipFactory.FromPower<VulnerablePower>()
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
@@ -36,8 +40,9 @@ public class RadialPulse() : SpireEnigmasCard.SavantCard(2, CardType.Attack, Car
         CardPlay play)
     {
         if(GetChirp is null) return;
-        await DamageCmd.Attack(DynamicVars["ChirpDamage"].BaseValue).FromChirp(GetChirp, this, play).TargetingAllOpponents(CombatState).WithHitCount(2).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars["ChirpDamage"].BaseValue).FromChirp(GetChirp, this, play).TargetingAllOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await PowerCmd.Apply<VulnerablePower>(choiceContext, CombatState.HittableEnemies, DynamicVars["VulnerablePower"].BaseValue, GetChirp, this);
     }
     
-    protected override void OnUpgrade() => DynamicVars["ChirpDamage"].UpgradeValueBy(3);
+    protected override void OnUpgrade() => DynamicVars["ChirpDamage"].UpgradeValueBy(4);
 }

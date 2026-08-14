@@ -1,6 +1,7 @@
 ﻿using System.Reflection.Emit;
 using BaseLib.Extensions;
 using BaseLib.Utils;
+using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -12,6 +13,7 @@ using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.Relics;
+using MegaCrit.Sts2.Core.Nodes.Cards.Holders;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using MegaCrit.Sts2.Core.Random;
@@ -24,6 +26,7 @@ using SpireEnigmas.SpireEnigmasCode.Commands;
 using SpireEnigmas.SpireEnigmasCode.Monsters;
 using SpireEnigmas.SpireEnigmasCode.Powers;
 using SpireEnigmas.SpireEnigmasCode.Util;
+using Label = System.Reflection.Emit.Label;
 
 namespace SpireEnigmas.SpireEnigmasCode.Patches;
 
@@ -419,7 +422,6 @@ class PersonalHiveChirpAttackPatch
     }
 }
 
-[HarmonyDebug]
 [HarmonyPatch(typeof(PenNib), nameof(PenNib.ModifyDamageMultiplicative))]
 class PenNibChirpAttackPatch
 {
@@ -465,5 +467,78 @@ class PenNibChirpAttackPatch
         );
 
         return codeMatcher.Instructions();
+    }
+}
+
+[HarmonyPatch(typeof(NHandCardHolder), nameof(NHandCardHolder.UpdateCard))]
+class CardGlowTweakPatch
+{
+    public static readonly Color chirpPlayableColor = new Color(0.95f, 0.45f, 0f, 0.98f);
+    public static readonly Color madeEtherealColor = new Color(0.35f, 0.35f, 0.35f, 0.98f);
+
+
+    [HarmonyTranspiler]
+    static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
+    {
+        var codeMatcher = new CodeMatcher(instructions, generator);
+
+        codeMatcher.MatchStartForward(
+            new CodeMatch(OpCodes.Ldarg_0), //this
+            new CodeMatch(OpCodes.Call), //get_CardNode
+            new CodeMatch(OpCodes.Callvirt), //get_Model
+            new CodeMatch(OpCodes.Callvirt), //CanPlay()
+            new CodeMatch(OpCodes.Brtrue_S)
+
+        ).ThrowIfInvalid("Could not find card model check");
+
+        object getCardNodeMethod = codeMatcher.InstructionAt(1).operand;
+        object getModelMethod = codeMatcher.InstructionAt(2).operand;
+
+        //we advance late for the sake of setting those variables
+        codeMatcher.Advance(5);
+
+        codeMatcher.MatchStartForward(
+            new CodeMatch(OpCodes.Ldarg_0),
+            new CodeMatch(OpCodes.Call),
+            new CodeMatch(OpCodes.Callvirt),
+            new CodeMatch(OpCodes.Callvirt),
+
+            new CodeMatch(OpCodes.Ldarg_0),
+            new CodeMatch(OpCodes.Call),
+            new CodeMatch(OpCodes.Callvirt),
+            new CodeMatch(OpCodes.Ldsfld), //
+            /*
+             * We want to sneak in our method here to intercept the loaded static color and potentially change it
+             */
+            new CodeMatch(OpCodes.Callvirt) //set_Modulate
+        ).ThrowIfInvalid("Could not find glow color assignment");
+
+        codeMatcher.Advance(8);
+
+        codeMatcher.InsertAndAdvance(
+            new CodeInstruction(OpCodes.Ldarg_0), //this
+            new CodeInstruction(OpCodes.Call, getCardNodeMethod),
+            new CodeInstruction(OpCodes.Callvirt, getModelMethod),
+            CodeInstruction.Call(() => PossiblyTweakColor(default, default))
+        );
+
+        return codeMatcher.Instructions();
+    }
+
+    static Color PossiblyTweakColor(Color oldColor, CardModel cardModel)
+    {
+        int calculatedBatteryCost = ChirpBatteryCostField.ChirpBatteryCost.Get(cardModel);
+        if (calculatedBatteryCost > 0)
+        {
+            return chirpPlayableColor;
+        }
+
+        if (cardModel.Owner.Character is TheDisplaced && cardModel.Keywords.Contains(CardKeyword.Ethereal) &&
+            !cardModel.CanonicalInstance.Keywords.Contains(CardKeyword.Ethereal))
+        {
+            return madeEtherealColor;
+        }
+
+        return oldColor;
     }
 }

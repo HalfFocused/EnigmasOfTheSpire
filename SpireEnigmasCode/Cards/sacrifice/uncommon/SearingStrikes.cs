@@ -14,7 +14,7 @@ public class SearingStrikes() : SpireEnigmasCard.SacrificeCard(1,
     CardType.Attack, CardRarity.Uncommon,
     TargetType.AnyEnemy)
 {
-        public override int MaxUpgradeLevel => Really.bigNumber;
+    public override int MaxUpgradeLevel => Really.bigNumber;
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new DamageVar(5, ValueProp.Move),

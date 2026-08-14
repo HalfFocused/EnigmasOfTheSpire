@@ -12,8 +12,8 @@ namespace SpireEnigmas.SpireEnigmasCode.Powers;
 public class ToolbeltPower : SpireEnigmaPower
 {
     public override PowerType Type => PowerType.Buff;
-    public override PowerStackType StackType => PowerStackType.None;
-    public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
+    public override PowerStackType StackType => PowerStackType.Single;
+    public override PowerInstanceType InstanceType => PowerInstanceType.None;
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [

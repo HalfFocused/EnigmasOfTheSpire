@@ -278,5 +278,9 @@
 
   "SPIREENIGMAS-CRACKLING_FORM_POWER.title": "Crackling Form",
   "SPIREENIGMAS-CRACKLING_FORM_POWER.description": "nobody should see this",
-  "SPIREENIGMAS-CRACKLING_FORM_POWER.smartDescription": "#Whenever you or *Chirp* spend [E], deal [blue]{Amount}[/blue] damage to ALL enemies for each [E] spent."
+  "SPIREENIGMAS-CRACKLING_FORM_POWER.smartDescription": "#Whenever you or *Chirp* spend [E], deal [blue]{Amount}[/blue] damage to ALL enemies for each [E] spent.",
+
+  "SPIREENIGMAS-CHIRP_DOUBLE_BLOCK_POWER.title": "Chirp Double Block",
+  "SPIREENIGMAS-CHIRP_DOUBLE_BLOCK_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-CHIRP_DOUBLE_BLOCK_POWER.smartDescription": "#The next {Amount:plural:time|[blue]{Amount}[/blue] times} *Chirp* gives you *Block* from a card, double the amount given."
 }
