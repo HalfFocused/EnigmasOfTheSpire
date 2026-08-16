@@ -12,7 +12,7 @@ using SpireEnigmas.SpireEnigmasCode.Commands;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.rare;
 
-public class ToEleven() : SpireEnigmasCard.SavantCard(1, CardType.Attack, CardRarity.Rare, TargetType.Self)
+public class ToEleven() : SpireEnigmasCard.SavantCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [

@@ -2,7 +2,6 @@
 using BaseLib.Patches.Features;
 using Godot;
 using HarmonyLib;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;

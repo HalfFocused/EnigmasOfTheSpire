@@ -3,21 +3,18 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
 using SpireEnigmas.SpireEnigmasCode.Commands;
 
 namespace SpireEnigmas.SpireEnigmasCode.Relics.savant;
 
-public class FunctionalCore : TheSavantRelic
+public class PerfectedCore : TheSavantRelic
 {
     public override RelicRarity Rarity =>
-        RelicRarity.Starter;
-    
-    public override RelicModel GetUpgradeReplacement() => ModelDb.Relic<PerfectedCore>();
+        RelicRarity.Ancient;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new EnergyVar(1)
+        new EnergyVar(3)
     ];
 
     public override async Task AfterSideTurnStart(

@@ -12,7 +12,11 @@
 
   "SPIREENIGMAS-FUNCTIONAL_CORE.title": "Functional Core",
   "SPIREENIGMAS-FUNCTIONAL_CORE.description": "#At the start of each combat, *Chirp* gains [E?].",
-  "SPIREENIGMAS-FUNCTIONAL_CORE.flavor": "The device that set you apart from your peers. A successful repair like this has never been recreated.",
+  "SPIREENIGMAS-FUNCTIONAL_CORE.flavor": "The device that sets you apart from your peers. A successful repair like this has never been recreated.",
+
+  "SPIREENIGMAS-PERFECTED_CORE.title": "Perfected Core",
+  "SPIREENIGMAS-PERFECTED_CORE.description": "#At the start of each combat, *Chirp* gains [E?].",
+  "SPIREENIGMAS-PERFECTED_CORE.flavor": "Your first mention of this idea saw you banished from the Spire you called home. Now realized, there's no one who can keep you away.",
 
   "SPIREENIGMAS-IMBUED_CANDLE.title": "Imbued Candle",
   "SPIREENIGMAS-IMBUED_CANDLE.description": "#Whenever you apply *Charred*, apply an additional [blue]!CharredPower![/blue] *Charred*.",
