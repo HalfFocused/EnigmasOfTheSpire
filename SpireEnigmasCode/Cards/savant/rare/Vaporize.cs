@@ -21,7 +21,7 @@ public class Vaporize() : SpireEnigmasCard.SavantCard(5, CardType.Attack, CardRa
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
-        EnigmaKeywords.Command
+        EnigmaEnums.Command
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
@@ -40,7 +40,7 @@ public class Vaporize() : SpireEnigmasCard.SavantCard(5, CardType.Attack, CardRa
         CardPlay play)
     {
         if(GetChirp is null) return;
-        await DamageCmd.Attack(DynamicVars["ChirpDamage"].BaseValue).FromChirp(GetChirp, this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars["ChirpDamage"].BaseValue).FromChirp(GetChirp, this, play, AttackCommandExtensions.ChirpAttackVfxStyle.Vaporize).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
     
     protected override void OnUpgrade() => DynamicVars["ChirpDamage"].UpgradeValueBy(20M);

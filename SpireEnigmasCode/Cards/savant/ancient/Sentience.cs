@@ -21,7 +21,7 @@ public class Sentience() : SpireEnigmasCard.SavantCard(3,
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 
     [
-        HoverTipFactory.FromKeyword(EnigmaKeywords.Command)
+        HoverTipFactory.FromKeyword(EnigmaEnums.Command)
     ];
 
     protected override async Task OnPlay(

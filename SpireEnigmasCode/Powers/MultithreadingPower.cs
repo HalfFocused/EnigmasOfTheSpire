@@ -22,12 +22,12 @@ public class MultithreadingPower : SpireEnigmaPower
     public override PowerStackType StackType => PowerStackType.Counter;
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        HoverTipFactory.FromKeyword(EnigmaKeywords.Command)
+        HoverTipFactory.FromKeyword(EnigmaEnums.Command)
     ];
     
     public override int ModifyCardPlayCount(CardModel card, Creature? target, int playCount)
     {
-        return card.Owner.Creature != Owner || !card.Keywords.Contains(EnigmaKeywords.Command) ? playCount : playCount + 1;
+        return card.Owner.Creature != Owner || !card.Keywords.Contains(EnigmaEnums.Command) ? playCount : playCount + 1;
     }
 
     public override async Task AfterModifyingCardPlayCount(CardModel card)

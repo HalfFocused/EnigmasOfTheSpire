@@ -20,7 +20,7 @@ public class ControlFlowPower : SpireEnigmaPower
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromKeyword(EnigmaKeywords.Command)
+        HoverTipFactory.FromKeyword(EnigmaEnums.Command)
     ];
     
     public override async Task BeforeSideTurnStart(
@@ -34,7 +34,7 @@ public class ControlFlowPower : SpireEnigmaPower
         Flash();
         for (int i = 0; i < Amount; i++)
         {
-            var command = CardFactory.GetDistinctForCombat(Owner.Player, Owner.Player.Character.CardPool.GetUnlockedCards(Owner.Player.UnlockState, Owner.Player.RunState.CardMultiplayerConstraint).Where(c => c.Keywords.Contains(EnigmaKeywords.Command)), 1, Owner.Player.RunState.Rng.CombatCardGeneration).FirstOrDefault();
+            var command = CardFactory.GetDistinctForCombat(Owner.Player, Owner.Player.Character.CardPool.GetUnlockedCards(Owner.Player.UnlockState, Owner.Player.RunState.CardMultiplayerConstraint).Where(c => c.Keywords.Contains(EnigmaEnums.Command)), 1, Owner.Player.RunState.Rng.CombatCardGeneration).FirstOrDefault();
             if (command == null)
                 return;
             command.EnergyCost.SetThisTurn(0);

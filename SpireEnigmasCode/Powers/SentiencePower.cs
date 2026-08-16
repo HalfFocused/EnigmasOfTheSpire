@@ -19,7 +19,7 @@ public class SentiencePower : SpireEnigmaPower
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 
     [
-        HoverTipFactory.FromKeyword(EnigmaKeywords.Command)
+        HoverTipFactory.FromKeyword(EnigmaEnums.Command)
     ];
     
     public override async Task AfterCardDrawnEarly(
@@ -30,7 +30,7 @@ public class SentiencePower : SpireEnigmaPower
         if (card.Owner.Creature != Owner|| card.CombatState.CurrentSide != card.Owner.Creature.Side)
             return;
         
-        if (card.Keywords.Contains(EnigmaKeywords.Command))
+        if (card.Keywords.Contains(EnigmaEnums.Command))
         {
             await CardCmd.AutoPlay(choiceContext, card, null);
         }

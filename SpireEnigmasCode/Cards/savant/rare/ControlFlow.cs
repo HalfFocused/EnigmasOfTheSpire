@@ -17,7 +17,7 @@ public class ControlFlow() : SpireEnigmasCard.SavantCard(3, CardType.Power, Card
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.FromKeyword(EnigmaKeywords.Command)
+        HoverTipFactory.FromKeyword(EnigmaEnums.Command)
     ];
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [

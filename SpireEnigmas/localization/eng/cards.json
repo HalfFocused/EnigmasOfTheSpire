@@ -677,7 +677,7 @@
   "SPIREENIGMAS-SHOCK_AND_AWE.description": "#Deal !D! damage.\nIf you end this turn with unspent [E], gain !B! *Block*.",
 
   "SPIREENIGMAS-STANDARDIZED_STRIKE.title": "Standardized Strike",
-  "SPIREENIGMAS-STANDARDIZED_STRIKE.description": "#Deal !D! damage.\n*Transform* a card in your *Hand* into a+n *Upgraded*+ *Standardized* *Strike*.",
+  "SPIREENIGMAS-STANDARDIZED_STRIKE.description": "#Deal !D! damage.\n*Transform* a card in your *Hand* into a*Standardized* *Strike{IfUpgraded:show:+|}*.",
 
   "SPIREENIGMAS-SENTIENCE.title": "Sentience",
   "SPIREENIGMAS-SENTIENCE.description": "#Whenever you draw a *Command*, it is played for free.",
@@ -689,7 +689,7 @@
   "SPIREENIGMAS-RESISTOR.description": "#Deal !D! damage to ALL enemies.\nIf you end this turn with unspent [E], gain [E?] next turn.",
 
   "SPIREENIGMAS-SALVAGE_FOR_PARTS.title": "Salvage For Parts",
-  "SPIREENIGMAS-SALVAGE_FOR_PARTS.description": "#Gain !B! *Block*.\n*Transform* a card in your *Draw* *Pile* into *Scrap*.",
+  "SPIREENIGMAS-SALVAGE_FOR_PARTS.description": "#Gain !B! *Block*.\n*Transform* a card in your *Draw* *Pile* into *Scrap*.\nDraw !C! card(s).",
 
   "SPIREENIGMAS-VAPORIZE.title": "Vaporize",
   "SPIREENIGMAS-VAPORIZE.description": "#*Chirp* deals !ChirpDamage! damage.",
@@ -734,8 +734,8 @@
   "SPIREENIGMAS-BUILT_TO_LAST.title": "Built To Last",
   "SPIREENIGMAS-BUILT_TO_LAST.description": "#The first time you play a *Gadget* each turn, return it to your *Hand*.",
   
-  "SPIREENIGMAS-RECKLESS_MODULE.title": "Reckless Module",
-  "SPIREENIGMAS-RECKLESS_MODULE.description": "#*Invent* *Replay* 1 and *Ethereal*.",
+  "SPIREENIGMAS-TO_ELEVEN.title": "To Eleven!",
+  "SPIREENIGMAS-TO_ELEVEN.description": "#Deal !D! damage.\n*Invent* *Replay* 1 and *Ethereal*.",
 
   "SPIREENIGMAS-DEMOLITION.title": "Demolition",
   "SPIREENIGMAS-DEMOLITION.description": "#Deal !D! damage.\n*Invent* !InventionDamage! damage.",
@@ -814,7 +814,7 @@
   "SPIREENIGMAS-HYPERBLAST.description": "#*Chirp* deals !ChirpDamage! damage to ALL enemies.\n*Chirp* gains !WeakPower! *Weak*.",
 
   "SPIREENIGMAS-DELIVERY.title": "Delivery",
-  "SPIREENIGMAS-DELIVERY.description": "#Gain !B! *Block*.\nGive *Chirp* *The* *Bomb*.",
+  "SPIREENIGMAS-DELIVERY.description": "#Gain !B! *Block*.\nGive [gold]Chirp The Bomb{IfUpgraded:show:+|}[/gold].",
 
   "SPIREENIGMAS-RAT_TACTICS.title": "Rat Tactics",
   "SPIREENIGMAS-RAT_TACTICS.description": "#Draw !C! card(s).\nReduce this card's draw by 1 this combat.",

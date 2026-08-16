@@ -23,7 +23,7 @@ public class SuppressiveFire() : SpireEnigmasCard.SavantCard(1, CardType.Attack,
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
-        EnigmaKeywords.Command
+        EnigmaEnums.Command
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
@@ -45,7 +45,7 @@ public class SuppressiveFire() : SpireEnigmasCard.SavantCard(1, CardType.Attack,
         await DamageCmd.Attack(DynamicVars["ChirpDamage"].BaseValue).FromChirp(GetChirp, this, play).WithHitCount(DynamicVars.Repeat.IntValue).TargetingRandomOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
     
-    protected override void OnUpgrade() => DynamicVars.Repeat.UpgradeValueBy(1M);
+    protected override void OnUpgrade() => DynamicVars.Damage.UpgradeValueBy(1M);
     
     public CardModel GetTranscendenceTransformedCard()
     {

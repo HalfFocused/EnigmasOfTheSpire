@@ -20,7 +20,8 @@ public class SalvageForParts() : SpireEnigmasCard.SavantCard(1, CardType.Skill, 
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new BlockVar(6M, ValueProp.Move)
+        new BlockVar(8M, ValueProp.Move),
+        new CardsVar(1)
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
@@ -35,11 +36,16 @@ public class SalvageForParts() : SpireEnigmasCard.SavantCard(1, CardType.Skill, 
         CardPlay play)
     {
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, play);
-        foreach (CardModel original in (await CardSelectCmd.FromSimpleGrid(choiceContext, PileType.Draw.GetPile(Owner).Cards.OrderBy((c => c.Rarity)).ThenBy(c => c.Id).ToList(), Owner, new CardSelectorPrefs(CardSelectorPrefs.TransformSelectionPrompt, DynamicVars.Cards.IntValue))).ToList())
+        foreach (CardModel original in (await CardSelectCmd.FromSimpleGrid(choiceContext, PileType.Draw.GetPile(Owner).Cards.OrderBy((c => c.Rarity)).ThenBy(c => c.Id).ToList(), Owner, new CardSelectorPrefs(CardSelectorPrefs.TransformSelectionPrompt, 1))).ToList())
         {
             await CardCmd.TransformTo<Scrap>(original);
         }
+        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
     }
-    
-    protected override void OnUpgrade() => DynamicVars.Block.UpgradeValueBy(3M);
+
+    protected override void OnUpgrade()
+    {
+        DynamicVars.Block.UpgradeValueBy(2M);
+        DynamicVars.Cards.UpgradeValueBy(1M);
+    }
 }

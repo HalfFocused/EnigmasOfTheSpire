@@ -1,7 +1,5 @@
-﻿using Godot;
-using MegaCrit.Sts2.Core.Entities.Creatures;
+﻿using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
-using MegaCrit.Sts2.Core.Nodes.Rooms;
 using SpireEnigmas.SpireEnigmasCode.Monsters;
 
 namespace SpireEnigmas.SpireEnigmasCode.Util;

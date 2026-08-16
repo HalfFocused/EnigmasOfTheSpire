@@ -17,7 +17,7 @@ public class DevastationRains() : SpireEnigmasCard.SavantCard(1, CardType.Attack
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
-        EnigmaKeywords.Command
+        EnigmaEnums.Command
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [

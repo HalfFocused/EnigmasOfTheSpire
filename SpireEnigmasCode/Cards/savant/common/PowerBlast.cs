@@ -21,7 +21,7 @@ public class PowerBlast() : SpireEnigmasCard.SavantCard(1, CardType.Attack, Card
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
-        EnigmaKeywords.Command
+        EnigmaEnums.Command
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [

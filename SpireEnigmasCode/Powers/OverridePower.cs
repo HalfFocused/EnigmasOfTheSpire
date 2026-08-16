@@ -19,7 +19,7 @@ public class OverridePower : SpireEnigmaPower
 
   protected override IEnumerable<IHoverTip> ExtraHoverTips =>
   [
-      HoverTipFactory.FromKeyword(EnigmaKeywords.Command)
+      HoverTipFactory.FromKeyword(EnigmaEnums.Command)
   ];
 
   public override bool TryModifyEnergyCostInCombatLate(
@@ -28,7 +28,7 @@ public class OverridePower : SpireEnigmaPower
     out Decimal modifiedCost)
   {
     modifiedCost = originalCost;
-    if (card.Owner.Creature != this.Owner || !card.Keywords.Contains(EnigmaKeywords.Command))
+    if (card.Owner.Creature != this.Owner || !card.Keywords.Contains(EnigmaEnums.Command))
       return false;
     PileType? type = card.Pile?.Type;
     bool flag;
@@ -52,7 +52,7 @@ label_6:
 
   public override async Task BeforeCardPlayed(CardPlay cardPlay)
   {
-    if (cardPlay.Card.Owner.Creature != Owner || !cardPlay.Card.Keywords.Contains(EnigmaKeywords.Command))
+    if (cardPlay.Card.Owner.Creature != Owner || !cardPlay.Card.Keywords.Contains(EnigmaEnums.Command))
       return;
     PileType? type = cardPlay.Card.Pile?.Type;
     bool flag;

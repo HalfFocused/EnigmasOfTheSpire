@@ -3,7 +3,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 
 namespace SpireEnigmas.SpireEnigmasCode.Util;
 
-public class EnigmaKeywords
+public class EnigmaEnums
 {
     [CustomEnum, KeywordProperties(AutoKeywordPosition.Before)]
     public static CardKeyword TimeLoop; 
@@ -11,6 +11,6 @@ public class EnigmaKeywords
     [CustomEnum, KeywordProperties(AutoKeywordPosition.Before)]
     public static CardKeyword Command; 
     
-    [CustomEnum, KeywordProperties(AutoKeywordPosition.Before)]
-    public static CardKeyword Improvise; 
+    [CustomEnum]
+    public static TargetType ChirpOrAnyPlayer; 
 }

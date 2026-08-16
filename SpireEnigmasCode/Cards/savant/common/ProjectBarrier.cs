@@ -21,7 +21,7 @@ public class ProjectBarrier() : SpireEnigmasCard.SavantCard(1, CardType.Skill, C
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
-        EnigmaKeywords.Command
+        EnigmaEnums.Command
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [

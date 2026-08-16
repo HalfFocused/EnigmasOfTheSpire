@@ -18,7 +18,7 @@ public class Precision() : SpireEnigmasCard.SavantCard(1, CardType.Power, CardRa
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
-        EnigmaKeywords.Command
+        EnigmaEnums.Command
     ];
     
     protected override bool ShouldGlowRedInternal => GetChirp == null;

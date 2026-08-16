@@ -15,14 +15,14 @@ public class Shelter() : SpireEnigmasCard.SavantCard(0, CardType.Skill, CardRari
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new ChirpBlockVar(4M, ValueProp.Move)
+        new ChirpBlockVar(5M, ValueProp.Move)
     ];
     
     protected override bool ShouldGlowRedInternal => GetChirp == null;
 
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
-        EnigmaKeywords.Command
+        EnigmaEnums.Command
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [

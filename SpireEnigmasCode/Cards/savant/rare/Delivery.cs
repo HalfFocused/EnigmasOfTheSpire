@@ -16,11 +16,24 @@ public class Delivery() : SpireEnigmasCard.SavantCard(3, CardType.Skill, CardRar
     public override bool GainsBlock => true;
 
     //we reference the canonical bomb model for our values so that this card changes automatically if the bomb is changed
-    private CardModel CanonicalBombModel = ModelDb.Card<TheBomb>();
-    
+    private CardModel CanonicalBombModel
+    {
+        get
+        {
+            CardModel theBomb = ModelDb.Card<TheBomb>().ToMutable();
+            if (IsUpgraded)
+            {
+                theBomb.UpgradeInternal();
+                theBomb.FinalizeUpgradeInternal();
+            }
+
+            return theBomb;
+        }
+    }
+
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
         ChirpHoverTip(),
-        HoverTipFactory.FromCard<TheBomb>()
+        HoverTipFactory.FromCard<TheBomb>(IsUpgraded)
     ];
     
     protected override bool ShouldGlowRedInternal => GetChirp == null;
@@ -36,7 +49,7 @@ public class Delivery() : SpireEnigmasCard.SavantCard(3, CardType.Skill, CardRar
     {
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, play);
         if(GetChirp is null) return;
-        (await PowerCmd.Apply<TheBombPower>(choiceContext, GetChirp, CanonicalBombModel.DynamicVars["Turns"].BaseValue, Owner.Creature, this)).SetDamage(CanonicalBombModel.DynamicVars["BombDamage"].BaseValue);
+        (await PowerCmd.Apply<TheBombPower>(choiceContext, GetChirp, CanonicalBombModel.DynamicVars["Turns"].BaseValue, Owner.Creature, this))?.SetDamage(CanonicalBombModel.DynamicVars["BombDamage"].BaseValue);
     }
 
     protected override void OnUpgrade()

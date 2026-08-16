@@ -6,20 +6,22 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Cards.savant.token;
 using SpireEnigmas.SpireEnigmasCode.Commands;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.rare;
 
-public class RecklessModule() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
+public class ToEleven() : SpireEnigmasCard.SavantCard(1, CardType.Attack, CardRarity.Rare, TargetType.Self)
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [
-        CardKeyword.Exhaust
+        //CardKeyword.Exhaust
     ];
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
+        new DamageVar(10M, ValueProp.Move)
     ];
     
     private CardModel PreviewGadget()
@@ -37,8 +39,9 @@ public class RecklessModule() : SpireEnigmasCard.SavantCard(1, CardType.Skill, C
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
         await EnigmaCmd.InventGadget(Owner, CombatState, [], [CardKeyword.Ethereal], 1);
     }
     
-    protected override void OnUpgrade() => EnergyCost.UpgradeBy(-1);
+    protected override void OnUpgrade() => DynamicVars.Damage.UpgradeValueBy(4);
 }

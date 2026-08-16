@@ -1,5 +1,7 @@
 ﻿using Godot;
+using Godot.Collections;
 using HarmonyLib;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -27,16 +29,26 @@ public static class AttackCommandExtensions
         
         command._sourceType = AttackCommand.SourceType.Card;
 
-        if (style == ChirpAttackVfxStyle.Standard)
+        switch (style)
         {
-            command._attackerAnimDelay = 0.25f;
-            command._customHitVfxNodes.Add(creature => CreateBulletWithInaccuracy(chirp, creature, 0.45f));
-            command._customHitVfxNodes.Add(creature => CreateExplosionWithInaccuracy(creature, 0.25f, command._damagePerHit));
-        }else if (style == ChirpAttackVfxStyle.DevastationRains)
-        {
-            command._attackerAnimDelay = 0.15f;
-            command._customHitVfxNodes.Add(creature => CreateDescendingShotWithInaccuracy(chirp, creature, 0.45f));
-            command._customHitVfxNodes.Add(creature => CreateExplosionWithInaccuracy(creature, 0.25f, command._damagePerHit * 2));
+            case ChirpAttackVfxStyle.Standard:
+                command._attackerAnimDelay = 0.25f;
+                command._customHitVfxNodes.Add(creature => CreateBulletWithInaccuracy(chirp, creature, 0.45f));
+                command._customHitVfxNodes.Add(creature => CreateExplosionWithInaccuracy(creature, 0.25f, command._damagePerHit));
+                break;
+            case ChirpAttackVfxStyle.DevastationRains:
+                command._attackerAnimDelay = 0.15f;
+                command._customHitVfxNodes.Add(creature => CreateDescendingShotWithInaccuracy(chirp, creature, 0.45f));
+                command._customHitVfxNodes.Add(creature => CreateExplosionWithInaccuracy(creature, 0.25f, command._damagePerHit * 2));
+                break;
+            case ChirpAttackVfxStyle.Vaporize:
+                command._attackerAnimDelay = 0.15f;
+                command._beforeDamage = () => VaporizeVfx(chirp, command._singleTarget);
+                break;
+            case ChirpAttackVfxStyle.Aoe:
+                command._attackerAnimDelay = 0.15f;
+                command._beforeDamage = () => AoeVfx(chirp);
+                break;
         }
         
         return command.WithAttackerFx(sfx: "event:/sfx/characters/osty/osty_attack");
@@ -139,6 +151,36 @@ public static class AttackCommandExtensions
 
         return NShivThrowVfx.Create(initialLocation, targetLocation, Colors.Red);
     }
+    
+    private static async Task VaporizeVfx(Creature chirp, Creature? targetCreature)
+    {
+        if(targetCreature is null) return;
+        
+        NHyperbeamVfx? vfx = NHyperbeamVfx.Create(chirp, targetCreature);
+
+        if (vfx == null)
+            return;
+
+        vfx.Modulate = Colors.Red;
+
+        NCombatRoom.Instance.Ui.AddChildSafely(vfx);
+
+        await Cmd.Wait(NHyperbeamVfx.hyperbeamAnticipationDuration);
+    }
+    
+    private static async Task AoeVfx(Creature chirp)
+    {
+        NSweepingBeamVfx? vfx = NSweepingBeamVfx.Create(chirp, chirp.CombatState!.GetOpponentsOf(chirp).ToList());
+
+        if (vfx == null)
+            return;
+
+        vfx.Modulate = Colors.Red;
+
+        NCombatRoom.Instance.Ui.AddChildSafely(vfx);
+
+        //await Cmd.Wait(NSweepingBeamVfx.du);
+    }
 
     private static float GetExplosionSizeForDamage(decimal damage)
     {
@@ -149,6 +191,7 @@ public static class AttackCommandExtensions
     {
         Standard,
         Aoe,
-        DevastationRains
+        DevastationRains,
+        Vaporize
     }
 }

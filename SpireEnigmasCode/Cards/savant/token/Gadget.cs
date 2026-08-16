@@ -19,6 +19,8 @@ public class Gadget() : SpireEnigmasCard.SavantCard(1,
 
     public override CardType Type => ((BoolVar)DynamicVars["HasDamage"]).BoolVal ? CardType.Attack : CardType.Skill;
     public override TargetType TargetType => ((BoolVar)DynamicVars["HasDamage"]).BoolVal ? TargetType.AnyEnemy : TargetType.Self;
+
+    public const string InventionBlockKey = "InventionBlock";
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new BlockVar(0M, ValueProp.Move),
         new BoolVar("HasBlock", false),
@@ -102,37 +104,52 @@ public class Gadget() : SpireEnigmasCard.SavantCard(1,
     {
         foreach (DynamicVar dynamicVar in dynamicVars)
         {
-            switch (dynamicVar)
+            /*
+             * why not make invention block a block var, i hear you ask
+             * I KNOW
+             * MEGACRIT decided even unpowered block vars should be modified by enchantments like nimble :(
+             * so my very clean (citation needed) system is ugly now. review bomb this game IMMEDIATELY
+             */
+            if (dynamicVar.Name.Equals(InventionBlockKey))
             {
-                case BlockVar:
-                    DynamicVars.Block.BaseValue += dynamicVar.BaseValue;
-                    ((BoolVar) DynamicVars["HasBlock"]).BoolVal = true;
-                    break;
-                case DamageVar:
-                    DynamicVars.Damage.BaseValue += dynamicVar.BaseValue;
-                    ((BoolVar) DynamicVars["HasDamage"]).BoolVal = true;
-                    break;
-                case EnergyVar:
-                    DynamicVars.Energy.BaseValue += dynamicVar.BaseValue;
-                    ((BoolVar) DynamicVars["HasEnergy"]).BoolVal = true;
-                    break;
-                case CardsVar:
-                    DynamicVars.Cards.BaseValue += dynamicVar.BaseValue;
-                    ((BoolVar) DynamicVars["HasCardDraw"]).BoolVal = true;
-                    break;
+                DynamicVars.Block.BaseValue += dynamicVar.BaseValue;
+                ((BoolVar) DynamicVars["HasBlock"]).BoolVal = true;
             }
-
-            if (keywords is not null)
+            else
             {
-                foreach (CardKeyword keyword in keywords)
+                switch (dynamicVar)
                 {
-                    if (!Keywords.Contains(keyword))
-                    {
-                        CardCmd.ApplyKeyword(this, keyword);
-                    }
+                    /*
+                    case BlockVar:
+                        DynamicVars.Block.BaseValue += dynamicVar.BaseValue;
+                        ((BoolVar) DynamicVars["HasBlock"]).BoolVal = true;
+                        break;
+                    */
+                    case DamageVar:
+                        DynamicVars.Damage.BaseValue += dynamicVar.BaseValue;
+                        ((BoolVar) DynamicVars["HasDamage"]).BoolVal = true;
+                        break;
+                    case EnergyVar:
+                        DynamicVars.Energy.BaseValue += dynamicVar.BaseValue;
+                        ((BoolVar) DynamicVars["HasEnergy"]).BoolVal = true;
+                        break;
+                    case CardsVar:
+                        DynamicVars.Cards.BaseValue += dynamicVar.BaseValue;
+                        ((BoolVar) DynamicVars["HasCardDraw"]).BoolVal = true;
+                        break;
                 }
             }
-            BaseReplayCount += replay;
         }
+        if (keywords is not null)
+        {
+            foreach (CardKeyword keyword in keywords)
+            {
+                if (!Keywords.Contains(keyword))
+                {
+                    CardCmd.ApplyKeyword(this, keyword);
+                }
+            }
+        }
+        BaseReplayCount += replay;
     }
 }

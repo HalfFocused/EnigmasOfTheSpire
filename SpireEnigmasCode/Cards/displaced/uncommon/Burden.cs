@@ -13,7 +13,7 @@ public class Burden() : SpireEnigmasCard.DisplacedCard(2,
     TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<StrengthPower>(3M)];
-    
+
     public override IEnumerable<CardKeyword> CanonicalKeywords => 
     [
         CardKeyword.Exhaust
@@ -37,10 +37,9 @@ public class Burden() : SpireEnigmasCard.DisplacedCard(2,
         CardModel card,
         bool causedByEthereal)
     {
-        Burden burden = this;
-        if (card != burden)
+        if (card != this)
             return;
-        await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature, DynamicVars["StrengthPower"].BaseValue, Owner.Creature, (CardModel) burden);
+        await PowerCmd.Apply<StrengthPower>(choiceContext, Owner.Creature, DynamicVars["StrengthPower"].BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

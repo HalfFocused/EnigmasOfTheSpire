@@ -27,9 +27,8 @@ public class ShrapnelBlast() : SpireEnigmasCard.SavantCard(1, CardType.Attack, C
         
         AttackContext attackContext = await AttackCommand.CreateContextAsync(CombatState, choiceContext, play);
         attackContext.AddHit(await CreatureCmd.Damage(choiceContext, play.Target, DynamicVars.Damage, Owner.Creature, this, play));
-        await Cmd.CustomScaledWait(0.35f, 0.65f);
-        attackContext.AddHit(await CreatureCmd.Damage(choiceContext, (IEnumerable<Creature>) CombatState?.HittableEnemies, DynamicVars.Damage, Owner.Creature, this, play));
-
+        await Cmd.CustomScaledWait(0.25f, 0.35f);
+        attackContext.AddHit(await CreatureCmd.Damage(choiceContext, CombatState.HittableEnemies, DynamicVars.Damage, Owner.Creature, this, play));
         await attackContext.DisposeAsync();
     }
 

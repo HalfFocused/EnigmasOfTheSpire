@@ -32,7 +32,7 @@ public class RadialPulse() : SpireEnigmasCard.SavantCard(2, CardType.Attack, Car
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
-        EnigmaKeywords.Command
+        EnigmaEnums.Command
     ];
 
     protected override async Task OnPlay(
@@ -40,7 +40,7 @@ public class RadialPulse() : SpireEnigmasCard.SavantCard(2, CardType.Attack, Car
         CardPlay play)
     {
         if(GetChirp is null) return;
-        await DamageCmd.Attack(DynamicVars["ChirpDamage"].BaseValue).FromChirp(GetChirp, this, play).TargetingAllOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars["ChirpDamage"].BaseValue).FromChirp(GetChirp, this, play, AttackCommandExtensions.ChirpAttackVfxStyle.Aoe).TargetingAllOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
         await PowerCmd.Apply<VulnerablePower>(choiceContext, CombatState.HittableEnemies, DynamicVars["VulnerablePower"].BaseValue, GetChirp, this);
     }
     

@@ -22,7 +22,7 @@ public class Hyperblast() : SpireEnigmasCard.SavantCard(1, CardType.Attack, Card
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
-        EnigmaKeywords.Command
+        EnigmaEnums.Command
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
@@ -42,7 +42,7 @@ public class Hyperblast() : SpireEnigmasCard.SavantCard(1, CardType.Attack, Card
         CardPlay play)
     {
         if(GetChirp is null) return;
-        await DamageCmd.Attack(DynamicVars["ChirpDamage"].BaseValue).FromChirp(GetChirp, this, play).TargetingAllOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars["ChirpDamage"].BaseValue).FromChirp(GetChirp, this, play, AttackCommandExtensions.ChirpAttackVfxStyle.Aoe).TargetingAllOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
         await PowerCmd.Apply<WeakPower>(choiceContext, GetChirp, DynamicVars["WeakPower"].BaseValue, GetChirp, this);
     }
     
