@@ -249,8 +249,7 @@ class CardGlowTweakPatch
 {
     public static readonly Color chirpPlayableColor = new Color(0.95f, 0.45f, 0f, 0.98f);
     public static readonly Color madeEtherealColor = new Color(0.35f, 0.35f, 0.35f, 0.98f);
-
-
+    
     [HarmonyTranspiler]
     static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
     {

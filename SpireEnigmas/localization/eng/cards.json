@@ -677,7 +677,7 @@
   "SPIREENIGMAS-SHOCK_AND_AWE.description": "#Deal !D! damage.\nIf you end this turn with unspent [E], gain !B! *Block*.",
 
   "SPIREENIGMAS-STANDARDIZED_STRIKE.title": "Standardized Strike",
-  "SPIREENIGMAS-STANDARDIZED_STRIKE.description": "#Deal !D! damage.\n*Transform* a card in your *Hand* into a*Standardized* *Strike{IfUpgraded:show:+|}*.",
+  "SPIREENIGMAS-STANDARDIZED_STRIKE.description": "#Deal !D! damage.\n*Transform* a card in your *Hand* into [gold]Standardized Strike{IfUpgraded:show:+|}[/gold].",
 
   "SPIREENIGMAS-SENTIENCE.title": "Sentience",
   "SPIREENIGMAS-SENTIENCE.description": "#Whenever you draw a *Command*, it is played for free.",
