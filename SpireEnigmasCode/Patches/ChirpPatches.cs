@@ -19,7 +19,7 @@ class ChirpEnergyPatch
     [HarmonyPostfix]
     static void AllowPlayingIfChirpBatterySufficient(PlayerCombatState __instance, CardModel card, ref UnplayableReason reason, ref bool __result)
     {
-        Creature? playerChirp = ChirpHelper.GetChirpFromPlayer(__instance._player);
+        Creature? playerChirp = EnigmasHelper.GetChirpFromPlayer(__instance._player);
         if(playerChirp is null) return;
         Chirp chirpMonster = (Chirp) playerChirp.Monster;
         
@@ -85,7 +85,7 @@ class SpendChirpBatteryCostPatch
         int calculatedBatteryCost = ChirpBatteryCostField.ChirpBatteryCost.Get(__instance);
         if (calculatedBatteryCost > 0)
         {
-            Creature? playerChirp = ChirpHelper.GetChirpFromPlayer(__instance.Owner);
+            Creature? playerChirp = EnigmasHelper.GetChirpFromPlayer(__instance.Owner);
             if(playerChirp is null) return; //this shouldnt be possible
             Chirp chirpMonster = (Chirp) playerChirp.Monster;
             chirpMonster.SpendEnergy(calculatedBatteryCost);
@@ -220,7 +220,7 @@ class PenNibChirpAttackPatch
             new CodeInstruction(OpCodes.Ldarg_S, dealerField), //dealer variable
             new CodeInstruction(OpCodes.Ldarg_0), //this
             new CodeInstruction(OpCodes.Call, getOwnerMethod), //getOwner
-            CodeInstruction.Call(() => ChirpHelper.GetChirpFromPlayer(default)), //getChirpFromPlayer
+            CodeInstruction.Call(() => EnigmasHelper.GetChirpFromPlayer(default)), //getChirpFromPlayer
             new CodeInstruction(OpCodes.Beq_S, breakToAddress) //if dealer = getChirpFromPlayer(this.GetOwner), continue
         );
 
@@ -245,7 +245,7 @@ class AddChirpToBeforeSideEndParticipants
     {
         foreach (Creature participant in participants)
         {
-            Creature? chirp = ChirpHelper.GetChirpFromPlayer(participant.Player);
+            Creature? chirp = EnigmasHelper.GetChirpFromPlayer(participant.Player);
 
             if (chirp is not null)
             {
@@ -266,7 +266,7 @@ class AddChirpToAfterSideEndParticipants
     {
         foreach (Creature participant in participants)
         {
-            Creature? chirp = ChirpHelper.GetChirpFromPlayer(participant.Player);
+            Creature? chirp = EnigmasHelper.GetChirpFromPlayer(participant.Player);
 
             if (chirp is not null)
             {

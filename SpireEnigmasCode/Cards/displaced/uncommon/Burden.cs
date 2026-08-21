@@ -44,6 +44,6 @@ public class Burden() : SpireEnigmasCard.DisplacedCard(2,
 
     protected override void OnUpgrade()
     {
-
+        DynamicVars["StrengthPower"].UpgradeValueBy(1);
     }
 }

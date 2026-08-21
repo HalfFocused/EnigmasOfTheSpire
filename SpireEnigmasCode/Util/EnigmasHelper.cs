@@ -1,10 +1,13 @@
-﻿using MegaCrit.Sts2.Core.Entities.Creatures;
+﻿using System.Reflection;
+using HarmonyLib;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
+using MegaCrit.Sts2.Core.Models;
 using SpireEnigmas.SpireEnigmasCode.Monsters;
 
 namespace SpireEnigmas.SpireEnigmasCode.Util;
 
-public class ChirpHelper
+public class EnigmasHelper
 {
     public static Creature? GetChirpFromPlayer(Player? player)
     {
@@ -15,5 +18,11 @@ public class ChirpHelper
     {
         Creature? chirp = GetChirpFromPlayer(player);
         return chirp != null && chirp.IsAlive;
+    }
+
+    public static bool DoesCardHaveEnergyCostX(CardModel card)
+    {
+        PropertyInfo propInfo = AccessTools.Property(typeof(CardModel), "HasEnergyCostX");
+        return (bool) propInfo.GetValue(card);
     }
 }

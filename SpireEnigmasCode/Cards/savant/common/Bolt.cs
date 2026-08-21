@@ -18,7 +18,7 @@ public class    Bolt() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRari
         new PowerVar<WeakPower>(2)
     ];
     
-    protected override bool ShouldGlowRedInternal => ChirpHelper.GetChirpFromPlayer(Owner) == null;
+    protected override bool ShouldGlowRedInternal => EnigmasHelper.GetChirpFromPlayer(Owner) == null;
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
         EnigmaEnums.Command

@@ -24,7 +24,7 @@ public class RadialPulse() : SpireEnigmasCard.SavantCard(2, CardType.Attack, Car
         new PowerVar<VulnerablePower>(2)
     ];
     
-    protected override bool ShouldGlowRedInternal => ChirpHelper.GetChirpFromPlayer(Owner) == null;
+    protected override bool ShouldGlowRedInternal => EnigmasHelper.GetChirpFromPlayer(Owner) == null;
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
         ChirpHoverTip(),

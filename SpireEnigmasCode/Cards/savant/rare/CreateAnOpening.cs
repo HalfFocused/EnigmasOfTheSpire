@@ -17,7 +17,7 @@ public class CreateAnOpening() : SpireEnigmasCard.SavantCard(2, CardType.Power, 
         new PowerVar<CreateAnOpeningPower>(1)
     ];
     
-    protected override bool ShouldGlowRedInternal => ChirpHelper.GetChirpFromPlayer(Owner) == null;
+    protected override bool ShouldGlowRedInternal => EnigmasHelper.GetChirpFromPlayer(Owner) == null;
     
     //powers that go onto chirp cannot be played at all if it doesnt exist. where would they go?
     protected override bool IsPlayable => GetChirp is not null;

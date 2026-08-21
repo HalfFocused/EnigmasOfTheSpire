@@ -29,7 +29,7 @@ public class AlternatorPower : SpireEnigmaPower
         if (!participants.Contains(Owner))
             return;
         
-        Chirp? chirp = (Chirp) ChirpHelper.GetChirpFromPlayer(Owner.Player).Monster;
+        Chirp? chirp = (Chirp) EnigmasHelper.GetChirpFromPlayer(Owner.Player).Monster;
         
         //i'm allowing this power to summon chirp if you don't have it
         //it's a bit of an abuse of notation

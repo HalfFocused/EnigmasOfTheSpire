@@ -196,9 +196,9 @@
   "SPIREENIGMAS-TOOLBELT_POWER.description": "nobody should see this",
   "SPIREENIGMAS-TOOLBELT_POWER.smartDescription": "#*Scrap* gains *Retain*.",
 
-  "SPIREENIGMAS-PLAN_B_POWER.title": "Plan B",
-  "SPIREENIGMAS-PLAN_B_POWER.description": "#Increases the damage and *Block* of *Common* cards.",
-  "SPIREENIGMAS-PLAN_B_POWER.smartDescription": "#Cards created this combat deal [blue]{Amount}[/blue] additional damage and gain [blue]{Amount}[/blue] additional *Block*.",
+  "SPIREENIGMAS-TEMPLATE_POWER.title": "Template",
+  "SPIREENIGMAS-TEMPLATE_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-TEMPLATE_POWER.smartDescription": "#Whenever you create a *Gadget*, *Invent *[blue]{Amount}[/blue] damage and *Block*.",
 
   "SPIREENIGMAS-CHIRP_BLOCK_NEXT_TURN_POWER.title": "Chirp Block Next Turn",
   "SPIREENIGMAS-CHIRP_BLOCK_NEXT_TURN_POWER.description": "nobody should see this",

@@ -13,7 +13,7 @@ public class ProjectBarrier() : SpireEnigmasCard.SavantCard(1, CardType.Skill, C
 {
     public override bool GainsBlock => true;
     
-    protected override bool ShouldGlowRedInternal => ChirpHelper.GetChirpFromPlayer(Owner) == null;
+    protected override bool ShouldGlowRedInternal => EnigmasHelper.GetChirpFromPlayer(Owner) == null;
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

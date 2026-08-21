@@ -26,7 +26,7 @@ public class ScatteredShots() : SpireEnigmasCard.SavantCard(3, CardType.Attack, 
         ChirpHoverTip()
     ];
     
-    protected override bool ShouldGlowRedInternal => ChirpHelper.GetChirpFromPlayer(Owner) == null;
+    protected override bool ShouldGlowRedInternal => EnigmasHelper.GetChirpFromPlayer(Owner) == null;
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

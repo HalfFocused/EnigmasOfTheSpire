@@ -63,7 +63,7 @@ internal static class PotionTargetingPatch
     [HarmonyPostfix]
     static void LetPotionsTargetChirp(PotionModel __instance, ref TargetType __result)
     {
-        if (ChirpHelper.GetChirpFromPlayer(__instance.Owner) is not null)
+        if (EnigmasHelper.GetChirpFromPlayer(__instance.Owner) is not null)
         {
             __result = EnigmaEnums.ChirpOrAnyPlayer;
         }

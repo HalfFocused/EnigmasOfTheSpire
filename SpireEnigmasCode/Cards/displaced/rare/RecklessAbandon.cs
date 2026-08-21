@@ -14,7 +14,7 @@ public class RecklessAbandon() : SpireEnigmasCard.DisplacedCard(2,
     TargetType.RandomEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new DamageVar(14M, ValueProp.Move),
+        new DamageVar(10M, ValueProp.Move),
         new CalculationBaseVar(0M),
         new CalculationExtraVar(1M),
         new CalculatedVar("CalculatedHits").WithMultiplier((Func<CardModel, Creature, Decimal>) ((card, _) => PileType.Exhaust.GetPile(card.Owner).Cards.Count(c => c.Keywords.Contains(CardKeyword.Ethereal))))

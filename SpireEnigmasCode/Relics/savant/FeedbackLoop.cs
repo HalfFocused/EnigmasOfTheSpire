@@ -23,7 +23,7 @@ public class FeedbackLoop : TheSavantRelic
 
     public override async Task AfterAttack(PlayerChoiceContext choiceContext, AttackCommand command)
     {
-        Creature? chirp = ChirpHelper.GetChirpFromPlayer(Owner);
+        Creature? chirp = EnigmasHelper.GetChirpFromPlayer(Owner);
         //hypothetically this is impossible, as this is a savant relic, who always has chirp
         if(chirp is null) return;
         if (command.Attacker == chirp)

@@ -62,7 +62,7 @@ public class ChirpBlockVar : DynamicVar
                 fakeBaseValue *= enchantment.EnchantBlockMultiplicative(fakeBaseValue);
             }
             
-            previewedBlock = Hook.ModifyBlock(card.CombatState, ChirpHelper.GetChirpFromPlayer(card.Owner), fakeBaseValue,
+            previewedBlock = Hook.ModifyBlock(card.CombatState, EnigmasHelper.GetChirpFromPlayer(card.Owner), fakeBaseValue,
                 Props, null, null, out IEnumerable<AbstractModel> _);
         }
         PreviewValue = previewedBlock;

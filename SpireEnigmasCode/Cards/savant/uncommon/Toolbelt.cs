@@ -26,7 +26,7 @@ public class Toolbelt() : SpireEnigmasCard.SavantCard(1, CardType.Power, CardRar
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<ToolbeltPower>(choiceContext, Owner.Creature, -1M, Owner.Creature, this);
+        await PowerCmd.Apply<ToolbeltPower>(choiceContext, Owner.Creature, 1M, Owner.Creature, this);
         for (int i = 0; i < DynamicVars.Cards.BaseValue; i++)
         {
             CardModel scrap = Owner.Creature.CombatState.CreateCard<Scrap>(Owner);

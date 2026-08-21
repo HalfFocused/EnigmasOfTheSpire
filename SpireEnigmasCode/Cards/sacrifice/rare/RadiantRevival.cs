@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using BaseLib.Cards.Variables;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
-using MegaCrit.Sts2.Core.Models.Powers;
-using MegaCrit.Sts2.Core.ValueProps;
+
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.rare;
 
@@ -24,8 +19,8 @@ public class RadiantRevival() : SpireEnigmasCard.SacrificeCard(2,
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new CalculationBaseVar(0),
-        new CalculationExtraVar(3),
-        new CalculatedVar("CalculatedHeal").WithMultiplier((Func<CardModel, Creature, Decimal>) ((card, _) => GetBurns(card.Owner).Count()))
+        new CalculationExtraVar(1),
+        new CalculatedVar("CalculatedBurns").WithMultiplier((card, _) => GetBurns(card.Owner).Count())
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => 
@@ -44,18 +39,19 @@ public class RadiantRevival() : SpireEnigmasCard.SacrificeCard(2,
         CardPlay play)
     {
 
-        decimal healAmount = ((CalculatedVar)DynamicVars["CalculatedHeal"]).Calculate(play.Target);
+        decimal burnAmount = ((CalculatedVar)DynamicVars["CalculatedBurns"]).Calculate(play.Target);
         
         foreach (CardModel card in GetBurns(Owner).ToList())
         {
             await CardCmd.Exhaust(choiceContext, card);
         }
-        await CreatureCmd.Heal(Owner.Creature, healAmount);
+        await PlayerCmd.GainEnergy(burnAmount, Owner);
+        await CardPileCmd.Draw(choiceContext, burnAmount, Owner);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.CalculationExtra.UpgradeValueBy(1);
+        EnergyCost.UpgradeBy(-1);
     }
     
     public static IEnumerable<CardModel> GetBurns(Player owner)

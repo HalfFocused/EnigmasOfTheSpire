@@ -20,7 +20,7 @@ public class Logistics() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRa
         new ChirpBlockVar(5M, ValueProp.Move)
     ];
     
-    protected override bool ShouldGlowRedInternal => ChirpHelper.GetChirpFromPlayer(Owner) == null;
+    protected override bool ShouldGlowRedInternal => EnigmasHelper.GetChirpFromPlayer(Owner) == null;
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
         ChirpHoverTip()

@@ -17,8 +17,8 @@ public class Exalt() : SpireEnigmasCard.SacrificeCard(1,
     TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new CalculationBaseVar(8M),
-        new ExtraDamageVar(4M),
+        new CalculationBaseVar(6M),
+        new ExtraDamageVar(6M),
         new CalculatedDamageVar(ValueProp.Move).WithMultiplier((Func<CardModel, Creature, Decimal>) ((card, _) => card.Owner.PlayerCombatState.AllCards.Count(c => c.Rarity is CardRarity.Rare)))
     ];
 
@@ -31,6 +31,6 @@ public class Exalt() : SpireEnigmasCard.SacrificeCard(1,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.ExtraDamage.UpgradeValueBy(1);
+        DynamicVars.CalculationBase.UpgradeValueBy(3);
     }
 }

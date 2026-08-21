@@ -18,7 +18,7 @@ using SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
 namespace SpireEnigmas.SpireEnigmasCode.Powers;
 
-public class ForetoldPower: SpireEnigmaPower
+public class ForetoldPower : SpireEnigmaPower
 {
     public const int INFINITY = Really.bigNumber;
     public override PowerType Type => PowerType.Debuff;
@@ -80,19 +80,24 @@ public class ForetoldPower: SpireEnigmaPower
     }
 
     /*
-     * Mark Foretold as used after any card finishes playing if it is marked as having been used during the card play.
+     * Mark Foretold as used after any attack finishes if it is marked as having been used during the card play.
      */
-    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    public override async Task AfterAttack(PlayerChoiceContext choiceContext, AttackCommand command)
     {
+        if (!command.DamageProps.IsPoweredAttack()) return;
+        
         if (((BoolVar)DynamicVars["HitDuringCardPlay"]).BoolVal)
         {
             if (!((BoolVar)DynamicVars["UsedThisTurn"]).BoolVal)
             {
                 ((BoolVar)DynamicVars["UsedThisTurn"]).BoolVal = true;
-                foreach(CardModel card in PileType.Discard.GetPile(cardPlay.Card.Owner).Cards.ToList<CardModel>()){
-                    if (card is CarefulScheme)
-                    {
-                        await CardPileCmd.Add(card, PileType.Hand);
+                if (command.Attacker?.Player is not null)
+                {
+                    foreach(CardModel card in PileType.Discard.GetPile(command.Attacker.Player).Cards.ToList()){
+                        if (card is CarefulScheme)
+                        {
+                            await CardPileCmd.Add(card, PileType.Hand);
+                        }
                     }
                 }
             }

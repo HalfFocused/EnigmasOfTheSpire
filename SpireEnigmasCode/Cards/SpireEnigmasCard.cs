@@ -19,7 +19,7 @@ public abstract class SpireEnigmasCard(int cost, CardType type, CardRarity rarit
     CustomCardModel(cost, type, rarity, target)
 {
 
-    public Creature? GetChirp => ChirpHelper.GetChirpFromPlayer(Owner);
+    public Creature? GetChirp => EnigmasHelper.GetChirpFromPlayer(Owner);
     
     /*
     private LocString? _flavorTextTitleLocString;

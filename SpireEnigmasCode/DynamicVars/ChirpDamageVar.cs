@@ -45,7 +45,7 @@ public class ChirpDamageVar : DynamicVar
         if (runGlobalHooks)
         {
             ICombatState combatState = card.CombatState ?? card.Owner.Creature.CombatState;
-            originalDamage1 = Hook.ModifyDamage(card.Owner.RunState, combatState, target, ChirpHelper.GetChirpFromPlayer(card.Owner), BaseValue, Props, card, null, ModifyDamageHookType.All, previewMode, out IEnumerable<AbstractModel> _);
+            originalDamage1 = Hook.ModifyDamage(card.Owner.RunState, combatState, target, EnigmasHelper.GetChirpFromPlayer(card.Owner), BaseValue, Props, card, null, ModifyDamageHookType.All, previewMode, out IEnumerable<AbstractModel> _);
         }
         PreviewValue = originalDamage1;
     }

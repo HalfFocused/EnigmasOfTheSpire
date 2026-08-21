@@ -29,7 +29,7 @@ public class Hyperblast() : SpireEnigmasCard.SavantCard(1, CardType.Attack, Card
         ChirpHoverTip()
     ];
     
-    protected override bool ShouldGlowRedInternal => ChirpHelper.GetChirpFromPlayer(Owner) == null;
+    protected override bool ShouldGlowRedInternal => EnigmasHelper.GetChirpFromPlayer(Owner) == null;
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

@@ -34,13 +34,13 @@ public static class ChirpCmd
     ICombatState combatState = summoner.Creature.CombatState;
     
     if (amount == 0M)
-      return new SummonResult(ChirpHelper.GetChirpFromPlayer(summoner), 0M);
+      return new SummonResult(EnigmasHelper.GetChirpFromPlayer(summoner), 0M);
     
     if (CombatManager.Instance.IsInProgress)
       SfxCmd.Play("event:/sfx/characters/necrobinder/necrobinder_summon");
     
     Creature? chirp = combatState.Allies.FirstOrDefault(c => c.Monster is Chirp && c.PetOwner == summoner);
-    if (ChirpHelper.IsPlayerChirpAlive(summoner))
+    if (EnigmasHelper.IsPlayerChirpAlive(summoner))
     {
       ((Chirp) chirp.Monster).GainEnergy(amount);
     }
@@ -64,7 +64,7 @@ public static class ChirpCmd
       await CreatureCmd.SetMaxAndCurrentHp(chirp, 999999999M);
     }
     //CombatManager.Instance.History.Summoned(combatState, (int) amount, summoner);
-    return new SummonResult(ChirpHelper.GetChirpFromPlayer(summoner), amount);
+    return new SummonResult(EnigmasHelper.GetChirpFromPlayer(summoner), amount);
   }
   
   /*
@@ -92,7 +92,7 @@ public static class ChirpCmd
     cardPlay = null;
     Creature realTarget = player.Creature;
     
-    Creature chirp = ChirpHelper.GetChirpFromPlayer(player);
+    Creature chirp = EnigmasHelper.GetChirpFromPlayer(player);
     if(chirp is null) 
       return 0M;
     if (CombatManager.Instance.IsOverOrEnding)

@@ -19,7 +19,7 @@ public class TrueSightPower : SpireEnigmaPower
         HoverTipFactory.Static(StaticHoverTip.Block)
     ];
     
-    public override Decimal ModifyDamageMultiplicative(
+    public override Decimal ModifyDamageAdditive(
         Creature? target,
         Decimal amount,
         ValueProp props,

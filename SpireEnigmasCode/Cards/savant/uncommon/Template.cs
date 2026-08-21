@@ -11,7 +11,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.uncommon;
 
-public class PlanB() : SpireEnigmasCard.SavantCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
+public class Template() : SpireEnigmasCard.SavantCard(1, CardType.Power, CardRarity.Uncommon, TargetType.Self)
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
@@ -19,17 +19,17 @@ public class PlanB() : SpireEnigmasCard.SavantCard(1, CardType.Power, CardRarity
     ];
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new PowerVar<PlanBPower>(3)
+        new PowerVar<TemplatePower>(5)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<PlanBPower>(choiceContext, Owner.Creature, DynamicVars["PlanBPower"].BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<TemplatePower>(choiceContext, Owner.Creature, DynamicVars["TemplatePower"].BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars["PlanBPower"].UpgradeValueBy(1);
+        DynamicVars["TemplatePower"].UpgradeValueBy(2);
     }
 }
