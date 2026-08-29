@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3kooi76twp1w"
-path="res://.godot/imported/ShatteredGlassOutline.png-541fc77962064e4889b132a12bcd3cfb.ctex"
+uid="uid://byli8ara221th"
+path="res://.godot/imported/wind_up_butterfly.png-fdd4fbf8ba1b5e5bfb14c11fa943a93e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpireEnigmas/images/relics/ShatteredGlassOutline.png"
-dest_files=["res://.godot/imported/ShatteredGlassOutline.png-541fc77962064e4889b132a12bcd3cfb.ctex"]
+source_file="res://SpireEnigmas/images/relics/wind_up_butterfly.png"
+dest_files=["res://.godot/imported/wind_up_butterfly.png-fdd4fbf8ba1b5e5bfb14c11fa943a93e.ctex"]
 
 [params]
 

@@ -26,7 +26,7 @@ public class Manifest() : SpireEnigmasCard.DisplacedCard(1,
         CardPlay play)
     {
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
-        var etherealCard = PileType.Draw.GetPile(Owner).Cards.Where(c => c.Keywords.Contains(CardKeyword.Ethereal) && !c.Keywords.Contains(CardKeyword.Unplayable)).ToList().StableShuffle(Owner.RunState.Rng.Shuffle).FirstOrDefault() ?? PileType.Draw.GetPile(Owner).Cards.Where(c => c.Keywords.Contains(CardKeyword.Ethereal)).ToList().StableShuffle(Owner.RunState.Rng.Shuffle).FirstOrDefault();
+        var etherealCard = PileType.Draw.GetPile(Owner).Cards.Where(c => c.Keywords.Contains(CardKeyword.Ethereal) && !c.Keywords.Contains(CardKeyword.Unplayable)).ToList().StableShuffle(Owner.RunState.Rng.Shuffle).FirstOrDefault();
         if (etherealCard == null)
             return;
         await CardCmd.AutoPlay(choiceContext, etherealCard, null);

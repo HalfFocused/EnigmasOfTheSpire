@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Factories;
@@ -28,14 +29,13 @@ public class CantHelpMyself() : SpireEnigmasCard.SavantCard(1, CardType.Skill, C
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.IntValue, Owner);
-        
-        CardModel cardToTransform = Owner.RunState.Rng.CombatCardSelection.NextItem(PileType.Hand.GetPile(Owner).Cards);
-        if (cardToTransform == null)
-            return;
-       
+        CardSelectorPrefs prefs = new CardSelectorPrefs(CardSelectorPrefs.TransformSelectionPrompt, 1);
+        CardModel? selectedCard =
+            (await EnigmaCmd.DrawAndSelectFromDrawn(choiceContext, Owner, prefs, DynamicVars.Cards.BaseValue, this)).FirstOrDefault();
+        if(selectedCard == null) return;
         CardModel? newCard = CardFactory.GetDistinctForCombat(Owner, Owner.Character.CardPool.GetUnlockedCards(Owner.UnlockState, Owner.RunState.CardMultiplayerConstraint), 1, Owner.RunState.Rng.CombatCardGeneration).FirstOrDefault();
-        await EnigmaCmd.ChooseAndTransformInto(choiceContext, Owner, newCard);
+
+        await CardCmd.Transform(selectedCard, newCard, CardPreviewStyle.None);
     }
 
     protected override void OnUpgrade()

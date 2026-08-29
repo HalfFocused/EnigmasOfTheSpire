@@ -38,6 +38,24 @@ public static class EnigmaCmd
         if (toTransform is null || result is null) return null;
         return await CardCmd.Transform(toTransform, result, inventFromPile == PileType.Hand ? CardPreviewStyle.None : CardPreviewStyle.HorizontalLayout);
     }
+    
+    public static async Task<IEnumerable<CardModel>> DrawAndSelectFromDrawn(
+        PlayerChoiceContext choiceContext,
+        Player player,
+        CardSelectorPrefs prefs,
+        decimal amount,
+        AbstractModel source
+        )
+    {
+        IEnumerable<CardModel> drawnCards = await CardPileCmd.Draw(choiceContext, amount, player);
+
+        return await CardSelectCmd.FromHand(
+            choiceContext,
+            player,
+            prefs,
+            c => drawnCards.Contains(c),
+            source);
+    }
 
     public static async Task InventGadget(Player owner, ICombatState combatState, IEnumerable<DynamicVar> dynamicVars, IEnumerable<CardKeyword>? keywords = null, int replay = 0)
     {

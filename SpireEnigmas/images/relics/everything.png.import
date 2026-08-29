@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://0sx7uykhpue1"
-path="res://.godot/imported/LocketOutline.png-fc610dfb0cdba585cab02896e6504079.ctex"
+uid="uid://bqdi1ndsvql4h"
+path="res://.godot/imported/everything.png-1071f321845df05d468ce644b2e003bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpireEnigmas/images/relics/LocketOutline.png"
-dest_files=["res://.godot/imported/LocketOutline.png-fc610dfb0cdba585cab02896e6504079.ctex"]
+source_file="res://SpireEnigmas/images/relics/everything.png"
+dest_files=["res://.godot/imported/everything.png-1071f321845df05d468ce644b2e003bc.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0n10notjtahp"
-path="res://.godot/imported/AmberGemstone.png-bde121d98ec843f9de50020e832fc0e9.ctex"
+uid="uid://bpjnpiipcc56x"
+path="res://.godot/imported/purple_bow_outline.png-a6b0c782d58a31dc4a8379679b9d9a52.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpireEnigmas/images/relics/AmberGemstone.png"
-dest_files=["res://.godot/imported/AmberGemstone.png-bde121d98ec843f9de50020e832fc0e9.ctex"]
+source_file="res://SpireEnigmas/images/relics/purple_bow_outline.png"
+dest_files=["res://.godot/imported/purple_bow_outline.png-a6b0c782d58a31dc4a8379679b9d9a52.ctex"]
 
 [params]
 

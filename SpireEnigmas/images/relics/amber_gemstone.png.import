@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cher1dxjyhyvr"
-path="res://.godot/imported/TheClockworkUniverse.png-4024ae70b697f05ba2c96582c2574929.ctex"
+uid="uid://d0n10notjtahp"
+path="res://.godot/imported/amber_gemstone.png-904dfcfa2688f23156dd5bec3e6d94a9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpireEnigmas/images/relics/TheClockworkUniverse.png"
-dest_files=["res://.godot/imported/TheClockworkUniverse.png-4024ae70b697f05ba2c96582c2574929.ctex"]
+source_file="res://SpireEnigmas/images/relics/amber_gemstone.png"
+dest_files=["res://.godot/imported/amber_gemstone.png-904dfcfa2688f23156dd5bec3e6d94a9.ctex"]
 
 [params]
 

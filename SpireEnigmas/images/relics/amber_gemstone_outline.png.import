@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6rnd7vg8w3d1"
-path="res://.godot/imported/EverythingOutline.png-73581b95e8a5c1194929892a597ea7c6.ctex"
+uid="uid://4ymxfkmke2mb"
+path="res://.godot/imported/amber_gemstone_outline.png-b21f7088766f4dcd9bb0407992f9f040.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpireEnigmas/images/relics/EverythingOutline.png"
-dest_files=["res://.godot/imported/EverythingOutline.png-73581b95e8a5c1194929892a597ea7c6.ctex"]
+source_file="res://SpireEnigmas/images/relics/amber_gemstone_outline.png"
+dest_files=["res://.godot/imported/amber_gemstone_outline.png-b21f7088766f4dcd9bb0407992f9f040.ctex"]
 
 [params]
 

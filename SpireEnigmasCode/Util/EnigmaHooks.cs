@@ -19,22 +19,5 @@ namespace SpireEnigmas.SpireEnigmasCode.Util;
 
 public class EnigmaHooks() : CustomSingletonModel(HookType.Combat)
 {
-    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
-    {
-        CardModel playedCard = cardPlay.Card;
-        Player owner = playedCard.Owner;
 
-        if (playedCard.Keywords.Contains(EnigmaEnums.TimeLoop)) return;
-
-        foreach (CardModel card in owner.PlayerCombatState.AllCards.ToList())
-        {
-            if (card.Keywords.Contains(EnigmaEnums.TimeLoop) || card is TimeLoop)
-            {
-                CardModel result = playedCard.CreateClone();
-                CardCmd.ApplyKeyword(result, EnigmaEnums.TimeLoop);
-
-                await CardCmd.Transform(card, result, card.Pile.Type == PileType.Hand ? CardPreviewStyle.HorizontalLayout : CardPreviewStyle.None);
-            }
-        }
-    }
 }

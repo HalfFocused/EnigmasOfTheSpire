@@ -12,7 +12,7 @@ using SpireEnigmas.SpireEnigmasCode.Commands;
 using SpireEnigmas.SpireEnigmasCode.Extensions;
 using SpireEnigmas.SpireEnigmasCode.Util;
 
-namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.basic;
+namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.common;
 
 public class PowerBlast() : SpireEnigmasCard.SavantCard(1, CardType.Attack, CardRarity.Common, TargetType.AnyEnemy)
 {
@@ -32,7 +32,8 @@ public class PowerBlast() : SpireEnigmasCard.SavantCard(1, CardType.Attack, Card
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new ChirpDamageVar(14M, ValueProp.Move)
+        new ChirpDamageVar(12M, ValueProp.Move),
+        new CardsVar(1)
     ];
 
     protected override async Task OnPlay(
@@ -41,6 +42,7 @@ public class PowerBlast() : SpireEnigmasCard.SavantCard(1, CardType.Attack, Card
     {
         if(GetChirp is null) return;
         await DamageCmd.Attack(DynamicVars["ChirpDamage"].BaseValue).FromChirp(GetChirp, this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
     }
     
     protected override void OnUpgrade() => DynamicVars["ChirpDamage"].UpgradeValueBy(4M);

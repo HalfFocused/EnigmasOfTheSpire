@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxn54mwobxlbl"
-path="res://.godot/imported/PairOfGears.png-ed730dd9c142950e0860b1ce3b4b9720.ctex"
+path="res://.godot/imported/pair_of_gears.png-4271e66bb43262f96fb0d814a7050d20.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpireEnigmas/images/relics/PairOfGears.png"
-dest_files=["res://.godot/imported/PairOfGears.png-ed730dd9c142950e0860b1ce3b4b9720.ctex"]
+source_file="res://SpireEnigmas/images/relics/pair_of_gears.png"
+dest_files=["res://.godot/imported/pair_of_gears.png-4271e66bb43262f96fb0d814a7050d20.ctex"]
 
 [params]
 

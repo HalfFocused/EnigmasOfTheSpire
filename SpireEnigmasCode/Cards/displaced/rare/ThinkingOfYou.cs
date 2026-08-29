@@ -41,9 +41,4 @@ public class ThinkingOfYou() : SpireEnigmasCard.DisplacedCard(0, CardType.Skill,
         await CardCmd.Exhaust(choiceContext, selectedCard);
         (await PowerCmd.Apply<ThinkingOfYouPower>(choiceContext, Owner.Creature, 1M, Owner.Creature, this)).SetSelectedCard(selectedCard);
     }
-
-    protected override void OnUpgrade()
-    {
-        DynamicVars.Cards.UpgradeValueBy(1);
-    }
 }

@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using SpireEnigmas.SpireEnigmasCode.Commands;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
@@ -31,7 +32,8 @@ public class Impulse() : SpireEnigmasCard.DisplacedCard(0,
         CardPlay play)
     {
         CardSelectorPrefs prefs = new CardSelectorPrefs(CardSelectorPrefs.ExhaustSelectionPrompt, 1);
-        CardModel selectedCard = (await CardSelectCmd.FromSimpleGrid(choiceContext, (await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner)).ToList(), Owner, prefs)).FirstOrDefault<CardModel>();
+        CardModel? selectedCard =
+            (await EnigmaCmd.DrawAndSelectFromDrawn(choiceContext, Owner, prefs, DynamicVars.Cards.BaseValue, this)).FirstOrDefault();
         if(selectedCard == null) return;
         await CardCmd.Exhaust(choiceContext, selectedCard);
     }

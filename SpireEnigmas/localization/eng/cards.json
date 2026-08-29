@@ -58,7 +58,7 @@
   "SPIREENIGMAS-ETCHED_IN_BLOOD.description": "#Gain !B! *Block*.\n*Exhaust* 1 card.\nNext turn, add that card to your *Hand*.",
 
   "SPIREENIGMAS-THINKING_OF_YOU.title": "Thinking Of You",
-  "SPIREENIGMAS-THINKING_OF_YOU.description": "#*Exhaust* 1 card.\nNext turn, add that card +*Upgraded*+ to your *Hand*.",
+  "SPIREENIGMAS-THINKING_OF_YOU.description": "#*Exhaust* 1 card.\nNext turn, add that card +*Upgraded* +to your *Hand*.",
   
   "SPIREENIGMAS-PERSIST.title": "Persist",
   "SPIREENIGMAS-PERSIST.description": "#Gain !B! *Block*.\nPut the next card you play this turn on top of your *Draw* *Pile*.",
@@ -537,7 +537,7 @@
   "SPIREENIGMAS-GLASS_SHARDS.description": "#At the end of your turn, deal !GlassShardsPower! damage to ALL enemies for each card in your *Hand*.",
 
   "SPIREENIGMAS-TIME_LOOP.title": "Time Loop",
-  "SPIREENIGMAS-TIME_LOOP.description": "#Whenever you play another card, this *Transforms* into a copy of it.",
+  "SPIREENIGMAS-TIME_LOOP.description": "#Play a copy of each card you played last turn.",
 
   "SPIREENIGMAS-GET_EXCITED.title": "Get Excited",
   "SPIREENIGMAS-GET_EXCITED.description": "#Deal !D! damage.\n*Upgrade* !C! random card(s) in your *Draw* *Pile*.",
@@ -582,7 +582,7 @@
   "SPIREENIGMAS-BOLT.description": "#*Chirp* applies !WeakPower! *Weak* and !VulnerablePower! *Vulnerable*.",
 
   "SPIREENIGMAS-POWER_BLAST.title": "Power Blast",
-  "SPIREENIGMAS-POWER_BLAST.description": "#*Chirp* deals !ChirpDamage! damage.",
+  "SPIREENIGMAS-POWER_BLAST.description": "#*Chirp* deals !ChirpDamage! damage.\nDraw !C! card(s).",
 
   "SPIREENIGMAS-BEAM.title": "Beam",
   "SPIREENIGMAS-BEAM.description": "#*Chirp* deals !ChirpDamage! damage.",
@@ -689,7 +689,7 @@
   "SPIREENIGMAS-RESISTOR.description": "#Deal !D! damage.\n*Invent* that much *Block*.",
 
   "SPIREENIGMAS-SALVAGE_FOR_PARTS.title": "Salvage For Parts",
-  "SPIREENIGMAS-SALVAGE_FOR_PARTS.description": "#Gain !B! *Block*.\n*Transform* a card in your *Draw* *Pile* into *Scrap*.\nDraw !C! card(s).",
+  "SPIREENIGMAS-SALVAGE_FOR_PARTS.description": "#*Transform* a card in your *Hand* into *Scrap*.\n*Chirp* gains [E] equal to it's cost.",
 
   "SPIREENIGMAS-VAPORIZE.title": "Vaporize",
   "SPIREENIGMAS-VAPORIZE.description": "#*Chirp* deals !ChirpDamage! damage.",
@@ -747,7 +747,7 @@
   "SPIREENIGMAS-CRUNCH_TIME.description": "#*Transform* ALL your *Scrap* into random cards.",
 
   "SPIREENIGMAS-CANT_HELP_MYSELF.title": "Can't Help Myself",
-  "SPIREENIGMAS-CANT_HELP_MYSELF.description": "#Draw !C! card(s).\n*Transform* a card in your *Hand* into a random card.",
+  "SPIREENIGMAS-CANT_HELP_MYSELF.description": "#Draw !C! card(s).\nChoose 1 of them to *Transform* into a random card.",
 
   "SPIREENIGMAS-PONDER.title": "Ponder",
   "SPIREENIGMAS-PONDER.description": "#Put up to !C! card(s) from your *Discard* *Pile* into your *Hand*.\n*Retain* your *Hand* this turn.",

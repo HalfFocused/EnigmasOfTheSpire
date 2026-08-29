@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bo2pqfo88ssd6"
-path="res://.godot/imported/TheClockworkUniverseOutline.png-02f3e218d90100717efd692d9abf53d7.ctex"
+uid="uid://0sx7uykhpue1"
+path="res://.godot/imported/locket_outline.png-3bf2e9be4510cbba849135d1a183b190.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpireEnigmas/images/relics/TheClockworkUniverseOutline.png"
-dest_files=["res://.godot/imported/TheClockworkUniverseOutline.png-02f3e218d90100717efd692d9abf53d7.ctex"]
+source_file="res://SpireEnigmas/images/relics/locket_outline.png"
+dest_files=["res://.godot/imported/locket_outline.png-3bf2e9be4510cbba849135d1a183b190.ctex"]
 
 [params]
 

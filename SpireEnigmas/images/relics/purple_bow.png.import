@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjf3iawgql731"
-path="res://.godot/imported/WindUpButterflyOutline.png-ef2cec557e304c32ac8fa8a756d69a07.ctex"
+uid="uid://c5dbv0v274r3l"
+path="res://.godot/imported/purple_bow.png-2f187ad71967c4b72936562db2fe97ee.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpireEnigmas/images/relics/WindUpButterflyOutline.png"
-dest_files=["res://.godot/imported/WindUpButterflyOutline.png-ef2cec557e304c32ac8fa8a756d69a07.ctex"]
+source_file="res://SpireEnigmas/images/relics/purple_bow.png"
+dest_files=["res://.godot/imported/purple_bow.png-2f187ad71967c4b72936562db2fe97ee.ctex"]
 
 [params]
 

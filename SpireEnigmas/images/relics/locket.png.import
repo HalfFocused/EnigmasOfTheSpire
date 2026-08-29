@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c5dbv0v274r3l"
-path="res://.godot/imported/PurpleBow.png-d565fc8181f6f433d05615fbba9d606b.ctex"
+uid="uid://dfnynaw08c2gr"
+path="res://.godot/imported/locket.png-a695f5f13db064eb39a9397f55f307e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpireEnigmas/images/relics/PurpleBow.png"
-dest_files=["res://.godot/imported/PurpleBow.png-d565fc8181f6f433d05615fbba9d606b.ctex"]
+source_file="res://SpireEnigmas/images/relics/locket.png"
+dest_files=["res://.godot/imported/locket.png-a695f5f13db064eb39a9397f55f307e1.ctex"]
 
 [params]
 

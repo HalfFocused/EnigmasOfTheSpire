@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byli8ara221th"
-path="res://.godot/imported/WindUpButterfly.png-4d8254ed3ee77f705f2e8f5e17c3dd8d.ctex"
+uid="uid://bjf3iawgql731"
+path="res://.godot/imported/wind_up_butterfly_outline.png-37ed6bbb92157c5ae28147b675cb4704.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpireEnigmas/images/relics/WindUpButterfly.png"
-dest_files=["res://.godot/imported/WindUpButterfly.png-4d8254ed3ee77f705f2e8f5e17c3dd8d.ctex"]
+source_file="res://SpireEnigmas/images/relics/wind_up_butterfly_outline.png"
+dest_files=["res://.godot/imported/wind_up_butterfly_outline.png-37ed6bbb92157c5ae28147b675cb4704.ctex"]
 
 [params]
 

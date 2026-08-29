@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bpjnpiipcc56x"
-path="res://.godot/imported/PurpleBowOutline.png-dcd0f34896bdf35befbda52ec1e54317.ctex"
+uid="uid://bo2pqfo88ssd6"
+path="res://.godot/imported/clockwork_universe_outline.png-1f9ad5334574c5350810e1e096ce288c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpireEnigmas/images/relics/PurpleBowOutline.png"
-dest_files=["res://.godot/imported/PurpleBowOutline.png-dcd0f34896bdf35befbda52ec1e54317.ctex"]
+source_file="res://SpireEnigmas/images/relics/clockwork_universe_outline.png"
+dest_files=["res://.godot/imported/clockwork_universe_outline.png-1f9ad5334574c5350810e1e096ce288c.ctex"]
 
 [params]
 

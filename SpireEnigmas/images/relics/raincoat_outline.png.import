@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dquwbwqgd67ob"
-path="res://.godot/imported/InvertedHourglassOutline.png-919a65df5a4ba78172befe14f60deefb.ctex"
+uid="uid://e0f51ondv0wv"
+path="res://.godot/imported/raincoat_outline.png-aa13279c4cf6273e7ed1613fe1fc61b1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpireEnigmas/images/relics/InvertedHourglassOutline.png"
-dest_files=["res://.godot/imported/InvertedHourglassOutline.png-919a65df5a4ba78172befe14f60deefb.ctex"]
+source_file="res://SpireEnigmas/images/relics/raincoat_outline.png"
+dest_files=["res://.godot/imported/raincoat_outline.png-aa13279c4cf6273e7ed1613fe1fc61b1.ctex"]
 
 [params]
 

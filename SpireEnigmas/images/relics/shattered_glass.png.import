@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://e0f51ondv0wv"
-path="res://.godot/imported/RaincoatOutline.png-b96bd833438e5a06435ead82a0856876.ctex"
+uid="uid://c45h7xbdoo0me"
+path="res://.godot/imported/shattered_glass.png-5e61331573298cd507db6d1280d068c9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpireEnigmas/images/relics/RaincoatOutline.png"
-dest_files=["res://.godot/imported/RaincoatOutline.png-b96bd833438e5a06435ead82a0856876.ctex"]
+source_file="res://SpireEnigmas/images/relics/shattered_glass.png"
+dest_files=["res://.godot/imported/shattered_glass.png-5e61331573298cd507db6d1280d068c9.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v6dxx0s4fb8p"
-path="res://.godot/imported/InvertedHourglass.png-f3afacfb5e7446465622e88b1abf1b28.ctex"
+uid="uid://b3kooi76twp1w"
+path="res://.godot/imported/shattered_glass_outline.png-46e32693e7016e85fc686d535cc73c78.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpireEnigmas/images/relics/InvertedHourglass.png"
-dest_files=["res://.godot/imported/InvertedHourglass.png-f3afacfb5e7446465622e88b1abf1b28.ctex"]
+source_file="res://SpireEnigmas/images/relics/shattered_glass_outline.png"
+dest_files=["res://.godot/imported/shattered_glass_outline.png-46e32693e7016e85fc686d535cc73c78.ctex"]
 
 [params]
 

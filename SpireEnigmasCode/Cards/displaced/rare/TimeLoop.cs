@@ -1,4 +1,6 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿using MegaCrit.Sts2.Core.Combat;
+using MegaCrit.Sts2.Core.Combat.History.Entries;
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -10,29 +12,39 @@ using SpireEnigmas.SpireEnigmasCode.Util;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.rare;
 
-public class TimeLoop() : SpireEnigmasCard.DisplacedCard(-1,
+public class TimeLoop() : SpireEnigmasCard.DisplacedCard(3,
     CardType.Skill, CardRarity.Rare,
-    TargetType.AnyEnemy)
+    TargetType.Self)
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 
     [
-        HoverTipFactory.Static(StaticHoverTip.Transform)
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => 
     [
-        CardKeyword.Unplayable
+        CardKeyword.Exhaust
     ];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        
-    }
+        foreach (CardPlayFinishedEntry entry in CombatManager.Instance.History.Entries
+                     .OfType<CardPlayFinishedEntry>()
+                     .Where(e => e.Actor == Owner.Creature && e.HappenedLastPlayerTurn(Owner))
+                     .ToList())
+        {
+            CardModel cardPlayed = entry.CardPlay.Card;
 
+            if (cardPlayed is not TimeLoop)
+            {
+                await CardCmd.AutoPlay(choiceContext, cardPlayed.CreateDupe(Owner), null);
+            }
+        }
+    }
+    
     protected override void OnUpgrade()
     {
-        AddKeyword(CardKeyword.Innate);
+        EnergyCost.UpgradeBy(-1);
     }
 }

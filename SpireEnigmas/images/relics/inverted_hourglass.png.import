@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dfnynaw08c2gr"
-path="res://.godot/imported/Locket.png-31eab520f03d39d188912c85980b8d59.ctex"
+uid="uid://v6dxx0s4fb8p"
+path="res://.godot/imported/inverted_hourglass.png-57d99c750f50c94ac0843d5254a5f87a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://SpireEnigmas/images/relics/Locket.png"
-dest_files=["res://.godot/imported/Locket.png-31eab520f03d39d188912c85980b8d59.ctex"]
+source_file="res://SpireEnigmas/images/relics/inverted_hourglass.png"
+dest_files=["res://.godot/imported/inverted_hourglass.png-57d99c750f50c94ac0843d5254a5f87a.ctex"]
 
 [params]
 

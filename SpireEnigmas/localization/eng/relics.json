@@ -11,6 +11,26 @@
   "SPIREENIGMAS-CLOCKWORK_UNIVERSE.description": "#Take an additional turn after your first turn each combat.",
   "SPIREENIGMAS-CLOCKWORK_UNIVERSE.flavor": "Disregarded as useless by the Spire denizens, you know this is something much greater.",
 
+  "SPIREENIGMAS-PURPLE_BOW.title": "Purple Bow",
+  "SPIREENIGMAS-PURPLE_BOW.description": "#At the start of each combat, apply 1 *Foretold* to ALL enemies.",
+  "SPIREENIGMAS-PURPLE_BOW.flavor": "It shouldn't be in this place or time. But it came back to you.",
+  
+  "SPIREENIGMAS-LOCKET.title": "Locket",
+  "SPIREENIGMAS-LOCKET.description": "#At the start of each combat, add a random card into your *Hand*. It's *Ethereal*.",
+  "SPIREENIGMAS-LOCKET.flavor": "It shouldn't be in this place or time. But it came back to you.",
+
+  "SPIREENIGMAS-RAINCOAT.title": "Raincoat",
+  "SPIREENIGMAS-RAINCOAT.description": "#Every time you play !C! *Ethereal* card(s), gain [E?].",
+  "SPIREENIGMAS-RAINCOAT.flavor": "I never believed in moral dilemmas- But I guess you're an exception.",
+
+  "SPIREENIGMAS-SHATTERED_GLASS.title": "Shattered Glass",
+  "SPIREENIGMAS-SHATTERED_GLASS.description": "#Relic and Potion rewards have two choices of equal rarity.",
+  "SPIREENIGMAS-SHATTERED_GLASS.flavor": "In the reflections of the glass, you see slightly different versions of yourself.",
+
+  "SPIREENIGMAS-WIND_UP_BUTTERFLY.title": "Wind-Up Butterfly",
+  "SPIREENIGMAS-WIND_UP_BUTTERFLY.description": "#At the start of your turn, if you *Exhausted* a card last turn, draw !C! additional card(s).",
+  "SPIREENIGMAS-WIND_UP_BUTTERFLY.flavor": "Trying not to cry- It's the first time I say goodbye.",
+  
   "SPIREENIGMAS-LIFEBLOOD.title": "Lifeblood",
   "SPIREENIGMAS-LIFEBLOOD.description": "#Whenever you enter a *Rest* *Site*, heal [blue]!H![/blue] HP.",
   "SPIREENIGMAS-LIFEBLOOD.flavor": "The warmth of the fire is enough to kindle your spirits anew.",
@@ -18,6 +38,10 @@
   "SPIREENIGMAS-KINDERHART.title": "Kinderhart",
   "SPIREENIGMAS-KINDERHART.description": "#Whenever you enter a *Rest* *Site*, perform a free *Rest*.",
   "SPIREENIGMAS-KINDERHART.flavor": "An object of myth from a time dedicated to recreating the Founder's burning blood.",
+
+  "SPIREENIGMAS-IMBUED_CANDLE.title": "Imbued Candle",
+  "SPIREENIGMAS-IMBUED_CANDLE.description": "#Whenever you apply *Charred*, apply an additional [blue]!CharredPower![/blue] *Charred*.",
+  "SPIREENIGMAS-IMBUED_CANDLE.flavor": "A common ritual for practitioners, an imbued candle won't burn out for as long as it's owner lives.",
 
   "SPIREENIGMAS-FUNCTIONAL_CORE.title": "Functional Core",
   "SPIREENIGMAS-FUNCTIONAL_CORE.description": "#At the start of each combat, *Chirp* gains [E?].",
@@ -27,11 +51,11 @@
   "SPIREENIGMAS-PERFECTED_CORE.description": "#At the start of each combat, *Chirp* gains [E?].",
   "SPIREENIGMAS-PERFECTED_CORE.flavor": "Your first mention of this idea saw you banished from the Spire you called home. Now realized, there's no one who can keep you away.",
 
-  "SPIREENIGMAS-IMBUED_CANDLE.title": "Imbued Candle",
-  "SPIREENIGMAS-IMBUED_CANDLE.description": "#Whenever you apply *Charred*, apply an additional [blue]!CharredPower![/blue] *Charred*.",
-  "SPIREENIGMAS-IMBUED_CANDLE.flavor": "A common ritual for practitioners, an imbued candle won't burn out for as long as it's owner lives.",
-
   "SPIREENIGMAS-FEEDBACK_LOOP.title": "Feedback Loop",
   "SPIREENIGMAS-FEEDBACK_LOOP.description": "#The first time *Chirp* attacks each turn, it gains [E?].",
-  "SPIREENIGMAS-FEEDBACK_LOOP.flavor": "According to your calculations, this subroutine spends negative power. You've elected not to worry about it."
+  "SPIREENIGMAS-FEEDBACK_LOOP.flavor": "According to your calculations, this subroutine spends negative power. You've elected not to worry about it.",
+
+  "SPIREENIGMAS-MULTITOOL.title": "Multitool",
+  "SPIREENIGMAS-MULTITOOL.description": "#At the end of your turn, *Transform* a random card in your *Hand* into a random card.",
+  "SPIREENIGMAS-MULTITOOL.flavor": "It can do everything!"
 }
