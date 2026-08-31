@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Character;
 using SpireEnigmas.SpireEnigmasCode.Character.displaced;
 using SpireEnigmas.SpireEnigmasCode.Commands;
+using SpireEnigmas.SpireEnigmasCode.DynamicVars;
 using SpireEnigmas.SpireEnigmasCode.Extensions;
 using SpireEnigmas.SpireEnigmasCode.Util;
 

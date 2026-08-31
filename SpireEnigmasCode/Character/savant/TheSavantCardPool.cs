@@ -7,7 +7,7 @@ namespace SpireEnigmas.SpireEnigmasCode.Character.savant;
 
 public class TheSavantCardPool : CustomCardPoolModel
 {
-    public override string Title => TheSacrifice.CharacterId; //This is not a display name.
+    public override string Title => TheSavant.CharacterId; //This is not a display name.
     
     public override string BigEnergyIconPath => "charui/big_energy.png".ImagePath();
     public override string TextEnergyIconPath => "charui/text_energy.png".ImagePath();

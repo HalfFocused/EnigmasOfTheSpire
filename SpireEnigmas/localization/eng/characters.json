@@ -30,7 +30,7 @@
   "SPIREENIGMAS-THE_SACRIFICE.titleObject": "The Sacrifice",
 
   "SPIREENIGMAS-THE_SAVANT.aromaPrinciple": "Innovation",
-  "SPIREENIGMAS-THE_SAVANT.banter.alive.endTurnPing": "More time to think.",
+  "SPIREENIGMAS-THE_SAVANT.banter.alive.endTurnPing": "Hurry up!",
   "SPIREENIGMAS-THE_SAVANT.banter.dead.endTurnPing": "...",
   "SPIREENIGMAS-THE_SAVANT.cardsModifierDescription": "Savant cards will now appear in rewards and shops.",
   "SPIREENIGMAS-THE_SAVANT.cardsModifierTitle": "Savant Cards",
@@ -42,5 +42,20 @@
   "SPIREENIGMAS-THE_SAVANT.pronounPossessive": "his",
   "SPIREENIGMAS-THE_SAVANT.pronounSubject": "he",
   "SPIREENIGMAS-THE_SAVANT.title": "The Savant",
-  "SPIREENIGMAS-THE_SAVANT.titleObject": "The Savant"
+  "SPIREENIGMAS-THE_SAVANT.titleObject": "The Savant",
+
+  "SPIREENIGMAS-THE_CHRONICLE.aromaPrinciple": "",
+  "SPIREENIGMAS-THE_CHRONICLE.banter.alive.endTurnPing": "I don't have time for this...",
+  "SPIREENIGMAS-THE_CHRONICLE.banter.dead.endTurnPing": "...",
+  "SPIREENIGMAS-THE_CHRONICLE.cardsModifierDescription": "Chronicle cards will now appear in rewards and shops.",
+  "SPIREENIGMAS-THE_CHRONICLE.cardsModifierTitle": "Chronicle Cards",
+  "SPIREENIGMAS-THE_CHRONICLE.description": "A scribe who prolonged her dying moments.\nRecords history in her Enchiridion.",
+  "SPIREENIGMAS-THE_CHRONICLE.eventDeathPrevention": "I can still save them.",
+  "SPIREENIGMAS-THE_CHRONICLE.goldMonologue": "I've been needing new ink.",
+  "SPIREENIGMAS-THE_CHRONICLE.possessiveAdjective": "her",
+  "SPIREENIGMAS-THE_CHRONICLE.pronounObject": "her",
+  "SPIREENIGMAS-THE_CHRONICLE.pronounPossessive": "hers",
+  "SPIREENIGMAS-THE_CHRONICLE.pronounSubject": "she",
+  "SPIREENIGMAS-THE_CHRONICLE.title": "The Chronicle",
+  "SPIREENIGMAS-THE_CHRONICLE.titleObject": "The Chronicle"
 }

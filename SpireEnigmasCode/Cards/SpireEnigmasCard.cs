@@ -6,11 +6,13 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
+using SpireEnigmas.SpireEnigmasCode.Character.chronicle;
 using SpireEnigmas.SpireEnigmasCode.Character.displaced;
 using SpireEnigmas.SpireEnigmasCode.Character.sacrifice;
 using SpireEnigmas.SpireEnigmasCode.Character.savant;
 using SpireEnigmas.SpireEnigmasCode.Commands;
 using SpireEnigmas.SpireEnigmasCode.Extensions;
+using SpireEnigmas.SpireEnigmasCode.Patches;
 using SpireEnigmas.SpireEnigmasCode.Util;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards;
@@ -69,6 +71,10 @@ public abstract class SpireEnigmasCard(int cost, CardType type, CardRarity rarit
     public abstract class SavantCard(int cost, CardType type, CardRarity rarity, TargetType target) :
         SpireEnigmasCard(cost, type, rarity, target);
     
+    [Pool(typeof(TheChronicleCardPool))]
+    public abstract class ChronicleCard(int cost, CardType type, CardRarity rarity, TargetType target) :
+        SpireEnigmasCard(cost, type, rarity, target);
+    
     public static HoverTip GetStaticHoverTip(string locEntry)
     {
         const string locTable = "static_hover_tips";
@@ -101,5 +107,25 @@ public abstract class SpireEnigmasCard(int cost, CardType type, CardRarity rarit
     public static HoverTip InventHoverTip()
     {
         return GetStaticHoverTip("SPIREENIGMAS-INVENT");
+    }
+    
+    public static HoverTip StoryHoverTip()
+    {
+        return GetStaticHoverTip("SPIREENIGMAS-STORY");
+    }
+
+    protected bool IsInChapter(int chapter, StoryManager.CardInChapterTimings timing)
+    {
+        return StoryManager.InChapter(this, chapter, timing);
+    }
+    
+    /*
+     * Only for use during resolution.
+     * Gets the chapter the card is being played into.
+     * Otherwise this will return -1.
+     */
+    protected int ChapterDuringResolution()
+    {
+        return StoryFields.ChapterPlayedInto.Get(this);
     }
 }

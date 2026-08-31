@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Commands;
+using SpireEnigmas.SpireEnigmasCode.DynamicVars;
 using SpireEnigmas.SpireEnigmasCode.Util;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.uncommon;

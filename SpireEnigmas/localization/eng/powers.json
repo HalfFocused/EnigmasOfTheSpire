@@ -282,5 +282,21 @@
 
   "SPIREENIGMAS-CHIRP_DOUBLE_BLOCK_POWER.title": "Chirp Double Block",
   "SPIREENIGMAS-CHIRP_DOUBLE_BLOCK_POWER.description": "nobody should see this",
-  "SPIREENIGMAS-CHIRP_DOUBLE_BLOCK_POWER.smartDescription": "#The next {Amount:plural:time|[blue]{Amount}[/blue] times} *Chirp* gives you *Block* from a card, double the amount given."
+  "SPIREENIGMAS-CHIRP_DOUBLE_BLOCK_POWER.smartDescription": "#The next {Amount:plural:time|[blue]{Amount}[/blue] times} *Chirp* gives you *Block* from a card, double the amount given.",
+
+  "SPIREENIGMAS-FEEBLE_POWER.title": "Feeble",
+  "SPIREENIGMAS-FEEBLE_POWER.description": "Deals [blue]25%[/blue] less damage. Lasts [gold]Stories[/gold] instead of turns.",
+  "SPIREENIGMAS-FEEBLE_POWER.smartDescription": "#Deals [blue]25%[/blue] less damage. Lasts [blue]{Amount}[/blue] [gold]{Amount:plural:Story|Stories}[/gold].",
+
+  "SPIREENIGMAS-HOOK_POWER.title": "Hook",
+  "SPIREENIGMAS-HOOK_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-HOOK_POWER.smartDescription": "#Attacks in *Chapter* *1* deal [blue]{Amount}[/blue] additional damage.",
+
+  "SPIREENIGMAS-BLOCK_NEXT_STORY_POWER.title": "Block Next Story",
+  "SPIREENIGMAS-BLOCK_NEXT_STORY_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-BLOCK_NEXT_STORY_POWER.smartDescription": "#At the start of your next *Story*, gain [blue]{Amount}[/blue] *Block*.",
+
+  "SPIREENIGMAS-SUSPEND_DISBELIEF_POWER.title": "Suspend Disbelief",
+  "SPIREENIGMAS-SUSPEND_DISBELIEF_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-SUSPEND_DISBELIEF_POWER.smartDescription": "#At the end of this *Story*, end your turn."
 }

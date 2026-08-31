@@ -823,5 +823,50 @@
   "SPIREENIGMAS-CRACKLING_FORM.description": "#Whenever you or *Chirp* spend [E], deal !CracklingFormPower! damage to ALL enemies for each [E] spent.",
   
   "SPIREENIGMAS-GADGET.title": "Gadget",
-  "SPIREENIGMAS-GADGET.description": "{GainsBlock:cond:Gain {Block:diff()} [gold]Block[/gold].{NewLine1:cond:\n|}|}{HasDamage:cond:Deal {Damage:diff()} damage.{NewLine2:cond:\n|}|}{HasEnergy:cond:Gain {Energy:energyIcons()}.{NewLine3:cond:\n|}|}{HasCardDraw:cond:Draw {Cards:diff()} {Cards:plural:card|cards}.|}"
+  "SPIREENIGMAS-GADGET.description": "{GainsBlock:cond:Gain {Block:diff()} [gold]Block[/gold].{NewLine1:cond:\n|}|}{HasDamage:cond:Deal {Damage:diff()} damage.{NewLine2:cond:\n|}|}{HasEnergy:cond:Gain {Energy:energyIcons()}.{NewLine3:cond:\n|}|}{HasCardDraw:cond:Draw {Cards:diff()} {Cards:plural:card|cards}.|}",
+
+  "SPIREENIGMAS-STRIKE_CHRONICLE.title": "Strike",
+  "SPIREENIGMAS-STRIKE_CHRONICLE.description": "Deal {Damage:diff()} damage.",
+
+  "SPIREENIGMAS-DEFEND_CHRONICLE.title": "Defend",
+  "SPIREENIGMAS-DEFEND_CHRONICLE.description": "Gain {Block:diff()} [gold]Block[/gold].",
+
+  "SPIREENIGMAS-DESPAIR.title": "Despair",
+  "SPIREENIGMAS-DESPAIR.description": "#Deal {Damage:diff()} damage.\nApply !FeeblePower! *Feeble*.",
+
+  "SPIREENIGMAS-TALISMAN.title": "Talisman",
+  "SPIREENIGMAS-TALISMAN.description": "#Gain {Block:diff()} [gold]Block[/gold].\nIf this card is *Chapter* *3*, draw !C! card(s).",
+
+  "SPIREENIGMAS-MORNINGS_LIGHT.title": "Morning's Light",
+  "SPIREENIGMAS-MORNINGS_LIGHT.description": "#Gain {Block:diff()} [gold]Block[/gold].\nIf this card is *Chapter* *3*, gain [E?] and draw !C! card(s).",
+
+  "SPIREENIGMAS-PRECIS_TWO.title": "Précis Two",
+  "SPIREENIGMAS-PRECIS_TWO.description": "#Deal !D! damage.\nIf this card is *Chapter* *2*, gain !StrengthPower! *Strength*.",
+
+  "SPIREENIGMAS-ABRUPT_ENDING.title": "Abrupt Ending",
+  "SPIREENIGMAS-ABRUPT_ENDING.description": "#Deal !D! damage to ALL enemies.\nEnd the *Story*.",
+
+  "SPIREENIGMAS-EPITAPH.title": "Epitaph",
+  "SPIREENIGMAS-EPITAPH.description": "#End the *Story*.\nSet the length of your *Story* to !ShortStoryLength! or !LongStoryLength! this combat.",
+
+  "SPIREENIGMAS-STORY_CHOICE.title": "Story Choice",
+  "SPIREENIGMAS-STORY_CHOICE.description": "#Set the length of your *Story* to !IfChosenLength!.",
+
+  "SPIREENIGMAS-HOOK.title": "Hook",
+  "SPIREENIGMAS-HOOK.description": "#Attacks in *Chapter* *1* deal !HookPower! additional damage.",
+
+  "SPIREENIGMAS-BETTER_DAYS.title": "Better Days",
+  "SPIREENIGMAS-BETTER_DAYS.description": "#Gain !B! *Block*.\nAt the start of your next *Story*, gain !BlockNextStory! *Block*.",
+
+  "SPIREENIGMAS-SPLICE.title": "Splice",
+  "SPIREENIGMAS-SPLICE.description": "#Gain !B! *Block*.\nDeal !D! damage.",
+
+  "SPIREENIGMAS-TWIST.title": "Twist",
+  "SPIREENIGMAS-TWIST.description": "#Deal !D! damage for each *Skill* in your *Story*.{InCombat:\n(Hits !CalculatedHits! time(s).)|}",
+
+  "SPIREENIGMAS-MOTIF.title": "Motif",
+  "SPIREENIGMAS-MOTIF.description": "#Gain !B! *Block*.\nAt the end of this *Story*, return this to your *Hand*.",
+
+  "SPIREENIGMAS-SUSPEND_DISBELIEF.title": "Suspend Disbelief",
+  "SPIREENIGMAS-SUSPEND_DISBELIEF.description": "#Gain [E?].\nAt the end of this *Story*, end your turn."
 }

@@ -15,5 +15,8 @@
   "SPIREENIGMAS-GADGET.description": "#*Gadget* cards are special tokens that combine together in your *Hand*.",
 
   "SPIREENIGMAS-INVENT.title": "Invent",
-  "SPIREENIGMAS-INVENT.description": "#If you have no *Gadgets* in your *Hand*, create a blank one.\nAdd this effect to *Gadgets* in your *Hand*."
+  "SPIREENIGMAS-INVENT.description": "#If you have no *Gadgets* in your *Hand*, create a blank one.\nAdd this effect to *Gadgets* in your *Hand*.",
+
+  "SPIREENIGMAS-STORY.title": "Story",
+  "SPIREENIGMAS-STORY.description": "#Played cards fill the 5 *Chapters* in your *Story*. When the *Story* is full it ends, and the next card you play starts a new one."
 }

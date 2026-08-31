@@ -41,6 +41,13 @@
   "THE_ARCHITECT.talk.SPIREENIGMAS-THE_SAVANT.0-2r.char": "Stand down. I've-",
   "THE_ARCHITECT.talk.SPIREENIGMAS-THE_SAVANT.0-attack": "Architect",
 
+  "THE_ARCHITECT.talk.SPIREENIGMAS-THE_CHRONICLE.0-0r.char": "Finally... while [red]this[/red] can still be reversed.",
+  "THE_ARCHITECT.talk.SPIREENIGMAS-THE_CHRONICLE.0-0r.next": "Continue",
+  "THE_ARCHITECT.talk.SPIREENIGMAS-THE_CHRONICLE.0-1r.ancient": "Ah... still refusing to die, then?",
+  "THE_ARCHITECT.talk.SPIREENIGMAS-THE_CHRONICLE.0-1r.next": "Threaten",
+  "THE_ARCHITECT.talk.SPIREENIGMAS-THE_CHRONICLE.0-2r.char": "My pursuit is more noble than yours.",
+  "THE_ARCHITECT.talk.SPIREENIGMAS-THE_CHRONICLE.0-attack": "Both",
+
   "DARV.talk.SPIREENIGMAS-THE_DISPLACED.0-0.ancient": "We meet again!\nStill looking to fix that clock?",
   
   "DARV.talk.SPIREENIGMAS-THE_DISPLACED.1-0r.ancient": "I got all sortsa new timepieces, friend!\nCare to take a look?",

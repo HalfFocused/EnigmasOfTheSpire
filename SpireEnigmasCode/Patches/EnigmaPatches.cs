@@ -46,6 +46,18 @@ class ChirpBatteryCostField
     public static readonly SpireField<CardModel, int> ChirpBatteryCost = new(()=>0);
 }
 
+class StoryFields
+{
+    public static readonly SpireField<Player, List<CardModel>> PlayerStory = new(()=>[]);
+    
+    public static readonly SpireField<Player, int> PlayerStoryMaxLength = new(()=>5);
+    public static readonly SpireField<Player, bool> RunEndPlayerStoryHooks = new(()=>false);
+    public static readonly SpireField<Player, bool> RunStartPlayerStoryHooks = new(()=>false);
+    
+    public static readonly SpireField<CardModel, int> ChapterPlayedInto = new(()=>-1);
+
+}
+
 [HarmonyPatch(typeof(ScrollBoxes), nameof(ScrollBoxes.GenerateRandomBundles))]
 class ScrollBoxesGenerateRandomBundlesPatch
 {

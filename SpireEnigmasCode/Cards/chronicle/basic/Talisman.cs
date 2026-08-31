@@ -1,0 +1,49 @@
+﻿using BaseLib.Abstracts;
+using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.ValueProps;
+using SpireEnigmas.SpireEnigmasCode.Cards.chronicle.ancient;
+using SpireEnigmas.SpireEnigmasCode.Events;
+using SpireEnigmas.SpireEnigmasCode.Util;
+
+namespace SpireEnigmas.SpireEnigmasCode.Cards.chronicle.basic;
+
+public class Talisman() : SpireEnigmasCard.ChronicleCard(0, CardType.Skill, CardRarity.Basic, TargetType.Self),
+    IShouldRenderStory,
+    ITranscendenceCard
+{
+    protected override HashSet<CardTag> CanonicalTags => [
+    ];
+    
+    public override bool GainsBlock => true;
+
+    protected override bool ShouldGlowGoldInternal => IsInChapter(3, StoryManager.CardInChapterTimings.BeforePlay);
+
+    protected override IEnumerable<DynamicVar> CanonicalVars =>
+    [
+        new BlockVar(4M, ValueProp.Move),
+        new CardsVar(1)
+    ];
+
+    protected override async Task OnPlay(
+        PlayerChoiceContext choiceContext,
+        CardPlay play)
+    {
+        await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, play);
+
+        if (IsInChapter(3, StoryManager.CardInChapterTimings.Resolution))
+        {
+            await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
+        }
+    }
+    
+    protected override void OnUpgrade() => DynamicVars.Block.UpgradeValueBy(2M);
+    
+    public CardModel GetTranscendenceTransformedCard()
+    {
+        return ModelDb.Card<MorningsLight>();
+    }
+}

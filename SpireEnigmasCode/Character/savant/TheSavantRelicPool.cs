@@ -7,7 +7,7 @@ namespace SpireEnigmas.SpireEnigmasCode.Character.savant;
 
 public class TheSavantRelicPool : CustomRelicPoolModel
 {
-    public override Color LabOutlineColor => TheSacrifice.Color;
+    public override Color LabOutlineColor => TheSavant.Color;
 
     public override string BigEnergyIconPath => "charui/big_energy.png".ImagePath();
     public override string TextEnergyIconPath => "charui/text_energy.png".ImagePath();

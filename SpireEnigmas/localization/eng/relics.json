@@ -57,5 +57,13 @@
 
   "SPIREENIGMAS-MULTITOOL.title": "Multitool",
   "SPIREENIGMAS-MULTITOOL.description": "#At the end of your turn, *Transform* a random card in your *Hand* into a random card.",
-  "SPIREENIGMAS-MULTITOOL.flavor": "It can do everything!"
+  "SPIREENIGMAS-MULTITOOL.flavor": "It can do everything!",
+
+  "SPIREENIGMAS-YEARNING_ENCHIRIDION.title": "Yearning Enchiridion",
+  "SPIREENIGMAS-YEARNING_ENCHIRIDION.description": "#Cards in the final *Chapter* have !Boost! additional damage and *Block*.",
+  "SPIREENIGMAS-YEARNING_ENCHIRIDION.flavor": "The book thirsts for knowledge.",
+
+  "SPIREENIGMAS-BOUNDLESS_ENCHIRIDION.title": "Boundless Enchiridion",
+  "SPIREENIGMAS-BOUNDLESS_ENCHIRIDION.description": "#Cards in the final *Chapter* cost [E?] less to play.",
+  "SPIREENIGMAS-BOUNDLESS_ENCHIRIDION.flavor": "It's hunger sated, the book rewards its author with immense power."
 }

@@ -62,7 +62,9 @@
     </ItemGroup>
 
     <ItemGroup>
+        <Folder Include="SpireEnigmasCode\Cards\chronicle\rare\" />
         <Folder Include="SpireEnigmasCode\Nodes\Vfx\" />
+        <Folder Include="SpireEnigmasCode\Piles\" />
         <Folder Include="SpireEnigmas\images\powers\big\" />
         <Folder Include="SpireEnigmas\images\ui\" />
         <Folder Include="SpireEnigmas\materials\" />
