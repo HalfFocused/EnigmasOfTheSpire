@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using HarmonyLib;
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Models;
@@ -24,5 +25,10 @@ public class EnigmasHelper
     {
         PropertyInfo propInfo = AccessTools.Property(typeof(CardModel), "HasEnergyCostX");
         return (bool) propInfo.GetValue(card);
+    }
+
+    public static int UniqueCardsInDeck(Player player, CardType? type)
+    {
+        return PileType.Deck.GetPile(player).Cards.Where(c => type == null || c.Type == type).DistinctBy(c => c.Id).Count();
     }
 }

@@ -22,7 +22,7 @@ public class Vaporize() : SpireEnigmasCard.SavantCard(5, CardType.Attack, CardRa
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
-        EnigmaEnums.Command
+        EnigmaKeywords.Command
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [

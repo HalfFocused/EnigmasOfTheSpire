@@ -20,7 +20,7 @@ public class Multithreading() : SpireEnigmasCard.SavantCard(0, CardType.Skill, C
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        HoverTipFactory.FromKeyword(EnigmaEnums.Command)
+        HoverTipFactory.FromKeyword(EnigmaKeywords.Command)
     ];
     
     protected override async Task OnPlay(

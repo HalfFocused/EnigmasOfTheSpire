@@ -17,6 +17,12 @@
     </PropertyGroup>
 
     <ItemGroup Condition="Exists('$(Sts2DataDir)')">
+        <Reference Include="SmartFormat">
+            <HintPath>$(Sts2DataDir)/SmartFormat.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+
+    <ItemGroup Condition="Exists('$(Sts2DataDir)')">
         <Reference Include="0Harmony">
             <HintPath>$(Sts2DataDir)/0Harmony.dll</HintPath>
             <Private>false</Private>
@@ -62,10 +68,8 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="SpireEnigmasCode\Cards\chronicle\rare\" />
         <Folder Include="SpireEnigmasCode\Nodes\Vfx\" />
         <Folder Include="SpireEnigmasCode\Piles\" />
-        <Folder Include="SpireEnigmas\images\powers\big\" />
         <Folder Include="SpireEnigmas\images\ui\" />
         <Folder Include="SpireEnigmas\materials\" />
     </ItemGroup>

@@ -32,7 +32,7 @@ class ChirpEnergyPatch
          */
         
         //step 1: if the card is a command, we can only play it if our chirp battery is >= its cost
-        if (card.Keywords.Contains(EnigmaEnums.Command))
+        if (card.Keywords.Contains(EnigmaKeywords.Command))
         {
             /*
              * If we think we can play this card, but our Chirp battery is less than its cost,
@@ -90,7 +90,7 @@ class SpendChirpBatteryCostPatch
             Chirp chirpMonster = (Chirp) playerChirp.Monster;
             chirpMonster.SpendEnergy(calculatedBatteryCost);
 
-            if (__instance.Keywords.Contains(EnigmaEnums.Command))
+            if (__instance.Keywords.Contains(EnigmaKeywords.Command))
             {
                 amount = 0;
                 return;

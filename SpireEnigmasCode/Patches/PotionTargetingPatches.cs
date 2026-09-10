@@ -16,8 +16,8 @@ using SpireEnigmas.SpireEnigmasCode.Util;
 namespace SpireEnigmas.SpireEnigmasCode.Patches;
 
 /*
- * These patches are isolated from the rest because I expect them to become redundant at some point in the future,
- * when Baselib's custom targeting better supports potions.
+ * These patches are isolated from the rest because I expect some or all of them to become redundant at some point
+ * in the future, when Baselib's custom targeting better supports potions.
  */
 public class PotionTargetingPatches
 {
@@ -31,16 +31,22 @@ public class PotionTargetingPatches
         //typeof(GigantificationPotion),
         typeof(MazalethsGift)
     ];
+
+    public static Func<Creature, Player, bool> ChirpPotionCanTargetFunction => (target, player) =>
+        target.IsAlive && ((target.Monster is Chirp && target.PetOwner == player) || target.IsPlayer);
 }
 
+/*
+ * Adds the targeting type to the list of registered targeting types
+ */
 [HarmonyPatch(typeof(ModelDb), "Init")]
 internal static class ModelDbTargetTypeInitPatch
 {
     [HarmonyPostfix]
     private static void RegisterTargetTypes()
     {
-        CustomTargetType.RegisterSingleTargetType(EnigmaEnums.ChirpOrAnyPlayer,
-            (target, player) => target.IsAlive && ((target.Monster is Chirp && target.PetOwner == player) || target.IsPlayer));
+        CustomTargetType.RegisterSingleTargetType(EnigmaTargetTypes.ChirpOrAnyPlayer,
+            PotionTargetingPatches.ChirpPotionCanTargetFunction);
     }
 }
 
@@ -65,7 +71,7 @@ internal static class PotionTargetingPatch
     {
         if (EnigmasHelper.GetChirpFromPlayer(__instance.Owner) is not null)
         {
-            __result = EnigmaEnums.ChirpOrAnyPlayer;
+            __result = EnigmaTargetTypes.ChirpOrAnyPlayer;
         }
     }
 }
@@ -77,12 +83,9 @@ internal class IsValidTargetPatch
     static bool CustomValidTargets(PotionModel __instance, Creature? target, ref bool __result)
     {
         if (target == null) return true;
-        if (__instance.TargetType == EnigmaEnums.ChirpOrAnyPlayer)
+        if (__instance.TargetType == EnigmaTargetTypes.ChirpOrAnyPlayer)
         {
-            Func<Creature, Player, bool> func = (target, player) =>
-                target.IsAlive && ((target.Monster is Chirp && target.PetOwner == player) || target.IsPlayer);
-            
-            __result = func.Invoke(target, __instance.Owner);
+            __result = PotionTargetingPatches.ChirpPotionCanTargetFunction.Invoke(target, __instance.Owner);
             return false;
         }
         //CustomTargetType.SingleTargeting.TryGetValue(__instance.TargetType, out var func);
@@ -90,13 +93,19 @@ internal class IsValidTargetPatch
     }
 }
 
+/*
+ * This is a naive way of patching PotionModel#CanThrowAtAlly which is needed for the selector to appear.
+ * I don't think you need this if you use RitsuLib, if people in modding channel are to be believed.
+ *
+ * Likely to become redundant eventually
+ */
 [HarmonyPatch(typeof(PotionModel), nameof(PotionModel.CanThrowAtAlly))]
 class PotionOnAllyPatch
 {
     [HarmonyPostfix]
     static void AllowTargetedThrowing(PotionModel __instance, ref bool __result)
     {
-        if (__instance.TargetType == EnigmaEnums.ChirpOrAnyPlayer)
+        if (__instance.TargetType == EnigmaTargetTypes.ChirpOrAnyPlayer)
         {
             __result = true;
         }

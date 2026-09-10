@@ -20,7 +20,7 @@ namespace SpireEnigmas.SpireEnigmasCode.Powers;
 
 public class SuspendDisbeliefPower : SpireEnigmaPower,
     IAfterStoryEnd,
-    IShouldRenderStory
+    IRenderStory
 {
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.None;
@@ -28,7 +28,7 @@ public class SuspendDisbeliefPower : SpireEnigmaPower,
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
         HoverTipFactory.FromCardWithCardHoverTips<SuspendDisbelief>();
 
-    public async Task AfterStoryEnd(PlayerChoiceContext context, Player player)
+    public async Task AfterStoryEnd(PlayerChoiceContext context, Player player, List<CardModel> storyState)
     {
         if (player != Owner.Player) return;
         Flash();

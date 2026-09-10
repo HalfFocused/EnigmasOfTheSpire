@@ -19,10 +19,18 @@ namespace SpireEnigmas.SpireEnigmasCode.Powers;
 
 public class BlockNextStoryPower : SpireEnigmaPower,
     IAfterStoryStart,
-    IShouldRenderStory
+    IAfterStoryEnd,
+    IRenderStory
 {
     public override PowerType Type => PowerType.Buff;
     public override PowerStackType StackType => PowerStackType.Counter;
+
+    /*
+     * Simple internal state where the power checks if it's seen a Story end or not.
+     * This is to prevent when you gain this power as a result of playing a card into Chapter 1.
+     * The story start hooks are dispatched immediately after, but it shouldn't count this Story as next Story.
+     */
+    private bool _seenStoryEnd = false;
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
         StoryHoverTip(),
@@ -32,8 +40,19 @@ public class BlockNextStoryPower : SpireEnigmaPower,
     public async Task AfterStoryStart(PlayerChoiceContext context, Player player)
     {
         if (player != Owner.Player) return;
-        Flash();
-        await CreatureCmd.GainBlock(Owner, Amount, ValueProp.Unpowered, null, true);
-        await PowerCmd.Remove(this);
+
+        if (_seenStoryEnd)
+        {
+            Flash();
+            await CreatureCmd.GainBlock(Owner, Amount, ValueProp.Unpowered, null, true);
+            await PowerCmd.Remove(this);
+        }
+    }
+
+    public async Task AfterStoryEnd(PlayerChoiceContext choiceContext, Player player, List<CardModel> storyState)
+    {
+        if (player != Owner.Player) return;
+
+        _seenStoryEnd = true;
     }
 }

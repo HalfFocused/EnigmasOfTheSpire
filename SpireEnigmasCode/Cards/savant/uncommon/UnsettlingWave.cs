@@ -17,7 +17,7 @@ public class UnsettlingWave() : SpireEnigmasCard.SavantCard(1, CardType.Skill, C
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
-        EnigmaEnums.Command
+        EnigmaKeywords.Command
     ];
     
     protected override bool ShouldGlowRedInternal => GetChirp == null;

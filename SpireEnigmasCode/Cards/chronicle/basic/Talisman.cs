@@ -12,7 +12,7 @@ using SpireEnigmas.SpireEnigmasCode.Util;
 namespace SpireEnigmas.SpireEnigmasCode.Cards.chronicle.basic;
 
 public class Talisman() : SpireEnigmasCard.ChronicleCard(0, CardType.Skill, CardRarity.Basic, TargetType.Self),
-    IShouldRenderStory,
+    IRenderStory,
     ITranscendenceCard
 {
     protected override HashSet<CardTag> CanonicalTags => [

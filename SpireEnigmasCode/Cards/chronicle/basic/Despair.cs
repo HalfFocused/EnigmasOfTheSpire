@@ -10,13 +10,13 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.chronicle.basic;
 
-public class Despair() : SpireEnigmasCard.ChronicleCard(1, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy),
-    IShouldRenderStory
+public class Despair() : SpireEnigmasCard.ChronicleCard(2, CardType.Attack, CardRarity.Basic, TargetType.AnyEnemy),
+    IRenderStory
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(7M, ValueProp.Move),
-        new PowerVar<FeeblePower>( 1M)
+        new PowerVar<FeeblePower>( 2M)
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => 

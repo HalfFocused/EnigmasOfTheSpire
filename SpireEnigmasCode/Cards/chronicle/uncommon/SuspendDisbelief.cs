@@ -2,6 +2,7 @@
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Events;
@@ -10,13 +11,16 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 namespace SpireEnigmas.SpireEnigmasCode.Cards.chronicle.uncommon;
 
 public class SuspendDisbelief() : SpireEnigmasCard.ChronicleCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self),
-    IShouldRenderStory
+    IRenderStory
 {
-    public override bool GainsBlock => true;
-    
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new EnergyVar(3)
+    ];
+    
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        StoryHoverTip()
     ];
 
     protected override async Task OnPlay(

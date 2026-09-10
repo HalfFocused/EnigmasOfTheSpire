@@ -33,7 +33,7 @@ public class RadialPulse() : SpireEnigmasCard.SavantCard(2, CardType.Attack, Car
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
-        EnigmaEnums.Command
+        EnigmaKeywords.Command
     ];
 
     protected override async Task OnPlay(

@@ -20,7 +20,7 @@ namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.uncommon;
 public class ScatteredShots() : SpireEnigmasCard.SavantCard(3, CardType.Attack, CardRarity.Uncommon, TargetType.RandomEnemy)
 {
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
-        EnigmaEnums.Command
+        EnigmaKeywords.Command
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [

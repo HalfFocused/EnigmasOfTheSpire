@@ -4,6 +4,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
@@ -21,6 +22,11 @@ public class FeeblePower : SpireEnigmaPower, IAfterStoryEnd
         new ("DamageDecrease", 0.75M)
     ];
     
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        StoryHoverTip()
+    ];
+    
     public override Decimal ModifyDamageMultiplicative(
         Creature? target,
         Decimal amount,
@@ -31,13 +37,13 @@ public class FeeblePower : SpireEnigmaPower, IAfterStoryEnd
     {
         if (props.IsPoweredAttack() && dealer == Owner)
         {
-            return DynamicVars["DamageDecrease"].BaseValue;;
+            return DynamicVars["DamageDecrease"].BaseValue;
         }
 
         return 1;
     }
 
-    public async Task AfterStoryEnd(PlayerChoiceContext choiceContext, Player player)
+    public async Task AfterStoryEnd(PlayerChoiceContext choiceContext, Player player, List<CardModel> storyState)
     {
         await PowerCmd.TickDownDuration(this);
     }

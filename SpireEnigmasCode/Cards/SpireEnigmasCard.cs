@@ -128,4 +128,6 @@ public abstract class SpireEnigmasCard(int cost, CardType type, CardRarity rarit
     {
         return StoryFields.ChapterPlayedInto.Get(this);
     }
+    
+    protected bool IsRefined => RefinementFields.IsRefined.Get(this);
 }

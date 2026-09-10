@@ -28,7 +28,7 @@ public class Logistics() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRa
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
-        EnigmaEnums.Command
+        EnigmaKeywords.Command
     ];
 
     protected override async Task OnPlay(

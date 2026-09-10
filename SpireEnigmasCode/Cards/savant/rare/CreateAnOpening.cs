@@ -23,7 +23,7 @@ public class CreateAnOpening() : SpireEnigmasCard.SavantCard(2, CardType.Power, 
     protected override bool IsPlayable => GetChirp is not null;
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
-        EnigmaEnums.Command
+        EnigmaKeywords.Command
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [

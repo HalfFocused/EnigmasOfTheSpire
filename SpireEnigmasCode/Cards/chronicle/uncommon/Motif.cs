@@ -2,7 +2,9 @@
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Events;
 
@@ -10,10 +12,15 @@ namespace SpireEnigmas.SpireEnigmasCode.Cards.chronicle.uncommon;
 
 public class Motif() : SpireEnigmasCard.ChronicleCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self),
     IAfterStoryEnd,
-    IShouldRenderStory
+    IRenderStory
 {
     private bool PlayedDuringStory = false;
     public override bool GainsBlock => true;
+    
+    protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+    [
+        StoryHoverTip()
+    ];
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -35,7 +42,7 @@ public class Motif() : SpireEnigmasCard.ChronicleCard(1, CardType.Skill, CardRar
         DynamicVars.Block.UpgradeValueBy(3M);
     }
 
-    public async Task AfterStoryEnd(PlayerChoiceContext choiceContext, Player player)
+    public async Task AfterStoryEnd(PlayerChoiceContext choiceContext, Player player, List<CardModel> storyState)
     {
         PileType? pileType = Pile?.Type;
         if (PlayedDuringStory && pileType is not null && pileType != PileType.Hand)

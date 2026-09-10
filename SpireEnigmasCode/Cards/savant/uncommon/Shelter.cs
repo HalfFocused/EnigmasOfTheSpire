@@ -23,7 +23,7 @@ public class Shelter() : SpireEnigmasCard.SavantCard(0, CardType.Skill, CardRari
 
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
-        EnigmaEnums.Command
+        EnigmaKeywords.Command
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [

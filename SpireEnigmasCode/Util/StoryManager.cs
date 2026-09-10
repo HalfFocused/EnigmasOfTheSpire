@@ -23,7 +23,7 @@ public class StoryManager() : CustomSingletonModel(HookType.Combat)
     private const int DefaultStoryLength = 5;
 
     /*
-     * It's surprisingly hard to robustly check "is card X in Chapter Y" do to the variety of timings we might ask that
+     * It's surprisingly hard to robustly check "is card X in Chapter Y" due to the variety of timings we might ask that
      * question during.
      *
      * Thus, the method for performing this check also expects a timing.
@@ -51,18 +51,17 @@ public class StoryManager() : CustomSingletonModel(HookType.Combat)
         NonActive
     }
     
-    public override async Task AfterRoomEntered(AbstractRoom room)
+    public override async Task AfterPlayerTurnStart(PlayerChoiceContext choiceContext, Player player)
     {
-        if (!(room is CombatRoom combatRoom))
+        if (player.PlayerCombatState!.TurnNumber != 1)
             return;
-
-        foreach (Player player in combatRoom.CombatState.Players)
-        {
-            StoryFields.PlayerStory.Set(player, []);
-            StoryFields.PlayerStoryMaxLength.Set(player, DefaultStoryLength);
-            StoryFields.RunEndPlayerStoryHooks.Set(player, false);
-            StoryFields.RunStartPlayerStoryHooks.Set(player, false);
-        }
+       
+        StoryFields.PlayerStory.Set(player, []);
+        StoryFields.PlayerStoryMaxLength.Set(player, DefaultStoryLength);
+        /*
+         * We make this one true so that Story start hooks are dispatched on the first card of the combat.
+         */
+        StoryFields.PlayerStoryEnded.Set(player, true);
     }
 
     public override async Task BeforeCardPlayed(CardPlay cardPlay)
@@ -70,50 +69,22 @@ public class StoryManager() : CustomSingletonModel(HookType.Combat)
         CardModel card = cardPlay.Card;
         Player player = card.Owner;
         
-        //if(cardPlay.IsAutoPlay) return;
-
         List<CardModel>? cards = StoryFields.PlayerStory.Get(player);
 
         if (cards is null) throw new Exception("Player Story was null!");
         
-        if (cards.Count == StoryFields.PlayerStoryMaxLength.Get(player))
-        {
-            cards.Clear();
-            StoryFields.RunStartPlayerStoryHooks.Set(player, true);
-        }
-        
-        cards.Add(card.CreateClone());
-        StoryFields.ChapterPlayedInto.Set(card, cards.Count);
-        
-        if (cards.Count == StoryFields.PlayerStoryMaxLength.Get(player))
-        {
-            await EndStory(player, card.CombatState, false);
-        }
-            
-        UpdateStoryVisuals(player, card.CombatState);
-    }
 
-    /*
-     * Marks the Story to be ended after this the current card resolution.
-     * We don't do it immediately so that strange timings don't make card previews inaccurate.
-     * This might be able to be retrofitted so that external ends do run hooks immediately,
-     * as long as I make sure to not put any card effects after an end turn that might care.
-     */
-    public static async Task EndStory(Player player, ICombatState combatState, bool external = true)
-    {
-        if (external)
+        bool canNeverEnterStory = cardPlay.IsAutoPlay || card.IsDupe || !cardPlay.IsFirstInSeries;
+
+        if (canNeverEnterStory)
         {
-            List<CardModel>? cards = StoryFields.PlayerStory.Get(player);
-            cards.Clear();
+            StoryFields.AllowedToEnterStory.Set(card, false);
+            return;
         }
-        StoryFields.RunEndPlayerStoryHooks.Set(player, true);
-        UpdateStoryVisuals(player, combatState);
-    }
-    
-    public static async Task SetStoryLength(Player player, ICombatState combatState, int length)
-    {
-        StoryFields.PlayerStoryMaxLength.Set(player, length);
-        UpdateStoryVisuals(player, combatState);
+        
+        //This needs to be set now for resolution-time checks
+        StoryFields.AllowedToEnterStory.Set(card, IsCardAllowedToEnterStory(card.CombatState!, player, card));
+        StoryFields.ChapterPlayedInto.Set(card, NextCardChapter(player));
     }
     
     public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
@@ -121,33 +92,84 @@ public class StoryManager() : CustomSingletonModel(HookType.Combat)
         CardModel card = cardPlay.Card;
         Player player = card.Owner;
         
+        if(!StoryFields.AllowedToEnterStory.Get(card)) return;
+        
         List<CardModel>? cards = StoryFields.PlayerStory.Get(player);
         
-        
         /*
-         * We end the story *after* the card that ended it finishes playing.
-         * This is so that things don't go away after the card is played but before it happens.
-         * Can lead to weird card-in-card scenarios where card A marks the story to be finished
-         * when played, queues card B as part of its resolution (which enters the next story), card B
-         * benefits from the current story, then the current story hooks are dispatched.
+         * if the player story was ended, start a new story by clearing the cards and dispatching story start hooks
+         * we can't just check if the story is full because of forceful story ending effects.
+         * this field also starts as true (which is imprecise i guess) to make the first card also do this
          */
-        if (StoryFields.RunEndPlayerStoryHooks.Get(player))
+        if (StoryFields.PlayerStoryEnded.Get(player))
         {
-            await EnigmaHooks.Dispatch<IAfterStoryEnd>(card.CombatState, m => m.AfterStoryEnd(choiceContext, player));
-            StoryFields.RunEndPlayerStoryHooks.Set(player, false);
-        }
-        
-        /*
-         * This happens after
-         */
-        
-        if (StoryFields.RunStartPlayerStoryHooks.Get(player))
-        {
+            cards.Clear();
+            UpdateStoryVisuals(player, card.CombatState);
             await EnigmaHooks.Dispatch<IAfterStoryStart>(card.CombatState, m => m.AfterStoryStart(choiceContext, player));
-            StoryFields.RunStartPlayerStoryHooks.Set(player, false);
+            
+            StoryFields.PlayerStoryEnded.Set(player, false);
         }
         
-        StoryFields.ChapterPlayedInto.Set(card, -1);
+        cards.Add(card.CreateClone());
+        UpdateStoryVisuals(player, card.CombatState);
+        
+        //If this card led to the story being full, end the current story (without clearing it, for clarity)
+        if (cards.Count == PlayerMaxStoryLength(player))
+        {
+            await EndStory(choiceContext, player, card.CombatState!, false);
+        }
+        
+        //now that the card is done, set its internal resolution chapter field back to 0
+        StoryFields.AllowedToEnterStory.Set(card, true);
+        StoryFields.ChapterPlayedInto.Set(card, 0);
+    }
+
+    /*
+     * End the Story
+     * Hooks are dispatched for an ended story. The hook carries a copy of the state of the story.
+     * When this happens naturally, the story isn't emptied until the next card is played (mostly for clarity)
+     * When this is made to happen forcefully, the story is immediately cleared (also for clarity)
+     *
+     * Because forcefully ending the Story can change enemy + player powers, it should go after card effects that might
+     * depend on those powers, like damage and block. In general, assume it should go last in a list of card effects.
+     */
+    public static async Task EndStory(PlayerChoiceContext choiceContext, Player player, ICombatState combatState, bool andEmpty = true)
+    {
+        List<CardModel> cards = StoryFields.PlayerStory.Get(player)!;
+        await EnigmaHooks.Dispatch<IAfterStoryEnd>(combatState, m => m.AfterStoryEnd(choiceContext, player, cards.ToList()));
+        if (andEmpty)
+        {
+            cards.Clear();
+        }
+        //mark player story as having been ended, so the next card play knows to start a new story
+        StoryFields.PlayerStoryEnded.Set(player, true);
+
+        UpdateStoryVisuals(player, combatState);
+    }
+    
+    /*
+     * Clear a player's Story. This is currently not used internally.
+     *
+     * Clearing the Story should usually be last on a card's list of effects for a similar reason to ending the story.
+     * Though clearing the Story doesn't dispatch hooks, it can still cause issues with in-chapter timings, like
+     * Chronicle's starter relic.
+     */
+    public static async Task ClearStory(PlayerChoiceContext choiceContext, Player player, ICombatState combatState)
+    {
+        List<CardModel> cards = StoryFields.PlayerStory.Get(player)!;
+        cards.Clear();
+        
+        UpdateStoryVisuals(player, combatState);
+    }
+    
+    /*
+     * Sets a player's default story length this combat
+     * (the length of the player's story before any hooks modify it.)
+     */
+    public static async Task SetDefaultStoryLength(Player player, ICombatState combatState, int length)
+    {
+        StoryFields.PlayerStoryMaxLength.Set(player, length);
+        UpdateStoryVisuals(player, combatState);
     }
 
     private static void UpdateStoryVisuals(Player player, ICombatState? combatState)
@@ -169,7 +191,7 @@ public class StoryManager() : CustomSingletonModel(HookType.Combat)
         }
         activeDisplays.Clear();
         
-        for (int i = 0; i < cards.Count; i++)
+        for (int i = 0; i < cards?.Count; i++)
         {
             CardModel? card = cards.ElementAtOrDefault(i);
             if (card is null) break;
@@ -177,15 +199,15 @@ public class StoryManager() : CustomSingletonModel(HookType.Combat)
             NCard? cardNode = NCard.Create(card);
             if(cardNode is null) break;
             
-            NPreviewCardHolder display = NPreviewCardHolder.Create(cardNode, true, true);
+            NPreviewCardHolder? display = NPreviewCardHolder.Create(cardNode, true, true);
 
-            int storyMaxLength = StoryFields.PlayerStoryMaxLength.Get(player);
+            int storyMaxLength = PlayerMaxStoryLength(player);
             
-            display.SetPosition(
-                (Vector2.Left * 125 * ((storyMaxLength - 1) / 2)) + 
-                (Vector2.Right * 125 * i) + 
-                Vector2.Up * 400);
-            display.SetCardScale(new Vector2(0.35f, 0.35f));
+            display?.SetPosition(
+                (Vector2.Left * 250 + 
+                (Vector2.Right * (500f / (storyMaxLength - 1)) * i) + 
+                Vector2.Up * 400));
+            display?.SetCardScale(new Vector2(0.35f, 0.35f));
             
             activeDisplays.Add(display);
             playerCreature.AddChildSafely(display);
@@ -195,22 +217,26 @@ public class StoryManager() : CustomSingletonModel(HookType.Combat)
     
     public static bool InChapter(CardModel card, int chapter, CardInChapterTimings timing)
     {
-        switch (timing)
+        if (!IsCardAllowedToEnterStory(card.CombatState, card.Owner, card)) return false;
+        return timing switch
         {
-            case CardInChapterTimings.BeforePlay:
-                return NextCardChapter(card.Owner) == chapter;
-            case CardInChapterTimings.Resolution:
-                return StoryFields.ChapterPlayedInto.Get(card) == chapter;
-            case CardInChapterTimings.BeforePlayAndResolution:
-                return InChapter(card, chapter, CardInChapterTimings.BeforePlay) ||
-                    InChapter(card, chapter, CardInChapterTimings.Resolution);
-            case CardInChapterTimings.NonActive:
-                return CardInChapter(card.Owner, chapter) == card;
-            default:
-                return false;
-        }
+            CardInChapterTimings.BeforePlay => NextCardChapter(card.Owner) == chapter,
+            CardInChapterTimings.Resolution => StoryFields.ChapterPlayedInto.Get(card) == chapter,
+            CardInChapterTimings.BeforePlayAndResolution => InChapter(card, chapter, CardInChapterTimings.BeforePlay) ||
+                                                            InChapter(card, chapter, CardInChapterTimings.Resolution),
+            CardInChapterTimings.NonActive => CardInChapter(card.Owner, chapter) == card,
+            _ => false
+        };
     }
-
+    
+    /// <summary>
+    /// Internal method for determining the next Chapter a card will be played into.
+    /// This method does not know if the card will actually be allowed to enter that spot or not.
+    /// It only knows where the card "should" end up.
+    /// </summary>
+    /// <param name="player"></param>
+    /// <param name="combatState"></param>
+    /// <returns></returns>
     public static int NextCardChapter(Player player)
     {
         int currentStoryLength = PlayerCurrentStoryLength(player);
@@ -231,20 +257,51 @@ public class StoryManager() : CustomSingletonModel(HookType.Combat)
         List<CardModel>? cards = StoryFields.PlayerStory.Get(player);
         return cards.ElementAtOrDefault(chapter - 1)?.CloneOf;
     }
-    
+
     public static int PlayerCurrentStoryLength(Player player)
     {
         List<CardModel>? cards = StoryFields.PlayerStory.Get(player);
         return cards.Count;
     }
     
+    /*
+     * Returns the current maximum length of a player's story.
+     * The value starts with the player's PlayerStoryMaxLength field and then is modified by IModifyStoryLength hooks.
+     */
     public static int PlayerMaxStoryLength(Player player)
     {
-        return StoryFields.PlayerStoryMaxLength.Get(player);
+        int defaultStoryLength = StoryFields.PlayerStoryMaxLength.Get(player);
+        return EnigmaHooks.Modify<IModifyStoryLength, int>(player.Creature.CombatState, defaultStoryLength, (m, amount) => m.ModifyStoryLength(amount, player), out _);
     }
     
     private static bool ShouldDoVfx(ICombatState combatState)
     {
-        return combatState.IterateHookListeners().OfType<IShouldRenderStory>().Any();
+        return combatState.IterateHookListeners().OfType<IRenderStory>().Any();
+    }
+
+    /// <summary>
+    /// Returns whether or not a card is allowed to enter the Story.
+    /// This is important to know even before resolution time to stop cards conditional on being in certain chapter from "glowing" or previewing inaccurately.
+    /// The result of this method is used for the public-facing NextCardChapter method.
+    /// </summary>
+    /// <param name="combatState">The Combat State needed make this check.</param>
+    /// <param name="player">The player we are performing the check on. We cannot just get this from the card because card is a nullable field.</param>
+    /// <param name="card">The specific card being checked. If null, the check is asking if *any* card is allowed to enter the story.</param>
+    /// <returns>True if the card is allowed to enter the story. False otherwise.</returns>
+    public static bool IsCardAllowedToEnterStory(ICombatState combatState, Player player, CardModel? card)
+    {
+        return !EnigmaHooks.Any<IShouldPreventCardAddedToStory>(combatState,
+            m => m.ShouldPreventCardAddedToStory(player, card));
+    }
+
+    /*
+     * Returns the Player's current story.
+     * Remember the story holds clones of cards- not the actual cards themselves.
+     */
+    public static List<CardModel> GetStoryState(Player player)
+    {
+        List<CardModel>? cards = StoryFields.PlayerStory.Get(player);
+        if (cards is null) throw new Exception("Player Story was null!");
+        return cards;
     }
 }

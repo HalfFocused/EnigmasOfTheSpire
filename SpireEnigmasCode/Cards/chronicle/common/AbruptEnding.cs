@@ -10,7 +10,7 @@ using SpireEnigmas.SpireEnigmasCode.Util;
 namespace SpireEnigmas.SpireEnigmasCode.Cards.chronicle.common;
 
 public class AbruptEnding() : SpireEnigmasCard.ChronicleCard(1, CardType.Attack, CardRarity.Common, TargetType.AllEnemies),
-    IShouldRenderStory
+    IRenderStory
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
@@ -26,7 +26,7 @@ public class AbruptEnding() : SpireEnigmasCard.ChronicleCard(1, CardType.Attack,
         CardPlay play)
     {
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).TargetingAllOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
-        await StoryManager.EndStory(Owner, CombatState);
+        await StoryManager.EndStory(choiceContext, Owner, CombatState);
     }
     
     protected override void OnUpgrade() => DynamicVars.Damage.UpgradeValueBy(3);

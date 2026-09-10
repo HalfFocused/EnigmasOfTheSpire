@@ -22,7 +22,7 @@ public class Beam() : SpireEnigmasCard.SavantCard(0, CardType.Attack, CardRarity
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
-        EnigmaEnums.Command
+        EnigmaKeywords.Command
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [

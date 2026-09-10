@@ -17,8 +17,13 @@ public class Splice() : SpireEnigmasCard.ChronicleCard(3, CardType.Attack, CardR
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new BlockVar(12, ValueProp.Move),
-        new DamageVar(20M, ValueProp.Move)
+        new BlockVar(10, ValueProp.Move),
+        new DamageVar(18M, ValueProp.Move)
+    ];
+    
+    public override IEnumerable<CardKeyword> CanonicalKeywords => 
+    [
+        CardKeyword.Retain
     ];
     
     public override bool GainsBlock => true;

@@ -285,8 +285,12 @@
   "SPIREENIGMAS-CHIRP_DOUBLE_BLOCK_POWER.smartDescription": "#The next {Amount:plural:time|[blue]{Amount}[/blue] times} *Chirp* gives you *Block* from a card, double the amount given.",
 
   "SPIREENIGMAS-FEEBLE_POWER.title": "Feeble",
-  "SPIREENIGMAS-FEEBLE_POWER.description": "Deals [blue]25%[/blue] less damage. Lasts [gold]Stories[/gold] instead of turns.",
-  "SPIREENIGMAS-FEEBLE_POWER.smartDescription": "#Deals [blue]25%[/blue] less damage. Lasts [blue]{Amount}[/blue] [gold]{Amount:plural:Story|Stories}[/gold].",
+  "SPIREENIGMAS-FEEBLE_POWER.description": "[gold]Feeble[/gold] creatures deal [blue]25%[/blue] less damage with Attacks. Lasts [gold]Stories[/gold] instead of turns.",
+  "SPIREENIGMAS-FEEBLE_POWER.smartDescription": "#Deals [blue]25%[/blue] less damage with Attacks. Lasts [blue]{Amount}[/blue] [gold]{Amount:plural:Story|Stories}[/gold].",
+
+  "SPIREENIGMAS-SUSCEPTIBLE_POWER.title": "Susceptible",
+  "SPIREENIGMAS-SUSCEPTIBLE_POWER.description": "[gold]Susceptible[/gold] creatures take [blue]50%[/blue] more damage from Attacks. Lasts [gold]Stories[/gold] instead of turns.",
+  "SPIREENIGMAS-SUSCEPTIBLE_POWER.smartDescription": "#Takes [blue]50%[/blue] more damage from Attacks. Lasts [blue]{Amount}[/blue] [gold]{Amount:plural:Story|Stories}[/gold].",
 
   "SPIREENIGMAS-HOOK_POWER.title": "Hook",
   "SPIREENIGMAS-HOOK_POWER.description": "nobody should see this",
@@ -298,5 +302,54 @@
 
   "SPIREENIGMAS-SUSPEND_DISBELIEF_POWER.title": "Suspend Disbelief",
   "SPIREENIGMAS-SUSPEND_DISBELIEF_POWER.description": "nobody should see this",
-  "SPIREENIGMAS-SUSPEND_DISBELIEF_POWER.smartDescription": "#At the end of this *Story*, end your turn."
+  "SPIREENIGMAS-SUSPEND_DISBELIEF_POWER.smartDescription": "#At the end of this *Story*, end your turn.",
+
+  "SPIREENIGMAS-CUSTOM_STORY_TEMPORARY_POWER_MODEL.UP.description": "Increase a [gold]Power[/gold] for some time.",
+  "SPIREENIGMAS-CUSTOM_STORY_TEMPORARY_POWER_MODEL.UP.smartDescription": "Gain [blue]{Amount:abs()}[/blue] [gold]{TemporaryPowerTitle}[/gold] until the end of this [gold]Story[/gold].",
+  "SPIREENIGMAS-CUSTOM_STORY_TEMPORARY_POWER_MODEL.DOWN.description": "Decrease a [gold]Power[/gold] for some time.",
+  "SPIREENIGMAS-CUSTOM_STORY_TEMPORARY_POWER_MODEL.DOWN.smartDescription": "Lose [blue]{Amount:abs()}[/blue] [gold]{TemporaryPowerTitle}[/gold] until the end of this [gold]Story[/gold].",
+
+  "SPIREENIGMAS-THE_SWORD_POWER.title": "The Sword",
+  "SPIREENIGMAS-THE_SWORD_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-THE_SWORD_POWER.smartDescription": "#At the end of {Amount:plural:this [gold]Story[/gold]|[blue]{Amount}[/blue] [gold]Stories[/gold]}, the enemy loses !D! HP.",
+
+  "SPIREENIGMAS-MULTITUDES_POWER.title": "Multitudes",
+  "SPIREENIGMAS-MULTITUDES_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-MULTITUDES_POWER.smartDescription": "#At the start of your turn, draw [blue]{Amount}[/blue] additional card(s).",
+
+  "SPIREENIGMAS-WRITING_ON_THE_WALL_POWER.title": "Writing On The Wall",
+  "SPIREENIGMAS-WRITING_ON_THE_WALL_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-WRITING_ON_THE_WALL_POWER.smartDescription": "#This *Story* has [blue]{Amount}[/blue] extra *Chapters*.",
+
+  "SPIREENIGMAS-REFRAIN_POWER.title": "Refrain",
+  "SPIREENIGMAS-REFRAIN_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-REFRAIN_POWER.smartDescription": "#Whenever you play a card you *Retained* last turn, gain [blue]{Amount}[/blue] *Block*.",
+
+  "SPIREENIGMAS-IN_THE_MARGINS_POWER.title": "In The Margins",
+  "SPIREENIGMAS-IN_THE_MARGINS_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-IN_THE_MARGINS_POWER.smartDescription": "#At the end of your turn, draw [blue]{Amount}[/blue] card(s).",
+
+  "SPIREENIGMAS-INK_POWER.title": "Ink",
+  "SPIREENIGMAS-INK_POWER.description": "#Whenever you gain *Block* from a card, spend [blue]4[/blue] *Ink* to double the amount of *Block* gained.",
+  "SPIREENIGMAS-INK_POWER.smartDescription": "#Whenever you gain *Block* from a card, spend [blue]4[/blue] *Ink* to double the amount of *Block* gained.",
+
+  "SPIREENIGMAS-INKWELL_POWER.title": "Inkwell",
+  "SPIREENIGMAS-INKWELL_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-INKWELL_POWER.smartDescription": "#At the start of each *Story*, gain [blue]{Amount}[/blue] *Ink*.",
+
+  "SPIREENIGMAS-WRITERS_BLOCK_POWER.title": "Writer's Block",
+  "SPIREENIGMAS-WRITERS_BLOCK_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-WRITERS_BLOCK_POWER.smartDescription": "#At the end of your turn, gain [blue]{Amount}[/blue] *Block* for each empty *Chapter* in your *Story*.",
+
+  "SPIREENIGMAS-ONE_STEP_AHEAD_POWER.title": "One Step Ahead",
+  "SPIREENIGMAS-ONE_STEP_AHEAD_POWER.description": "",
+  "SPIREENIGMAS-ONE_STEP_AHEAD_POWER.smartDescription": "#The first time you play a card you *Retained* last turn each turn, gain {Amount:energyIcons()}.",
+
+  "SPIREENIGMAS-ON_THE_WIND_POWER.title": "On The Wind",
+  "SPIREENIGMAS-ON_THE_WIND_POWER.description": "",
+  "SPIREENIGMAS-ON_THE_WIND_POWER.smartDescription": "#At the start of each *Story*, draw [blue]{Amount}[/blue] card(s).",
+
+  "SPIREENIGMAS-RISING_ACTION_POWER.title": "Rising Action",
+  "SPIREENIGMAS-RISING_ACTION_POWER.description": "",
+  "SPIREENIGMAS-RISING_ACTION_POWER.smartDescription": "#At the start of each *Story*, gain [blue]{Amount}[/blue] *Strength*."
 }

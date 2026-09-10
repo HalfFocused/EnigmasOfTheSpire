@@ -14,6 +14,7 @@ using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Hooks;
 using MegaCrit.Sts2.Core.Localization;
+using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Potions;
 using MegaCrit.Sts2.Core.Models.Powers;
@@ -51,11 +52,31 @@ class StoryFields
     public static readonly SpireField<Player, List<CardModel>> PlayerStory = new(()=>[]);
     
     public static readonly SpireField<Player, int> PlayerStoryMaxLength = new(()=>5);
-    public static readonly SpireField<Player, bool> RunEndPlayerStoryHooks = new(()=>false);
-    public static readonly SpireField<Player, bool> RunStartPlayerStoryHooks = new(()=>false);
+    public static readonly SpireField<Player, bool> PlayerStoryEnded = new(()=>false);
     
-    public static readonly SpireField<CardModel, int> ChapterPlayedInto = new(()=>-1);
+    /// <summary>
+    /// Before a card resolves, this field is set equal to the chapter that card "should" end up in.
+    /// It may not actually end up here! Its entry may be prevented.
+    /// For internal use only! Do not check these fields and expect them to be accurate at any arbitrary time!
+    /// </summary>
+    public static readonly SpireField<CardModel, int> ChapterPlayedInto = new(()=>0);
+    
+    /// <summary>
+    /// Before a card resolves, this field updated to know if it is being allowed entry into the story.
+    /// For internal use only! Do not check these fields and expect them to be accurate at any arbitrary time!
+    /// </summary>
+    public static readonly SpireField<CardModel, bool> AllowedToEnterStory = new(()=>true);
+}
 
+class RefinementFields
+{
+    public static readonly SpireField<CardModel, bool> IsRefined = new SpireField<CardModel, bool>(()=>false).CopyOnClone();
+    public static readonly SpireField<DynamicVar, int> RefineBy = new(()=>0);
+}
+
+class RetainTrackingField
+{
+    public static readonly SpireField<CardModel, bool> RetainedLastTurn = new(()=>false);
 }
 
 [HarmonyPatch(typeof(ScrollBoxes), nameof(ScrollBoxes.GenerateRandomBundles))]
@@ -106,6 +127,22 @@ class PowerNodeInfinityDisplayPatch
     }
 }
 
+[HarmonyPatch(typeof(DynamicVar), nameof(DynamicVar.ToHighlightedString))]
+class DynamicVarDisplayRefinementPatch
+{
+    [HarmonyPostfix]
+    static void AddRefinementAmount(DynamicVar __instance, bool inverse, ref string __result)
+    {
+        if (__instance._owner is not CardModel card) return;
+        int refineBy = RefinementFields.RefineBy.Get(__instance);
+        bool isRefined = RefinementFields.IsRefined.Get(card);
+        if (!isRefined && refineBy != 0)
+        {
+            __result += "[color=light_steel_blue](" + (refineBy > 0 ? "+" : "") + refineBy + ")[/color]";
+        }
+    }
+}
+
 /*
  * Modify the description of the Foretold power if it is infinite.
  */
@@ -122,6 +159,16 @@ class ForetoldPowerDescriptionPatch
                 __result = new LocString("powers", ((ForetoldPower)__instance).InfiniteDescriptionLocKey);
             }
         }
+    }
+}
+
+[HarmonyPatch(typeof(DynamicVar), nameof(DynamicVar.Clone))]
+class CloneRefinementAmountPatch
+{
+    [HarmonyPostfix]
+    static void CloneRefinementAmount(DynamicVar __instance, ref DynamicVar __result)
+    {
+        RefinementFields.RefineBy.Set(__result, RefinementFields.RefineBy.Get(__instance));
     }
 }
 
@@ -327,4 +374,34 @@ class CardGlowTweakPatch
         return oldColor;
     }
 }
+
+
+[HarmonyPatch(typeof(CombatManager), nameof(CombatManager.FlushPlayerHand), methodType:MethodType.Async)]
+class RefineRetainPatch
+{
+    [HarmonyTranspiler]
+    static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
+    {
+        var codeMatcher = new CodeMatcher(instructions, generator);
+
+        codeMatcher.MatchEndForward(
+            new CodeMatch(OpCodes.Brfalse_S),
+            new CodeMatch(OpCodes.Ldloc_S),
+            new CodeMatch(OpCodes.Callvirt)
+        ).ThrowIfInvalid(
+            "Could not find ShouldRetain check."
+        ).InsertAfterAndAdvance(
+            new CodeInstruction(OpCodes.Ldloc_S, (byte)4),
+            CodeInstruction.Call(() => ShouldRetain(default, default))
+        );
+
+        return codeMatcher.Instructions();
+    }
+
+    static bool ShouldRetain(bool original, CardModel cardModel)
+    {
+        return original || (cardModel.Keywords.Contains(EnigmaKeywords.Refine) && !RefinementFields.IsRefined.Get(cardModel));
+    }
+}
+
 

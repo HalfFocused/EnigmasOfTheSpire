@@ -9,6 +9,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Monsters;
 using SpireEnigmas.SpireEnigmasCode.Cards.chronicle.other;
+using SpireEnigmas.SpireEnigmasCode.Events;
 using SpireEnigmas.SpireEnigmasCode.Powers;
 using SpireEnigmas.SpireEnigmasCode.Util;
 
@@ -16,7 +17,8 @@ namespace SpireEnigmas.SpireEnigmasCode.Cards.chronicle.ancient;
 
 public class Epitaph() : SpireEnigmasCard.ChronicleCard(1,
     CardType.Power, CardRarity.Ancient,
-    TargetType.Self)
+    TargetType.Self),
+    IRenderStory
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new ("ShortStoryLength", 3),
@@ -32,8 +34,8 @@ public class Epitaph() : SpireEnigmasCard.ChronicleCard(1,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await StoryManager.EndStory(Owner, CombatState);
-        
+        await StoryManager.EndStory(choiceContext, Owner, CombatState);
+
         CardModel shortChoice = CombatState.CreateCard(ModelDb.Card<StoryChoice>(), Owner);
         CardModel longChoice = CombatState.CreateCard(ModelDb.Card<StoryChoice>(), Owner);
         shortChoice.DynamicVars["IfChosenLength"].BaseValue = DynamicVars["ShortStoryLength"].BaseValue;
@@ -43,8 +45,7 @@ public class Epitaph() : SpireEnigmasCard.ChronicleCard(1,
         if (choice == null)
             return;
 
-        await StoryManager.EndStory(Owner, CombatState);
-        await StoryManager.SetStoryLength(Owner, CombatState, choice.DynamicVars["IfChosenLength"].IntValue);
+        await StoryManager.SetDefaultStoryLength(Owner, CombatState, choice.DynamicVars["IfChosenLength"].IntValue);
     }
 
     protected override void OnUpgrade()

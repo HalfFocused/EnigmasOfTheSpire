@@ -9,7 +9,7 @@ using SpireEnigmas.SpireEnigmasCode.Util;
 namespace SpireEnigmas.SpireEnigmasCode.Cards.chronicle.ancient;
 
 public class MorningsLight() : SpireEnigmasCard.ChronicleCard(0, CardType.Skill, CardRarity.Ancient, TargetType.Self),
-    IShouldRenderStory
+    IRenderStory
 
 {
     protected override HashSet<CardTag> CanonicalTags => [

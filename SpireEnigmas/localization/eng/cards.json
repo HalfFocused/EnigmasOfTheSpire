@@ -847,10 +847,10 @@
   "SPIREENIGMAS-ABRUPT_ENDING.description": "#Deal !D! damage to ALL enemies.\nEnd the *Story*.",
 
   "SPIREENIGMAS-EPITAPH.title": "Epitaph",
-  "SPIREENIGMAS-EPITAPH.description": "#End the *Story*.\nSet the length of your *Story* to !ShortStoryLength! or !LongStoryLength! this combat.",
+  "SPIREENIGMAS-EPITAPH.description": "#End the *Story*.\nSet the length of your *Story* to !ShortStoryLength! *Chapters* or !LongStoryLength! *Chapters* this combat.",
 
-  "SPIREENIGMAS-STORY_CHOICE.title": "Story Choice",
-  "SPIREENIGMAS-STORY_CHOICE.description": "#Set the length of your *Story* to !IfChosenLength!.",
+  "SPIREENIGMAS-STORY_CHOICE.title": "Epitaph",
+  "SPIREENIGMAS-STORY_CHOICE.description": "#Set the length of your *Story* to !IfChosenLength! *Chapters*.",
 
   "SPIREENIGMAS-HOOK.title": "Hook",
   "SPIREENIGMAS-HOOK.description": "#Attacks in *Chapter* *1* deal !HookPower! additional damage.",
@@ -868,5 +868,121 @@
   "SPIREENIGMAS-MOTIF.description": "#Gain !B! *Block*.\nAt the end of this *Story*, return this to your *Hand*.",
 
   "SPIREENIGMAS-SUSPEND_DISBELIEF.title": "Suspend Disbelief",
-  "SPIREENIGMAS-SUSPEND_DISBELIEF.description": "#Gain [E?].\nAt the end of this *Story*, end your turn."
+  "SPIREENIGMAS-SUSPEND_DISBELIEF.description": "#Gain [E?].\nAt the end of this *Story*, end your turn.",
+
+  "SPIREENIGMAS-EPHEMERAL.title": "Ephemeral",
+  "SPIREENIGMAS-EPHEMERAL.description": "#Gain !B! *Block*.\nIf this card is in your *Hand* at the end of the *Story*, it is *Exhausted*.",
+
+  "SPIREENIGMAS-INCITE.title": "Incite",
+  "SPIREENIGMAS-INCITE.description": "#Gain !B! *Block*.\nGain !StrengthPower! *Strength* this *Story*.",
+
+  "SPIREENIGMAS-THE_SWORD.title": "The Sword",
+  "SPIREENIGMAS-THE_SWORD.description": "#Deal !D! damage.\nAt the end of 3 *Stories*, the enemy loses !SwordDamage! HP.",
+
+  "SPIREENIGMAS-STUDY.title": "Study",
+  "SPIREENIGMAS-STUDY.description": "#Deal !CalculatedDamage! damage.\nDeals !ExtraDamage! additional damage for each unique Attack in your *Deck*{InRunButNotCombat: ({UniqueCards})|}.",
+
+  "SPIREENIGMAS-ADAPT.title": "Adapt",
+  "SPIREENIGMAS-ADAPT.description": "#Gain !B! *Block*.\nGain an additional !B! *Block* if you have !Threshold! or more unique Skills in your *Deck*{InRunButNotCombat: ({UniqueCards})|}.",
+
+  "SPIREENIGMAS-MULTITUDES.title": "Multitudes",
+  "SPIREENIGMAS-MULTITUDES.description": "#At the start of your turn, draw a card for each !Threshold! unique cards in your *Deck*{InRunButNotCombat: ({UniqueCards})|}.{InCombat:(Draw {DrawPerTurn} card{DrawPerTurn:plural:|s}.)|}",
+
+  "SPIREENIGMAS-LONG_QUIET.title": "Long Quiet",
+  "SPIREENIGMAS-LONG_QUIET.description": "#Add !C! random card(s) to your *Hand*.\nThey are free to play this combat if your *Deck* has no duplicate cards.",
+  
+  "SPIREENIGMAS-WRITING_ON_THE_WALL.title": "Writing On The Wall",
+  "SPIREENIGMAS-WRITING_ON_THE_WALL.description": "#Draw !C! card(s).\nAdd !Chapters! *Chapter(s)* to this *Story*.",
+
+  "SPIREENIGMAS-REPRESS.title": "Repress",
+  "SPIREENIGMAS-REPRESS.description": "#Deal !D! damage.\nThe enemy loses !StrengthPower! *Strength* this *Story*.",
+
+  "SPIREENIGMAS-CLIFFHANGER.title": "Cliffhanger",
+  "SPIREENIGMAS-CLIFFHANGER.description": "#Deal !D! damage.\nCan only be played in the last *Chapter*.",
+
+  "SPIREENIGMAS-BALANCE.title": "Balance",
+  "SPIREENIGMAS-BALANCE.description": "#Gain [E] for each prior *Chapter*.\nDraw a card for each later *Chapter*.{InCombat:\n(Gain {EnergyGain:energyIcons()} and draw {CardDraw} card{CardDraw:plural:|s}.)|}",
+
+  "SPIREENIGMAS-REVISIONS.title": "Revisions",
+  "SPIREENIGMAS-REVISIONS.description": "#Gain !B! *Block*.",
+
+  "SPIREENIGMAS-INSIGHT.title": "Insight" ,
+  "SPIREENIGMAS-INSIGHT.description": "#Deal !D! damage.\nDraw !C! card{Cards:plural:|s}.",
+
+  "SPIREENIGMAS-GHOST_HANDS.title": "Ghost Hands",
+  "SPIREENIGMAS-GHOST_HANDS.description": "#Draw !C! card{Cards:plural:|s}.\n{IsRefined:*Exhaust* 1 card.|[color=light_steel_blue](*Exhaust* 1 card.)[/color]}",
+
+  "SPIREENIGMAS-DRAMATIZE.title": "Dramatize",
+  "SPIREENIGMAS-DRAMATIZE.description": "#Deal !D! damage.",
+
+  "SPIREENIGMAS-HONE.title": "Hone",
+  "SPIREENIGMAS-HONE.description": "#Gain [E?]{IsRefined:|[color=light_steel_blue]({EnergyRefinement:energyIcons()})[/color]}.{IsRefined:|\n[color=light_steel_blue](*Exhaust*.)[/color]}",
+
+  "SPIREENIGMAS-WELL_READ.title": "Well-Read",
+  "SPIREENIGMAS-WELL_READ.description": "#Gain !StrengthPower! *Strength*.\nGain !DexterityPower! *Dexterity*.",
+
+  "SPIREENIGMAS-REACH_THROUGH.title": "Reach Through",
+  "SPIREENIGMAS-REACH_THROUGH.description": "#Deal !D! damage {IsRefined:to ALL enemies|[color=light_steel_blue](to ALL enemies)[/color]}.\nDraw !C! card(s).",
+
+  "SPIREENIGMAS-REFRAIN.title": "Refrain",
+  "SPIREENIGMAS-REFRAIN.description": "#Whenever you play a card you *Retained* last turn, gain !RefrainPower! *Block*.",
+
+  "SPIREENIGMAS-CONTRADICT.title": "Contradict",
+  "SPIREENIGMAS-CONTRADICT.description": "#Gain !B! *Block*.\nAdd *Retain* to a card in your *Hand*.",
+  "SPIREENIGMAS-CONTRADICT.selectionScreenPrompt": "#Choose {Amount} card(s) to *Retain*.",
+
+  "SPIREENIGMAS-IN_THE_MARGINS.title": "In The Margins",
+  "SPIREENIGMAS-IN_THE_MARGINS.description": "#At the end of your turn, draw !InTheMarginsPower! card(s).",
+
+  "SPIREENIGMAS-GHOSTRADE.title": "Ghostrade",
+  "SPIREENIGMAS-GHOSTRADE.description": "#Apply !FeeblePower! *Feeble*.\nApply !SusceptiblePower! *Susceptible*.",
+
+  "SPIREENIGMAS-SLAM.title": "Slam",
+  "SPIREENIGMAS-SLAM.description": "#Deal !D! damage.\nApply !SusceptiblePower! *Susceptible*.",
+
+  "SPIREENIGMAS-BRING_TO_FRUITION.title": "Bring To Fruition",
+  "SPIREENIGMAS-BRING_TO_FRUITION.description": "#Draw !C! card{Cards:plural:|s}.\nChoose a card in your *Hand* to play for free.",
+  "SPIREENIGMAS-BRING_TO_FRUITION.selectionScreenPrompt": "#Choose {Amount} card(s) to bring to fruition.",
+
+  "SPIREENIGMAS-SPLATTER.title": "Splatter",
+  "SPIREENIGMAS-SPLATTER.description": "#Gain !B! *Block*.\nGain !InkPower! *Ink*.",
+
+  "SPIREENIGMAS-NARROW.title": "Narrow",
+  "SPIREENIGMAS-NARROW.description": "#Deal !D! damage.\n{IsRefined:Gain *Block* equal to the damage dealt.|[color=light_steel_blue](Gain *Block* equal to the damage dealt.)[/color]}",
+
+  "SPIREENIGMAS-GHOSTWRITE.title": "Ghostwrite",
+  "SPIREENIGMAS-GHOSTWRITE.description": "#Deal !D! damage.\nGain !InkPower! *Ink*.",
+
+  "SPIREENIGMAS-INKWELL.title": "Inkwell",
+  "SPIREENIGMAS-INKWELL.description": "#At the start of each *Story*, gain !InkwellPower! *Ink*.",
+
+  "SPIREENIGMAS-STROKE_OF_MIDNIGHT.title": "Stroke Of Midnight",
+  "SPIREENIGMAS-STROKE_OF_MIDNIGHT.description": "#Deal !D! damage.\nGain !InkPower! *Ink*.",
+
+  "SPIREENIGMAS-WRITERS_BLOCK.title": "Writer's Block",
+  "SPIREENIGMAS-WRITERS_BLOCK.description": "#At the end of your turn, gain !WritersBlockPower! *Block* for each empty *Chapter* in your *Story*.",
+  
+  "SPIREENIGMAS-ONE_STEP_AHEAD.title": "One Step Ahead",
+  "SPIREENIGMAS-ONE_STEP_AHEAD.description": "#The first time you play a card you *Retained* last turn each turn, gain [E?].",
+
+  "SPIREENIGMAS-ON_THE_WIND.title": "On The Wind",
+  "SPIREENIGMAS-ON_THE_WIND.description": "#At the start of each *Story*, draw !C! card(s).",
+
+  "SPIREENIGMAS-ERASURE.title": "Erasure",
+  "SPIREENIGMAS-ERASURE.description": "#Gain !B! *Block*.\nClear the *Story*.",
+
+  "SPIREENIGMAS-NEVER_AGAIN.title": "Never Again.",
+  "SPIREENIGMAS-NEVER_AGAIN.description": "#Gain !B! *Block*.",
+
+  "SPIREENIGMAS-WAR.title": "War",
+  "SPIREENIGMAS-WAR.description": "#Play a copy of each Attack in your *Story*.",
+
+  "SPIREENIGMAS-MATERIALIZE.title": "Materialize",
+  "SPIREENIGMAS-MATERIALIZE.description": "#Deal damage to ALL enemies equal to your *Block*.{InCombat:\n(Deal !CalculatedDamage! damage.)|}",
+
+  "SPIREENIGMAS-EXPOSITION.title": "Exposition",
+  "SPIREENIGMAS-EXPOSITION.description": "#Apply !FeeblePower! *Feeble*.\nApply !SusceptiblePower! *Susceptible*.",
+
+  "SPIREENIGMAS-FOUR_WOES.title": "Four Woes",
+  "SPIREENIGMAS-FOUR_WOES.description": "#Apply !FeeblePower! *Feeble*.\nApply !SusceptiblePower! *Susceptible*.\nGain !InkPower! *Ink*.\nGain [E?]."
 }

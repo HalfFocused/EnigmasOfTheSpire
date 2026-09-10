@@ -18,7 +18,7 @@ public class Distract() : SpireEnigmasCard.SavantCard(2, CardType.Skill, CardRar
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
-        EnigmaEnums.Command,
+        EnigmaKeywords.Command,
         CardKeyword.Exhaust
     ];
     

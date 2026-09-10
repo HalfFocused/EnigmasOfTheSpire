@@ -23,7 +23,7 @@ public class Smokescreen() : SpireEnigmasCard.SavantCard(1, CardType.Skill, Card
     protected override bool ShouldGlowRedInternal => GetChirp == null;
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
-        EnigmaEnums.Command
+        EnigmaKeywords.Command
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
