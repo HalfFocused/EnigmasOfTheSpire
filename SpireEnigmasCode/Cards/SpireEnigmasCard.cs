@@ -20,8 +20,7 @@ namespace SpireEnigmas.SpireEnigmasCode.Cards;
 public abstract class SpireEnigmasCard(int cost, CardType type, CardRarity rarity, TargetType target) :
     CustomCardModel(cost, type, rarity, target)
 {
-
-    public Creature? GetChirp => EnigmasHelper.GetChirpFromPlayer(Owner);
+    protected Creature? GetChirp => EnigmasHelper.GetChirpFromPlayer(Owner);
     
     /*
     private LocString? _flavorTextTitleLocString;
@@ -117,16 +116,6 @@ public abstract class SpireEnigmasCard(int cost, CardType type, CardRarity rarit
     protected bool IsInChapter(int chapter, StoryManager.CardInChapterTimings timing)
     {
         return StoryManager.InChapter(this, chapter, timing);
-    }
-    
-    /*
-     * Only for use during resolution.
-     * Gets the chapter the card is being played into.
-     * Otherwise this will return -1.
-     */
-    protected int ChapterDuringResolution()
-    {
-        return StoryFields.ChapterPlayedInto.Get(this);
     }
     
     protected bool IsRefined => RefinementFields.IsRefined.Get(this);

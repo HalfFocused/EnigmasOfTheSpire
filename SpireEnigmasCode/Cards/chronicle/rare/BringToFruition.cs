@@ -27,8 +27,6 @@ public class BringToFruition() : SpireEnigmasCard.ChronicleCard(1, CardType.Skil
         EnigmaKeywords.Refine
     ];
     
-    protected override bool ShouldGlowGoldInternal => IsRefined;
-    
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
@@ -38,7 +36,7 @@ public class BringToFruition() : SpireEnigmasCard.ChronicleCard(1, CardType.Skil
         {
             PretendCardsCanBePlayed = true
         };
-        CardModel? card = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs, (Func<CardModel, bool>) (c => c.Type == CardType.Skill && !c.Keywords.Contains(CardKeyword.Unplayable)), this)).FirstOrDefault();
+        CardModel? card = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs, (Func<CardModel, bool>) (c => !c.Keywords.Contains(CardKeyword.Unplayable)), this)).FirstOrDefault();
         if(card is null) return;
         await CardCmd.AutoPlay(choiceContext, card, null);
     }

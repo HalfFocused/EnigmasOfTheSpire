@@ -39,6 +39,6 @@ public class PhaseShift() : SpireEnigmasCard.DisplacedCard(0,
 
     protected override void OnUpgrade()
     {
-
+        DynamicVars.Block.UpgradeValueBy(2);
     }
 }

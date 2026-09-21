@@ -16,7 +16,7 @@ public class Inkwell() : SpireEnigmasCard.ChronicleCard(1, CardType.Power, CardR
     ];
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new PowerVar<InkwellPower>(1)
+        new PowerVar<InkwellPower>(2)
     ];
 
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)

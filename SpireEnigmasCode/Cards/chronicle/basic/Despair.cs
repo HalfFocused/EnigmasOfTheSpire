@@ -1,9 +1,11 @@
 ﻿using BaseLib.Extensions;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Events;
 using SpireEnigmas.SpireEnigmasCode.Powers;
@@ -34,8 +36,22 @@ public class Despair() : SpireEnigmasCard.ChronicleCard(2, CardType.Attack, Card
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        IEnumerable<List<DamageResult>> results = (await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext)).Results;
         await PowerCmd.Apply<FeeblePower>(choiceContext, play.Target, DynamicVars["FeeblePower"].BaseValue, Owner.Creature, this);
+
+        int potionsToProcure = 0;
+        
+        IEnumerable<DamageResult> allResults = results.SelectMany(r => r);
+        foreach (DamageResult result in allResults)
+        {
+            bool shouldTriggerFatal = result.Receiver.Powers.All(p => p.ShouldOwnerDeathTriggerFatal());
+            if (shouldTriggerFatal && result.WasTargetKilled)
+            {
+                potionsToProcure = allResults.Count(r => r.WasTargetKilled);
+            }
+        }
+        
+        //use potionsToProcure here
     }
 
     protected override void OnUpgrade()

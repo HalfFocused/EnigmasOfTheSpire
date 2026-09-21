@@ -3,6 +3,7 @@ using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
 
 namespace SpireEnigmas.SpireEnigmasCode.Powers;
@@ -12,6 +13,11 @@ public class InevitableFormPower : SpireEnigmaPower
   public override PowerType Type => PowerType.Buff;
   public override PowerStackType StackType => PowerStackType.Counter;
   protected override object InitInternalData() => new Data();
+  
+  protected override IEnumerable<IHoverTip> ExtraHoverTips =>
+  [
+    HoverTipFactory.FromKeyword(CardKeyword.Exhaust)
+  ];
 
   public override Task BeforePowerAmountChanged(
     PowerModel power,

@@ -28,8 +28,6 @@ public class ReachThrough() : SpireEnigmasCard.ChronicleCard(2, CardType.Attack,
     
     public override TargetType TargetType => IsRefined ? TargetType.AllEnemies : TargetType.AnyEnemy;
     
-    protected override bool ShouldGlowGoldInternal => IsRefined;
-    
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(14M, ValueProp.Move),
@@ -54,6 +52,6 @@ public class ReachThrough() : SpireEnigmasCard.ChronicleCard(2, CardType.Attack,
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Damage.UpgradeRefinementBy(4);
+        DynamicVars.Damage.UpgradeValueBy(4);
     }
 }

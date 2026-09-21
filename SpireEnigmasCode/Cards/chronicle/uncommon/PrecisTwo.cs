@@ -27,7 +27,8 @@ public class PrecisTwo() : SpireEnigmasCard.ChronicleCard(1, CardType.Attack, Ca
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        StoryHoverTip()
+        StoryHoverTip(),
+        HoverTipFactory.FromPower<StrengthPower>()
     ];
     
     protected override async Task OnPlay(

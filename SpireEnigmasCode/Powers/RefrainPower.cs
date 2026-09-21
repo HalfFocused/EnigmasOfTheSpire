@@ -25,7 +25,7 @@ public class RefrainPower : SpireEnigmaPower
 
     public override Task BeforeCardPlayed(CardPlay cardPlay)
     {
-        if (cardPlay.Card.Owner.Creature != Owner || !RetainTrackingField.RetainedLastTurn.Get(cardPlay.Card))
+        if (cardPlay.Card.Owner.Creature != Owner || !RetainTrackingFields.RetainedLastTurn.Get(cardPlay.Card))
             return Task.CompletedTask;
         GetInternalData<Data>().amountsForPlayedCards.Add(cardPlay.Card, Amount);
         return Task.CompletedTask;

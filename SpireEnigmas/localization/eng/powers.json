@@ -1,4 +1,6 @@
 {
+  "DISINTEGRATION_POWER.description": "At the end of your turn, take damage.",
+  
   "SPIREENIGMAS-FORETOLD_POWER.title": "Foretold",
   "SPIREENIGMAS-FORETOLD_POWER.description": "#*Foretold enemies take double damage from an Attack once each turn.",
   "SPIREENIGMAS-FORETOLD_POWER.smartDescription": "#Takes double damage from an Attack once each turn. Lasts [blue]{Amount}[/blue] turn(s).",
@@ -342,14 +344,50 @@
   "SPIREENIGMAS-WRITERS_BLOCK_POWER.smartDescription": "#At the end of your turn, gain [blue]{Amount}[/blue] *Block* for each empty *Chapter* in your *Story*.",
 
   "SPIREENIGMAS-ONE_STEP_AHEAD_POWER.title": "One Step Ahead",
-  "SPIREENIGMAS-ONE_STEP_AHEAD_POWER.description": "",
+  "SPIREENIGMAS-ONE_STEP_AHEAD_POWER.description": "nobody should see this",
   "SPIREENIGMAS-ONE_STEP_AHEAD_POWER.smartDescription": "#The first time you play a card you *Retained* last turn each turn, gain {Amount:energyIcons()}.",
 
   "SPIREENIGMAS-ON_THE_WIND_POWER.title": "On The Wind",
-  "SPIREENIGMAS-ON_THE_WIND_POWER.description": "",
+  "SPIREENIGMAS-ON_THE_WIND_POWER.description": "nobody should see this",
   "SPIREENIGMAS-ON_THE_WIND_POWER.smartDescription": "#At the start of each *Story*, draw [blue]{Amount}[/blue] card(s).",
 
   "SPIREENIGMAS-RISING_ACTION_POWER.title": "Rising Action",
-  "SPIREENIGMAS-RISING_ACTION_POWER.description": "",
-  "SPIREENIGMAS-RISING_ACTION_POWER.smartDescription": "#At the start of each *Story*, gain [blue]{Amount}[/blue] *Strength*."
+  "SPIREENIGMAS-RISING_ACTION_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-RISING_ACTION_POWER.smartDescription": "#At the start of each *Story*, gain [blue]{Amount}[/blue] *Strength*.",
+
+  "SPIREENIGMAS-TERMINAL_LUCIDITY_POWER.title": "Terminal Lucidity",
+  "SPIREENIGMAS-TERMINAL_LUCIDITY_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-TERMINAL_LUCIDITY_POWER.smartDescription": "#At the start of your turn, gain {Amount:energyIcons()}, draw [blue]{Amount}[/blue] cards, and gain [blue]{Amount}[/blue] *Disintegration*.",
+
+  "SPIREENIGMAS-KNIFES_EDGE_POWER.title": "Knife's Edge",
+  "SPIREENIGMAS-KNIFES_EDGE_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-KNIFES_EDGE_POWER.smartDescription": "#Whenever you gain *Disintegration*, gain *Block* equal to {Amount:plural:|[blue]{Amount}[/blue] times }your *Disintegration*.",
+
+  "SPIREENIGMAS-SPECTRE_FORM_POWER.title": "Spectre Form",
+  "SPIREENIGMAS-SPECTRE_FORM_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-SPECTRE_FORM_POWER.smartDescription": "#The first [blue]{Amount}[/blue] time(s) you play a card without *Retain* each turn, return it to your *Hand* with *Retain* until played.",
+
+  "SPIREENIGMAS-IM_SORRY_POWER.title": "I'm Sorry",
+  "SPIREENIGMAS-IM_SORRY_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-IM_SORRY_POWER.smartDescription": "#Whenever you are attacked this turn, deal damage back equal to {Amount:plural:|[blue]{Amount}[/blue] times }your *Disintegration*.",
+
+  "SPIREENIGMAS-VIGIL_POWER.title": "Vigil",
+  "SPIREENIGMAS-VIGIL_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-VIGIL_POWER.smartDescription": "#At the start of your turn, gain [E?]. Lasts [blue]{Amount}[/blue] [gold]{Amount:plural:Story|Stories}[/gold].",
+
+  "SPIREENIGMAS-LONE_STRIKE_POWER.title": "Lone Strike",
+  "SPIREENIGMAS-LONE_STRIKE_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-LONE_STRIKE_POWER.smartDescription": "#You cannot play *Attacks* this *Story*.",
+
+  "SPIREENIGMAS-PARADIGM_POWER.title": "Paradigm",
+  "SPIREENIGMAS-PARADIGM_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-PARADIGM_POWER.smartDescription": "#Cards in your last *Chapter* are played [blue]{Amount}[/blue] additional time(s).",
+
+  "SPIREENIGMAS-WRITING_ON_AIR_POWER.title": "Writing On Air",
+  "SPIREENIGMAS-WRITING_ON_AIR_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-WRITING_ON_AIR_POWER.smartDescription": "#Cards you play this *Story* cost [blue]0[/blue] and *Exhaust*.",
+
+  "SPIREENIGMAS-PERFECTION_POWER.title": "Perfection",
+  "SPIREENIGMAS-PERFECTION_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-PERFECTION_POWER.smartDescription": "#After you play a *Refined* card, gain [blue]{Amount}[/blue] *Strength*."
 }

@@ -12,7 +12,7 @@ using SpireEnigmas.SpireEnigmasCode.Events;
 
 namespace SpireEnigmas.SpireEnigmasCode.Powers;
 
-public class SusceptiblePower : SpireEnigmaPower, IAfterStoryEnd
+public class SusceptiblePower : SpireEnigmaPower, IRenderStory, IAfterStoryEnd
 {
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;

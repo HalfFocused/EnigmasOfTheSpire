@@ -910,25 +910,25 @@
   "SPIREENIGMAS-INSIGHT.description": "#Deal !D! damage.\nDraw !C! card{Cards:plural:|s}.",
 
   "SPIREENIGMAS-GHOST_HANDS.title": "Ghost Hands",
-  "SPIREENIGMAS-GHOST_HANDS.description": "#Draw !C! card{Cards:plural:|s}.\n{IsRefined:*Exhaust* 1 card.|[color=light_steel_blue](*Exhaust* 1 card.)[/color]}",
+  "SPIREENIGMAS-GHOST_HANDS.description": "#Draw !C! card{Cards:plural:|s}.\n{IsRefined:*Exhaust* 1 card.|[color=plum](*Exhaust* 1 card.)[/color]}",
 
   "SPIREENIGMAS-DRAMATIZE.title": "Dramatize",
   "SPIREENIGMAS-DRAMATIZE.description": "#Deal !D! damage.",
 
   "SPIREENIGMAS-HONE.title": "Hone",
-  "SPIREENIGMAS-HONE.description": "#Gain [E?]{IsRefined:|[color=light_steel_blue]({EnergyRefinement:energyIcons()})[/color]}.{IsRefined:|\n[color=light_steel_blue](*Exhaust*.)[/color]}",
+  "SPIREENIGMAS-HONE.description": "#Gain [E?]{IsRefined:|[color=plum]({EnergyRefinement:energyIcons()})[/color]}.{IsRefined:|\n[color=plum](*Exhaust*.)[/color]}",
 
   "SPIREENIGMAS-WELL_READ.title": "Well-Read",
   "SPIREENIGMAS-WELL_READ.description": "#Gain !StrengthPower! *Strength*.\nGain !DexterityPower! *Dexterity*.",
 
   "SPIREENIGMAS-REACH_THROUGH.title": "Reach Through",
-  "SPIREENIGMAS-REACH_THROUGH.description": "#Deal !D! damage {IsRefined:to ALL enemies|[color=light_steel_blue](to ALL enemies)[/color]}.\nDraw !C! card(s).",
+  "SPIREENIGMAS-REACH_THROUGH.description": "#Deal !D! damage {IsRefined:to ALL enemies|[color=plum](to ALL enemies)[/color]}.\nDraw !C! card(s).",
 
   "SPIREENIGMAS-REFRAIN.title": "Refrain",
   "SPIREENIGMAS-REFRAIN.description": "#Whenever you play a card you *Retained* last turn, gain !RefrainPower! *Block*.",
 
   "SPIREENIGMAS-CONTRADICT.title": "Contradict",
-  "SPIREENIGMAS-CONTRADICT.description": "#Gain !B! *Block*.\nAdd *Retain* to a card in your *Hand*.",
+  "SPIREENIGMAS-CONTRADICT.description": "#Gain !B! *Block*.\nAdd *Retain* to a card in your *Hand* until played.",
   "SPIREENIGMAS-CONTRADICT.selectionScreenPrompt": "#Choose {Amount} card(s) to *Retain*.",
 
   "SPIREENIGMAS-IN_THE_MARGINS.title": "In The Margins",
@@ -948,7 +948,7 @@
   "SPIREENIGMAS-SPLATTER.description": "#Gain !B! *Block*.\nGain !InkPower! *Ink*.",
 
   "SPIREENIGMAS-NARROW.title": "Narrow",
-  "SPIREENIGMAS-NARROW.description": "#Deal !D! damage.\n{IsRefined:Gain *Block* equal to the damage dealt.|[color=light_steel_blue](Gain *Block* equal to the damage dealt.)[/color]}",
+  "SPIREENIGMAS-NARROW.description": "#Deal !D! damage.\n{IsRefined:Gain *Block* equal to the damage dealt.|[color=plum](Gain *Block* equal to the damage dealt.)[/color]}",
 
   "SPIREENIGMAS-GHOSTWRITE.title": "Ghostwrite",
   "SPIREENIGMAS-GHOSTWRITE.description": "#Deal !D! damage.\nGain !InkPower! *Ink*.",
@@ -968,6 +968,9 @@
   "SPIREENIGMAS-ON_THE_WIND.title": "On The Wind",
   "SPIREENIGMAS-ON_THE_WIND.description": "#At the start of each *Story*, draw !C! card(s).",
 
+  "SPIREENIGMAS-RISING_ACTION.title": "Rising Action",
+  "SPIREENIGMAS-RISING_ACTION.description": "#At the start of each *Story*, gain !RisingActionPower! *Strength*.",
+
   "SPIREENIGMAS-ERASURE.title": "Erasure",
   "SPIREENIGMAS-ERASURE.description": "#Gain !B! *Block*.\nClear the *Story*.",
 
@@ -984,5 +987,103 @@
   "SPIREENIGMAS-EXPOSITION.description": "#Apply !FeeblePower! *Feeble*.\nApply !SusceptiblePower! *Susceptible*.",
 
   "SPIREENIGMAS-FOUR_WOES.title": "Four Woes",
-  "SPIREENIGMAS-FOUR_WOES.description": "#Apply !FeeblePower! *Feeble*.\nApply !SusceptiblePower! *Susceptible*.\nGain !InkPower! *Ink*.\nGain [E?]."
+  "SPIREENIGMAS-FOUR_WOES.description": "#Apply !FeeblePower! *Feeble*.\nApply !SusceptiblePower! *Susceptible*.\nGain !InkPower! *Ink*.\nGain [E?].",
+
+  "SPIREENIGMAS-EVERLAST.title": "Everlast",
+  "SPIREENIGMAS-EVERLAST.description": "#Gain !B! *Block* X times.\n*Block* is not removed at the start of your next X turns.",
+
+  "SPIREENIGMAS-EXTEND.title": "Extend",
+  "SPIREENIGMAS-EXTEND.description": "#Gain !B! *Block*.\nGain !DisintegrationPower! *Disintegration*.",
+
+  "SPIREENIGMAS-DEATHTOUCH.title": "Deathtouch",
+  "SPIREENIGMAS-DEATHTOUCH.description": "#Deal !D! damage.\nGain !DisintegrationPower! *Disintegration*.",
+
+  "SPIREENIGMAS-TERMINAL_LUCIDITY.title": "Terminal Lucidity",
+  "SPIREENIGMAS-TERMINAL_LUCIDITY.description": "#At the start of your turn, gain [E], draw 1 card, and gain 1 *Disintegration*.",
+
+  "SPIREENIGMAS-MORTAL_COIL.title": "Mortal Coil",
+  "SPIREENIGMAS-MORTAL_COIL.description": "#Deal !D! damage.\nDraw !C! card(s).\nGain !DisintegrationPower! *Disintegration*.",
+
+  "SPIREENIGMAS-REPRIEVE.title": "Reprieve",
+  "SPIREENIGMAS-REPRIEVE.description": "#*Exhaust* !C! card(s) from your *Draw* *Pile*.\nLose !DisintegrationPower! *Disintegration*.",
+
+  "SPIREENIGMAS-KNIFES_EDGE.title": "Knife's Edge",
+  "SPIREENIGMAS-KNIFES_EDGE.description": "#Whenever you gain *Disintegration*, gain *Block* equal to your *Disintegration*.",
+
+  "SPIREENIGMAS-SIGN_OFF.title": "Sign Off",
+  "SPIREENIGMAS-SIGN_OFF.description": "#Gain !B! *Block*.\n*Retain* your *Hand* this turn.",
+
+  "SPIREENIGMAS-DEATH_OF_THE_AUTHOR.title": "Death of the Author",
+  "SPIREENIGMAS-DEATH_OF_THE_AUTHOR.description": "#Gain !IntangiblePower! *Intangible*.\nGain !DisintegrationPower! *Disintegration*.",
+
+  "SPIREENIGMAS-STRIKETHROUGH.title": "Strikethrough",
+  "SPIREENIGMAS-STRIKETHROUGH.description": "#Deal !D! damage to ALL enemies.\n*Clear* the *Story*.",
+
+  "SPIREENIGMAS-EMBODY.title": "Embody",
+  "SPIREENIGMAS-EMBODY.description": "#Gain !B! *Block*.\nIf you've gained *Disintegration* this turn, double your *Block*.",
+
+  "SPIREENIGMAS-TORMENT.title": "Torment",
+  "SPIREENIGMAS-TORMENT.description": "#End the *Story*.\nApply !FeeblePower! *Feeble* to ALL enemies.",
+
+  "SPIREENIGMAS-SAFE_TRAVELS.title": "Safe Travels",
+  "SPIREENIGMAS-SAFE_TRAVELS.description": "#Deal !D! damage to ALL enemies.\n*Block* is not removed at the start of your next turn.",
+
+  "SPIREENIGMAS-UNTETHER.title": "Untether",
+  "SPIREENIGMAS-UNTETHER.description": "#Gain !StrengthPower! *Strength*.\nGain !DisintegrationPower! *Disintegration*.",
+
+  "SPIREENIGMAS-THINK_IT_OVER.title": "Think It Over",
+  "SPIREENIGMAS-THINK_IT_OVER.description": "#Draw !C! card(s).\nThey gain *Retain* until played.",
+
+  "SPIREENIGMAS-DECONSTRUCTION.title": "Deconstruction",
+  "SPIREENIGMAS-DECONSTRUCTION.description": "#Deal !D! damage.\nGain !DisintegrationPower! *Disintegration*.",
+
+  "SPIREENIGMAS-SPECTRE_FORM.title": "Spectre Form",
+  "SPIREENIGMAS-SPECTRE_FORM.description": "#The first time you play a card without *Retain* each turn, return it to your *Hand* with *Retain* until played.",
+
+  "SPIREENIGMAS-FATAL_DESIRE.title": "Fatal Desire",
+  "SPIREENIGMAS-FATAL_DESIRE.description": "#Gain [E?].\nGain !DisintegrationPower! *Disintegration*.\nTrigger your *Disintegration*.",
+
+  "SPIREENIGMAS-LULL.title": "Lull",
+  "SPIREENIGMAS-LULL.description": "#Apply !SusceptiblePower! *Susceptible*.",
+
+  "SPIREENIGMAS-SCRIBBLE.title": "Scribble",
+  "SPIREENIGMAS-SCRIBBLE.description": "#Deal !D! damage !Repeat! time(s).",
+
+  "SPIREENIGMAS-OUTPOURING.title": "Outpouring",
+  "SPIREENIGMAS-OUTPOURING.description": "#Gain !B! *Block* X times.\nDeal !D! damage X times.\nGain X *Disintegration*.",
+
+  "SPIREENIGMAS-IM_SORRY.title": "I'm Sorry",
+  "SPIREENIGMAS-IM_SORRY.description": "#Gain !B! *Block*.\nWhenever you are attacked this turn, deal damage back equal to your *Disintegration*.",
+
+  "SPIREENIGMAS-VIGIL.title": "Vigil",
+  "SPIREENIGMAS-VIGIL.description": "#At the start of your turn, gain [E?].\nLasts !VigilPower! [gold]{VigilPower:plural:Story|Stories}[/gold].",
+
+  "SPIREENIGMAS-MALICE.title": "Malice",
+  "SPIREENIGMAS-MALICE.description": "#Deal !D! damage.\nGain !DexterityPower! *Dexterity* this *Story*.",
+
+  "SPIREENIGMAS-PHENOMENA.title": "Phenomena",
+  "SPIREENIGMAS-PHENOMENA.description": "#Deal !D! damage.\nIf this card is *Chapter* *1*, draw !C! card(s).",
+
+  "SPIREENIGMAS-LONE_STRIKE.title": "Lone Strike",
+  "SPIREENIGMAS-LONE_STRIKE.description": "#Deal !D! damage.\nYou cannot play Attacks this *Story*.",
+
+  "SPIREENIGMAS-PARADIGM.title": "Paradigm",
+  "SPIREENIGMAS-PARADIGM.description": "#Cards in your last *Chapter* are played an additional time.",
+
+  "SPIREENIGMAS-EPIPHANY.title": "Epiphany",
+  "SPIREENIGMAS-EPIPHANY.description": "#Gain !StrengthPower! *Strength* and !DexterityPower! *Dexterity* this *Story*.",
+
+  "SPIREENIGMAS-BACK_AGAIN.title": "Back Again",
+  "SPIREENIGMAS-BACK_AGAIN.description": "#Deal !D! damage.\nReturn 1 card from your *Discard* *Pile* to your *Hand*.\nIt gains *Retain* until played.",
+  "SPIREENIGMAS-BACK_AGAIN.selectionScreenPrompt": "#Choose {Amount} card(s) to return to your *Hand*.",
+
+  "SPIREENIGMAS-WRITING_ON_AIR.title": "Writing On Air",
+  "SPIREENIGMAS-WRITING_ON_AIR.description": "#Cards you play this *Story* cost 0 and *Exhaust*.",
+
+  "SPIREENIGMAS-PERFECTION.title": "Perfection",
+  "SPIREENIGMAS-PERFECTION.description": "#Whenever you play a *Refined* card, gain !PerfectionPower! *Strength*.",
+
+  "SPIREENIGMAS-DYAD.title": "Dyad",
+  "SPIREENIGMAS-DYAD.description": "#Put a card from your *Draw* *Pile* {IsRefined:and a card from your *Discard* *Pile*|[color=plum](and a card from your *Discard* *Pile*)[/color]} into your *Hand*.",
+  "SPIREENIGMAS-DYAD.selectionScreenPrompt": "#Choose {Amount} card(s) to put in your *Hand*."
 }

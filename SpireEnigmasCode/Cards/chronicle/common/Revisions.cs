@@ -23,8 +23,6 @@ public class Revisions() : SpireEnigmasCard.ChronicleCard(2, CardType.Skill, Car
     [
         EnigmaKeywords.Refine
     ];
-
-    protected override bool ShouldGlowGoldInternal => IsRefined;
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

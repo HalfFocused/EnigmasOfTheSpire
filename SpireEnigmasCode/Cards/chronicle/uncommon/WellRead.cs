@@ -18,13 +18,6 @@ public class WellRead() : SpireEnigmasCard.ChronicleCard(1, CardType.Power, Card
         EnigmaKeywords.Refine
     ];
     
-    protected override bool ShouldGlowGoldInternal => IsRefined;
-    
-    protected override void AddExtraArgsToDescription(LocString description)
-    {
-        description.Add("IsRefined", IsRefined);
-    }
-    
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
         HoverTipFactory.FromPower<StrengthPower>(),

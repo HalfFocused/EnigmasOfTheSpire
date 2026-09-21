@@ -20,7 +20,7 @@ public class EnigmaSingleton() : CustomSingletonModel(HookType.Combat)
     {
         foreach (CardModel card in retainedCards)
         {
-            RetainTrackingField.RetainedLastTurn.Set(card, true);
+            RetainTrackingFields.RetainedLastTurn.Set(card, true);
         }
         
         List<CardModel> refinedCards = retainedCards.Where(c => c.Keywords.Contains(EnigmaKeywords.Refine)).ToList();
@@ -49,7 +49,7 @@ public class EnigmaSingleton() : CustomSingletonModel(HookType.Combat)
         {
             foreach (CardModel card in flushedCards)
             {
-                RetainTrackingField.RetainedLastTurn.Set(card, false);
+                RetainTrackingFields.RetainedLastTurn.Set(card, false);
             }
             
             if (RefinementFields.IsRefined.Get(refineCard))
@@ -65,5 +65,32 @@ public class EnigmaSingleton() : CustomSingletonModel(HookType.Combat)
         }
 
         return Task.CompletedTask;
+    }
+
+    /*
+     * Remove Retain Until Played from the card if it is played.
+     * We do this in the before hook instead of the after so that Spectre Form's timing works.
+     */
+    public override Task BeforeCardPlayed(CardPlay cardPlay)
+    {
+        CardModel card = cardPlay.Card;
+
+        if (RetainTrackingFields.HasRetainUntilPlayed.Get(card))
+        {
+            RetainTrackingFields.HasRetainUntilPlayed.Set(card, false);
+        }
+
+        return Task.CompletedTask;
+    }
+    
+    public override async Task AfterCardPlayed(PlayerChoiceContext choiceContext, CardPlay cardPlay)
+    {
+        CardModel card = cardPlay.Card;
+
+        if (RefinementFields.IsRefined.Get(card))
+        {
+            await EnigmaHooks.Dispatch<IAfterRefinedCardPlayed>(card.CombatState,
+                m => m.AfterRefinedCardPlayed(choiceContext, card.Owner, card));
+        }
     }
 }

@@ -14,8 +14,6 @@ namespace SpireEnigmas.SpireEnigmasCode.Cards.chronicle.uncommon;
 public class WritingOnTheWall() : SpireEnigmasCard.ChronicleCard(1, CardType.Skill, CardRarity.Uncommon, TargetType.Self),
     IRenderStory
 {
-    public override bool GainsBlock => true;
-    
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new CardsVar(3),

@@ -14,7 +14,7 @@ namespace SpireEnigmas.SpireEnigmasCode.Powers;
 
 public class BloodlustPower : SpireEnigmaPower
 {
-    public override PowerType Type => PowerType.Buff;
+    public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Single;
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [];

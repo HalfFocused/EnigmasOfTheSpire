@@ -21,8 +21,6 @@ public class Insight() : SpireEnigmasCard.ChronicleCard(1, CardType.Attack, Card
         EnigmaKeywords.Refine
     ];
     
-    protected override bool ShouldGlowGoldInternal => IsRefined;
-    
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(11M, ValueProp.Move),

@@ -7,7 +7,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.chronicle.rare;
 
-public class OneStepAhead() : SpireEnigmasCard.ChronicleCard(2, CardType.Power, CardRarity.Rare, TargetType.Self)
+public class OneStepAhead() : SpireEnigmasCard.ChronicleCard(1, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [

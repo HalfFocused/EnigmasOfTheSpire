@@ -27,6 +27,7 @@ using SpireEnigmas.SpireEnigmasCode.Cards.displaced.common;
 using SpireEnigmas.SpireEnigmasCode.Cards.other;
 using SpireEnigmas.SpireEnigmasCode.Cards.savant.rare;
 using SpireEnigmas.SpireEnigmasCode.Cards.savant.token;
+using SpireEnigmas.SpireEnigmasCode.Character.chronicle;
 using SpireEnigmas.SpireEnigmasCode.Character.displaced;
 using SpireEnigmas.SpireEnigmasCode.Character.savant;
 using SpireEnigmas.SpireEnigmasCode.Commands;
@@ -74,9 +75,10 @@ class RefinementFields
     public static readonly SpireField<DynamicVar, int> RefineBy = new(()=>0);
 }
 
-class RetainTrackingField
+class RetainTrackingFields
 {
     public static readonly SpireField<CardModel, bool> RetainedLastTurn = new(()=>false);
+    public static readonly SpireField<CardModel, bool> HasRetainUntilPlayed = new(()=>false);
 }
 
 [HarmonyPatch(typeof(ScrollBoxes), nameof(ScrollBoxes.GenerateRandomBundles))]
@@ -138,7 +140,7 @@ class DynamicVarDisplayRefinementPatch
         bool isRefined = RefinementFields.IsRefined.Get(card);
         if (!isRefined && refineBy != 0)
         {
-            __result += "[color=light_steel_blue](" + (refineBy > 0 ? "+" : "") + refineBy + ")[/color]";
+            __result += "[color=plum](" + (refineBy > 0 ? "+" : "") + refineBy + ")[/color]";
         }
     }
 }
@@ -206,6 +208,28 @@ class FreestyleGlowGoldPatch
             {
                 __result = true;
             }
+        }
+
+        if (RefinementFields.IsRefined.Get(__instance))
+        {
+            __result = true;
+        }
+    }
+}
+
+/*
+ * Setting this field to true on a card makes it display the word Retain, which is perfect!
+ * Adding the keyword with ideas of removing it later would create issues with timing on other temporary retain effects
+ */
+[HarmonyPatch(typeof(CardModel), "HasSingleTurnRetain", MethodType.Getter)]
+class RetainUntilPlayedPatch
+{
+    [HarmonyPostfix]
+    static void MakeGlowGold(CardModel __instance, ref bool __result)
+    {
+        if (RetainTrackingFields.HasRetainUntilPlayed.Get(__instance))
+        {
+            __result = true;
         }
     }
 }
@@ -308,6 +332,8 @@ class CardGlowTweakPatch
 {
     public static readonly Color chirpPlayableColor = new Color(0.95f, 0.45f, 0f, 0.98f);
     public static readonly Color madeEtherealColor = new Color(0.35f, 0.35f, 0.35f, 0.98f);
+    public static readonly Color retainedFromLastTurnColor = new Color(0.65f, 0.15f, 0.65f, 0.98f);
+
     
     [HarmonyTranspiler]
     static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
@@ -364,6 +390,11 @@ class CardGlowTweakPatch
         {
             return chirpPlayableColor;
         }
+        /*
+        if (cardModel.Owner.Character is TheChronicle && RetainTrackingFields.RetainedLastTurn.Get(cardModel))
+        {
+            return retainedFromLastTurnColor;
+        }*/
 
         if (cardModel.Owner.Character is TheDisplaced && cardModel.Keywords.Contains(CardKeyword.Ethereal) &&
             !cardModel.CanonicalInstance.Keywords.Contains(CardKeyword.Ethereal))

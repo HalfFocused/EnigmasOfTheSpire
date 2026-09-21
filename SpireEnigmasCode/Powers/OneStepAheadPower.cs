@@ -52,8 +52,8 @@ public class OneStepAheadPower : SpireEnigmaPower
 
     private bool ShouldActivateOnCard(CardModel card)
     {
-        return RetainTrackingField.RetainedLastTurn.Get(card) &&
+        return RetainTrackingFields.RetainedLastTurn.Get(card) &&
                !(CombatManager.Instance.History.CardPlaysFinished.Any(e =>
-                   e.HappenedThisTurn(CombatState) && RetainTrackingField.RetainedLastTurn.Get(e.CardPlay.Card)));
+                   e.HappenedThisTurn(CombatState) && RetainTrackingFields.RetainedLastTurn.Get(e.CardPlay.Card)));
     }
 }

@@ -23,8 +23,6 @@ public class Hone() : SpireEnigmasCard.ChronicleCard(0, CardType.Skill, CardRari
         EnigmaKeywords.Refine
     ];
     
-    protected override bool ShouldGlowGoldInternal => IsRefined;
-    
     protected override void AddExtraArgsToDescription(LocString description)
     {
         description.Add("IsRefined", IsRefined);
@@ -33,6 +31,7 @@ public class Hone() : SpireEnigmasCard.ChronicleCard(0, CardType.Skill, CardRari
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
+        HoverTipFactory.ForEnergy(this),
         HoverTipFactory.FromKeyword(CardKeyword.Exhaust)
     ];
     
