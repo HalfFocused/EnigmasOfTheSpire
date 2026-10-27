@@ -11,7 +11,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Powers;
 
-public class ImSorryPower : SpireEnigmaPower
+public class ResistPower : SpireEnigmaPower
 {
     public override PowerType Type => PowerType.Buff;
 

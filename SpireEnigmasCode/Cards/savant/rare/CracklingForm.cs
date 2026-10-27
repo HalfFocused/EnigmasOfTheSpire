@@ -14,7 +14,7 @@ public class CracklingForm() : SpireEnigmasCard.SavantCard(3, CardType.Power, Ca
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new PowerVar<CracklingFormPower>(2)
+        new PowerVar<CracklingFormPower>(6)
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -31,6 +31,6 @@ public class CracklingForm() : SpireEnigmasCard.SavantCard(3, CardType.Power, Ca
 
     protected override void OnUpgrade()
     {
-        DynamicVars["CracklingFormPower"].UpgradeValueBy(1);
+        DynamicVars["CracklingFormPower"].UpgradeValueBy(3);
     }
 }

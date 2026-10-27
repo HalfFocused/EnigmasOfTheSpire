@@ -82,7 +82,7 @@ public abstract class SpireEnigmasCard(int cost, CardType type, CardRarity rarit
             new LocString(locTable, locEntry + ".description")
         );
     }
-
+    
     public static HoverTip ForgetHoverTip()
     {
         return GetStaticHoverTip("SPIREENIGMAS-FORGET");

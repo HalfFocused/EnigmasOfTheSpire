@@ -23,7 +23,7 @@ public class MorningsLight() : SpireEnigmasCard.ChronicleCard(0, CardType.Skill,
     [
         new BlockVar(8M, ValueProp.Move),
         new EnergyVar(1),
-        new CardsVar(1)
+        new CardsVar(2)
     ];
 
     protected override async Task OnPlay(

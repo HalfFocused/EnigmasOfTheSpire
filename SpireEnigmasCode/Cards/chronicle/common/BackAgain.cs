@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
+using SpireEnigmas.SpireEnigmasCode.Commands;
 using SpireEnigmas.SpireEnigmasCode.Patches;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.chronicle.common;
@@ -27,11 +28,11 @@ public class BackAgain() : SpireEnigmasCard.ChronicleCard(2, CardType.Attack, Ca
     {
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
         CardSelectorPrefs prefs = new CardSelectorPrefs(SelectionScreenPrompt, 1);
-        foreach (CardModel card in (await CardSelectCmd.FromSimpleGrid(choiceContext,
-                     PileType.Discard.GetPile(Owner).Cards, Owner, prefs)))
+        foreach (CardModel card in await CardSelectCmd.FromSimpleGrid(choiceContext,
+                     PileType.Discard.GetPile(Owner).Cards, Owner, prefs))
         {
             await CardPileCmd.Add(card, PileType.Hand);
-            RetainTrackingFields.HasRetainUntilPlayed.Set(card, true);
+            EnigmaCmd.GiveRetainUntilPlayed(card);
         }
     }
 

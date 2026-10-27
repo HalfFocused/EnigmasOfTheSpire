@@ -29,10 +29,7 @@ public class Stockpile() : SpireEnigmasCard.SavantCard(0, CardType.Skill, CardRa
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        int energyGain = ResolveEnergyXValue();
+        int energyGain = ResolveEnergyXValue() + (IsUpgraded ? 1 : 0);
         await ChirpCmd.GainEnergy(choiceContext, Owner, energyGain, this);
-        await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
     }
-    
-    protected override void OnUpgrade() => DynamicVars.Cards.UpgradeValueBy(1);
 }

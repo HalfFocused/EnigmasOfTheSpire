@@ -13,6 +13,7 @@ using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Cards.savant.token;
+using SpireEnigmas.SpireEnigmasCode.Commands;
 using SpireEnigmas.SpireEnigmasCode.Patches;
 
 namespace SpireEnigmas.SpireEnigmasCode.Powers;
@@ -69,7 +70,7 @@ public class SpectreFormPower : SpireEnigmaPower
 
         if (GetInternalData<Data>().cardsReturnedThisTurn.Contains(card))
         {
-            RetainTrackingFields.HasRetainUntilPlayed.Set(card, true);
+            EnigmaCmd.GiveRetainUntilPlayed(card);
             GetInternalData<Data>().cardsReturnedThisTurn.Remove(card);
         }
 

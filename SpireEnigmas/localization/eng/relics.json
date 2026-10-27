@@ -65,6 +65,10 @@
   "SPIREENIGMAS-YEARNING_ENCHIRIDION.description": "#Cards in the final *Chapter* have !Boost! additional damage and *Block*.",
   "SPIREENIGMAS-YEARNING_ENCHIRIDION.flavor": "The book thirsts for knowledge.",
 
+  "SPIREENIGMAS-TABLE_OF_CONTENTS.title": "Table Of Contents",
+  "SPIREENIGMAS-TABLE_OF_CONTENTS.description": "#Your *Strikes* and *Defends* gain *Refine*. They *Refine* for !Boost! additional damage or *Block*.",
+  "SPIREENIGMAS-TABLE_OF_CONTENTS.flavor": "There's a lot to keep track of.",
+
   "SPIREENIGMAS-BOUNDLESS_ENCHIRIDION.title": "Boundless Enchiridion",
   "SPIREENIGMAS-BOUNDLESS_ENCHIRIDION.description": "#Cards in the final *Chapter* cost [E?] less to play.",
   "SPIREENIGMAS-BOUNDLESS_ENCHIRIDION.flavor": "It's hunger sated, the book rewards its author with immense power."

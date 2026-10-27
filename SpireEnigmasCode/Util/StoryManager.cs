@@ -1,4 +1,8 @@
-﻿using BaseLib.Abstracts;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using BaseLib.Abstracts;
 using Godot;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Context;
@@ -10,9 +14,9 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Nodes.Cards.Holders;
 using MegaCrit.Sts2.Core.Nodes.Combat;
-using MegaCrit.Sts2.Core.Rooms;
 using SpireEnigmas.SpireEnigmasCode.Events;
 using SpireEnigmas.SpireEnigmasCode.Patches;
+
 
 namespace SpireEnigmas.SpireEnigmasCode.Util;
 
@@ -255,7 +259,7 @@ public class StoryManager() : CustomSingletonModel(HookType.Combat)
     public static CardModel? CardInChapter(Player player, int chapter)
     {
         List<CardModel>? cards = StoryFields.PlayerStory.Get(player);
-        return cards.ElementAtOrDefault(chapter - 1)?.CloneOf;
+        return cards?.ElementAtOrDefault(chapter - 1)?.CloneOf;
     }
 
     public static int PlayerCurrentStoryLength(Player player)

@@ -1,14 +1,17 @@
 ﻿using System.Reflection;
 using System.Reflection.Emit;
+using System.Runtime.CompilerServices;
 using BaseLib.Extensions;
 using BaseLib.Patches.Features;
 using BaseLib.Utils;
+using BaseLib.Utils.Patching;
 using Godot;
 using HarmonyLib;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -23,6 +26,7 @@ using MegaCrit.Sts2.Core.Nodes.Cards.Holders;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using MegaCrit.Sts2.Core.Random;
+using MegaCrit.Sts2.Core.Runs;
 using SpireEnigmas.SpireEnigmasCode.Cards.displaced.common;
 using SpireEnigmas.SpireEnigmasCode.Cards.other;
 using SpireEnigmas.SpireEnigmasCode.Cards.savant.rare;
@@ -31,6 +35,8 @@ using SpireEnigmas.SpireEnigmasCode.Character.chronicle;
 using SpireEnigmas.SpireEnigmasCode.Character.displaced;
 using SpireEnigmas.SpireEnigmasCode.Character.savant;
 using SpireEnigmas.SpireEnigmasCode.Commands;
+using SpireEnigmas.SpireEnigmasCode.Events;
+using SpireEnigmas.SpireEnigmasCode.Extensions;
 using SpireEnigmas.SpireEnigmasCode.Monsters;
 using SpireEnigmas.SpireEnigmasCode.Powers;
 using SpireEnigmas.SpireEnigmasCode.Util;
@@ -78,7 +84,7 @@ class RefinementFields
 class RetainTrackingFields
 {
     public static readonly SpireField<CardModel, bool> RetainedLastTurn = new(()=>false);
-    public static readonly SpireField<CardModel, bool> HasRetainUntilPlayed = new(()=>false);
+    public static readonly SpireField<CardModel, bool> HasRetainUntilPlayed = new SpireField<CardModel, bool>(()=>false).CopyOnClone();
 }
 
 [HarmonyPatch(typeof(ScrollBoxes), nameof(ScrollBoxes.GenerateRandomBundles))]
@@ -432,6 +438,131 @@ class RefineRetainPatch
     static bool ShouldRetain(bool original, CardModel cardModel)
     {
         return original || (cardModel.Keywords.Contains(EnigmaKeywords.Refine) && !RefinementFields.IsRefined.Get(cardModel));
+    }
+}
+
+[HarmonyPatch(typeof(CardModel), nameof(CardModel.GetDescriptionForPile), [typeof(PileType), typeof(CardModel.DescriptionPreviewType), typeof(Creature)])]
+[HarmonyDebug]
+class RetainUntilPlayedDescriptionPatch
+{
+    [HarmonyTranspiler]
+    static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions, ILGenerator generator)
+    {
+        var codeMatcher = new CodeMatcher(instructions, generator);
+
+        codeMatcher.MatchEndForward(
+            new CodeMatch(OpCodes.Ldloc_S),
+            new CodeMatch(OpCodes.Stloc_S),
+            new CodeMatch(OpCodes.Ldloc_S),
+            new CodeMatch(OpCodes.Brfalse_S),
+            
+            new CodeMatch(OpCodes.Ldloc_S), //source
+            new CodeMatch(OpCodes.Ldc_I4_0), //0 (for insert position)
+            new CodeMatch(OpCodes.Ldloc_S), //keyword
+            new CodeMatch(OpCodes.Call), //keyword.GetCardText
+            
+            //insert here:
+            //load [this]
+            //load keyword
+            //run static method taking [CardKeyword, card, String]
+            //return string
+            
+            new CodeMatch(OpCodes.Callvirt) //Insert
+            ).ThrowIfInvalid("Could not find description adding.");
+
+        object keywordField = codeMatcher.InstructionAt(-2).operand;
+        
+        codeMatcher.InsertAndAdvance(
+            new CodeInstruction(OpCodes.Ldarg_0),
+            new CodeInstruction(OpCodes.Ldloc_S, keywordField),
+            CodeInstruction.Call(() => PossiblyTweakKeywordText(default, default, default))
+        );
+
+        return codeMatcher.Instructions();
+    }
+    
+    static string PossiblyTweakKeywordText(String stringIn, CardModel card, CardKeyword keyword)
+    {
+        if (keyword == CardKeyword.Retain)
+        {
+            if (RetainTrackingFields.HasRetainUntilPlayed.Get(card))
+            {
+                //this is stupid
+                RetainTrackingFields.HasRetainUntilPlayed.Set(card, false);
+                bool wouldRetainEvenWithoutRetainUntilPlayed = card.ShouldRetainThisTurn;
+                RetainTrackingFields.HasRetainUntilPlayed.Set(card, true);
+
+                if (!wouldRetainEvenWithoutRetainUntilPlayed)
+                {
+                    LocString loc = new LocString("card_keywords", "SPIREENIGMAS-RETAIN_UNTIL_PLAYED.title");
+                    return
+                        $"[gold]{loc.GetFormattedText()}[/gold]{CardKeywordExtensions._period.GetRawText()}";
+                }
+            }
+        }
+        
+        return stringIn;
+    }
+}
+
+[HarmonyPatch(typeof(PlayerCmd), nameof(PlayerCmd.GainEnergy), MethodType.Async)]
+public class OnGainedEnergyDuringTurnHookPatch
+{
+    private static readonly CodeMatch EndOfAsyncCallMatch =
+        CodeMatch.Calls(typeof(TaskAwaiter).Method(nameof(TaskAwaiter.GetResult)));
+
+    [HarmonyTranspiler]
+    private static IEnumerable<CodeInstruction> Transpiler(
+        IEnumerable<CodeInstruction> instructions,
+        ILGenerator generator,
+        MethodBase original
+    )
+    {
+        // Identify the region we want to put our new call AFTER, and extract it
+        var preMatcher = new CodeMatcher(instructions);
+
+        preMatcher
+            .MatchStartForward(EndOfAsyncCallMatch)
+            .ThrowIfInvalid(
+                "Failed to find end of async call to \"Hook.AfterModifyingEnergyGain\" in PlayerCmd.GainEnergy (#1)")
+            .CurrentPosWithOffset(1, out var rangeStart)
+            .MatchStartForward(
+                CodeMatch.Calls(typeof(PlayerCombatState).Method(nameof(PlayerCombatState.GainEnergy)))
+            )
+            .ThrowIfInvalid("Failed to find call to \"PlayerCombatState.GainEnergy\" in PlayerCmd.GainEnergy")
+            .CurrentPos(out var rangeEnd);
+
+        var removedInstructions = preMatcher.InstructionsInRange(rangeStart, rangeEnd);
+        preMatcher.RemoveInstructionsInRange(rangeStart, rangeEnd);
+
+        // Insert our new awaited call
+        var instructionsWithAsyncCall = AsyncMethodCall.Create(
+            generator,
+            preMatcher.Instructions(),
+            original,
+            typeof(OnGainedEnergyDuringTurnHookPatch).Method(nameof(CallHook)),
+            afterState: original
+        );
+
+        // Reinsert the instructions that were extracted earlier, BEFORE our new call
+        var postMatcher = new CodeMatcher(instructionsWithAsyncCall);
+
+        postMatcher
+            .MatchStartForward(EndOfAsyncCallMatch)
+            .ThrowIfInvalid(
+                "Failed to find end of async call to \"Hook.AfterModifyingEnergyGain\" in PlayerCmd.GainEnergy (#2)")
+            .InsertAfter(removedInstructions);
+
+        return postMatcher.Instructions();
+    }
+
+    private static async Task CallHook(Player player, decimal finalAmount)
+    {
+        var combatState = player.Creature.CombatState;
+        if (finalAmount <= 0 || combatState is null || combatState.CurrentSide != CombatSide.Player) return;
+        
+        await EnigmaHooks.DispatchWithContext<IAfterEnergyGained>(player, (gained, context) => gained.AfterEnergyGained(context, player, finalAmount, RunManager.Instance.ActionQueueSynchronizer.CombatState == ActionSynchronizerCombatState.PlayPhase));
+
     }
 }
 

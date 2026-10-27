@@ -17,7 +17,7 @@ public class AbandonPower : SpireEnigmaPower
         CardLocation cardLocation)
     {
         if (card.Owner.Creature != Owner || card.Type is not (CardType.Attack or CardType.Skill))
-            return new CardLocation(Owner.Player, cardLocation.pileType, cardLocation.position);
+            return cardLocation;
         Flash();
         PowerCmd.TickDownDuration(this);
         return new CardLocation(Owner.Player, PileType.Exhaust, CardPilePosition.Top);

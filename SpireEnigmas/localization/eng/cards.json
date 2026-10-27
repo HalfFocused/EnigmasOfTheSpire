@@ -143,6 +143,9 @@
   
   "SPIREENIGMAS-MANIFEST.title": "Manifest",
   "SPIREENIGMAS-MANIFEST.description": "#Deal !D! damage.\nPlay a random *Ethereal* card from your *Draw* *Pile*.",
+
+  "SPIREENIGMAS-SHOT_CALL.title": "Shot Call",
+  "SPIREENIGMAS-SHOT_CALL.description": "#Add a *Vision* to ALL players' *Hands*.",
   
   "SPIREENIGMAS-MOTIVATION.title": "Motivation",
   "SPIREENIGMAS-MOTIVATION.description": "#Whenever you draw an *Ethereal* card, gain !MotivationPower! *Block*.",
@@ -644,7 +647,7 @@
   "SPIREENIGMAS-BATTERY_EROSION.description": "#*Chirp* gains [E?].\nReduce this card's [E] by 1 this combat.",
 
   "SPIREENIGMAS-STOCKPILE.title": "Stockpile",
-  "SPIREENIGMAS-STOCKPILE.description": "#*Chirp* gains X [E].\nDraw !C! card(s).",
+  "SPIREENIGMAS-STOCKPILE.description": "#*Chirp* gains X{IfUpgraded:show:+1|} [E].",
 
   "SPIREENIGMAS-HIDEAWAY.title": "Hideaway",
   "SPIREENIGMAS-HIDEAWAY.description": "#Gain !B! *Block*.\nNext turn, *Chirp* gains [E?].",
@@ -707,7 +710,7 @@
   "SPIREENIGMAS-SHRAPNEL_BLAST.description": "#Deal !D! damage.\nDeal !D! damage to ALL enemies.",
 
   "SPIREENIGMAS-RECOIL.title": "Recoil",
-  "SPIREENIGMAS-RECOIL.description": "#Deal !D! damage.\nTake !SelfDamage! damage.",
+  "SPIREENIGMAS-RECOIL.description": "#Deal !D! damage.\nDiscard 1 card at random.\nDraw !C! card(s).",
 
   "SPIREENIGMAS-BLUEPRINT.title": "Blueprint",
   "SPIREENIGMAS-BLUEPRINT.description": "#*Transform* a card into a copy of the last card you played this combat.{InCombat:{LastCardPlayedString}|}",
@@ -807,8 +810,8 @@
   "SPIREENIGMAS-MISFIRE.title": "Misfire",
   "SPIREENIGMAS-MISFIRE.description": "#Deal !D! damage and apply !VulnerablePower! *Vulnerable* to a random enemy.",
 
-  "SPIREENIGMAS-RANDOM_BULLSHIT_GO.title": "Random Bullshit Go",
-  "SPIREENIGMAS-RANDOM_BULLSHIT_GO.description": "#At the end of your turn, play and *Exhaust* a random card in your *Hand*.",
+  "SPIREENIGMAS-RUMMAGE.title": "Rummage",
+  "SPIREENIGMAS-RUMMAGE.description": "#Gain !B! *Block*.\nAt the start of your turn, draw !C! card(s).",
 
   "SPIREENIGMAS-HYPERBLAST.title": "Hyperblast",
   "SPIREENIGMAS-HYPERBLAST.description": "#*Chirp* deals !ChirpDamage! damage to ALL enemies.\n*Chirp* gains !WeakPower! *Weak*.",
@@ -820,7 +823,7 @@
   "SPIREENIGMAS-TINKER.description": "#Draw !C! card(s).\nSwap their costs this combat.",
 
   "SPIREENIGMAS-CRACKLING_FORM.title": "Crackling Form",
-  "SPIREENIGMAS-CRACKLING_FORM.description": "#Whenever you or *Chirp* spend [E], deal !CracklingFormPower! damage to ALL enemies for each [E] spent.",
+  "SPIREENIGMAS-CRACKLING_FORM.description": "#Whenever you or *Chirp* gain [E] during your turn, deal !CracklingFormPower! damage to a random enemy for each [E] gained.",
   
   "SPIREENIGMAS-GADGET.title": "Gadget",
   "SPIREENIGMAS-GADGET.description": "{GainsBlock:cond:Gain {Block:diff()} [gold]Block[/gold].{NewLine1:cond:\n|}|}{HasDamage:cond:Deal {Damage:diff()} damage.{NewLine2:cond:\n|}|}{HasEnergy:cond:Gain {Energy:energyIcons()}.{NewLine3:cond:\n|}|}{HasCardDraw:cond:Draw {Cards:diff()} {Cards:plural:card|cards}.|}",
@@ -986,8 +989,8 @@
   "SPIREENIGMAS-EXPOSITION.title": "Exposition",
   "SPIREENIGMAS-EXPOSITION.description": "#Apply !FeeblePower! *Feeble*.\nApply !SusceptiblePower! *Susceptible*.",
 
-  "SPIREENIGMAS-FOUR_WOES.title": "Four Woes",
-  "SPIREENIGMAS-FOUR_WOES.description": "#Apply !FeeblePower! *Feeble*.\nApply !SusceptiblePower! *Susceptible*.\nGain !InkPower! *Ink*.\nGain [E?].",
+  "SPIREENIGMAS-WOE.title": "Woe",
+  "SPIREENIGMAS-WOE.description": "#Gain [E?].\nDraw !C! card(s).\nGain !DisintegrationPower! *Disintegration*.",
 
   "SPIREENIGMAS-EVERLAST.title": "Everlast",
   "SPIREENIGMAS-EVERLAST.description": "#Gain !B! *Block* X times.\n*Block* is not removed at the start of your next X turns.",
@@ -1052,14 +1055,14 @@
   "SPIREENIGMAS-OUTPOURING.title": "Outpouring",
   "SPIREENIGMAS-OUTPOURING.description": "#Gain !B! *Block* X times.\nDeal !D! damage X times.\nGain X *Disintegration*.",
 
-  "SPIREENIGMAS-IM_SORRY.title": "I'm Sorry",
-  "SPIREENIGMAS-IM_SORRY.description": "#Gain !B! *Block*.\nWhenever you are attacked this turn, deal damage back equal to your *Disintegration*.",
+  "SPIREENIGMAS-RESIST.title": "Resist",
+  "SPIREENIGMAS-RESIST.description": "#Gain !B! *Block*.\nWhenever you are attacked this turn, deal damage back equal to your *Disintegration*.",
 
   "SPIREENIGMAS-VIGIL.title": "Vigil",
   "SPIREENIGMAS-VIGIL.description": "#At the start of your turn, gain [E?].\nLasts !VigilPower! [gold]{VigilPower:plural:Story|Stories}[/gold].",
 
   "SPIREENIGMAS-MALICE.title": "Malice",
-  "SPIREENIGMAS-MALICE.description": "#Deal !D! damage.\nGain !DexterityPower! *Dexterity* this *Story*.",
+  "SPIREENIGMAS-MALICE.description": "#Deal !D! damage twice.",
 
   "SPIREENIGMAS-PHENOMENA.title": "Phenomena",
   "SPIREENIGMAS-PHENOMENA.description": "#Deal !D! damage.\nIf this card is *Chapter* *1*, draw !C! card(s).",

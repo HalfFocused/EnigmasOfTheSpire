@@ -14,6 +14,7 @@ using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
+using SpireEnigmas.SpireEnigmasCode.Events;
 using SpireEnigmas.SpireEnigmasCode.Monsters;
 using SpireEnigmas.SpireEnigmasCode.Powers;
 using SpireEnigmas.SpireEnigmasCode.Util;
@@ -40,29 +41,27 @@ public static class ChirpCmd
       SfxCmd.Play("event:/sfx/characters/necrobinder/necrobinder_summon");
     
     Creature? chirp = combatState.Allies.FirstOrDefault(c => c.Monster is Chirp && c.PetOwner == summoner);
-    if (EnigmasHelper.IsPlayerChirpAlive(summoner))
+    if (!EnigmasHelper.IsPlayerChirpAlive(summoner))
     {
-      ((Chirp) chirp.Monster).GainEnergy(amount);
-    }
-    else
-    {
+      /*
+       * Chirp summoning code here
+       */
+      
       chirp = await PlayerCmd.AddPet<Chirp>(summoner);
       NCreature? chirpNode = NCombatRoom.Instance?.GetCreatureNode(chirp);
       chirpNode.ToggleIsInteractable(true);
-
-      if (chirpNode != null && source is CardModel)
-      {
-        chirpNode.Modulate = Colors.Transparent;
-        chirpNode.CreateTween().TweenProperty(chirpNode, (NodePath) "modulate", Colors.White, 0.3499999940395355).SetDelay(0.10000000149011612);
-        chirpNode.StartReviveAnim();
-      }
+      
       await PowerCmd.Apply<InternalBatteryPower>(choiceContext, chirp, 1, null, null);
-      //chirpNode?.TrackBlockStatus(summoner.Creature);
-      ((Chirp) chirp.Monster).GainEnergy(amount);
       chirpNode.Position += GetChirpOffsetFromPlayer(chirp);
       chirp.HpDisplay = HpDisplay.InfiniteWithoutNumbers;
       await CreatureCmd.SetMaxAndCurrentHp(chirp, 999999999M);
     }
+    
+    ((Chirp) chirp.Monster).GainEnergy(amount);
+
+    await EnigmaHooks.Dispatch<IAfterChirpEnergyGained>(summoner.Creature.CombatState,
+      gained => gained.AfterChirpEnergyGained(choiceContext, summoner, amount));
+    
     //CombatManager.Instance.History.Summoned(combatState, (int) amount, summoner);
     return new SummonResult(EnigmasHelper.GetChirpFromPlayer(summoner), amount);
   }

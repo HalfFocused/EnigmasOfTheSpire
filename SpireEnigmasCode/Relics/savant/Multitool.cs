@@ -44,8 +44,8 @@ public class Multitool : TheSavantRelic
             {
                 CardModel? newCard = CardFactory.GetDistinctForCombat(Owner, Owner.Character.CardPool.GetUnlockedCards(Owner.UnlockState, Owner.RunState.CardMultiplayerConstraint), 1, Owner.RunState.Rng.CombatCardGeneration).FirstOrDefault();
 
-                await CardCmd.Transform(card, newCard);
-                await Cmd.Wait(0.15f);
+                await CardCmd.Transform(card, newCard, CardPreviewStyle.GridLayout);
+                await Cmd.Wait(0.25f);
             }
         }
     }

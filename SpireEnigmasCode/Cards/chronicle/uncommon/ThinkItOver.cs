@@ -6,6 +6,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
+using SpireEnigmas.SpireEnigmasCode.Commands;
 using SpireEnigmas.SpireEnigmasCode.Events;
 using SpireEnigmas.SpireEnigmasCode.Patches;
 using SpireEnigmas.SpireEnigmasCode.Powers;
@@ -31,7 +32,7 @@ public class ThinkItOver() : SpireEnigmasCard.ChronicleCard(1, CardType.Skill, C
     {
         foreach (CardModel drawnCard in await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner))
         {
-            RetainTrackingFields.HasRetainUntilPlayed.Set(drawnCard, true);
+            EnigmaCmd.GiveRetainUntilPlayed(drawnCard);
         }
     }
     

@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
+using SpireEnigmas.SpireEnigmasCode.Commands;
 using SpireEnigmas.SpireEnigmasCode.Patches;
 using SpireEnigmas.SpireEnigmasCode.Powers;
 
@@ -42,7 +43,7 @@ public class Contradict() : SpireEnigmasCard.ChronicleCard(1, CardType.Skill, Ca
         CardModel? card = (await CardSelectCmd.FromHand(choiceContext, Owner, prefs, (Func<CardModel, bool>) (c => !c.Keywords.Contains(CardKeyword.Retain)), this)).FirstOrDefault();
         if (card == null)
             return;
-        RetainTrackingFields.HasRetainUntilPlayed.Set(card, true);
+        EnigmaCmd.GiveRetainUntilPlayed(card);
     }
 
     protected override void OnUpgrade()

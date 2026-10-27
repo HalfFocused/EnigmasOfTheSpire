@@ -76,7 +76,7 @@ public static class AttackCommandExtensions
             targetLocation += new Vector2(offsetX, offsetY);
         }
 
-        return NShivThrowVfx.Create(chirpLocation, targetLocation, Colors.Red);
+        return NShivThrowVfx.Create(chirpLocation, targetLocation, Colors.Aqua);
     }
     
     private static NFireBurstVfx? CreateExplosionWithInaccuracy(Creature targetCreature, float inaccuracy, decimal damage)
@@ -117,7 +117,7 @@ public static class AttackCommandExtensions
                 targetLocation += new Vector2(offsetX, offsetY);
             }
             Control? vfxContainer = chirp.GetVfxContainer();
-            vfxContainer?.AddChildSafely(NShivThrowVfx.Create(chirpLocation, targetLocation, Colors.Red));
+            vfxContainer?.AddChildSafely(NShivThrowVfx.Create(chirpLocation, targetLocation, Colors.Aqua));
             SfxCmd.Play("event:/sfx/characters/osty/osty_attack");
             await Cmd.Wait(0.15f);
         }
@@ -149,7 +149,7 @@ public static class AttackCommandExtensions
             targetLocation += new Vector2(targetOffsetX, targetOffsetY);
         }
 
-        return NShivThrowVfx.Create(initialLocation, targetLocation, Colors.Red);
+        return NShivThrowVfx.Create(initialLocation, targetLocation, Colors.Aqua);
     }
     
     private static async Task VaporizeVfx(Creature chirp, Creature? targetCreature)
@@ -161,7 +161,7 @@ public static class AttackCommandExtensions
         if (vfx == null)
             return;
 
-        vfx.Modulate = Colors.Red;
+        vfx.Modulate = Colors.Aqua;
 
         NCombatRoom.Instance.Ui.AddChildSafely(vfx);
 
@@ -175,7 +175,7 @@ public static class AttackCommandExtensions
         if (vfx == null)
             return;
 
-        vfx.Modulate = Colors.Red;
+        vfx.Modulate = Colors.Aqua;
 
         NCombatRoom.Instance.Ui.AddChildSafely(vfx);
 

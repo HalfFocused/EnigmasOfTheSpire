@@ -12,6 +12,7 @@ using MegaCrit.Sts2.Core.Nodes.Cards.Holders;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using SpireEnigmas.SpireEnigmasCode.Cards.savant.token;
+using SpireEnigmas.SpireEnigmasCode.Patches;
 
 namespace SpireEnigmas.SpireEnigmasCode.Commands;
 
@@ -79,5 +80,10 @@ public static class EnigmaCmd
             NCard? cardNode = NCard.FindOnTable(gadgetBeingInvented);
             cardNode?.AddChildSafely(NCardSmithVfx.Create(cardNode));
         }
+    }
+
+    public static void GiveRetainUntilPlayed(CardModel card)
+    {
+        RetainTrackingFields.HasRetainUntilPlayed.Set(card, true);
     }
 }

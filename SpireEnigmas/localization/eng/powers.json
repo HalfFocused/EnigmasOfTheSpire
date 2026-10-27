@@ -274,13 +274,13 @@
   "SPIREENIGMAS-OVERRIDE_POWER.description": "",
   "SPIREENIGMAS-OVERRIDE_POWER.smartDescription": "#The next [blue]{Amount}[/blue] *Command(s)* you play cost 0 [E].",
 
-  "SPIREENIGMAS-RANDOM_BULLSHIT_GO_POWER.title": "Random Bullshit Go",
-  "SPIREENIGMAS-RANDOM_BULLSHIT_GO_POWER.description": "nobody should see this",
-  "SPIREENIGMAS-RANDOM_BULLSHIT_GO_POWER.smartDescription": "#At the end of your turn, play and *Exhaust* [blue]{Amount}[/blue] random card(s) in your *Hand*.",
+  "SPIREENIGMAS-RUMMAGE_POWER.title": "Rummage",
+  "SPIREENIGMAS-RUMMAGE_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-RUMMAGE_POWER.smartDescription": "#At the start of your turn, draw [blue]{Amount}[/blue] card(s).",
 
   "SPIREENIGMAS-CRACKLING_FORM_POWER.title": "Crackling Form",
   "SPIREENIGMAS-CRACKLING_FORM_POWER.description": "nobody should see this",
-  "SPIREENIGMAS-CRACKLING_FORM_POWER.smartDescription": "#Whenever you or *Chirp* spend [E], deal [blue]{Amount}[/blue] damage to ALL enemies for each [E] spent.",
+  "SPIREENIGMAS-CRACKLING_FORM_POWER.smartDescription": "#Whenever you or *Chirp* gain [E] during your turn, deal [blue]{Amount}[/blue] damage to a random enemy for each [E] gained.",
 
   "SPIREENIGMAS-CHIRP_DOUBLE_BLOCK_POWER.title": "Chirp Double Block",
   "SPIREENIGMAS-CHIRP_DOUBLE_BLOCK_POWER.description": "nobody should see this",
@@ -332,8 +332,8 @@
   "SPIREENIGMAS-IN_THE_MARGINS_POWER.smartDescription": "#At the end of your turn, draw [blue]{Amount}[/blue] card(s).",
 
   "SPIREENIGMAS-INK_POWER.title": "Ink",
-  "SPIREENIGMAS-INK_POWER.description": "#Whenever you gain *Block* from a card, spend [blue]4[/blue] *Ink* to double the amount of *Block* gained.",
-  "SPIREENIGMAS-INK_POWER.smartDescription": "#Whenever you gain *Block* from a card, spend [blue]4[/blue] *Ink* to double the amount of *Block* gained.",
+  "SPIREENIGMAS-INK_POWER.description": "Gain [blue]50%[/blue] more [gold]Block[/gold] from cards. Reduced by [blue]1[/blue] after playing a card that [gold]Blocks[/gold].",
+  "SPIREENIGMAS-INK_POWER.smartDescription": "The next [blue]{Amount}[/blue] times you gain [gold]Block[/gold] from a card, gain [blue]50%[/blue] more.",
 
   "SPIREENIGMAS-INKWELL_POWER.title": "Inkwell",
   "SPIREENIGMAS-INKWELL_POWER.description": "nobody should see this",
@@ -357,7 +357,7 @@
 
   "SPIREENIGMAS-TERMINAL_LUCIDITY_POWER.title": "Terminal Lucidity",
   "SPIREENIGMAS-TERMINAL_LUCIDITY_POWER.description": "nobody should see this",
-  "SPIREENIGMAS-TERMINAL_LUCIDITY_POWER.smartDescription": "#At the start of your turn, gain {Amount:energyIcons()}, draw [blue]{Amount}[/blue] cards, and gain [blue]{Amount}[/blue] *Disintegration*.",
+  "SPIREENIGMAS-TERMINAL_LUCIDITY_POWER.smartDescription": "#At the start of your turn, gain {Amount:energyIcons()}, draw [blue]{Amount}[/blue] card(s), and gain [blue]{Amount}[/blue] *Disintegration*.",
 
   "SPIREENIGMAS-KNIFES_EDGE_POWER.title": "Knife's Edge",
   "SPIREENIGMAS-KNIFES_EDGE_POWER.description": "nobody should see this",
@@ -367,9 +367,9 @@
   "SPIREENIGMAS-SPECTRE_FORM_POWER.description": "nobody should see this",
   "SPIREENIGMAS-SPECTRE_FORM_POWER.smartDescription": "#The first [blue]{Amount}[/blue] time(s) you play a card without *Retain* each turn, return it to your *Hand* with *Retain* until played.",
 
-  "SPIREENIGMAS-IM_SORRY_POWER.title": "I'm Sorry",
-  "SPIREENIGMAS-IM_SORRY_POWER.description": "nobody should see this",
-  "SPIREENIGMAS-IM_SORRY_POWER.smartDescription": "#Whenever you are attacked this turn, deal damage back equal to {Amount:plural:|[blue]{Amount}[/blue] times }your *Disintegration*.",
+  "SPIREENIGMAS-RESIST_POWER.title": "Resist",
+  "SPIREENIGMAS-RESIST_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-RESIST_POWER.smartDescription": "#Whenever you are attacked this turn, deal damage back equal to {Amount:plural:|[blue]{Amount}[/blue] times }your *Disintegration*.",
 
   "SPIREENIGMAS-VIGIL_POWER.title": "Vigil",
   "SPIREENIGMAS-VIGIL_POWER.description": "nobody should see this",

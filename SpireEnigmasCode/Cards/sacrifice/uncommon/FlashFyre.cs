@@ -17,6 +17,7 @@ public class FlashFyre() : SpireEnigmasCard.SacrificeCard(1,
     CardType.Skill, CardRarity.Uncommon,
     TargetType.Self)
 {
+    //TODO: Fix unsettling lamp not working on this card!
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new PowerVar<CharredPower>(5M)
     ];

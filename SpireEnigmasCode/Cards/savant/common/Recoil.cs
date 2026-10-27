@@ -5,6 +5,7 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Hooks;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Powers;
 
@@ -14,16 +15,20 @@ public class Recoil() : SpireEnigmasCard.SavantCard(1, CardType.Attack, CardRari
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(13M, ValueProp.Move),
-        new DamageVar("SelfDamage", 2, ValueProp.Unpowered | ValueProp.Move)
+        new DamageVar(10M, ValueProp.Move),
+        new CardsVar(1)
     ];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
-        await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars["SelfDamage"].BaseValue, ValueProp.Unpowered | ValueProp.Move, this, play);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target!).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await Cmd.CustomScaledWait(0.1f, 0.35f);
+        CardModel? cardToDiscard = Owner.RunState.Rng.CombatCardSelection.NextItem(PileType.Hand.GetPile(Owner).Cards);
+        if (cardToDiscard == null)
+            return;
+        await CardCmd.DiscardAndDraw(choiceContext, [cardToDiscard], DynamicVars.Cards.IntValue);
     }
 
     protected override void OnUpgrade()

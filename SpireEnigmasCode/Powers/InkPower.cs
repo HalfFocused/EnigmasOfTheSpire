@@ -21,7 +21,7 @@ public class InkPower : SpireEnigmaPower
         CardModel? cardSource,
         CardPlay? cardPlay)
     {
-        return cardSource is null || cardSource.Owner.Creature != Owner || !ShouldActivate(cardSource) ? 1M : 2M;
+        return cardSource is null || cardSource.Owner.Creature != Owner || !ShouldActivate(cardSource) ? 1M : 1.5M;
     }
     
     public override async Task AfterModifyingBlockAmount(
@@ -32,11 +32,11 @@ public class InkPower : SpireEnigmaPower
         if (modifiedAmount <= 0M || cardSource == null)
             return;
         Flash();
-        await PowerCmd.ModifyAmount(new BlockingPlayerChoiceContext(), this, -4, Owner, null);
+        await PowerCmd.ModifyAmount(new BlockingPlayerChoiceContext(), this, -1, Owner, null);
     }
 
     private bool ShouldActivate(CardModel card)
     {
-        return card.GainsBlock && Amount >= 4;
+        return card.GainsBlock;
     }
 }

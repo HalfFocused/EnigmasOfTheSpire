@@ -11,7 +11,7 @@ using SpireEnigmas.SpireEnigmasCode.Util;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.chronicle.rare;
 
-public class LoneStrike() : SpireEnigmasCard.ChronicleCard(2, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
+public class LoneStrike() : SpireEnigmasCard.ChronicleCard(1, CardType.Attack, CardRarity.Rare, TargetType.AnyEnemy)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
