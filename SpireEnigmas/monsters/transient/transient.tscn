@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctp3jdogyyafh"]
+
+[ext_resource type="SpineAtlasResource" uid="uid://clwdcg7a8ls16" path="res://SpireEnigmas/monsters/transient/transient.spatlas" id="1_7njvt"]
+[ext_resource type="Script" uid="uid://brp87uh26y8oo" path="res://SpireEnigmasCode/Util/NEnigmaCreatureVisuals.cs" id="1_ppyba"]
+[ext_resource type="SpineSkeletonFileResource" uid="uid://df05oyu7bpmui" path="res://SpireEnigmas/monsters/transient/transient.spskel" id="2_7njvt"]
+
+[sub_resource type="SpineSkeletonDataResource" id="SpineSkeletonDataResource_ppyba"]
+atlas_res = ExtResource("1_7njvt")
+skeleton_file_res = ExtResource("2_7njvt")
+
+[node name="Transient" type="Node2D"]
+script = ExtResource("1_ppyba")
+
+[node name="Bounds" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = -340.0
+offset_right = 185.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.65, 1)
+pivot_offset = Vector2(165, 165)
+mouse_filter = 2
+
+[node name="CenterPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -170)
+
+[node name="IntentPos" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -390)
+
+[node name="Visuals" type="SpineSprite" parent="."]
+skeleton_data_res = SubResource("SpineSkeletonDataResource_ppyba")
+preview_skin = "Default"
+preview_animation = "Idle"
+preview_frame = false
+preview_time = 0.0
+unique_name_in_owner = true
+position = Vector2(0, -10)
+scale = Vector2(-1.1, 1.1)

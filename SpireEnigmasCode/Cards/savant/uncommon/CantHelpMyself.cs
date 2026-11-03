@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿#region
+
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -10,7 +10,8 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using SpireEnigmas.SpireEnigmasCode.Commands;
-using SpireEnigmas.SpireEnigmasCode.Powers;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.uncommon;
 

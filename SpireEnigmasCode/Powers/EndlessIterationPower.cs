@@ -1,4 +1,6 @@
-﻿using MegaCrit.Sts2.Core.Combat;
+﻿#region
+
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -7,9 +9,10 @@ using MegaCrit.Sts2.Core.Extensions;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Powers;
-using SpireEnigmas.SpireEnigmasCode.Cards.other;
 using SpireEnigmas.SpireEnigmasCode.Cards.savant.token;
+using SpireEnigmas.SpireEnigmasCode.Util;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Powers;
 
@@ -20,7 +23,7 @@ public class EndlessIterationPower : SpireEnigmaPower
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        GadgetHoverTip()
+        HoverTipFactory.Static(EnigmaHoverTips.Gadget)
     ];
     
     public override async Task BeforeSideTurnStart(

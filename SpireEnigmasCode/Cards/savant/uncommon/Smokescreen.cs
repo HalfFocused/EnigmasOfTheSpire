@@ -1,4 +1,6 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿#region
+
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -8,6 +10,8 @@ using SpireEnigmas.SpireEnigmasCode.Commands;
 using SpireEnigmas.SpireEnigmasCode.DynamicVars;
 using SpireEnigmas.SpireEnigmasCode.Powers;
 using SpireEnigmas.SpireEnigmasCode.Util;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.uncommon;
 
@@ -27,7 +31,7 @@ public class Smokescreen() : SpireEnigmasCard.SavantCard(1, CardType.Skill, Card
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        ChirpHoverTip()
+        HoverTipFactory.Static(EnigmaHoverTips.Chirp)
     ];
 
     protected override async Task OnPlay(

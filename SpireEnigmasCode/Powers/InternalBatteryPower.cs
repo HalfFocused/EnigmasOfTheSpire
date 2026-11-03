@@ -1,7 +1,11 @@
-﻿using MegaCrit.Sts2.Core.Entities.Creatures;
+﻿#region
+
+using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Powers;
 

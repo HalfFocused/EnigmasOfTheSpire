@@ -1,4 +1,6 @@
-﻿using BaseLib.Utils;
+﻿#region
+
+using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -9,8 +11,10 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using MegaCrit.Sts2.Core.ValueProps;
-using SpireEnigmas.SpireEnigmasCode.Character;
 using SpireEnigmas.SpireEnigmasCode.Character.displaced;
+using SpireEnigmas.SpireEnigmasCode.Util;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
@@ -30,7 +34,7 @@ public class BackupPlan() : SpireEnigmasCard.DisplacedCard(1, CardType.Attack, C
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 
     [
-        ForgetHoverTip(),
+        HoverTipFactory.Static(EnigmaHoverTips.Forget),
         HoverTipFactory.FromPower<StrengthPower>()
     ];
     

@@ -1,10 +1,15 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿#region
+
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using SpireEnigmas.SpireEnigmasCode.Events;
 using SpireEnigmas.SpireEnigmasCode.Powers;
+using SpireEnigmas.SpireEnigmasCode.Util;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.chronicle.rare;
 
@@ -12,7 +17,7 @@ public class OnTheWind() : SpireEnigmasCard.ChronicleCard(2, CardType.Power, Car
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        StoryHoverTip()
+        HoverTipFactory.Static(EnigmaHoverTips.Story)
     ];
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [

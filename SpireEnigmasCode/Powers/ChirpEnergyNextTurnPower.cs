@@ -1,12 +1,14 @@
-﻿using BaseLib.Abstracts;
+﻿#region
+
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
-using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Powers;
 using SpireEnigmas.SpireEnigmasCode.Commands;
+using SpireEnigmas.SpireEnigmasCode.Util;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Powers;
 
@@ -18,7 +20,7 @@ public sealed class ChirpEnergyNextTurnPower : SpireEnigmaPower
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        ChirpHoverTip(),
+        HoverTipFactory.Static(EnigmaHoverTips.Chirp),
         HoverTipFactory.ForEnergy(this)
     ];
 

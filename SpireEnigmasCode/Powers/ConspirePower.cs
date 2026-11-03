@@ -1,6 +1,10 @@
-﻿using MegaCrit.Sts2.Core.Entities.Players;
+﻿#region
+
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.HoverTips;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Powers;
 

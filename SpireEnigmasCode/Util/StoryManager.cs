@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿#region
+
 using BaseLib.Abstracts;
 using Godot;
 using MegaCrit.Sts2.Core.Combat;
@@ -17,6 +15,7 @@ using MegaCrit.Sts2.Core.Nodes.Combat;
 using SpireEnigmas.SpireEnigmasCode.Events;
 using SpireEnigmas.SpireEnigmasCode.Patches;
 
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Util;
 

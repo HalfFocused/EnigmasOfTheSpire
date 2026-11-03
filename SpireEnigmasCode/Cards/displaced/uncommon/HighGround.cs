@@ -1,4 +1,6 @@
-﻿using BaseLib.Extensions;
+﻿#region
+
+using BaseLib.Extensions;
 using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -7,6 +9,9 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
+using SpireEnigmas.SpireEnigmasCode.Util;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
@@ -26,7 +31,7 @@ public class HighGround() : SpireEnigmasCard.DisplacedCard(0,
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 
     [
-        FlashbackHoverTip()
+        HoverTipFactory.Static(EnigmaHoverTips.Flashback)
     ];
 
     protected override async Task OnPlay(

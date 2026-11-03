@@ -1,6 +1,9 @@
-﻿using MegaCrit.Sts2.Core.Entities.Players;
-using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+﻿#region
+
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Models;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Events;
 

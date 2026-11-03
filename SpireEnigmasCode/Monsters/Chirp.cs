@@ -1,4 +1,6 @@
-﻿using BaseLib.Abstracts;
+﻿#region
+
+using BaseLib.Abstracts;
 using BaseLib.Patches.Content;
 using Godot;
 using MegaCrit.Sts2.Core.Animation;
@@ -9,11 +11,12 @@ using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using SpireEnigmas.SpireEnigmasCode.Powers;
 
+#endregion
+
 namespace SpireEnigmas.SpireEnigmasCode.Monsters;
 
 public sealed class Chirp : CustomMonsterModel
 {
-
   public Chirp()
   {
     CustomContentDictionary.RegisterType(GetType());

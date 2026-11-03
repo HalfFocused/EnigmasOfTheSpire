@@ -1,6 +1,5 @@
-﻿using MegaCrit.Sts2.Core.Combat;
-using MegaCrit.Sts2.Core.Combat.History.Entries;
-using MegaCrit.Sts2.Core.Commands;
+﻿#region
+
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -9,6 +8,9 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Cards.savant.token;
 using SpireEnigmas.SpireEnigmasCode.Commands;
+using SpireEnigmas.SpireEnigmasCode.Util;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.uncommon;
 
@@ -29,7 +31,7 @@ public class Payload() : SpireEnigmasCard.SavantCard(2,
     }
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        InventHoverTip(),
+        HoverTipFactory.Static(EnigmaHoverTips.Invent),
         HoverTipFactory.FromCard(PreviewGadget())
     ];
     

@@ -1,4 +1,6 @@
-﻿using MegaCrit.Sts2.Core.Combat;
+﻿#region
+
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -6,6 +8,8 @@ using MegaCrit.Sts2.Core.HoverTips;
 using SpireEnigmas.SpireEnigmasCode.Commands;
 using SpireEnigmas.SpireEnigmasCode.Monsters;
 using SpireEnigmas.SpireEnigmasCode.Util;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Powers;
 
@@ -17,7 +21,7 @@ public class AlternatorPower : SpireEnigmaPower
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        ChirpHoverTip(),
+        HoverTipFactory.Static(EnigmaHoverTips.Chirp),
         HoverTipFactory.ForEnergy(this)
     ];
 

@@ -1,11 +1,16 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿#region
+
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
+using SpireEnigmas.SpireEnigmasCode.Util;
 using Void = MegaCrit.Sts2.Core.Models.Cards.Void;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.rare;
 
@@ -24,7 +29,7 @@ public class Her() : SpireEnigmasCard.DisplacedCard(2,
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 
     [
-        ForgetHoverTip(),
+        HoverTipFactory.Static(EnigmaHoverTips.Forget),
         HoverTipFactory.FromCard<Void>()
     ];
 

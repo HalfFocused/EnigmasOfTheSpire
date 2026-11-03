@@ -1,9 +1,13 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿#region
+
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using SpireEnigmas.SpireEnigmasCode.Commands;
+using SpireEnigmas.SpireEnigmasCode.Util;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.uncommon;
 
@@ -16,7 +20,7 @@ public class Stockpile() : SpireEnigmasCard.SavantCard(0, CardType.Skill, CardRa
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        ChirpHoverTip()
+        HoverTipFactory.Static(EnigmaHoverTips.Chirp)
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [

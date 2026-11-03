@@ -1,15 +1,15 @@
-﻿using System.Runtime.Serialization;
-using BaseLib.Abstracts;
-using MegaCrit.Sts2.Core.Localization;
+﻿#nullable enable
 
-using System.Globalization;
+#region
+
 using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using SmartFormat.Core.Extensions;
 using SpireEnigmas.SpireEnigmasCode.Patches;
 
-#nullable enable
+#endregion
+
 namespace SpireEnigmas.SpireEnigmasCode.DynamicVars;
 
 

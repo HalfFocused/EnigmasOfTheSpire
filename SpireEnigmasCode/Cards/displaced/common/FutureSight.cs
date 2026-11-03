@@ -1,4 +1,6 @@
-﻿using MegaCrit.Sts2.Core.Combat;
+﻿#region
+
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
@@ -8,6 +10,9 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
 using MegaCrit.Sts2.Core.ValueProps;
+using SpireEnigmas.SpireEnigmasCode.Util;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.common;
 
@@ -29,7 +34,7 @@ public class FutureSight() : SpireEnigmasCard.DisplacedCard(1, CardType.Skill, C
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 
     [
-        ForgetHoverTip()
+        HoverTipFactory.Static(EnigmaHoverTips.Forget)
     ];
 
     protected override async Task OnPlay(

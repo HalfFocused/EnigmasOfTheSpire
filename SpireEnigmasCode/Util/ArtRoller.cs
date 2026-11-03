@@ -1,5 +1,9 @@
-﻿using Godot;
+﻿#region
+
+using Godot;
 using MegaCrit.Sts2.Core.Entities.Cards;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Util;
 

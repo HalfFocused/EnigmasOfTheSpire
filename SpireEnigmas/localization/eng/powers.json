@@ -160,7 +160,7 @@
 
   "SPIREENIGMAS-SCORCHED_EARTH_POWER.title": "Scorched Earth",
   "SPIREENIGMAS-SCORCHED_EARTH_POWER.description": "nobody should see this",
-  "SPIREENIGMAS-SCORCHED_EARTH_POWER.smartDescription": "#Whenever you draw a *Burn*, deal [blue]{Amount}[/blue] damage to ALL enemies.",
+  "SPIREENIGMAS-SCORCHED_EARTH_POWER.smartDescription": "#Whenever you create a *Burn*, deal [blue]{Amount}[/blue] damage to ALL enemies.",
 
   "SPIREENIGMAS-THE_GOLDEN_MEAN_POWER.title": "The Golden Mean",
   "SPIREENIGMAS-THE_GOLDEN_MEAN_POWER.description": "nobody should see this",
@@ -389,5 +389,17 @@
 
   "SPIREENIGMAS-PERFECTION_POWER.title": "Perfection",
   "SPIREENIGMAS-PERFECTION_POWER.description": "nobody should see this",
-  "SPIREENIGMAS-PERFECTION_POWER.smartDescription": "#After you play a *Refined* card, gain [blue]{Amount}[/blue] *Strength*."
+  "SPIREENIGMAS-PERFECTION_POWER.smartDescription": "#After you play a *Refined* card, gain [blue]{Amount}[/blue] *Strength*.",
+
+  "SPIREENIGMAS-NEVER_ALONE_POWER.title": "Never Alone",
+  "SPIREENIGMAS-NEVER_ALONE_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-NEVER_ALONE_POWER.smartDescription": "#The *Adversary* follows a predictable intent cycle and acts last on the enemy turn, hitting you and all enemies.",
+
+  "SPIREENIGMAS-DODGE_POWER.title": "Dodge",
+  "SPIREENIGMAS-DODGE_POWER.description": "#This turn, you are immune to the *Adversary*.",
+  "SPIREENIGMAS-DODGE_POWER.smartDescription": "#You are immune to the *Adversary* this turn.",
+
+  "SPIREENIGMAS-I_DONT_FEAR_YOU_POWER.title": "I Don't Fear You",
+  "SPIREENIGMAS-I_DONT_FEAR_YOU_POWER.description": "#You are immune to the *Adversary*.",
+  "SPIREENIGMAS-I_DONT_FEAR_YOU_POWER.smartDescription": "#You are immune to the *Adversary*."
 }

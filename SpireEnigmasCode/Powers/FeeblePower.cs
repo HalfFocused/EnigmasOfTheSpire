@@ -1,4 +1,6 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿#region
+
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -9,6 +11,9 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Events;
+using SpireEnigmas.SpireEnigmasCode.Util;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Powers;
 
@@ -24,7 +29,7 @@ public class FeeblePower : SpireEnigmaPower, IRenderStory, IAfterStoryEnd
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        StoryHoverTip()
+        HoverTipFactory.Static(EnigmaHoverTips.Story)
     ];
     
     public override Decimal ModifyDamageMultiplicative(

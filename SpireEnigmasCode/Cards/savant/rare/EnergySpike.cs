@@ -1,15 +1,14 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿#region
+
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Commands;
 using SpireEnigmas.SpireEnigmasCode.Monsters;
-using SpireEnigmas.SpireEnigmasCode.Powers;
 using SpireEnigmas.SpireEnigmasCode.Util;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.rare;
 
@@ -24,7 +23,7 @@ public class EnergySpike() : SpireEnigmasCard.SavantCard(1, CardType.Skill, Card
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        ChirpHoverTip()
+        HoverTipFactory.Static(EnigmaHoverTips.Chirp)
     ];
     
     protected override bool ShouldGlowRedInternal => GetChirp == null;

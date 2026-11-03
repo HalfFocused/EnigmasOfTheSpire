@@ -1,4 +1,6 @@
-﻿using BaseLib.Utils;
+﻿#region
+
+using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -9,6 +11,8 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.CardPools;
 using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Powers;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.token;
 [Pool(typeof(TokenCardPool))]

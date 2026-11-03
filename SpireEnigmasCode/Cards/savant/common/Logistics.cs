@@ -1,4 +1,6 @@
-﻿using MegaCrit.Sts2.Core.CardSelection;
+﻿#region
+
+using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -9,6 +11,8 @@ using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Commands;
 using SpireEnigmas.SpireEnigmasCode.DynamicVars;
 using SpireEnigmas.SpireEnigmasCode.Util;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.common;
 
@@ -24,7 +28,7 @@ public class Logistics() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRa
     protected override bool ShouldGlowRedInternal => EnigmasHelper.GetChirpFromPlayer(Owner) == null;
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        ChirpHoverTip()
+        HoverTipFactory.Static(EnigmaHoverTips.Chirp)
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [

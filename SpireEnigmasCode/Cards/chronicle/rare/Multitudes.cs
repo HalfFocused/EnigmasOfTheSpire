@@ -1,4 +1,6 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿#region
+
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -7,13 +9,15 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using SpireEnigmas.SpireEnigmasCode.Powers;
 using SpireEnigmas.SpireEnigmasCode.Util;
 
+#endregion
+
 namespace SpireEnigmas.SpireEnigmasCode.Cards.chronicle.rare;
 
 public class Multitudes() : SpireEnigmasCard.ChronicleCard(1, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        StoryHoverTip()
+        HoverTipFactory.Static(EnigmaHoverTips.Story)
     ];
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [

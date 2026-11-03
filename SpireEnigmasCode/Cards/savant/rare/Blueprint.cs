@@ -1,11 +1,10 @@
-﻿using BaseLib.Extensions;
+﻿#region
+
+using BaseLib.Extensions;
 using Godot;
-using MegaCrit.Sts2.Core.CardSelection;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Combat.History.Entries;
-using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
@@ -15,10 +14,14 @@ using SpireEnigmas.SpireEnigmasCode.Commands;
 using SpireEnigmas.SpireEnigmasCode.Extensions;
 using SpireEnigmas.SpireEnigmasCode.Util;
 
+#endregion
+
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.rare;
 
 public class Blueprint() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRarity.Rare, TargetType.Self)
 {
+    //TODO: Investigate softlock when using blueprint to transform beckon into touch up while improvised shield is in play
+    
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
     [
         CardKeyword.Exhaust
@@ -32,7 +35,7 @@ public class Blueprint() : SpireEnigmasCard.SavantCard(1, CardType.Skill, CardRa
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        //InventHoverTip()
+        //HoverTipFactory.Static(EnigmaHoverTips.Invent)
     ];
     
     public override string PortraitPath => $"{Id.Entry.RemovePrefix().ToLowerInvariant() + TheManBehindTheSlaughter()}.png".CardImagePath();

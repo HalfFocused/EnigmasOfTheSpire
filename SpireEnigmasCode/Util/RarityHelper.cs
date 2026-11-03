@@ -1,5 +1,9 @@
-﻿using MegaCrit.Sts2.Core.Entities.Cards;
+﻿#region
+
+using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Models;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Util;
 

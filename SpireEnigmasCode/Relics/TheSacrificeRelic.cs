@@ -1,9 +1,12 @@
-﻿using BaseLib.Abstracts;
+﻿#region
+
+using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
-using SpireEnigmas.SpireEnigmasCode.Character;
 using SpireEnigmas.SpireEnigmasCode.Character.sacrifice;
 using SpireEnigmas.SpireEnigmasCode.Extensions;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Relics;
 

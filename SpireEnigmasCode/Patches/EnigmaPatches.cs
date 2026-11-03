@@ -1,8 +1,9 @@
-﻿using System.Reflection;
+﻿#region
+
+using System.Reflection;
 using System.Reflection.Emit;
 using System.Runtime.CompilerServices;
 using BaseLib.Extensions;
-using BaseLib.Patches.Features;
 using BaseLib.Utils;
 using BaseLib.Utils.Patching;
 using Godot;
@@ -15,13 +16,11 @@ using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.Hooks;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Potions;
-using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.Relics;
+using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.Nodes.Cards.Holders;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
@@ -30,17 +29,14 @@ using MegaCrit.Sts2.Core.Runs;
 using SpireEnigmas.SpireEnigmasCode.Cards.displaced.common;
 using SpireEnigmas.SpireEnigmasCode.Cards.other;
 using SpireEnigmas.SpireEnigmasCode.Cards.savant.rare;
-using SpireEnigmas.SpireEnigmasCode.Cards.savant.token;
-using SpireEnigmas.SpireEnigmasCode.Character.chronicle;
 using SpireEnigmas.SpireEnigmasCode.Character.displaced;
-using SpireEnigmas.SpireEnigmasCode.Character.savant;
-using SpireEnigmas.SpireEnigmasCode.Commands;
 using SpireEnigmas.SpireEnigmasCode.Events;
 using SpireEnigmas.SpireEnigmasCode.Extensions;
 using SpireEnigmas.SpireEnigmasCode.Monsters;
 using SpireEnigmas.SpireEnigmasCode.Powers;
 using SpireEnigmas.SpireEnigmasCode.Util;
-using Label = System.Reflection.Emit.Label;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Patches;
 
@@ -52,6 +48,11 @@ namespace SpireEnigmas.SpireEnigmasCode.Patches;
 class ChirpBatteryCostField
 {
     public static readonly SpireField<CardModel, int> ChirpBatteryCost = new(()=>0);
+}
+
+class PowerWasDurationFrozenOnceField
+{
+    public static readonly SpireField<PowerModel, bool> WasDurationHalted = new(()=>false);
 }
 
 class StoryFields
@@ -180,6 +181,22 @@ class CloneRefinementAmountPatch
     }
 }
 
+[HarmonyPatch(typeof(AttackIntent), nameof(AttackIntent.GetSingleDamage))]
+class AttackIntentDamagePatch
+{
+    [HarmonyPostfix]
+    static void StopIntentDisplayFromChanging(AttackIntent __instance, Creature owner, ref int __result)
+    {
+        if (owner.Monster is Adversary theAdversary)
+        {
+            if (theAdversary.LockedMoveDamages.TryGetValue(__instance, out var lockedDamage))
+            {
+                __result = lockedDamage;
+            }
+        }
+    }
+}
+
 /*
  * Stop debuff durations from decreasing if the creature has Stasis
  */
@@ -189,10 +206,17 @@ class StasisDurationPatch
     [HarmonyPrefix]
     static bool CancelTickDown(ref Task __result, PowerModel power)
     {
-        if (power.TypeForCurrentAmount == PowerType.Debuff && power is not StasisPower)
+        if (power.TypeForCurrentAmount == PowerType.Debuff)
         {
-            if (power.Owner.HasPower<StasisPower>())
+            if (power is not StasisPower && power.Owner.HasPower<StasisPower>())
             {
+                __result = Task.CompletedTask;
+                return false;
+            }
+
+            if (power.Applier?.Monster is Adversary && power.Owner.Monster is not null && !PowerWasDurationFrozenOnceField.WasDurationHalted.Get(power))
+            {
+                PowerWasDurationFrozenOnceField.WasDurationHalted.Set(power, true);
                 __result = Task.CompletedTask;
                 return false;
             }
@@ -437,7 +461,8 @@ class RefineRetainPatch
 
     static bool ShouldRetain(bool original, CardModel cardModel)
     {
-        return original || (cardModel.Keywords.Contains(EnigmaKeywords.Refine) && !RefinementFields.IsRefined.Get(cardModel));
+        return original || 
+               (cardModel.Keywords.Contains(EnigmaKeywords.Refine) && !RefinementFields.IsRefined.Get(cardModel));
     }
 }
 

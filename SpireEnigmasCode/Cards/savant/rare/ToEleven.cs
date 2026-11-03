@@ -1,7 +1,7 @@
-﻿using MegaCrit.Sts2.Core.CardSelection;
+﻿#region
+
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
@@ -9,6 +9,9 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Cards.savant.token;
 using SpireEnigmas.SpireEnigmasCode.Commands;
+using SpireEnigmas.SpireEnigmasCode.Util;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.rare;
 
@@ -32,7 +35,7 @@ public class ToEleven() : SpireEnigmasCard.SavantCard(1, CardType.Attack, CardRa
     }
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        InventHoverTip(),
+        HoverTipFactory.Static(EnigmaHoverTips.Invent),
         HoverTipFactory.FromCard(PreviewGadget())
     ];
     protected override async Task OnPlay(

@@ -1,19 +1,15 @@
-﻿using BaseLib.Abstracts;
+﻿#region
+
+using BaseLib.Abstracts;
 using BaseLib.Utils.NodeFactories;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
 using SpireEnigmas.SpireEnigmasCode.Cards.chronicle.basic;
-using SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.basic;
-using SpireEnigmas.SpireEnigmasCode.Cards.savant.basic;
-using SpireEnigmas.SpireEnigmasCode.Character.sacrifice;
-using SpireEnigmas.SpireEnigmasCode.Character.savant;
 using SpireEnigmas.SpireEnigmasCode.Extensions;
-using SpireEnigmas.SpireEnigmasCode.Relics;
 using SpireEnigmas.SpireEnigmasCode.Relics.chronicle;
-using SpireEnigmas.SpireEnigmasCode.Relics.displaced;
-using SpireEnigmas.SpireEnigmasCode.Relics.sacrifice;
-using SpireEnigmas.SpireEnigmasCode.Relics.savant;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Character.chronicle;
 

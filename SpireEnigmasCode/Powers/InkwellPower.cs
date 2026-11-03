@@ -1,10 +1,15 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿#region
+
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using SpireEnigmas.SpireEnigmasCode.Events;
+using SpireEnigmas.SpireEnigmasCode.Util;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Powers;
 
@@ -17,7 +22,7 @@ public class InkwellPower : SpireEnigmaPower, IRenderStory, IAfterStoryStart
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        StoryHoverTip(),
+        HoverTipFactory.Static(EnigmaHoverTips.Story),
         HoverTipFactory.FromPower<InkPower>()
     ];
 

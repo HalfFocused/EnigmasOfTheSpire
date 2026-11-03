@@ -1,4 +1,5 @@
-﻿using BaseLib.Utils;
+﻿#region
+
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -8,6 +9,9 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
+using SpireEnigmas.SpireEnigmasCode.Util;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.rare;
 
@@ -32,7 +36,7 @@ public class Delivery() : SpireEnigmasCard.SavantCard(3, CardType.Skill, CardRar
     }
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        ChirpHoverTip(),
+        HoverTipFactory.Static(EnigmaHoverTips.Chirp),
         HoverTipFactory.FromCard<TheBomb>(IsUpgraded)
     ];
     

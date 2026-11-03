@@ -1,3 +1,5 @@
+#region
+
 using System.Reflection;
 using BaseLib.Utils;
 using Godot;
@@ -5,8 +7,11 @@ using HarmonyLib;
 using MegaCrit.Sts2.Core.Modding;
 using SpireEnigmas.SpireEnigmasCode.Character.chronicle;
 using SpireEnigmas.SpireEnigmasCode.Character.displaced;
+using SpireEnigmas.SpireEnigmasCode.Character.renegade;
 using SpireEnigmas.SpireEnigmasCode.Character.sacrifice;
 using SpireEnigmas.SpireEnigmasCode.Character.savant;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode;
 
@@ -28,7 +33,8 @@ public partial class MainFile : Node
             typeof(TheDisplaced),
             typeof(TheSacrifice),
             typeof(TheSavant),
-            typeof(TheChronicle)
+            typeof(TheChronicle),
+            typeof(TheRenegade)
         );
     }
 }

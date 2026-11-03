@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿#region
+
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
-using SpireEnigmas.SpireEnigmasCode.Cards.other;
-using SpireEnigmas.SpireEnigmasCode.Monsters;
 using SpireEnigmas.SpireEnigmasCode.Powers;
+using SpireEnigmas.SpireEnigmasCode.Util;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.uncommon;
 
@@ -16,7 +16,7 @@ public class PowerConversion() : SpireEnigmasCard.SavantCard(1, CardType.Power, 
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        ChirpHoverTip(),
+        HoverTipFactory.Static(EnigmaHoverTips.Chirp),
         HoverTipFactory.Static(StaticHoverTip.Energy)
     ];
     

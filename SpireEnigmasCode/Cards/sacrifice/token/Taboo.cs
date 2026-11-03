@@ -1,4 +1,6 @@
-﻿using BaseLib.Utils;
+﻿#region
+
+using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
@@ -7,7 +9,8 @@ using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.CardPools;
-using MegaCrit.Sts2.Core.ValueProps;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.token;
 
@@ -17,7 +20,7 @@ public class Taboo() : SpireEnigmasCard.SacrificeCard(0,
     TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
-        new HpLossVar(1M),
+        //new HpLossVar(1M),
         new CardsVar(1)
     ];
     
@@ -32,7 +35,7 @@ public class Taboo() : SpireEnigmasCard.SacrificeCard(0,
         CardPlay play)
     {
         VfxCmd.PlayOnCreatureCenter(Owner.Creature, VfxCmd.bloodyImpactPath);
-        await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars.HpLoss.BaseValue, ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move, this, play);
+        //await CreatureCmd.Damage(choiceContext, Owner.Creature, DynamicVars.HpLoss.BaseValue, ValueProp.Unblockable | ValueProp.Unpowered | ValueProp.Move, this, play);
         await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
     }
 

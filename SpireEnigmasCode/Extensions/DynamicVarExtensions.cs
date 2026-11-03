@@ -1,6 +1,9 @@
-﻿using Godot;
+﻿#region
+
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using SpireEnigmas.SpireEnigmasCode.Patches;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Extensions;
 

@@ -1,11 +1,13 @@
-﻿using MegaCrit.Sts2.Core.Combat;
-using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Creatures;
+﻿#region
+
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using SpireEnigmas.SpireEnigmasCode.Commands;
+using SpireEnigmas.SpireEnigmasCode.Util;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Powers;
 
@@ -17,7 +19,7 @@ public class PowerConversionPower : SpireEnigmaPower
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        ChirpHoverTip(),
+        HoverTipFactory.Static(EnigmaHoverTips.Chirp),
         HoverTipFactory.ForEnergy(this)
     ];
 

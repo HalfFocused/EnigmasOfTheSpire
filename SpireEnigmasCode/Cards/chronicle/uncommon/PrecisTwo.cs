@@ -1,16 +1,16 @@
-﻿using BaseLib.Utils;
+﻿#region
+
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
-using SpireEnigmas.SpireEnigmasCode.Character;
-using SpireEnigmas.SpireEnigmasCode.Character.displaced;
 using SpireEnigmas.SpireEnigmasCode.Events;
 using SpireEnigmas.SpireEnigmasCode.Util;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.chronicle.uncommon;
 
@@ -27,7 +27,7 @@ public class PrecisTwo() : SpireEnigmasCard.ChronicleCard(1, CardType.Attack, Ca
 
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        StoryHoverTip(),
+        HoverTipFactory.Static(EnigmaHoverTips.Story),
         HoverTipFactory.FromPower<StrengthPower>()
     ];
     

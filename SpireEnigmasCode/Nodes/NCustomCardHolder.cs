@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿#region
+
+using System.Data;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Models;
@@ -6,6 +8,8 @@ using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Nodes.Cards.Holders;
 using MegaCrit.Sts2.Core.Nodes.Pooling;
 using MegaCrit.Sts2.Core.TestSupport;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Nodes;
 

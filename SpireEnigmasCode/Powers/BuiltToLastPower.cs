@@ -1,9 +1,13 @@
-﻿using MegaCrit.Sts2.Core.Combat;
+﻿#region
+
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Models;
 using SpireEnigmas.SpireEnigmasCode.Cards.savant.token;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Powers;
 

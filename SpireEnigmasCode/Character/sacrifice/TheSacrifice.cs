@@ -1,12 +1,15 @@
-﻿using BaseLib.Abstracts;
+﻿#region
+
+using BaseLib.Abstracts;
 using BaseLib.Utils.NodeFactories;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
 using SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.basic;
 using SpireEnigmas.SpireEnigmasCode.Extensions;
-using SpireEnigmas.SpireEnigmasCode.Relics;
 using SpireEnigmas.SpireEnigmasCode.Relics.sacrifice;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Character.sacrifice;
 

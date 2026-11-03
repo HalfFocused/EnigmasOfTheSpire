@@ -1,4 +1,6 @@
-﻿using BaseLib.Abstracts;
+﻿#region
+
+using BaseLib.Abstracts;
 using BaseLib.Utils.NodeFactories;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;
@@ -6,8 +8,9 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using SpireEnigmas.SpireEnigmasCode.Cards.displaced.basic;
 using SpireEnigmas.SpireEnigmasCode.Extensions;
-using SpireEnigmas.SpireEnigmasCode.Relics;
 using SpireEnigmas.SpireEnigmasCode.Relics.displaced;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Character.displaced;
 

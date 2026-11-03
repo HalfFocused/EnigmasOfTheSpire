@@ -1,7 +1,10 @@
-﻿using BaseLib.Abstracts;
+﻿#region
+
+using BaseLib.Abstracts;
 using BaseLib.Utils;
-using SpireEnigmas.SpireEnigmasCode.Character;
 using SpireEnigmas.SpireEnigmasCode.Character.displaced;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Potions;
 

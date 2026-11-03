@@ -1,8 +1,12 @@
-﻿using BaseLib.Abstracts;
+﻿#region
+
+using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Models.Powers;
 using SpireEnigmas.SpireEnigmasCode.Cards.chronicle.common;
 using SpireEnigmas.SpireEnigmasCode.Cards.chronicle.uncommon;
 using SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.common;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Powers;
 

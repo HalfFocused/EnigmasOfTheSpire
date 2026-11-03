@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿#region
+
+using System.Reflection;
 using BaseLib.Patches.Features;
 using Godot;
 using HarmonyLib;
@@ -12,6 +14,8 @@ using MegaCrit.Sts2.Core.Nodes.Rooms;
 using SpireEnigmas.SpireEnigmasCode.Commands;
 using SpireEnigmas.SpireEnigmasCode.Monsters;
 using SpireEnigmas.SpireEnigmasCode.Util;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Patches;
 

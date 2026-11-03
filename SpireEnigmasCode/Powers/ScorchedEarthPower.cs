@@ -1,6 +1,9 @@
-﻿using Godot;
+﻿#region
+
+using Godot;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
@@ -10,6 +13,8 @@ using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
 using MegaCrit.Sts2.Core.Nodes.Vfx;
 using MegaCrit.Sts2.Core.ValueProps;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Powers;
 
@@ -23,18 +28,18 @@ public class ScorchedEarthPower : SpireEnigmaPower
         HoverTipFactory.FromCard<Burn>()
     ];
     
-    public override async Task AfterCardDrawn(PlayerChoiceContext choiceContext, CardModel card, bool fromHandDraw)
+    public override async Task AfterCardGeneratedForCombat(CardModel card, Player? creator)
     {
-        if (card.Owner.Creature == Owner && card is Burn)
+        if (card is not Burn || creator == null || creator.Creature != Owner)
+            return;
+        Flash();
+        foreach (Creature hittableEnemy in CombatState.HittableEnemies)
         {
-            foreach (Creature hittableEnemy in CombatState.HittableEnemies)
-            {
-                NFireBurstVfx child = NFireBurstVfx.Create(hittableEnemy, 0.75f);
-                NCombatRoom instance = NCombatRoom.Instance;
-                if (instance != null)
-                    instance.CombatVfxContainer.AddChildSafely((Node) child);
-            }
-            await CreatureCmd.Damage(choiceContext, CombatState.HittableEnemies, Amount, ValueProp.Unpowered, Owner, null, null);
+            NFireBurstVfx child = NFireBurstVfx.Create(hittableEnemy, 0.75f);
+            NCombatRoom instance = NCombatRoom.Instance;
+            if (instance != null)
+                instance.CombatVfxContainer.AddChildSafely((Node) child);
         }
+        await CreatureCmd.Damage(new ThrowingPlayerChoiceContext(), CombatState.HittableEnemies, Amount, ValueProp.Unpowered, Owner, null, null);
     }
 }

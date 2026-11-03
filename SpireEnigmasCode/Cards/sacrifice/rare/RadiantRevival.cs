@@ -1,4 +1,5 @@
-﻿using BaseLib.Cards.Variables;
+﻿#region
+
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Players;
@@ -8,6 +9,7 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Cards;
 
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.rare;
 

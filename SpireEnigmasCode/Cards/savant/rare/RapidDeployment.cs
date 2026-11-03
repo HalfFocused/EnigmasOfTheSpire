@@ -1,15 +1,15 @@
-﻿using BaseLib.Patches.Hooks;
-using MegaCrit.Sts2.Core.CardSelection;
+﻿#region
+
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Creatures;
-using MegaCrit.Sts2.Core.Factories;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using SpireEnigmas.SpireEnigmasCode.Cards.savant.token;
-using SpireEnigmas.SpireEnigmasCode.Commands;
+using SpireEnigmas.SpireEnigmasCode.Util;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.rare;
 
@@ -28,7 +28,7 @@ public class RapidDeployment() : SpireEnigmasCard.SavantCard(2, CardType.Skill, 
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        GadgetHoverTip()
+        HoverTipFactory.Static(EnigmaHoverTips.Gadget)
     ];
     
     protected override async Task OnPlay(

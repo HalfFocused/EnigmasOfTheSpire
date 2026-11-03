@@ -18,5 +18,8 @@
   "SPIREENIGMAS-INVENT.description": "#If you have no *Gadgets* in your *Hand*, create a blank one.\nAdd this effect to *Gadgets* in your *Hand*.",
 
   "SPIREENIGMAS-STORY.title": "Story",
-  "SPIREENIGMAS-STORY.description": "#Cards played from your *Hand* fill the 5 *Chapters* in your *Story*.\nWhen the *Story* is full it ends, and the next card starts a new one."
+  "SPIREENIGMAS-STORY.description": "#Cards played from your *Hand* fill the 5 *Chapters* in your *Story*.\nWhen the *Story* is full it ends, and the next card starts a new one.",
+
+  "SPIREENIGMAS-UNWELL.title": "Unwell",
+  "SPIREENIGMAS-UNWELL.description": "#You are *Unwell* if you have *Weak*, *Vulnerable*, or *Frail*."
 }

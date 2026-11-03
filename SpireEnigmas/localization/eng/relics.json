@@ -71,5 +71,9 @@
 
   "SPIREENIGMAS-BOUNDLESS_ENCHIRIDION.title": "Boundless Enchiridion",
   "SPIREENIGMAS-BOUNDLESS_ENCHIRIDION.description": "#Cards in the final *Chapter* cost [E?] less to play.",
-  "SPIREENIGMAS-BOUNDLESS_ENCHIRIDION.flavor": "It's hunger sated, the book rewards its author with immense power."
+  "SPIREENIGMAS-BOUNDLESS_ENCHIRIDION.flavor": "It's hunger sated, the book rewards its author with immense power.",
+
+  "SPIREENIGMAS-SELF_PORTRAIT.title": "Self Portrait",
+  "SPIREENIGMAS-SELF_PORTRAIT.description": "#At the start of each combat, add a *Ward* to your *Hand*.",
+  "SPIREENIGMAS-SELF_PORTRAIT.flavor": "I don't want to look."
 }

@@ -1,4 +1,6 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿#region
+
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Hooks;
@@ -8,6 +10,9 @@ using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Events;
 using SpireEnigmas.SpireEnigmasCode.Powers;
+using SpireEnigmas.SpireEnigmasCode.Util;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.chronicle.common;
 
@@ -22,7 +27,7 @@ public class BetterDays() : SpireEnigmasCard.ChronicleCard(2, CardType.Skill, Ca
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        StoryHoverTip()
+        HoverTipFactory.Static(EnigmaHoverTips.Story)
     ];
 
     protected override async Task OnPlay(

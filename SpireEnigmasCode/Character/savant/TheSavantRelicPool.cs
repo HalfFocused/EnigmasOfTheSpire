@@ -1,7 +1,10 @@
-﻿using BaseLib.Abstracts;
+﻿#region
+
+using BaseLib.Abstracts;
 using Godot;
-using SpireEnigmas.SpireEnigmasCode.Character.sacrifice;
 using SpireEnigmas.SpireEnigmasCode.Extensions;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Character.savant;
 

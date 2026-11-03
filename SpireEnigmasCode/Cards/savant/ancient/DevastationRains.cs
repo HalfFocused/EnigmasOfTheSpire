@@ -1,13 +1,16 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿#region
+
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.ValueProps;
-using SpireEnigmas.SpireEnigmasCode.Commands;
 using SpireEnigmas.SpireEnigmasCode.DynamicVars;
 using SpireEnigmas.SpireEnigmasCode.Extensions;
 using SpireEnigmas.SpireEnigmasCode.Util;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.savant.ancient;
 
@@ -22,7 +25,7 @@ public class DevastationRains() : SpireEnigmasCard.SavantCard(1, CardType.Attack
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
-        ChirpHoverTip()
+        HoverTipFactory.Static(EnigmaHoverTips.Chirp)
     ];
     
     protected override bool ShouldGlowRedInternal => EnigmasHelper.GetChirpFromPlayer(Owner) == null;

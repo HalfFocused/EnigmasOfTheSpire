@@ -1,9 +1,14 @@
-﻿using MegaCrit.Sts2.Core.Commands;
+﻿#region
+
+using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using SpireEnigmas.SpireEnigmasCode.Powers;
+using SpireEnigmas.SpireEnigmasCode.Util;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.uncommon;
 
@@ -18,7 +23,7 @@ public class CarefulScheme() : SpireEnigmasCard.DisplacedCard(1,
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 
     [
         HoverTipFactory.FromPower<ForetoldPower>(),
-        FlashbackHoverTip()
+        HoverTipFactory.Static(EnigmaHoverTips.Flashback)
     ];
 
     protected override async Task OnPlay(

@@ -1,4 +1,6 @@
-﻿using BaseLib.Abstracts;
+﻿#region
+
+using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
@@ -9,9 +11,10 @@ using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Cards.displaced.ancient;
-using SpireEnigmas.SpireEnigmasCode.Character;
 using SpireEnigmas.SpireEnigmasCode.Character.displaced;
 using SpireEnigmas.SpireEnigmasCode.Powers;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.displaced.basic;
 

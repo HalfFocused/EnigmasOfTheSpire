@@ -299,7 +299,7 @@
   "SPIREENIGMAS-TOUGH_OUT.description": "#Gain !B! *Block*.",
 
   "SPIREENIGMAS-TABOO.title": "Taboo",
-  "SPIREENIGMAS-TABOO.description": "#Lose !HpLoss! HP.\nDraw !C! card(s).",
+  "SPIREENIGMAS-TABOO.description": "#Draw !C! card(s).",
 
   "SPIREENIGMAS-IGNITE.title": "Ignite",
   "SPIREENIGMAS-IGNITE.description": "#Deal !D! damage and apply !CharredPower! *Charred* to ALL enemies.",
@@ -516,7 +516,7 @@
   "SPIREENIGMAS-WILDFYRE.description": "#Gain !B! *Block*.\nFill your *Hand* with *Burns*.",
 
   "SPIREENIGMAS-SCORCHED_EARTH.title": "Scorched Earth",
-  "SPIREENIGMAS-SCORCHED_EARTH.description": "#Whenever you draw a *Burn*, deal !ScorchedEarthPower! damage to ALL enemies.",
+  "SPIREENIGMAS-SCORCHED_EARTH.description": "#Whenever you create a *Burn*, deal !ScorchedEarthPower! damage to ALL enemies.",
 
   "SPIREENIGMAS-THE_GOLDEN_MEAN.title": "The Golden Mean",
   "SPIREENIGMAS-THE_GOLDEN_MEAN.description": "#The first time you play a *Common*, *Uncommon*, and *Rare* card each turn, play a copy of each.",
@@ -1088,5 +1088,53 @@
 
   "SPIREENIGMAS-DYAD.title": "Dyad",
   "SPIREENIGMAS-DYAD.description": "#Put a card from your *Draw* *Pile* {IsRefined:and a card from your *Discard* *Pile*|[color=plum](and a card from your *Discard* *Pile*)[/color]} into your *Hand*.",
-  "SPIREENIGMAS-DYAD.selectionScreenPrompt": "#Choose {Amount} card(s) to put in your *Hand*."
+  "SPIREENIGMAS-DYAD.selectionScreenPrompt": "#Choose {Amount} card(s) to put in your *Hand*.",
+
+  "SPIREENIGMAS-STRIKE_RENEGADE.title": "Strike",
+  "SPIREENIGMAS-STRIKE_RENEGADE.description": "Deal {Damage:diff()} damage.",
+
+  "SPIREENIGMAS-DEFEND_RENEGADE.title": "Defend",
+  "SPIREENIGMAS-DEFEND_RENEGADE.description": "Gain {Block:diff()} [gold]Block[/gold].",
+
+  "SPIREENIGMAS-GOAD.title": "Goad",
+  "SPIREENIGMAS-GOAD.description": "#Deal !D! damage.\nThe *Adversary* applies !VulnerablePower! *Vulnerable* on its next turn.",
+
+  "SPIREENIGMAS-SAY_ITS_NAME.title": "Say Its Name",
+  "SPIREENIGMAS-SAY_ITS_NAME.description": "#Gain !B! *Block*.\nThe *Adversary* attacks for !AdversaryDamage! damage on its next turn.",
+
+  "SPIREENIGMAS-ALLURE.title": "Allure",
+  "SPIREENIGMAS-ALLURE.description": "#Gain !B! *Block*.\nThe *Adversary* gains !VigorPower! *Vigor*.",
+
+  "SPIREENIGMAS-NIGHT_TERRORS.title": "Night Terrors",
+  "SPIREENIGMAS-NIGHT_TERRORS.description": "#The *Adversary* attacks for !AdversaryDamage! damage and applies !WeakPower! *Weak* on its next turn.",
+
+  "SPIREENIGMAS-KNOW_BETTER.title": "Know Better",
+  "SPIREENIGMAS-KNOW_BETTER.description": "#*Dodge*.",
+
+  "SPIREENIGMAS-WARD.title": "Ward",
+  "SPIREENIGMAS-WARD.description": "#Gain !B! *Block*.\n*Dodge*.",
+
+  "SPIREENIGMAS-MENACING.title": "Menacing",
+  "SPIREENIGMAS-MENACING.description": "#The *Adversary* applies !WeakPower! *Weak* on its next turn.",
+
+  "SPIREENIGMAS-CORNER_OF_YOUR_EYE.title": "Corner Of Your Eye",
+  "SPIREENIGMAS-CORNER_OF_YOUR_EYE.description": "#The *Adversary* gains !StrengthPower! *Strength*.",
+
+  "SPIREENIGMAS-I_DONT_FEAR_YOU.title": "I Don't Fear You",
+  "SPIREENIGMAS-I_DONT_FEAR_YOU.description": "#You are immune to the *Adversary*.",
+
+  "SPIREENIGMAS-STAY_BACK.title": "Stay Back!",
+  "SPIREENIGMAS-STAY_BACK.description": "#Gain !B! *Block*.\nThe *Adversary* applies !WeakPower! *Weak* on its next turn.",
+
+  "SPIREENIGMAS-PEACE_AND_QUIET.title": "Peace and Quiet",
+  "SPIREENIGMAS-PEACE_AND_QUIET.description": "#Gain !B! *Block*.\n*Retains* while you are debuffed.",
+
+  "SPIREENIGMAS-FORGIVE_ME_PLEASE.title": "Forgive Me Please",
+  "SPIREENIGMAS-FORGIVE_ME_PLEASE.description": "#Deal !CalculatedDamage! damage.\nDeals double damage for each of your debuffs.",
+
+  "SPIREENIGMAS-ROCK_BOTTOM.title": "Rock Bottom",
+  "SPIREENIGMAS-ROCK_BOTTOM.description": "#Deal !D! damage.\nCosts [E] less for each debuff you have.",
+
+  "SPIREENIGMAS-LET_LOOSE.title": "Let Loose",
+  "SPIREENIGMAS-LET_LOOSE.description": "#*Dodge*.\nThe *Adversary* immediately takes !AdversaryMoves! turn(s) in a row."
 }

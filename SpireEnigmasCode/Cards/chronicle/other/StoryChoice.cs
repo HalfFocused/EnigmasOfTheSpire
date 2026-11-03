@@ -1,7 +1,11 @@
-﻿using BaseLib.Utils;
+﻿#region
+
+using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models.CardPools;
+
+#endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.chronicle.other;
 
