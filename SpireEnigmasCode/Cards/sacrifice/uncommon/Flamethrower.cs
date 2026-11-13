@@ -18,7 +18,7 @@ public class Flamethrower() : SpireEnigmasCard.SacrificeCard(0,
 {
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new DamageVar(3, ValueProp.Move),
-        new RepeatVar(3)
+        new HitCountVar(3)
     ];
     
     private CardModel? BurnInHand => PileType.Hand.GetPile(Owner).Cards.FirstOrDefault(c => c is Burn, null);
@@ -34,13 +34,13 @@ public class Flamethrower() : SpireEnigmasCard.SacrificeCard(0,
         if (burn is not null)
         {
             await CardCmd.Exhaust(choiceContext, burn);
-            hits = DynamicVars.Repeat.IntValue;
+            hits = DynamicVars.HitCount.IntValue;
         }
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(hits).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash", tmpSfx: "blunt_attack.mp3").Execute(choiceContext);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Repeat.UpgradeValueBy(1);
+        DynamicVars.HitCount.UpgradeValueBy(1);
     }
 }

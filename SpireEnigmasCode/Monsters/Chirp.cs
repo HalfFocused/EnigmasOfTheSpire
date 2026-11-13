@@ -34,7 +34,7 @@ public sealed class Chirp : CustomMonsterModel
   
   public override string CustomVisualPath => "res://SpireEnigmas/monsters/chirp/sentry.tscn";
 
-  public override bool IsHealthBarVisible => false;
+  public override bool IsInteractable => true;
   
   public override string DeathSfx => "event:/sfx/characters/osty/osty_die";
 

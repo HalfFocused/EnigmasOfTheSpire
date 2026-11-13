@@ -18,7 +18,7 @@ using SpireEnigmas.SpireEnigmasCode.Util;
 
 namespace SpireEnigmas.SpireEnigmasCode.Events;
 
-public class EnigmaSingleton() : CustomSingletonModel(HookType.Combat)
+    public class EnigmaSingleton() : CustomSingletonModel(HookType.Combat)
 {
     public override Task AfterFlush(
         PlayerChoiceContext choiceContext,

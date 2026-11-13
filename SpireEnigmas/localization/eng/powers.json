@@ -170,9 +170,9 @@
   "SPIREENIGMAS-HEARTLESS_ACT_POWER.description": "nobody should see this",
   "SPIREENIGMAS-HEARTLESS_ACT_POWER.smartDescription": "#Whenever you play a *Taboo*, ALL enemies lose [blue]{Amount}[/blue] *Strength* this turn.",
 
-  "SPIREENIGMAS-SOVEREIGN_FORM_POWER.title": "Sovereign Form",
-  "SPIREENIGMAS-SOVEREIGN_FORM_POWER.description": "nobody should see this",
-  "SPIREENIGMAS-SOVEREIGN_FORM_POWER.smartDescription": "#At the start of your turn, draw cards until your *Hand* is full.",
+  "SPIREENIGMAS-BLAZING_FORM_POWER.title": "Sovereign Form",
+  "SPIREENIGMAS-BLAZING_FORM_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-BLAZING_FORM_POWER.smartDescription": "#Your attacks that hit multiple times hit [blue]{Amount}[/blue] additional time(s).",
 
   "SPIREENIGMAS-GLASS_SHARDS_POWER.title": "Glass Shards",
   "SPIREENIGMAS-GLASS_SHARDS_POWER.description": "nobody should see this",
@@ -401,5 +401,25 @@
 
   "SPIREENIGMAS-I_DONT_FEAR_YOU_POWER.title": "I Don't Fear You",
   "SPIREENIGMAS-I_DONT_FEAR_YOU_POWER.description": "#You are immune to the *Adversary*.",
-  "SPIREENIGMAS-I_DONT_FEAR_YOU_POWER.smartDescription": "#You are immune to the *Adversary*."
+  "SPIREENIGMAS-I_DONT_FEAR_YOU_POWER.smartDescription": "#You are immune to the *Adversary*.",
+
+  "SPIREENIGMAS-MISERY_LOVES_COMPANY_POWER.title": "Misery Loves Company",
+  "SPIREENIGMAS-MISERY_LOVES_COMPANY_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-MISERY_LOVES_COMPANY_POWER.smartDescription": "#Whenever you gain *Weak*, *Frail*, or *Vulnerable*, apply {Amount:plural:|[blue]{Amount}[/blue] times }that much to ALL enemies as well.",
+  
+  "SPIREENIGMAS-PAINTED_POWER.title": "Painted",
+  "SPIREENIGMAS-PAINTED_POWER.description": "#When a *Painted* creature is attacked for that much or more damage, it loses that much HP and all Painted.",
+  "SPIREENIGMAS-PAINTED_POWER.smartDescription": "#The next time this takes [blue]{Amount}[/blue] or more attack damage, it loses [blue]{Amount}[/blue] HP.",
+
+  "SPIREENIGMAS-NUMB_POWER.title": "Numb",
+  "SPIREENIGMAS-NUMB_POWER.description": "vrgrg",
+  "SPIREENIGMAS-NUMB_POWER.smartDescription": "#Your debuffs are disabled. Lasts [blue]{Amount}[/blue] turn(s).",
+
+  "SPIREENIGMAS-FIXATION_POWER.title": "Fixation",
+  "SPIREENIGMAS-FIXATION_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-FIXATION_POWER.smartDescription": "#Takes [blue]{Amount}%[/blue] more damage from the *Adversary*.",
+
+  "SPIREENIGMAS-HAUNTED_POWER.title": "Haunted",
+  "SPIREENIGMAS-HAUNTED_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-HAUNTED_POWER.smartDescription": "#Whenever you would take attack damage, gain that much *Doom* instead."
 }

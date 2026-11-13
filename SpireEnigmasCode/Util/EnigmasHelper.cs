@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 using SpireEnigmas.SpireEnigmasCode.Monsters;
 using SpireEnigmas.SpireEnigmasCode.Powers;
 
@@ -64,5 +65,21 @@ public class EnigmasHelper
     public static int DebuffsOnCreature(Creature? creature)
     {
         return creature is null ? 0 : creature.Powers.Count(p => p.TypeForCurrentAmount == PowerType.Debuff && p is not ITemporaryPower);
+    }
+
+    public static bool IsCreatureUnwell(Creature? creature)
+    {
+        return creature is not null && (creature.HasPower<WeakPower>() || creature.HasPower<VulnerablePower>() ||
+                                        creature.HasPower<FrailPower>());
+    }
+    
+    public static bool IsPowerDisabled(PowerModel powerModel)
+    {
+        if (powerModel.Owner.HasPower<NumbPower>() && powerModel.TypeForCurrentAmount == PowerType.Debuff)
+        {
+            return true;
+        }
+
+        return false;
     }
 }

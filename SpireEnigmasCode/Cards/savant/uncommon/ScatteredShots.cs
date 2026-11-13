@@ -29,7 +29,7 @@ public class ScatteredShots() : SpireEnigmasCard.SavantCard(3, CardType.Attack, 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new ChirpDamageVar(6M, ValueProp.Move),
-        new RepeatVar(6)
+        new HitCountVar(6)
     ];
 
     protected override async Task OnPlay(
@@ -37,8 +37,8 @@ public class ScatteredShots() : SpireEnigmasCard.SavantCard(3, CardType.Attack, 
         CardPlay play)
     {
         if (GetChirp is null) return;
-        await DamageCmd.Attack(DynamicVars["ChirpDamage"].BaseValue).FromChirp(GetChirp, this, play).WithHitCount(DynamicVars.Repeat.IntValue).TargetingRandomOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars["ChirpDamage"].BaseValue).FromChirp(GetChirp, this, play).WithHitCount(DynamicVars.HitCount.IntValue).TargetingRandomOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
     
-    protected override void OnUpgrade() => DynamicVars.Repeat.UpgradeValueBy(1);
+    protected override void OnUpgrade() => DynamicVars.HitCount.UpgradeValueBy(1);
 }

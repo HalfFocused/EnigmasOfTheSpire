@@ -22,7 +22,8 @@ public class Malice : SpireEnigmasCard.ChronicleCard
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(13M, ValueProp.Move)
+        new DamageVar(13M, ValueProp.Move),
+        new HitCountVar(2)
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
@@ -32,7 +33,7 @@ public class Malice : SpireEnigmasCard.ChronicleCard
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitCount(2).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitCount(DynamicVars.HitCount.IntValue).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
 
     protected override void OnUpgrade()

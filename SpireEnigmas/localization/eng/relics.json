@@ -3,6 +3,7 @@
   "SEA_GLASS.SPIREENIGMAS-THE_SACRIFICE.title": "Blaze Glass",
   "SEA_GLASS.SPIREENIGMAS-THE_SAVANT.title": "Ambition Glass",
   "SEA_GLASS.SPIREENIGMAS-THE_CHRONICLE.title": "History Glass",
+  "SEA_GLASS.SPIREENIGMAS-THE_RENEGADE.title": "Stained Glass",
 
 
   "SPIREENIGMAS-ASTRONOMICAL_CLOCK.title": "Astronomical Clock",
@@ -75,5 +76,9 @@
 
   "SPIREENIGMAS-SELF_PORTRAIT.title": "Self Portrait",
   "SPIREENIGMAS-SELF_PORTRAIT.description": "#At the start of each combat, add a *Ward* to your *Hand*.",
-  "SPIREENIGMAS-SELF_PORTRAIT.flavor": "I don't want to look."
+  "SPIREENIGMAS-SELF_PORTRAIT.flavor": "I don't want to look.",
+
+  "SPIREENIGMAS-WATERCOLORS.title": "Watercolors",
+  "SPIREENIGMAS-WATERCOLORS.description": "#The first Attack you play each turn deals [blue]0[/blue] damage.\nThe second Attack you play each turn deals triple damage.",
+  "SPIREENIGMAS-WATERCOLORS.flavor": "They need some time."
 }

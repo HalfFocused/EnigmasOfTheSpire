@@ -17,7 +17,7 @@ public class Polish() : SpireEnigmasCard.SavantCard(1, CardType.Attack, CardRari
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(3M, ValueProp.Move),
-        new RepeatVar(3),
+        new HitCountVar(3),
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [
@@ -27,7 +27,7 @@ public class Polish() : SpireEnigmasCard.SavantCard(1, CardType.Attack, CardRari
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitCount(DynamicVars.Repeat.IntValue).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitCount(DynamicVars.HitCount.IntValue).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
         foreach (CardModel card in PileType.Hand.GetPile(Owner).Cards.Where(c => c.IsUpgradable))
         {
             CardCmd.Upgrade(card);
@@ -36,6 +36,6 @@ public class Polish() : SpireEnigmasCard.SavantCard(1, CardType.Attack, CardRari
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Repeat.UpgradeValueBy(1);
+        DynamicVars.HitCount.UpgradeValueBy(1);
     }
 }

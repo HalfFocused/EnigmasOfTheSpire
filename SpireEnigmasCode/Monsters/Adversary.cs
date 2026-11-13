@@ -3,16 +3,23 @@
 using BaseLib.Abstracts;
 using BaseLib.Extensions;
 using BaseLib.Patches.Content;
+using BaseLib.Patches.Features;
 using Godot;
 using MegaCrit.Sts2.Core.Animation;
+using MegaCrit.Sts2.Core.Audio.Debug;
 using MegaCrit.Sts2.Core.Bindings.MegaSpine;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
+using MegaCrit.Sts2.Core.Nodes.Vfx;
+using MegaCrit.Sts2.Core.Runs;
 using MegaCrit.Sts2.Core.ValueProps;
 using SpireEnigmas.SpireEnigmasCode.Extensions;
 using SpireEnigmas.SpireEnigmasCode.Util;
@@ -37,13 +44,33 @@ public sealed class Adversary : CustomMonsterModel
 
     public List<AdversaryIntent> Intents = new ();
     
-    public static Vector2 Offset => new Vector2(-480, 140);
+    public static Vector2 Offset => new (-460, 140);
+    
+    //This gets incremented by 1 at the start of combat since it uses the same logic as every other turn
+    public int MoveCyclePosition = 3;
 
-    public static int BiteDamage => 2;
-
-    public static int SliceDamage => 1;
-
-    public static int SliceHits => 3;
+    public List<AdversaryIntent> MoveCycle =>
+    [
+        new (SingleHitAttackMove, new SingleAttackIntent(3), false),
+        new (SingleHitAttackMove, new SingleAttackIntent(3), false),
+        new (ThreeHitAttackMove, new MultiAttackIntent(1, 3), false),
+        new (EncroachMove, new BuffIntent(), false)
+    ];
+    
+    private async Task EncroachMove(Dictionary<Creature, int> targets)
+    {
+        await PowerCmd.Apply<StrengthPower>(new ThrowingPlayerChoiceContext(), Creature, 1, Creature, null);
+    }
+    
+    private async Task SingleHitAttackMove(Dictionary<Creature, int> damages)
+    {
+        await PerformGroupAttack(damages);
+    }
+    
+    private async Task ThreeHitAttackMove(Dictionary<Creature, int> damages)
+    {
+        await PerformGroupAttack(damages, 3);
+    }
     
     protected override string VisualsPath => "res://SpireEnigmas/monsters/transient/transient.tscn";
     
@@ -51,17 +78,6 @@ public sealed class Adversary : CustomMonsterModel
     {
         await base.AfterAddedToRoom();
     }
-
-    //This gets incremented by 1 at the start of combat since it uses the same logic as every other turn
-    public int MoveCyclePosition = 3;
-
-    public List<AdversaryIntent> MoveCycle =>
-        [
-            new (EncroachMove, new SleepIntent(), false),
-            new (BiteMove, new SingleAttackIntent(BiteDamage), false),
-            new (EncroachMove, new SleepIntent(), false),
-            new (SliceMove, new MultiAttackIntent(SliceDamage, SliceHits), false)
-        ];
 
     protected override MonsterMoveStateMachine GenerateMoveStateMachine()
     {
@@ -72,29 +88,11 @@ public sealed class Adversary : CustomMonsterModel
         state1.FollowUpState = state1;
         return new MonsterMoveStateMachine(states, state1);
     }
-
-    static async Task EncroachMove(Dictionary<Creature, int> targets)
-    {
-        await Task.CompletedTask;
-    }
-    
-    private async Task BiteMove(Dictionary<Creature, int> damages)
-    {
-        await PerformGroupAttack(damages);
-    }
-    
-    private async Task SliceMove(Dictionary<Creature, int> damages)
-    {
-        await PerformGroupAttack(damages, SliceHits);
-    }
     
     public async Task PerformGroupAttack(Dictionary<Creature, int> damages, int hitCount = 1)
     {
-        foreach (Creature target in damages.Keys)
-        {
-            damages.TryGetValue(target, out var damage);
-            await DamageCmd.Attack(damage).FromAdversary(Creature).Targeting(target).WithValueProp(ValueProp.Unpowered).WithHitCount(hitCount).WithAttackerFx(sfx: AttackSfx).WithHitFx("vfx/vfx_attack_slash").Execute(null);
-        }
+        await DamageCmd.Attack(0).FromAdversary(Creature).TargetingFiltered(damages.Keys).WithValueProp(ValueProp.Move).WithHitCount(hitCount).WithAttackerFx(sfx: AttackSfx).WithHitVfxNode(t => NScratchVfx.Create(t, Creature.PetOwner!.RunState.Rng.Niche.NextBool()))
+            .ExecuteWithDamageTable(new ThrowingPlayerChoiceContext(), damages);
     }
 
     public override CreatureAnimator GenerateAnimator(MegaSprite controller)
@@ -129,6 +127,7 @@ public sealed class Adversary : CustomMonsterModel
         
         foreach (AdversaryIntent adversaryIntent in Intents)
         {
+            await Cmd.CustomScaledWait(0.35f, 0.5f);
             Dictionary<Creature, int> damagesToDeal = new Dictionary<Creature, int>();
 
             if (adversaryIntent.Intent is AttackIntent { DamageCalc: not null } attackIntent)
@@ -141,20 +140,28 @@ public sealed class Adversary : CustomMonsterModel
                     }
                     else
                     {
-                        damagesToDeal.Add(target, attackIntent.GetSingleDamage(targets, Creature));
+                        damagesToDeal.Add(target, attackIntent.GetDamageTo(Creature.PetOwner.RunState, target, Creature));
                     }
                 }
             }
+            else
+            {
+                foreach (Creature target in targets)
+                {
+                    damagesToDeal.Add(target, 0);
+                }
+            }
+
+            await FlashSpecificIntent(adversaryIntent.Intent);
             await adversaryIntent.Action(damagesToDeal);
-            await Cmd.CustomScaledWait(0.5f, 0.35f);
         }
 
         //Clear temporary intents
         Intents = Intents.Where(adversaryIntent => !adversaryIntent.IsTemporary).ToList();
 
         IsPerformingMove = false;
-        await Cmd.CustomScaledWait(0.2f, 0.4f);
         await GoToNextIntent();
+        await Cmd.CustomScaledWait(0.2f, 0.35f);
     }
 
     private async Task ReorderAndDisplayIntents()
@@ -202,6 +209,23 @@ public sealed class Adversary : CustomMonsterModel
                      .OfType<AttackIntent>())
         {
             LockedMoveDamages.Add(attackIntent, attackIntent.GetSingleDamage(EnigmasHelper.GetAdversaryTargetsForPlayer(Creature.PetOwner!), Creature));
+        }
+    }
+
+    public async Task FlashSpecificIntent(AbstractIntent intent)
+    {
+        NCreature? creatureNode = NCombatRoom.Instance?.GetCreatureNode(Creature);
+        
+        if (creatureNode == null)
+            return;
+        
+        foreach (NIntent nintent in creatureNode.GetChildren().OfType<NIntent>())
+        {
+            if (nintent._intent == intent)
+            {
+                nintent.PlayPerform();
+                nintent.SetFrozen(true);
+            }
         }
     }
 }

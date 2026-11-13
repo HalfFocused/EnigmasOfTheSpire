@@ -38,7 +38,7 @@ public static class AdversaryCmd
       adversary = await PlayerCmd.AddPet<Adversary>(summoner);
       adversary.PrepareForNextTurn([.. summoner.Creature.CombatState.Enemies, summoner.Creature]);
       NCreature? adversaryNode = NCombatRoom.Instance?.GetCreatureNode(adversary);
-      adversaryNode.ToggleIsInteractable(true);
+      adversaryNode.IsInteractable = true;
       
       await PowerCmd.Apply<NeverAlonePower>(choiceContext, adversary, 1, null, null);
       adversaryNode.Position += GetAdversaryOffsetFromPlayer(adversary);
@@ -82,15 +82,19 @@ public static class AdversaryCmd
     }
   }
   
-  public static async Task TakeImmediateTurn(
-    Player player
+  public static async Task Provoke(
+    Player player,
+    int times
   )
   {
     Creature? creature = EnigmasHelper.GetAdversaryFromPlayer(player);
 
     if (creature?.Monster is Adversary adversary)
     {
-      await adversary.PerformTurn();
+      for (int i = 0; i < times; i++)
+      {
+        await adversary.PerformTurn();
+      }
     }
   }
   

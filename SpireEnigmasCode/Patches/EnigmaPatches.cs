@@ -16,6 +16,7 @@ using MegaCrit.Sts2.Core.Entities.Multiplayer;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
@@ -255,7 +256,7 @@ class FreestyleGlowGoldPatch
 class RetainUntilPlayedPatch
 {
     [HarmonyPostfix]
-    static void MakeGlowGold(CardModel __instance, ref bool __result)
+    static void MakeRetain(CardModel __instance, ref bool __result)
     {
         if (RetainTrackingFields.HasRetainUntilPlayed.Get(__instance))
         {
@@ -263,6 +264,39 @@ class RetainUntilPlayedPatch
         }
     }
 }
+
+/*
+ * Modifies the list of model listeners. use with immense caution
+ */
+[HarmonyPatch(typeof(CombatState), nameof(CombatState.IterateHookListeners))]
+class ModifyModelListenersPatch
+{
+    [HarmonyPostfix]
+    static void ModifyListeners(CombatState __instance, ref IEnumerable<AbstractModel> __result)
+    {
+        __result = __result.Except(__result.OfType<PowerModel>().Where(EnigmasHelper.IsPowerDisabled));
+    }
+}
+
+/*
+ * Modifies the list of model listeners. use with immense caution
+ */
+[HarmonyPatch(typeof(PowerModel), nameof(PowerModel.HoverTips), MethodType.Getter)]
+class ModifyHoverTipsPatch
+{
+    [HarmonyPostfix]
+    static IEnumerable<IHoverTip> AddCustomPowerTips(IEnumerable<IHoverTip> __result, PowerModel __instance)
+    {
+        if (EnigmasHelper.IsPowerDisabled(__instance))
+        {
+            return __result.AddItem(HoverTipFactory.Static(EnigmaHoverTips.Disabled));
+        }
+
+        return __result;
+    }
+}
+
+
 
 /*
  * Doubles all card draw during the player's turn if they have the Unsustainable power.
@@ -299,10 +333,10 @@ class CardTransformationHookPatch
         codeMatcher.MatchStartForward(
                 CodeMatch.IsLdarg(0),
                 new CodeMatch(OpCodes.Ldfld),
-                CodeMatch.Calls(typeof(CardPile).Method(nameof(CardModel.AfterTransformedFrom))),
+                CodeMatch.Calls(typeof(CardPile).Method(nameof(CardModel.AfterThisWasTransformedFrom))),
                 CodeMatch.IsLdarg(0),
                 new CodeMatch(OpCodes.Ldfld),
-                CodeMatch.Calls(typeof(CardPile).Method(nameof(CardModel.AfterTransformedTo)))
+                CodeMatch.Calls(typeof(CardPile).Method(nameof(CardModel.AfterThisWasTransformedInto)))
             ).ThrowIfInvalid("Could not find Transform hooks");
             
         object originalField = codeMatcher.InstructionAt(1).operand;

@@ -21,5 +21,11 @@
   "SPIREENIGMAS-STORY.description": "#Cards played from your *Hand* fill the 5 *Chapters* in your *Story*.\nWhen the *Story* is full it ends, and the next card starts a new one.",
 
   "SPIREENIGMAS-UNWELL.title": "Unwell",
-  "SPIREENIGMAS-UNWELL.description": "#You are *Unwell* if you have *Weak*, *Vulnerable*, or *Frail*."
+  "SPIREENIGMAS-UNWELL.description": "#You are *Unwell* if you have *Weak*, *Frail*, or *Vulnerable*.",
+
+  "SPIREENIGMAS-PROVOKE.title": "Provoke",
+  "SPIREENIGMAS-PROVOKE.description": "#The *Adversary* takes [blue]!Provoke![/blue] immediate turn(s).",
+
+  "SPIREENIGMAS-DISABLED.title": "Disabled",
+  "SPIREENIGMAS-DISABLED.description": "#Disabled powers are treated as though they don't exist."
 }

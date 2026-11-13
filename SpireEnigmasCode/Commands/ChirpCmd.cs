@@ -49,7 +49,7 @@ public static class ChirpCmd
       
       chirp = await PlayerCmd.AddPet<Chirp>(summoner);
       NCreature? chirpNode = NCombatRoom.Instance?.GetCreatureNode(chirp);
-      chirpNode.ToggleIsInteractable(true);
+      chirpNode.IsInteractable = true;
       
       await PowerCmd.Apply<InternalBatteryPower>(choiceContext, chirp, 1, null, null);
       chirpNode.Position += GetChirpOffsetFromPlayer(chirp);

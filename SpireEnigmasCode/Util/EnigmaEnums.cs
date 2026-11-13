@@ -45,4 +45,10 @@ public class EnigmaHoverTips
     
     [CustomEnum]
     public static StaticHoverTip Unwell;
+    
+    [CustomEnum]
+    public static StaticHoverTip Provoke;
+    
+    [CustomEnum]
+    public static StaticHoverTip Disabled;
 }

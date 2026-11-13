@@ -23,7 +23,7 @@ public class BurnAway() : SpireEnigmasCard.SacrificeCard(2,
         new DamageVar(9M, ValueProp.Move),
         new CalculationBaseVar(0),
         new CalculationExtraVar(1),
-        new CalculatedVar("CalculatedHits").WithMultiplier((Func<CardModel, Creature, Decimal>) ((card, _) => GetBurns(card.Owner).Count()))
+        new CalculatedHitCountVar("CalculatedHits").WithMultiplier((Func<CardModel, Creature, Decimal>) ((card, _) => GetBurns(card.Owner).Count()))
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 
@@ -35,8 +35,7 @@ public class BurnAway() : SpireEnigmasCard.SacrificeCard(2,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        int hits = (int) ((CalculatedVar)DynamicVars["CalculatedHits"]).Calculate(play.Target);
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(hits).FromCard(this, play).TargetingAllOpponents(CombatState).WithHitFx("vfx/vfx_attack_blunt", tmpSfx: "heavy_attack.mp3").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount((int) ((CalculatedVar)DynamicVars["CalculatedHits"]).Calculate(play.Target)).FromCard(this, play).TargetingAllOpponents(CombatState).WithHitFx("vfx/vfx_attack_blunt", tmpSfx: "heavy_attack.mp3").Execute(choiceContext);
         await CardPileCmd.AddGeneratedCardsToCombat([CombatState.CreateCard<Burn>(Owner)], PileType.Hand, Owner);
     }
 

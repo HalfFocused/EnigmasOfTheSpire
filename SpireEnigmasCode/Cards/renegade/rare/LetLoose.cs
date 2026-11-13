@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using SpireEnigmas.SpireEnigmasCode.Commands;
 using SpireEnigmas.SpireEnigmasCode.Powers;
+using SpireEnigmas.SpireEnigmasCode.Util;
 
 #endregion
 
@@ -16,12 +17,13 @@ public class LetLoose() : SpireEnigmasCard.RenegadeCard(3, CardType.Skill, CardR
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new ("AdversaryMoves", 3)
+        new ("Provoke", 3)
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 
     [
-        HoverTipFactory.FromPower<DodgePower>()
+        HoverTipFactory.FromPower<DodgePower>(),
+        HoverTipFactory.Static(EnigmaHoverTips.Provoke, DynamicVars["Provoke"])
     ];
 
     protected override async Task OnPlay(
@@ -32,15 +34,12 @@ public class LetLoose() : SpireEnigmasCard.RenegadeCard(3, CardType.Skill, CardR
             this);
         
         if (GetAdversary is null) return;
-
-        for (int i = 0; i < DynamicVars["AdversaryMoves"].IntValue; i++)
-        {
-            await AdversaryCmd.TakeImmediateTurn(Owner);
-        }
+        
+        await AdversaryCmd.Provoke(Owner, DynamicVars["Provoke"].IntValue);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars["AdversaryMoves"].UpgradeValueBy(2);
+        DynamicVars["Provoke"].UpgradeValueBy(2);
     }
 }

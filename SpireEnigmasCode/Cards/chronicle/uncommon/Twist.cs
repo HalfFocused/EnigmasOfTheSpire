@@ -22,7 +22,7 @@ public class Twist() : SpireEnigmasCard.ChronicleCard(1, CardType.Attack, CardRa
         new DamageVar(5M, ValueProp.Move),
         new CalculationBaseVar(0M),
         new CalculationExtraVar(1M),
-        new CalculatedVar("CalculatedHits").WithMultiplier((card, _) => StoryFields.PlayerStory.Get(card.Owner)!.Count(c => c.Type == CardType.Skill))
+        new CalculatedHitCountVar("CalculatedHits").WithMultiplier((card, _) => StoryFields.PlayerStory.Get(card.Owner)!.Count(c => c.Type == CardType.Skill))
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>

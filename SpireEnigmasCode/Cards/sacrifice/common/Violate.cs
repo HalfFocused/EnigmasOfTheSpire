@@ -16,7 +16,8 @@ public class Violate() : SpireEnigmasCard.SacrificeCard(1, CardType.Attack, Card
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new DamageVar(4M, ValueProp.Move)
+        new DamageVar(4M, ValueProp.Move),
+        new HitCountVar(2)
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
@@ -28,7 +29,7 @@ public class Violate() : SpireEnigmasCard.SacrificeCard(1, CardType.Attack, Card
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitCount(2).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitCount(DynamicVars.HitCount.IntValue).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
         await Taboo.CreateInHand(Owner, 1, CombatState);
     }
 

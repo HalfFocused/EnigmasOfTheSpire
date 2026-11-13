@@ -33,17 +33,17 @@ public class DevastationRains() : SpireEnigmasCard.SavantCard(1, CardType.Attack
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new ChirpDamageVar(12M, ValueProp.Move),
-        new RepeatVar(4)
+        new HitCountVar(4)
     ];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await AttackCommandExtensions.CreateUpwardsShotsWithInaccuracy(GetChirp, DynamicVars.Repeat.IntValue, 0.25f);
+        await AttackCommandExtensions.CreateUpwardsShotsWithInaccuracy(GetChirp, DynamicVars.HitCount.IntValue, 0.25f);
         await Cmd.Wait(0.55f);
-        await DamageCmd.Attack(DynamicVars["ChirpDamage"].BaseValue).FromChirp(GetChirp, this, play, AttackCommandExtensions.ChirpAttackVfxStyle.DevastationRains).WithHitCount(DynamicVars.Repeat.IntValue).TargetingRandomOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars["ChirpDamage"].BaseValue).FromChirp(GetChirp, this, play, AttackCommandExtensions.ChirpAttackVfxStyle.DevastationRains).WithHitCount(DynamicVars.HitCount.IntValue).TargetingRandomOpponents(CombatState).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
     }
     
-    protected override void OnUpgrade() => DynamicVars.Repeat.UpgradeValueBy(1M);
+    protected override void OnUpgrade() => DynamicVars.HitCount.UpgradeValueBy(1M);
 }

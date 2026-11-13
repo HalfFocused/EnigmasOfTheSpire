@@ -30,9 +30,9 @@ public class ShatteredGlass : TheDisplacedRelic
     [
     ];
     
-    public override bool IsAllowed(IRunState runState)
+    protected override bool IsAllowedInternal(IRunState runState)
     {
-        return IsBeforeAct3TreasureChest(runState);
+        return !IsLateInAct3(runState);
     }
 
     public override bool TryModifyRewards(Player player, List<Reward> rewards, AbstractRoom? room)

@@ -27,5 +27,5 @@ public class ForgiveMePlease() : SpireEnigmasCard.RenegadeCard(2, CardType.Attac
         await DamageCmd.Attack(DynamicVars.CalculatedDamage).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_blunt", tmpSfx: "blunt_attack.mp3").Execute(choiceContext);
     }
     
-    protected override void OnUpgrade() => DynamicVars.Damage.UpgradeValueBy(2M);
+    protected override void OnUpgrade() => DynamicVars.CalculationBase.UpgradeValueBy(2M);
 }

@@ -13,7 +13,7 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.chronicle.rare;
 
-public class KnifesEdge() : SpireEnigmasCard.ChronicleCard(1, CardType.Power, CardRarity.Rare, TargetType.Self), IRenderStory
+public class KnifesEdge() : SpireEnigmasCard.ChronicleCard(1, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [

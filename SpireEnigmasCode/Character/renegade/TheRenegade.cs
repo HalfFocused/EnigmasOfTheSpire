@@ -35,7 +35,9 @@ public class TheRenegade : PlaceholderCharacterModel
         ModelDb.Card<DefendRenegade>(),
         ModelDb.Card<DefendRenegade>(),
         ModelDb.Card<DefendRenegade>(),
-        ModelDb.Card<DefendRenegade>()
+        ModelDb.Card<DefendRenegade>(),
+        ModelDb.Card<Heckle>(),
+        ModelDb.Card<StillLife>()
     ];
 
     

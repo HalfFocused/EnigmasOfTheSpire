@@ -19,7 +19,7 @@ public class Allure() : SpireEnigmasCard.RenegadeCard(1, CardType.Skill, CardRar
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new BlockVar(12M, ValueProp.Move),
-        new PowerVar<VigorPower>(3)
+        new PowerVar<StrengthPower>(1)
     ];
 
     protected override async Task OnPlay(
@@ -30,7 +30,7 @@ public class Allure() : SpireEnigmasCard.RenegadeCard(1, CardType.Skill, CardRar
 
         if (GetAdversary is null) return;
 
-        await PowerCmd.Apply<VigorPower>(choiceContext, GetAdversary, DynamicVars.Power<VigorPower>().BaseValue, Owner.Creature,
+        await PowerCmd.Apply<StrengthPower>(choiceContext, GetAdversary, DynamicVars.Power<StrengthPower>().BaseValue, Owner.Creature,
             this);
     }
     

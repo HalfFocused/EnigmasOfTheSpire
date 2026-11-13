@@ -25,7 +25,7 @@ public class Savagery() : SpireEnigmasCard.DisplacedCard(2,
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new DamageVar(9M, ValueProp.Move),
-        new RepeatVar(2)
+        new HitCountVar(2)
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
@@ -41,7 +41,7 @@ public class Savagery() : SpireEnigmasCard.DisplacedCard(2,
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars.Repeat.IntValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_flying_slash").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars.HitCount.IntValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_flying_slash").Execute(choiceContext);
     }
 
     public override async Task AfterCardExhausted(PlayerChoiceContext choiceContext, CardModel card,

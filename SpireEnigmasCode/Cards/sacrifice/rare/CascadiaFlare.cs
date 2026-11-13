@@ -20,7 +20,7 @@ public class CascadiaFlare() : SpireEnigmasCard.SacrificeCard(3, CardType.Attack
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(7M, ValueProp.Move),
-        new RepeatVar(4) 
+        new HitCountVar(4) 
     ];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
@@ -37,11 +37,11 @@ public class CascadiaFlare() : SpireEnigmasCard.SacrificeCard(3, CardType.Attack
             if (instance != null)
                 instance.CombatVfxContainer.AddChildSafely((Node) NGroundFireVfx.Create(hittableEnemy));
         }
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars.Repeat.IntValue).FromCard(this, play).TargetingAllOpponents(CombatState).WithHitFx("vfx/vfx_attack_blunt", tmpSfx: "heavy_attack.mp3").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars.HitCount.IntValue).FromCard(this, play).TargetingAllOpponents(CombatState).WithHitFx("vfx/vfx_attack_blunt", tmpSfx: "heavy_attack.mp3").Execute(choiceContext);
     }
 
     protected override void OnUpgrade()
     {
-        DynamicVars.Repeat.UpgradeValueBy(1);
+        DynamicVars.HitCount.UpgradeValueBy(1);
     }
 }

@@ -1,11 +1,15 @@
 ﻿#region
 
 using Godot;
+using MegaCrit.Sts2.Core.Audio.Debug;
+using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
+using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Hooks;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.Rooms;
@@ -205,5 +209,128 @@ public static class AttackCommandExtensions
         Aoe,
         DevastationRains,
         Vaporize
+    }
+
+    public static async Task<AttackCommand> ExecuteWithDamageTable(this AttackCommand attackCommand, PlayerChoiceContext? choiceContext,
+        Dictionary<Creature, int> damages)
+    {
+        ICombatState combatState = attackCommand.Attacker?.CombatState;
+        if (attackCommand.Attacker == null)
+          throw new InvalidOperationException("No attacker set.");
+        if (CombatManager.Instance.IsOverOrEnding && (combatState == null || combatState.IsLiveCombat()))
+          return attackCommand;
+        if (combatState == null)
+          throw new InvalidOperationException("No combat state even though combat is not over.");
+        if (attackCommand.Attacker.IsDead)
+          return attackCommand;
+        if (!attackCommand.IsSingleTargeted && !attackCommand.IsMultiTargeted)
+          throw new InvalidOperationException("No targets set.");
+        await Hook.BeforeAttack(combatState, attackCommand);
+        Decimal attackCount = Hook.ModifyAttackHitCount(combatState, attackCommand, attackCommand._hitCount);
+        for (int i = 0; (Decimal) i < attackCount && !attackCommand.Attacker.IsDead; ++i)
+        {
+          List<Creature> validTargets = attackCommand.GetPossibleTargets().Where(c => c.IsAlive).ToList();
+          if (validTargets.Count != 0 || !combatState.IsLiveCombat())
+          {
+            if (attackCommand._playOnEveryHit || i == 0)
+            {
+              if (attackCommand._attackerVfx != null)
+                VfxCmd.PlayOnCreatureCenter(attackCommand.Attacker, attackCommand._attackerVfx);
+              foreach (Func<Node2D> customAttackerVfxNode in attackCommand._customAttackerVfxNodes)
+              {
+                Control vfxContainer = attackCommand.Attacker.GetVfxContainer();
+                if (vfxContainer != null)
+                  vfxContainer.AddChildSafely((Node) customAttackerVfxNode());
+              }
+              if (attackCommand._attackerSfx != null)
+                SfxCmd.Play(attackCommand._attackerSfx);
+              else if (attackCommand._tmpAttackerSfx != null)
+                NDebugAudioManager.Instance?.Play(attackCommand._tmpAttackerSfx);
+              if (attackCommand._attackerAnimName != null && attackCommand._shouldPlayAnimation)
+                await CreatureCmd.TriggerAnim(attackCommand._visualAttacker ?? attackCommand.Attacker, attackCommand._attackerAnimName, attackCommand._attackerAnimDelay);
+              if (attackCommand._afterAttackerAnim != null)
+                await attackCommand._afterAttackerAnim();
+            }
+            if (validTargets.Count > 0)
+            {
+              if (attackCommand.HitSfx != null)
+                SfxCmd.Play(attackCommand.HitSfx);
+              else if (attackCommand.TmpHitSfx != null)
+                NDebugAudioManager.Instance?.Play(attackCommand.TmpHitSfx);
+            }
+            Creature? singleTarget;
+            singleTarget = validTargets.Count != 1 ? null : validTargets[0];
+            
+            if ((attackCommand._waitBeforeHit).Any((w => (double) w > 0.0)))
+              await Cmd.CustomScaledWait(attackCommand._waitBeforeHit[0], attackCommand._waitBeforeHit[1]);
+            foreach (Func<Creature, Node2D> customHitVfxNode in attackCommand._customHitVfxNodes)
+            {
+              if (singleTarget != null)
+              {
+                Control? vfxContainer = singleTarget.GetVfxContainer();
+                if (vfxContainer != null)
+                  vfxContainer.AddChildSafely((Node) customHitVfxNode(singleTarget));
+              }
+              else
+              {
+                foreach (Creature creature in validTargets)
+                {
+                  Control? vfxContainer = creature.GetVfxContainer();
+                  if (vfxContainer != null)
+                    vfxContainer.AddChildSafely((Node) customHitVfxNode(creature));
+                }
+              }
+            }
+            if (attackCommand.HitVfx != null)
+            {
+              if (singleTarget != null)
+              {
+                if (attackCommand._spawnVfxOnCreatureCenter)
+                  VfxCmd.PlayOnCreatureCenter(singleTarget, attackCommand.HitVfx);
+                else
+                  VfxCmd.PlayOnCreature(singleTarget, attackCommand.HitVfx);
+              }
+              else if (attackCommand._spawnVfxOnEachCreature)
+              {
+                if (attackCommand._spawnVfxOnCreatureCenter)
+                  VfxCmd.PlayOnCreatureCenters((IEnumerable<Creature>) validTargets, attackCommand.HitVfx);
+                else
+                  VfxCmd.PlayOnCreatures((IEnumerable<Creature>) validTargets, attackCommand.HitVfx);
+              }
+              else
+                VfxCmd.PlayOnSide(attackCommand.Attacker.Side.GetOppositeSide(), attackCommand.HitVfx, combatState);
+            }
+            if (attackCommand._beforeDamage != null)
+              await attackCommand._beforeDamage();
+            
+            PlayerChoiceContext choiceContext1 = choiceContext ?? new BlockingPlayerChoiceContext();
+            List<Creature> targets;
+            if (singleTarget == null)
+            {
+              targets = validTargets;
+            }
+            else
+            {
+              targets = new List<Creature>(1);
+              targets.Add(singleTarget);
+            }
+            
+            foreach (Creature target in targets)
+            {
+                if (!damages.TryGetValue(target, out var amount))
+                {
+                    amount = (int) attackCommand._damagePerHit;
+                }
+                
+                IEnumerable<DamageResult> results = await CreatureCmd.Damage(choiceContext1, [target], amount, attackCommand.DamageProps, attackCommand.Attacker, attackCommand.ModelSource as CardModel, attackCommand.CardPlay, ModifyDamageHookType.Cap);
+                attackCommand.AddResultsInternal(results);
+            }
+          }
+          else
+            break;
+        }
+        CombatManager.Instance.History.CreatureAttacked(combatState, attackCommand.Attacker, attackCommand._results.SelectMany((r => r)).ToList());
+        await Hook.AfterAttack(combatState, choiceContext ?? new BlockingPlayerChoiceContext(), attackCommand);
+        return attackCommand;
     }
 }

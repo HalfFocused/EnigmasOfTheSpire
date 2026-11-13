@@ -18,16 +18,21 @@ public class Commitment() : SpireEnigmasCard.SacrificeCard(1,
 
     protected override IEnumerable<DynamicVar> CanonicalVars => [
         new BlockVar(2, ValueProp.Move),
-        new DamageVar(2, ValueProp.Move)
+        new RepeatVar(2),
+        new DamageVar(2, ValueProp.Move),
+        new HitCountVar(2)
     ];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, play);
-        await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, play);
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(2).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash", tmpSfx: "blunt_attack.mp3").Execute(choiceContext);
+        for (int i = 0; i < DynamicVars.Repeat.IntValue; i++)
+        {
+            await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, play);
+
+        }
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars.HitCount.IntValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash", tmpSfx: "blunt_attack.mp3").Execute(choiceContext);
     }
 
     protected override void OnUpgrade()

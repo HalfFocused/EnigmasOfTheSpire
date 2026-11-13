@@ -15,7 +15,7 @@ public class HeatRiser() : SpireEnigmasCard.SacrificeCard(2, CardType.Attack, Ca
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
         new DamageVar(6M, ValueProp.Move),
-        new RepeatVar(3) 
+        new HitCountVar(3) 
     ];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
@@ -25,7 +25,7 @@ public class HeatRiser() : SpireEnigmasCard.SacrificeCard(2, CardType.Attack, Ca
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars.Repeat.IntValue).FromCard(this, play).TargetingAllOpponents(CombatState).WithHitFx("vfx/vfx_attack_blunt", tmpSfx: "heavy_attack.mp3").Execute(choiceContext);
+        await DamageCmd.Attack(DynamicVars.Damage.BaseValue).WithHitCount(DynamicVars.HitCount.IntValue).FromCard(this, play).TargetingAllOpponents(CombatState).WithHitFx("vfx/vfx_attack_blunt", tmpSfx: "heavy_attack.mp3").Execute(choiceContext);
     }
 
     protected override void OnUpgrade()
