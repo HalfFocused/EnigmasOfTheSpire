@@ -1,5 +1,6 @@
 ﻿#region
 
+using BaseLib.Extensions;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
@@ -10,20 +11,22 @@ using SpireEnigmas.SpireEnigmasCode.Powers;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.sacrifice.rare;
 
-public class SovereignForm() : SpireEnigmasCard.SacrificeCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
+public class BlazingForm() : SpireEnigmasCard.SacrificeCard(3, CardType.Power, CardRarity.Rare, TargetType.Self)
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
-    [];
+    [
+        new PowerVar<BlazingFormPower>(2) 
+    ];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await PowerCmd.Apply<SovereignFormPower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
+        await PowerCmd.Apply<BlazingFormPower>(choiceContext, Owner.Creature, DynamicVars.Power<BlazingFormPower>().IntValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()
     {
-        AddKeyword(CardKeyword.Retain);
+        DynamicVars.Power<BlazingFormPower>().UpgradeValueBy(1);
     }
 }
