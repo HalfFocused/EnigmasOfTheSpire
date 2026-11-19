@@ -11,7 +11,7 @@ namespace SpireEnigmas.SpireEnigmasCode.Relics.displaced;
 public class ClockworkUniverse() : TheDisplacedRelic
 {
     public override RelicRarity Rarity =>
-        RelicRarity.Ancient;
+        RelicRarity.Starter;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

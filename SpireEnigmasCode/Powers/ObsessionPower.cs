@@ -16,7 +16,7 @@ using SpireEnigmas.SpireEnigmasCode.Monsters;
 
 namespace SpireEnigmas.SpireEnigmasCode.Powers;
 
-public class FixationPower : SpireEnigmaPower
+public class ObsessionPower : SpireEnigmaPower
 {
     public override PowerType Type => PowerType.Debuff;
     public override PowerStackType StackType => PowerStackType.Counter;

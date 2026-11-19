@@ -17,25 +17,24 @@ public class LetLoose() : SpireEnigmasCard.RenegadeCard(3, CardType.Skill, CardR
 {
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new ("Provoke", 3)
+        new ("Provoke", 4)
     ];
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 
     [
-        HoverTipFactory.FromPower<DodgePower>(),
-        HoverTipFactory.Static(EnigmaHoverTips.Provoke, DynamicVars["Provoke"])
+        //HoverTipFactory.FromPower<DodgePower>(),
+        //HoverTipFactory.Static(EnigmaHoverTips.Provoke, DynamicVars["Provoke"])
     ];
 
     protected override async Task OnPlay(
         PlayerChoiceContext choiceContext,
         CardPlay play)
     {
-        await PowerCmd.Apply<DodgePower>(choiceContext, Owner.Creature, 1, Owner.Creature,
-            this);
+        //await PowerCmd.Apply<DodgePower>(choiceContext, Owner.Creature, 1, Owner.Creature, this);
         
         if (GetAdversary is null) return;
         
-        await AdversaryCmd.Provoke(Owner, DynamicVars["Provoke"].IntValue);
+        await AdversaryCmd.TakeImmediateTurns(Owner, DynamicVars["Provoke"].IntValue);
     }
 
     protected override void OnUpgrade()

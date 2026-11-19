@@ -1,38 +1,37 @@
 ﻿#region
 
+using BaseLib.Patches.Localization;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Powers;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
+using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Monsters;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
+using SpireEnigmas.SpireEnigmasCode.Monsters;
+using SpireEnigmas.SpireEnigmasCode.Util;
 
 #endregion
 
 namespace SpireEnigmas.SpireEnigmasCode.Powers;
 
-public class NeverAlonePower : SpireEnigmaPower
+public class NeverAlonePower : SpireEnigmaPower, IAddDumbVariablesToPowerDescription
 {
     public override PowerType Type => PowerType.Buff;
 
     public override PowerStackType StackType => PowerStackType.Single;
     
     public override PowerInstanceType InstanceType => PowerInstanceType.Instanced;
-    
-    protected override object InitInternalData() => new Data();
-    
-    public class Data
-    {
-        public readonly List<Tuple<Creature, decimal>> doomConversion = new ();
-    }
 
     public override bool ShouldPlayVfx => false;
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
+        new StringVar("AdversaryMovePattern")
     ];
 
     public override bool ShouldCreatureBeRemovedFromCombatAfterDeath(Creature creature)
@@ -42,29 +41,40 @@ public class NeverAlonePower : SpireEnigmaPower
 
     public override bool ShouldPowerBeRemovedAfterOwnerDeath() => false;
 
-    /*
-    public override Decimal ModifyHpLostAfterOstyLate(
-        Creature target,
-        Decimal amount,
-        ValueProp props,
-        Creature? dealer,
-        CardModel? cardSource)
+    private static string GetIntentString(string locEntry)
     {
-        if (target.Player is null || dealer != Owner) return amount;
-        GetInternalData<Data>().doomConversion.Add(new Tuple<Creature, decimal>(target, amount));
-
-
-        return 0;
+        return new LocString("intents", "SPIREENIGMAS-ADVERSARY" + "." + locEntry).GetRawText();
     }
-
-    public override async Task AfterModifyingHpLostAfterOsty()
+    public void AddDumbVariablesToPowerDescription(LocString description)
     {
-        foreach (var keyPair in GetInternalData<Data>().doomConversion)
+        string formattedDescription = GetIntentString("header1");
+        
+        Adversary? adversary = Owner.Monster as Adversary;
+        if(adversary is null) return;
+        
+        List<AdversaryIntent> intentsThisTurn = adversary.CurrentIntents;
+        for (int i = 0; i < intentsThisTurn.Count; i++)
         {
-            await PowerCmd.Apply<DoomPower>(new ThrowingPlayerChoiceContext(), keyPair.Item1, keyPair.Item2, Owner, null, true);
+            AdversaryIntent adversaryIntent = intentsThisTurn[i];
+            formattedDescription += "\n" + adversaryIntent.GetStringRepresentation();
+            
         }
-        GetInternalData<Data>().doomConversion.Clear();
+        
+        formattedDescription += GetIntentString("header2");
+        
+        for(int i = 0; i < adversary.MoveCycle.Count; i++)
+        {
+            intentsThisTurn = adversary.MoveCycle[i];
+            for (int j = 0; j < intentsThisTurn.Count; j++)
+            {
+                AdversaryIntent adversaryIntent = intentsThisTurn[j];
+                if (!adversaryIntent.IsTemporary)
+                {
+                    formattedDescription += "\n" + (i == adversary.MoveCyclePosition ? ">" : "-") + adversaryIntent.GetStringRepresentation();
+                }
+            }
+        }
+        
+        description.Add("IntentCycle", formattedDescription);
     }
-    */
-    
 }

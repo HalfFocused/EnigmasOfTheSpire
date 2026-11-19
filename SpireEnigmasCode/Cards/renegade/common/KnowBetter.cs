@@ -28,7 +28,7 @@ public class KnowBetter() : SpireEnigmasCard.RenegadeCard(1, CardType.Skill, Car
     protected override IEnumerable<IHoverTip> ExtraHoverTips => 
     [
         HoverTipFactory.FromPower<DodgePower>(),
-        HoverTipFactory.Static(EnigmaHoverTips.Provoke, DynamicVars["Provoke"])
+        //HoverTipFactory.Static(EnigmaHoverTips.Provoke, DynamicVars["Provoke"])
     ];
 
     protected override async Task OnPlay(
@@ -37,7 +37,7 @@ public class KnowBetter() : SpireEnigmasCard.RenegadeCard(1, CardType.Skill, Car
     {
         await PowerCmd.Apply<DodgePower>(choiceContext, Owner.Creature, 1, Owner.Creature,
             this);
-        await AdversaryCmd.Provoke(Owner, DynamicVars["Provoke"].IntValue);
+        await AdversaryCmd.TakeImmediateTurns(Owner, DynamicVars["Provoke"].IntValue);
     }
 
     protected override void OnUpgrade()

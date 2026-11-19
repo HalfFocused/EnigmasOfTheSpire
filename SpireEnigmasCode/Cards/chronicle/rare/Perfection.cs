@@ -30,7 +30,7 @@ public class Perfection() : SpireEnigmasCard.ChronicleCard(2, CardType.Power, Ca
     protected override async Task OnPlay(PlayerChoiceContext choiceContext, CardPlay play)
     {
         await CreatureCmd.TriggerAnim(Owner.Creature, "Cast", Owner.Character.CastAnimDelay);
-        await PowerCmd.Apply<OnTheWindPower>(choiceContext, Owner.Creature, DynamicVars.Power<PerfectionPower>().BaseValue, Owner.Creature, this);
+        await PowerCmd.Apply<PerfectionPower>(choiceContext, Owner.Creature, DynamicVars.Power<PerfectionPower>().BaseValue, Owner.Creature, this);
     }
 
     protected override void OnUpgrade()

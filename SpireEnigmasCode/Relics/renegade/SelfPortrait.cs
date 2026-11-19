@@ -8,8 +8,10 @@ using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
+using MegaCrit.Sts2.Core.Models;
 using SpireEnigmas.SpireEnigmasCode.Cards.renegade.token;
 using SpireEnigmas.SpireEnigmasCode.Powers;
+using SpireEnigmas.SpireEnigmasCode.Relics.savant;
 
 #endregion
 
@@ -20,7 +22,7 @@ public class SelfPortrait : TheRenegadeRelic
     public override RelicRarity Rarity =>
         RelicRarity.Starter;
     
-    //public override RelicModel GetUpgradeReplacement() => ModelDb.Relic<PerfectedCore>();
+    public override RelicModel GetUpgradeReplacement() => ModelDb.Relic<PerfectPortraiture>();
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

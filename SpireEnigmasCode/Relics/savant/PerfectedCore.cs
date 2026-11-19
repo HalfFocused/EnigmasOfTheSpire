@@ -14,7 +14,7 @@ namespace SpireEnigmas.SpireEnigmasCode.Relics.savant;
 public class PerfectedCore : TheSavantRelic
 {
     public override RelicRarity Rarity =>
-        RelicRarity.Ancient;
+        RelicRarity.Starter;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

@@ -51,7 +51,8 @@ public static class AdversaryCmd
 
   public static async Task AddDebuffToIntent<T>(
     Player player,
-    decimal amount
+    decimal amount,
+    bool temporary = true
     ) where T : PowerModel
   {
     Creature? creature = EnigmasHelper.GetAdversaryFromPlayer(player);
@@ -60,15 +61,16 @@ public static class AdversaryCmd
     {
       DebuffIntent intent = new DebuffIntent();
 
-      await adversary.AddIntentForTurn(
-        dict => PowerCmd.Apply<T>(new ThrowingPlayerChoiceContext(), dict.Keys, amount, creature, null), intent);
+      await adversary.AddIntentToCycle(
+        dict => PowerCmd.Apply<T>(new ThrowingPlayerChoiceContext(), dict.Keys, amount, creature, null), intent, temporary, ModelDb.Get<T>().Title.GetRawText(), (int) amount);
     }
   }
   
   public static async Task AddAttackToIntent(
     Player player,
     int damage,
-    int hits
+    int hits,
+    bool temporary = true
   )
   {
     Creature? creature = EnigmasHelper.GetAdversaryFromPlayer(player);
@@ -77,14 +79,15 @@ public static class AdversaryCmd
     {
       AbstractIntent intent = hits == 1 ? new SingleAttackIntent(damage) : new MultiAttackIntent(damage, hits);
 
-      await adversary.AddIntentForTurn(
-        dict => adversary.PerformGroupAttack(dict, hits), intent);
+      await adversary.AddIntentToCycle(
+        dict => adversary.PerformGroupAttack(dict, hits), intent, temporary);
     }
   }
   
-  public static async Task Provoke(
+  public static async Task TakeImmediateTurns(
     Player player,
-    int times
+    int times,
+    List<Creature> overrideTargets = null
   )
   {
     Creature? creature = EnigmasHelper.GetAdversaryFromPlayer(player);
@@ -93,7 +96,7 @@ public static class AdversaryCmd
     {
       for (int i = 0; i < times; i++)
       {
-        await adversary.PerformTurn();
+        await adversary.PerformTurn(overrideTargets);
       }
     }
   }

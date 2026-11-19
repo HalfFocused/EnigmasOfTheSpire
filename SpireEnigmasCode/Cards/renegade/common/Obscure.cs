@@ -13,7 +13,7 @@ using MegaCrit.Sts2.Core.ValueProps;
 
 namespace SpireEnigmas.SpireEnigmasCode.Cards.renegade.common;
 
-public class Obscure() : SpireEnigmasCard.RenegadeCard(1, CardType.Skill, CardRarity.Common, TargetType.Self)
+public class Obscure() : SpireEnigmasCard.RenegadeCard(2, CardType.Skill, CardRarity.Common, TargetType.Self)
 {
     public override bool GainsBlock => true;
     
@@ -23,7 +23,7 @@ public class Obscure() : SpireEnigmasCard.RenegadeCard(1, CardType.Skill, CardRa
     
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new BlockVar(4M, ValueProp.Move),
+        new BlockVar(6M, ValueProp.Move),
         new PowerVar<PlatingPower>(3)
     ];
 

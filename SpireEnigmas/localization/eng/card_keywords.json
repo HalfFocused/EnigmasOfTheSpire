@@ -14,5 +14,8 @@
   "SPIREENIGMAS-COMMAND.title": "Command",
   "SPIREENIGMAS-COMMAND.description": "#This card is performed by *Chirp*, and only *Chirp's* [E] may be spent on it.",
 
+  "SPIREENIGMAS-FIXATION.title": "Fixation",
+  "SPIREENIGMAS-FIXATION.description": "#If this card is in your *Hand*, it must be played before other cards.",
+
   "SPIREENIGMAS-RETAIN_UNTIL_PLAYED.title": "Retain Until Played"
 }

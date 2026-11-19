@@ -78,6 +78,10 @@
   "SPIREENIGMAS-SELF_PORTRAIT.description": "#At the start of each combat, add a *Ward* to your *Hand*.",
   "SPIREENIGMAS-SELF_PORTRAIT.flavor": "I don't want to look.",
 
+  "SPIREENIGMAS-PERFECT_PORTRAITURE.title": "Perfect Portraiture",
+  "SPIREENIGMAS-PERFECT_PORTRAITURE.description": "#At the start of each combat, add a *Self-Embodiment* to your *Hand*.",
+  "SPIREENIGMAS-PERFECT_PORTRAITURE.flavor": "[center]One more look at the ghost,[/center]\n[center]before I'm gonna make it leave.[/center]",
+
   "SPIREENIGMAS-WATERCOLORS.title": "Watercolors",
   "SPIREENIGMAS-WATERCOLORS.description": "#The first Attack you play each turn deals [blue]0[/blue] damage.\nThe second Attack you play each turn deals triple damage.",
   "SPIREENIGMAS-WATERCOLORS.flavor": "They need some time."

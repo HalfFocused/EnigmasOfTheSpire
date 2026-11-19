@@ -24,6 +24,9 @@ public class UnsustainablePower : SpireEnigmaPower
         var randomCard = PileType.Draw.GetPile(Owner.Player).Cards.ToList().StableShuffle(Owner.Player.RunState.Rng.Shuffle).FirstOrDefault() ?? PileType.Draw.GetPile(Owner.Player).Cards.ToList().StableShuffle(Owner.Player.RunState.Rng.Shuffle).FirstOrDefault();
         if (randomCard == null)
             return;
+        
+        Flash();
+
         await CardCmd.Exhaust(choiceContext, randomCard);
     }
 }

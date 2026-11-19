@@ -15,6 +15,8 @@ public class AcquiescePower : CustomTemporaryPowerModelWrapper<Acquiesce, Fealty
 
 public class DownwardSpiralPower : CustomTemporaryPowerModelWrapper<DownwardSpiral, DexterityPower> {}
 
+public class LossAversionPower : CustomTemporaryPowerModelWrapper<LossAversion, StrengthPower> {}
+
 public class IncitePower : CustomStoryTemporaryPowerModelWrapper<Incite, StrengthPower> {}
 
 public class RepressPower : CustomStoryTemporaryPowerModelWrapper<Repress, StrengthPower> {}

@@ -13,6 +13,7 @@ using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Helpers;
+using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
 using MegaCrit.Sts2.Core.MonsterMoves.MonsterMoveStateMachine;
@@ -41,21 +42,23 @@ public sealed class Adversary : CustomMonsterModel
     public override int MaxInitialHp => 999;
 
     public string ExposedSfx => AttackSfx;
-
-    public List<AdversaryIntent> Intents = new ();
     
     public static Vector2 Offset => new (-460, 140);
     
     //This gets incremented by 1 at the start of combat since it uses the same logic as every other turn
     public int MoveCyclePosition = 3;
 
-    public List<AdversaryIntent> MoveCycle =>
+    private List<List<AdversaryIntent>>? _moveCycle;
+
+    public List<List<AdversaryIntent>> MoveCycle => _moveCycle ??=
     [
-        new (SingleHitAttackMove, new SingleAttackIntent(3), false),
-        new (SingleHitAttackMove, new SingleAttackIntent(3), false),
-        new (ThreeHitAttackMove, new MultiAttackIntent(1, 3), false),
-        new (EncroachMove, new BuffIntent(), false)
+        [new (SingleHitAttackMove, new SingleAttackIntent(3), false)],
+        [new (SingleHitAttackMove, new SingleAttackIntent(3), false)],
+        [new (ThreeHitAttackMove, new MultiAttackIntent(1, 3), false)],
+        [new (EncroachMove, new BuffIntent(), false, ModelDb.Get<StrengthPower>().Title.GetFormattedText(), 1)]
     ];
+
+    public List<AdversaryIntent> CurrentIntents => MoveCycle[MoveCyclePosition];
     
     private async Task EncroachMove(Dictionary<Creature, int> targets)
     {
@@ -111,22 +114,27 @@ public sealed class Adversary : CustomMonsterModel
         return animator;
     }
 
-    public async Task AddIntentForTurn(Func<Dictionary<Creature, int>, Task> action, AbstractIntent intent)
+    public async Task AddIntentToCycle(Func<Dictionary<Creature, int>, Task> action, AbstractIntent intent, bool temporary, string powerName = "", int powerAmount = 0)
     {
-        Intents.Add(new AdversaryIntent(action, intent, true));
+        AdversaryIntent intentToAdd = new AdversaryIntent(action, intent, true, powerName, powerAmount);
+        CurrentIntents.Add(intentToAdd);
         await ReorderAndDisplayIntents();
     }
 
     /*
      * The adversary performs each of its intents, then clears all temporary intents,
      * then evaluates it's next intent.
+     *
+     * Some cards might make the Adversary take a turn against a specific creature,
+     * in which case overrideTargets will not be null.
      */
-    public async Task PerformTurn()
+    public async Task PerformTurn(List<Creature>? overrideTargets = null)
     {
-        List<Creature> targets = EnigmasHelper.GetAdversaryTargetsForPlayer(Creature.PetOwner!);
+        List<Creature> targets = overrideTargets ?? EnigmasHelper.GetAdversaryTargetsForPlayer(Creature.PetOwner!);
         
-        foreach (AdversaryIntent adversaryIntent in Intents)
+        foreach (AdversaryIntent adversaryIntent in CurrentIntents)
         {
+            await FlashSpecificIntent(adversaryIntent.Intent);
             await Cmd.CustomScaledWait(0.35f, 0.5f);
             Dictionary<Creature, int> damagesToDeal = new Dictionary<Creature, int>();
 
@@ -143,6 +151,8 @@ public sealed class Adversary : CustomMonsterModel
                         damagesToDeal.Add(target, attackIntent.GetDamageTo(Creature.PetOwner.RunState, target, Creature));
                     }
                 }
+
+                LockedMoveDamages.Remove(attackIntent);
             }
             else
             {
@@ -152,12 +162,10 @@ public sealed class Adversary : CustomMonsterModel
                 }
             }
 
-            await FlashSpecificIntent(adversaryIntent.Intent);
             await adversaryIntent.Action(damagesToDeal);
         }
 
         //Clear temporary intents
-        Intents = Intents.Where(adversaryIntent => !adversaryIntent.IsTemporary).ToList();
 
         IsPerformingMove = false;
         await GoToNextIntent();
@@ -166,24 +174,27 @@ public sealed class Adversary : CustomMonsterModel
 
     private async Task ReorderAndDisplayIntents()
     {
-        List<AdversaryIntent> allIntents = Intents.ToList();
-
-        List<AdversaryIntent> attackingIntents =
-            allIntents.Where(intent => intent.Intent is AttackIntent).ToList();
-        
-        List<AdversaryIntent> nonAttackingIntents =
-            allIntents.Where(intent => intent.Intent is not AttackIntent).ToList();
-
-        List<AdversaryIntent> reorderedIntents = attackingIntents.Concat(nonAttackingIntents).ToList();
-        if (reorderedIntents.Count > 1)
+        for (int i = 0; i < MoveCycle.Count; i++)
         {
-            reorderedIntents = reorderedIntents.Where(intent => intent.Intent is not SleepIntent).ToList();
+            List<AdversaryIntent> intentsInTurn = MoveCycle[i].ToList();
+
+            List<AdversaryIntent> attackingIntents =
+                intentsInTurn.Where(intent => intent.Intent is AttackIntent).ToList();
+        
+            List<AdversaryIntent> nonAttackingIntents =
+                intentsInTurn.Where(intent => intent.Intent is not AttackIntent).ToList();
+
+            List<AdversaryIntent> reorderedIntents = attackingIntents.Concat(nonAttackingIntents).ToList();
+            if (reorderedIntents.Count > 1)
+            {
+                reorderedIntents = reorderedIntents.Where(intent => intent.Intent is not SleepIntent).ToList();
+            }
+            MoveCycle[i] = reorderedIntents.ToList();
         }
-
-        Intents = reorderedIntents;
-
-        NextMove.Intents = reorderedIntents.Select(intent => intent.Intent).ToList().AsReadOnly();
-            
+        
+        //CurrentIntents = MoveCycle[MoveCyclePosition].ToList();
+        NextMove.Intents = CurrentIntents.Select(intent => intent.Intent).ToList();
+        
         NCreature? creatureNode = NCombatRoom.Instance?.GetCreatureNode(Creature);
         
         if (creatureNode == null)
@@ -192,12 +203,18 @@ public sealed class Adversary : CustomMonsterModel
         await TaskHelper.RunSafely(creatureNode.RefreshIntents());
     }
     
+    /*
+     * Clears temporary intents on the current intent list, then moves on.
+     */
     public async Task GoToNextIntent()
     {
+        MoveCycle[MoveCyclePosition] = CurrentIntents.Where(adversaryIntent => !adversaryIntent.IsTemporary).ToList();
+        
         MoveCyclePosition = (MoveCyclePosition + 1) % 4;
 
         //Keep temporary intents while remove cycle intent. Then add the next intent
-        Intents = Intents.Where(adversaryIntent => adversaryIntent.IsTemporary).Concat([MoveCycle[MoveCyclePosition]]).ToList();
+        //Intents = Intents.Where(adversaryIntent => adversaryIntent.IsTemporary).Concat([MoveCycle[MoveCyclePosition]]).ToList();
+        //CurrentIntents = MoveCycle[MoveCyclePosition].ToList();
         
         //Reorder the intents and process their display
         await ReorderAndDisplayIntents();
@@ -205,7 +222,7 @@ public sealed class Adversary : CustomMonsterModel
 
     public void CachePlayerIntentDamage()
     {
-        foreach (AttackIntent attackIntent in Intents.Select(intent => intent.Intent)
+        foreach (AttackIntent attackIntent in CurrentIntents.Select(intent => intent.Intent)
                      .OfType<AttackIntent>())
         {
             LockedMoveDamages.Add(attackIntent, attackIntent.GetSingleDamage(EnigmasHelper.GetAdversaryTargetsForPlayer(Creature.PetOwner!), Creature));

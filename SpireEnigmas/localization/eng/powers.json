@@ -393,7 +393,7 @@
 
   "SPIREENIGMAS-NEVER_ALONE_POWER.title": "Never Alone",
   "SPIREENIGMAS-NEVER_ALONE_POWER.description": "nobody should see this",
-  "SPIREENIGMAS-NEVER_ALONE_POWER.smartDescription": "#The *Adversary* follows a predictable intent cycle and acts last on the enemy turn, hitting you and all enemies.",
+  "SPIREENIGMAS-NEVER_ALONE_POWER.smartDescription": "#The *Adversary* follows a predictable intent cycle and acts last on the enemy turn, hitting you and all enemies.\n\n{IntentCycle}",
 
   "SPIREENIGMAS-DODGE_POWER.title": "Dodge",
   "SPIREENIGMAS-DODGE_POWER.description": "#This turn, you are immune to the *Adversary*.",
@@ -415,11 +415,31 @@
   "SPIREENIGMAS-NUMB_POWER.description": "vrgrg",
   "SPIREENIGMAS-NUMB_POWER.smartDescription": "#Your debuffs are disabled. Lasts [blue]{Amount}[/blue] turn(s).",
 
-  "SPIREENIGMAS-FIXATION_POWER.title": "Fixation",
-  "SPIREENIGMAS-FIXATION_POWER.description": "nobody should see this",
-  "SPIREENIGMAS-FIXATION_POWER.smartDescription": "#Takes [blue]{Amount}%[/blue] more damage from the *Adversary*.",
+  "SPIREENIGMAS-OBSESSION_POWER.title": "Obsession",
+  "SPIREENIGMAS-OBSESSION_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-OBSESSION_POWER.smartDescription": "#Takes [blue]{Amount}%[/blue] more damage from the *Adversary*.",
 
   "SPIREENIGMAS-HAUNTED_POWER.title": "Haunted",
   "SPIREENIGMAS-HAUNTED_POWER.description": "nobody should see this",
-  "SPIREENIGMAS-HAUNTED_POWER.smartDescription": "#Whenever you would take attack damage, gain that much *Doom* instead."
+  "SPIREENIGMAS-HAUNTED_POWER.smartDescription": "#Whenever you would take attack damage, gain that much *Doom* instead.",
+
+  "SPIREENIGMAS-SCRAPPY_POWER.title": "Scrappy",
+  "SPIREENIGMAS-SCRAPPY_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-SCRAPPY_POWER.smartDescription": "#Whenever a debuff is applied to you, draw [blue]{Amount}[/blue] card(s).",
+
+  "SPIREENIGMAS-LASH_OUT_POWER.title": "Lash Out",
+  "SPIREENIGMAS-LASH_OUT_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-LASH_OUT_POWER.smartDescription": "#Whenever a debuff is applied to you, the *Adversary* takes [blue]{Amount}[/blue] immediate turn(s) against ALL enemies.",
+
+  "SPIREENIGMAS-STRESS_RESPONSE_POWER.title": "Stress Response",
+  "SPIREENIGMAS-STRESS_RESPONSE_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-STRESS_RESPONSE_POWER.smartDescription": "#At the end of your turn, if the *Adversary* intents to attack, gain [blue]{Amount}[/blue] *Block*.",
+
+  "SPIREENIGMAS-DRAW_LESS_NEXT_TURN_POWER.title": "Draw Less Next Turn",
+  "SPIREENIGMAS-DRAW_LESS_NEXT_TURN_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-DRAW_LESS_NEXT_TURN_POWER.smartDescription": "#At the start of your next turn, draw [blue]{Amount}[/blue] less card(s).",
+
+  "SPIREENIGMAS-PANIC_POWER.title": "Panic!",
+  "SPIREENIGMAS-PANIC_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-PANIC_POWER.smartDescription": "#At the start of your turn, draw [blue]{Amount}[/blue] additional card(s).Whenever you shuffle your *Draw* *Pile*, add [blue]{Amount}[/blue] *Paranoia*."
 }

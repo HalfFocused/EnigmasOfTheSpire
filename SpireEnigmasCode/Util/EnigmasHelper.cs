@@ -45,7 +45,7 @@ public class EnigmasHelper
         List<Creature> adversaryTargets = player.Creature.CombatState.HittableEnemies.ToList();
         if (!consideringImmunity || !(player.HasPower<DodgePower>() || player.HasPower<IDontFearYouPower>()))
         {
-            adversaryTargets.Add(player.Creature);
+            adversaryTargets.Insert(0, player.Creature);
         }
 
         return adversaryTargets;
@@ -64,7 +64,12 @@ public class EnigmasHelper
 
     public static int DebuffsOnCreature(Creature? creature)
     {
-        return creature is null ? 0 : creature.Powers.Count(p => p.TypeForCurrentAmount == PowerType.Debuff && p is not ITemporaryPower);
+        return creature is null ? 0 : creature.Powers.Count(IsPowerDebuff);
+    }
+    
+    public static bool IsPowerDebuff(PowerModel? power)
+    {
+        return power is not ITemporaryPower && power?.TypeForCurrentAmount == PowerType.Debuff;
     }
 
     public static bool IsCreatureUnwell(Creature? creature)

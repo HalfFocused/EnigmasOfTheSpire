@@ -12,7 +12,7 @@ namespace SpireEnigmas.SpireEnigmasCode.Relics.sacrifice;
 public class Kinderhart : TheSacrificeRelic
 {
     public override RelicRarity Rarity =>
-        RelicRarity.Ancient;
+        RelicRarity.Starter;
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [

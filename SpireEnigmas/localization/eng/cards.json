@@ -1109,10 +1109,13 @@
   "SPIREENIGMAS-NIGHT_TERRORS.description": "#The *Adversary* attacks for !AdversaryDamage! damage and applies !WeakPower! *Weak* on its next turn.",
 
   "SPIREENIGMAS-KNOW_BETTER.title": "Know Better",
-  "SPIREENIGMAS-KNOW_BETTER.description": "#*Dodge*.\n*Provoke* !Provoke!.",
+  "SPIREENIGMAS-KNOW_BETTER.description": "#*Dodge*.\nThe *Adversary* takes !Provoke! immediate turn(s).",
 
   "SPIREENIGMAS-WARD.title": "Ward",
   "SPIREENIGMAS-WARD.description": "#Gain !B! *Block*.\n*Dodge*.",
+
+  "SPIREENIGMAS-SELF_EMBODIMENT.title": "Self-Embodiment",
+  "SPIREENIGMAS-SELF_EMBODIMENT.description": "#Gain !IntangiblePower! *Intangible*.\n*Dodge*.",
 
   "SPIREENIGMAS-STILL_LIFE.title": "Still Life",
   "SPIREENIGMAS-STILL_LIFE.description": "#Gain !B! *Block*.\n*Dodge*.",
@@ -1139,13 +1142,13 @@
   "SPIREENIGMAS-ROCK_BOTTOM.description": "#Deal !D! damage.\nCosts [E] less for each debuff you have.",
 
   "SPIREENIGMAS-LET_LOOSE.title": "Let Loose",
-  "SPIREENIGMAS-LET_LOOSE.description": "#*Dodge*.\n*Provoke* !Provoke!.",
+  "SPIREENIGMAS-LET_LOOSE.description": "#The *Adversary* takes !Provoke! immediate turn(s).",
 
   "SPIREENIGMAS-MISERY_LOVES_COMPANY.title": "Misery Loves Company",
   "SPIREENIGMAS-MISERY_LOVES_COMPANY.description": "#Whenever you gain *Weak*, *Frail*, or *Vulnerable*, apply that much to ALL enemies as well.",
 
   "SPIREENIGMAS-HECKLE.title": "Heckle",
-  "SPIREENIGMAS-HECKLE.description": "#Deal !D! damage.\n*Provoke* !Provoke!.",
+  "SPIREENIGMAS-HECKLE.description": "#Deal !D! damage.\nThe *Adversary* takes !Provoke! immediate turn(s).",
 
   "SPIREENIGMAS-ILLUSTRATE.title": "Illustrate",
   "SPIREENIGMAS-ILLUSTRATE.description": "#Deal !D! damage.\nApply !PaintedPower! *Painted*.",
@@ -1162,8 +1165,8 @@
   "SPIREENIGMAS-NUMB.title": "Numb",
   "SPIREENIGMAS-NUMB.description": "#Gain !B! *Block*.\nYour debuffs are disabled this turn.",
 
-  "SPIREENIGMAS-FIXATION.title": "Fixation",
-  "SPIREENIGMAS-FIXATION.description": "#The enemy takes double damage from the *Adversary*.",
+  "SPIREENIGMAS-OBSESSION.title": "Obsession",
+  "SPIREENIGMAS-OBSESSION.description": "#The enemy takes double damage from the *Adversary*.",
 
   "SPIREENIGMAS-HASTY_DEFLECTION.title": "Hasty Deflection",
   "SPIREENIGMAS-HASTY_DEFLECTION.description": "#Gain !B! *Block*.\nGain !FrailPower! *Frail*.",
@@ -1184,5 +1187,56 @@
   "SPIREENIGMAS-WALLOW.description": "#Gain [E] for each unique debuff you have.{InCombat:\n(Gain {CalculatedEnergy:energyIcons()}.)|}",
 
   "SPIREENIGMAS-HAUNTED.title": "Haunted",
-  "SPIREENIGMAS-HAUNTED.description": "#Whenever you would take attack damage, gain that much *Doom* instead."
+  "SPIREENIGMAS-HAUNTED.description": "#Whenever you would take attack damage, gain that much *Doom* instead.",
+
+  "SPIREENIGMAS-MANIA.title": "Mania",
+  "SPIREENIGMAS-MANIA.description": "#The *Adversary* takes !Provoke! immediate turn(s) against {IfUpgraded:show:ALL enemies|the enemy}.",
+
+  "SPIREENIGMAS-BUNKER_UP.title": "Bunker Up",
+  "SPIREENIGMAS-BUNKER_UP.description": "#Gain !B! *Block*.\nThe *Adversary* takes !Provoke! immediate turn(s).",
+
+  "SPIREENIGMAS-SCRAPPY.title": "Scrappy",
+  "SPIREENIGMAS-SCRAPPY.description": "#Whenever a debuff is applied to you, draw !ScrappyPower! card(s).",
+
+  "SPIREENIGMAS-LASH_OUT.title": "Lash Out",
+  "SPIREENIGMAS-LASH_OUT.description": "#Whenever a debuff is applied to you, the *Adversary* takes an immediate turn against ALL\u00A0enemies.",
+
+  "SPIREENIGMAS-STRESS_RESPONSE.title": "Stress Response",
+  "SPIREENIGMAS-STRESS_RESPONSE.description": "#At the end of your turn, if the *Adversary* intends to attack, gain !StressResponsePower! *Block*.",
+
+  "SPIREENIGMAS-LOW_BLOW.title": "Low Blow",
+  "SPIREENIGMAS-LOW_BLOW.description": "#Deal !D! damage.\nApply !WeakPower! *Weak*.\n*Dodge*.",
+
+  "SPIREENIGMAS-OVERSTEP.title": "Overstep",
+  "SPIREENIGMAS-OVERSTEP.description": "#Deal !D! damage.\nGain !VulnerablePower! *Vulnerable*.",
+
+  "SPIREENIGMAS-COWER.title": "Cower",
+  "SPIREENIGMAS-COWER.description": "#Gain !B! *Block*.\nDraw !C! card(s).\nGain !WeakPower! *Weak*.",
+
+  "SPIREENIGMAS-DOWNTRODDEN.title": "Downtrodden",
+  "SPIREENIGMAS-DOWNTRODDEN.description": "#Lose !StrengthPower! *Strength*.\nGain !DexterityPower! *Dexterity*.",
+
+  "SPIREENIGMAS-SMEAR.title": "Smear",
+  "SPIREENIGMAS-SMEAR.description": "#Gain !B! *Block*.\nDeal !D! damage.\nDraw 1 less card next turn.",
+
+  "SPIREENIGMAS-PARANOIA.title": "Paranoia",
+  "SPIREENIGMAS-PARANOIA.description": "#If this is in your *Hand*, it must be played before other cards.\nGain !B! *Block*.",
+
+  "SPIREENIGMAS-SHRIEK.title": "Shriek",
+  "SPIREENIGMAS-SHRIEK.description": "#Deal !D! damage.\nAdd a *Paranoia* to your *Discard* *Pile*.",
+
+  "SPIREENIGMAS-DEEP_BREATHS.title": "Deep Breaths",
+  "SPIREENIGMAS-DEEP_BREATHS.description": "#Draw !C! card(s).\n*Paranoia* drawn cost 0 [E] this turn.",
+
+  "SPIREENIGMAS-LOSS_AVERSION.title": "Loss Aversion",
+  "SPIREENIGMAS-LOSS_AVERSION.description": "#ALL enemies lose !StrengthPower! *Strength* this turn.\nAdd a *Paranoia* to your *Hand*.",
+
+  "SPIREENIGMAS-PANIC.title": "Panic!",
+  "SPIREENIGMAS-PANIC.description": "#At the start of your turn, draw !PanicPower! additional card(s).\nWhenever you shuffle your *Draw* *Pile*, add !PanicPower! *Paranoia*.",
+
+  "SPIREENIGMAS-TORMENTED.title": "Tormented",
+  "SPIREENIGMAS-TORMENTED.description": "#Gain !B! *Block*.\nApply !VulnerablePower! *Vulnerable* to ALL enemies.",
+
+  "SPIREENIGMAS-FREAK_OUT.title": "Freak Out",
+  "SPIREENIGMAS-FREAK_OUT.description": "#Deal !D! damage to a random enemy for each *Paranoia* you created this combat.{InCombat:\n(Hits !CalculatedHits! times.)|}"
 }

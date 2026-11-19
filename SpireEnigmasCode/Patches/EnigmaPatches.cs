@@ -20,8 +20,10 @@ using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Cards;
 using MegaCrit.Sts2.Core.Models.Relics;
 using MegaCrit.Sts2.Core.MonsterMoves.Intents;
+using MegaCrit.Sts2.Core.Nodes.Cards;
 using MegaCrit.Sts2.Core.Nodes.Cards.Holders;
 using MegaCrit.Sts2.Core.Nodes.Combat;
 using MegaCrit.Sts2.Core.Nodes.CommonUi;
@@ -266,6 +268,22 @@ class RetainUntilPlayedPatch
 }
 
 /*
+ * Makes Enthralled not block Fixation cards.
+ */
+[HarmonyPatch(typeof(Enthralled), nameof(Enthralled.ShouldPlay))]
+class StopEnthralledBlockingPatch
+{
+    [HarmonyPostfix]
+    static void ShouldPlayOverride(CardModel __instance, CardModel card, AutoPlayType autoPlayType, ref bool __result)
+    {
+        if (!__result && card is Paranoia)
+        {
+            __result = true;
+        }
+    }
+}
+
+/*
  * Modifies the list of model listeners. use with immense caution
  */
 [HarmonyPatch(typeof(CombatState), nameof(CombatState.IterateHookListeners))]
@@ -396,7 +414,6 @@ class CardGlowTweakPatch
 {
     public static readonly Color chirpPlayableColor = new Color(0.95f, 0.45f, 0f, 0.98f);
     public static readonly Color madeEtherealColor = new Color(0.35f, 0.35f, 0.35f, 0.98f);
-    public static readonly Color retainedFromLastTurnColor = new Color(0.65f, 0.15f, 0.65f, 0.98f);
 
     
     [HarmonyTranspiler]
@@ -449,6 +466,11 @@ class CardGlowTweakPatch
 
     static Color PossiblyTweakColor(Color oldColor, CardModel cardModel)
     {
+        if (cardModel is Paranoia)
+        {
+            return NCardHighlight.red;
+        }
+        
         int calculatedBatteryCost = ChirpBatteryCostField.ChirpBatteryCost.Get(cardModel);
         if (calculatedBatteryCost > 0)
         {

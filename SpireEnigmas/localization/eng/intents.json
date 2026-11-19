@@ -1,0 +1,9 @@
+{
+  "SPIREENIGMAS-ADVERSARY.header1": "This turn:",
+  "SPIREENIGMAS-ADVERSARY.header2": "\n\nThe [gold]Adversary[/gold]'s intent cycle:",
+
+  "SPIREENIGMAS-ADVERSARY.singleAttack": "Attack for [blue]{Damage}[/blue] damage.",
+  "SPIREENIGMAS-ADVERSARY.multiAttack": "Attack for [blue]{Damage}[/blue] damage [blue]{Hits}[/blue] times.",
+  "SPIREENIGMAS-ADVERSARY.debuff": "Apply [blue]{Amount}[/blue] [gold]{PowerName}[/gold].",
+  "SPIREENIGMAS-ADVERSARY.buff": "Gain [blue]{Amount}[/blue] [gold]{PowerName}[/gold]."
+}

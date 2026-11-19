@@ -12,7 +12,7 @@ namespace SpireEnigmas.SpireEnigmasCode.Relics.chronicle;
 public class BoundlessEnchiridion : TheChronicleRelic
 {
     public override RelicRarity Rarity =>
-        RelicRarity.Ancient;
+        RelicRarity.Starter;
     
 
     protected override IEnumerable<DynamicVar> CanonicalVars =>

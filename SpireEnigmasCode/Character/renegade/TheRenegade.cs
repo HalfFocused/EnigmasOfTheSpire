@@ -6,8 +6,6 @@ using Godot;
 using MegaCrit.Sts2.Core.Entities.Characters;
 using MegaCrit.Sts2.Core.Models;
 using SpireEnigmas.SpireEnigmasCode.Cards.renegade.basic;
-using SpireEnigmas.SpireEnigmasCode.Cards.savant.basic;
-using SpireEnigmas.SpireEnigmasCode.Character.savant;
 using SpireEnigmas.SpireEnigmasCode.Extensions;
 using SpireEnigmas.SpireEnigmasCode.Relics.renegade;
 
@@ -25,7 +23,7 @@ public class TheRenegade : PlaceholderCharacterModel
 
     public override Color NameColor => Color;
     public override CharacterGender Gender => CharacterGender.Masculine;
-    public override int StartingHp => 76;
+    public override int StartingHp => 84;
     
     public override IEnumerable<CardModel> StartingDeck => [
         ModelDb.Card<StrikeRenegade>(),

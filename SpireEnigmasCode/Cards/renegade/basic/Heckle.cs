@@ -23,7 +23,7 @@ public class Heckle() : SpireEnigmasCard.RenegadeCard(1, CardType.Attack, CardRa
     
     protected override IEnumerable<IHoverTip> ExtraHoverTips =>
     [
-        HoverTipFactory.Static(EnigmaHoverTips.Provoke, DynamicVars["Provoke"])
+        //HoverTipFactory.Static(EnigmaHoverTips.Provoke, DynamicVars["Provoke"])
     ];
 
     protected override async Task OnPlay(
@@ -31,7 +31,7 @@ public class Heckle() : SpireEnigmasCard.RenegadeCard(1, CardType.Attack, CardRa
         CardPlay play)
     {
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target!).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
-        await AdversaryCmd.Provoke(Owner, DynamicVars["Provoke"].IntValue);
+        await AdversaryCmd.TakeImmediateTurns(Owner, DynamicVars["Provoke"].IntValue);
     }
     
     protected override void OnUpgrade() => DynamicVars.Damage.UpgradeValueBy(3M);
