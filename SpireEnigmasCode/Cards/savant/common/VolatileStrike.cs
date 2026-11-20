@@ -29,7 +29,6 @@ public class VolatileStrike() : SpireEnigmasCard.SavantCard(0, CardType.Attack, 
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords => [
-        CardKeyword.Exhaust
     ];
 
     protected override async Task OnPlay(
@@ -37,8 +36,7 @@ public class VolatileStrike() : SpireEnigmasCard.SavantCard(0, CardType.Attack, 
         CardPlay play)
     {
         await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this, play).Targeting(play.Target).WithHitFx("vfx/vfx_attack_slash").Execute(choiceContext);
-        CardModel scrap = Owner.Creature.CombatState.CreateCard<Scrap>(Owner);
-        CardCmd.PreviewCardPileAdd(await CardPileCmd.AddGeneratedCardToCombat(scrap, PileType.Discard, Owner));
+        TransformIntoAfterPlay = Owner.Creature.CombatState.CreateCard<Scrap>(Owner);
     }
 
     protected override void OnUpgrade() => DynamicVars.Damage.UpgradeValueBy(3);

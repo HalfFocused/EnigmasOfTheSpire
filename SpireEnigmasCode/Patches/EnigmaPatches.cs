@@ -466,11 +466,6 @@ class CardGlowTweakPatch
 
     static Color PossiblyTweakColor(Color oldColor, CardModel cardModel)
     {
-        if (cardModel is Paranoia)
-        {
-            return NCardHighlight.red;
-        }
-        
         int calculatedBatteryCost = ChirpBatteryCostField.ChirpBatteryCost.Get(cardModel);
         if (calculatedBatteryCost > 0)
         {

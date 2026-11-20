@@ -592,7 +592,7 @@
 
   "SPIREENIGMAS-LOGISTICS.title": "Logistics",
   "SPIREENIGMAS-LOGISTICS.description": "#*Chirp* gives you !ChirpBlock! *Block*.\nPut a card from your *Discard* *Pile* into your *Hand*.",
-  "SPIREENIGMAS-LOGISTICS.selectionScreenPrompt": "#Choose {Amount} card(s) to put into your *Hand*.",
+  "SPIREENIGMAS-LOGISTICS.selectionScreenPrompt": "#Choose {Amount} card(s) to put into your Hand.",
 
   "SPIREENIGMAS-CHARGE_UP.title": "Charge Up",
   "SPIREENIGMAS-CHARGE_UP.description": "#Gain !B! *Block*.\n*Chirp* gains !VigorPower! *Vigor*.",
@@ -717,7 +717,7 @@
   "SPIREENIGMAS-BLUEPRINT.lastCardPlayedLabel": "Creates: ",
 
   "SPIREENIGMAS-VOLATILE_STRIKE.title": "Volatile Strike",
-  "SPIREENIGMAS-VOLATILE_STRIKE.description": "#Deal !D! damage.\nAdd a *Scrap* to your *Discard* *Pile*.",
+  "SPIREENIGMAS-VOLATILE_STRIKE.description": "#Deal !D! damage.\n*Transform* this into *Scrap*.",
 
   "SPIREENIGMAS-NUTS_AND_BOLTS.title": "Nuts And Bolts",
   "SPIREENIGMAS-NUTS_AND_BOLTS.description": "#Gain !B! *Block*.\nIncrease this card's *Block* by !BlockGain! and cost by [E] this combat.",
@@ -1133,7 +1133,7 @@
   "SPIREENIGMAS-STAY_BACK.description": "#Gain !B! *Block*.\nThe *Adversary* applies !WeakPower! *Weak* on its next turn.",
 
   "SPIREENIGMAS-PEACE_AND_QUIET.title": "Peace and Quiet",
-  "SPIREENIGMAS-PEACE_AND_QUIET.description": "#Gain !B! *Block*.\n*Retains* while you are *Unwell*.",
+  "SPIREENIGMAS-PEACE_AND_QUIET.description": "#Gain !B! *Block*.\nIf you are debuffed, gain !BonusBlock! additional *Block*.",
 
   "SPIREENIGMAS-FORGIVE_ME_PLEASE.title": "Forgive Me Please",
   "SPIREENIGMAS-FORGIVE_ME_PLEASE.description": "#Deal !CalculatedDamage! damage.\nDeals double damage for each of your debuffs.",
@@ -1142,7 +1142,7 @@
   "SPIREENIGMAS-ROCK_BOTTOM.description": "#Deal !D! damage.\nCosts [E] less for each debuff you have.",
 
   "SPIREENIGMAS-LET_LOOSE.title": "Let Loose",
-  "SPIREENIGMAS-LET_LOOSE.description": "#The *Adversary* takes !Provoke! immediate turn(s).",
+  "SPIREENIGMAS-LET_LOOSE.description": "#*Dodge*.\nThe *Adversary* takes !Provoke! immediate turn(s).",
 
   "SPIREENIGMAS-MISERY_LOVES_COMPANY.title": "Misery Loves Company",
   "SPIREENIGMAS-MISERY_LOVES_COMPANY.description": "#Whenever you gain *Weak*, *Frail*, or *Vulnerable*, apply that much to ALL enemies as well.",
@@ -1220,7 +1220,7 @@
   "SPIREENIGMAS-SMEAR.description": "#Gain !B! *Block*.\nDeal !D! damage.\nDraw 1 less card next turn.",
 
   "SPIREENIGMAS-PARANOIA.title": "Paranoia",
-  "SPIREENIGMAS-PARANOIA.description": "#If this is in your *Hand*, it must be played before other cards.\nGain !B! *Block*.",
+  "SPIREENIGMAS-PARANOIA.description": "#If this is in your *Hand*, it must be played before other cards.\nGain !B! *Block*.{Cards:cond:>0?\nDraw {Cards:diff()} {Cards:plural:card|cards}.|}",
 
   "SPIREENIGMAS-SHRIEK.title": "Shriek",
   "SPIREENIGMAS-SHRIEK.description": "#Deal !D! damage.\nAdd a *Paranoia* to your *Discard* *Pile*.",
@@ -1238,5 +1238,30 @@
   "SPIREENIGMAS-TORMENTED.description": "#Gain !B! *Block*.\nApply !VulnerablePower! *Vulnerable* to ALL enemies.",
 
   "SPIREENIGMAS-FREAK_OUT.title": "Freak Out",
-  "SPIREENIGMAS-FREAK_OUT.description": "#Deal !D! damage to a random enemy for each *Paranoia* you created this combat.{InCombat:\n(Hits !CalculatedHits! times.)|}"
+  "SPIREENIGMAS-FREAK_OUT.description": "#Deal !D! damage to a random enemy for each *Paranoia* you created this combat.{InCombat:\n(Hits !CalculatedHits! times.)|}",
+
+  "SPIREENIGMAS-NERVOUS_STRIKE.title": "Nervous Strike",
+  "SPIREENIGMAS-NERVOUS_STRIKE.description": "#Deal !D! damage.\n*Transform* this into *Paranoia* and return it to your *Hand*.",
+
+  "SPIREENIGMAS-SPOOKED.title": "Spooked",
+  "SPIREENIGMAS-SPOOKED.description": "#Gain [E?].\nDraw !C! card(s).\n*Transform* this into *Paranoia*.",
+
+  "SPIREENIGMAS-FLIGHT_RESPONSE.title": "Flight Response",
+  "SPIREENIGMAS-FLIGHT_RESPONSE.description": "#Your *Paranoia* give !FlightResponsePower! additional\u00A0*Block*.\nAdd a *Paranoia* to your\u00A0*Hand*.",
+
+  "SPIREENIGMAS-SURVIVALIST.title": "Survivalist",
+  "SPIREENIGMAS-SURVIVALIST.description": "#Your *Paranoia* draw !SurvivalistPower! card(s).",
+
+  "SPIREENIGMAS-LINGERING_FEARS.title": "Lingering Fears",
+  "SPIREENIGMAS-LINGERING_FEARS.description": "#Gain [E?].\nPut a *Paranoia* on top of your *Draw* *Pile*.",
+
+  "SPIREENIGMAS-WORST_FEARS.title": "Worst Fears",
+  "SPIREENIGMAS-WORST_FEARS.description": "#Deal !D! damage to ALL enemies.\n*Transform* a random card in your *Draw* *Pile*, *Hand*, and *Discard* *Pile* into *Paranoia*.",
+
+  "SPIREENIGMAS-RELAPSE.title": "Relapse",
+  "SPIREENIGMAS-RELAPSE.description": "#Return a card from your *Discard* *Pile* to your *Hand*.\nIf you play it this turn, it *Transforms* into *Paranoia*.",
+  "SPIREENIGMAS-RELAPSE.selectionScreenPrompt": "#Choose {Amount} card(s) to return to your Hand.",
+
+  "SPIREENIGMAS-LUCKY_CLOVER.title": "Lucky Clover",
+  "SPIREENIGMAS-LUCKY_CLOVER.description": "#*Dodge*."
 }

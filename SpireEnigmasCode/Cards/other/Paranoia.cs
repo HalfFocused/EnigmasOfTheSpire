@@ -23,9 +23,12 @@ namespace SpireEnigmas.SpireEnigmasCode.Cards.other;
 [Pool(typeof(StatusCardPool))]
 public class Paranoia() : SpireEnigmasCard(1, CardType.Status, CardRarity.Status, TargetType.Self)
 {
+    protected override bool ShouldGlowRedInternal => true;
+
     protected override IEnumerable<DynamicVar> CanonicalVars =>
     [
-        new BlockVar(5M, ValueProp.Move)
+        new BlockVar(5M, ValueProp.Move),
+        new CardsVar(0)
     ];
     
     public override IEnumerable<CardKeyword> CanonicalKeywords =>
@@ -38,6 +41,10 @@ public class Paranoia() : SpireEnigmasCard(1, CardType.Status, CardRarity.Status
         CardPlay play)
     {
         await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, play);
+        if (DynamicVars.Cards.BaseValue > 0)
+        {
+            await CardPileCmd.Draw(choiceContext, DynamicVars.Cards.BaseValue, Owner);
+        }
     }
 
     protected override void OnUpgrade()

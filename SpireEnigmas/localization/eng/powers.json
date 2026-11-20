@@ -441,5 +441,13 @@
 
   "SPIREENIGMAS-PANIC_POWER.title": "Panic!",
   "SPIREENIGMAS-PANIC_POWER.description": "nobody should see this",
-  "SPIREENIGMAS-PANIC_POWER.smartDescription": "#At the start of your turn, draw [blue]{Amount}[/blue] additional card(s).Whenever you shuffle your *Draw* *Pile*, add [blue]{Amount}[/blue] *Paranoia*."
+  "SPIREENIGMAS-PANIC_POWER.smartDescription": "#At the start of your turn, draw [blue]{Amount}[/blue] additional card(s).\nWhenever you shuffle your *Draw* *Pile*, add [blue]{Amount}[/blue] *Paranoia*.",
+
+  "SPIREENIGMAS-FLIGHT_RESPONSE_POWER.title": "Flight Response",
+  "SPIREENIGMAS-FLIGHT_RESPONSE_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-FLIGHT_RESPONSE_POWER.smartDescription": "#Your *Paranoia* give [blue]{Amount}[/blue] additional *Block*.",
+
+  "SPIREENIGMAS-SURVIVALIST_POWER.title": "Survivalist",
+  "SPIREENIGMAS-SURVIVALIST_POWER.description": "nobody should see this",
+  "SPIREENIGMAS-SURVIVALIST_POWER.smartDescription": "#Your *Paranoia* draw [blue]{Amount}[/blue] card(s)."
 }
